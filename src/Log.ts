@@ -7,8 +7,8 @@ export const enum Level {
 }
 
 export const enum LogColor {
-    Info        = '|cffafaf0',
-    Error       = '|cff05050'
+    Info        = '|cfffafaf0',
+    Error       = '|cfff05050'
 
 }
 
@@ -24,6 +24,7 @@ export class Log {
     public static error(...msg: any[]) {
         if (Number(this.Level) > Number(Level.Error)) return;
         msg[0] = LogColor.Error + msg[0];
+        msg[msg.length - 1] += "|r";
         print(...msg);
     }
 }

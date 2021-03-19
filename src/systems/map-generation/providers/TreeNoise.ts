@@ -47,7 +47,7 @@ export class TreeNoiseProvider implements ITreeNoiseProvider {
 
         // tree -= terrainHeight;
 
-        print("TREE TERRAIN?: ", terrainHeight);
+        // print("TREE TERRAIN?: ", terrainHeight);
         if (terrainHeight > 70 || terrainHeight < 40) {
             tree = 0;
         }

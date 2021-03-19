@@ -31,17 +31,18 @@ export class HeightNoiseProvider implements IHeightNoiseProvider {
     }
 
     getHeightValue(x: number, y: number): number {
+        
         let elevation = 
-            this.div1 * (this.gen1.getValueAt(x * 1, y * 1) * this.focus + this.offset) + 
-            this.div2 * (this.gen2.getValueAt(x * 2, y * 2) * this.focus + this.offset) +
-            this.div3 * (this.gen3.getValueAt(x * 4, y * 4) * this.focus + this.offset);
-            
+        this.div1 * (this.gen1.getValueAt(x * 1, y * 1) * this.focus + this.offset) + 
+        this.div2 * (this.gen2.getValueAt(x * 2, y * 2) * this.focus + this.offset) +
+        this.div3 * (this.gen3.getValueAt(x * 4, y * 4) * this.focus + this.offset);
+        
         elevation = elevation / (this.div1 + this.div2 + this.div3);
         // print("BEFORE: ", elevation);
         let sign = elevation / math.abs(elevation);
         elevation **= this.exponent;
         elevation = math.abs(elevation) * sign;
-
+        
         elevation /= this.amp;
 
         return elevation;
