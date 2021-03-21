@@ -24,7 +24,18 @@ function CreateUnitsForPlayer1()
     gg_unit_Hpal_0002 = BlzCreateUnitWithSkin(p, FourCC("Hpal"), 237.9, -832.4, 269.898, FourCC("Hpal"))
 end
 
+function CreateBuildingsForPlayer2()
+    local p = Player(2)
+    local u
+    local unitID
+    local t
+    local life
+    u = BlzCreateUnitWithSkin(p, FourCC("nshr"), -384.0, -192.0, 270.000, FourCC("nshr"))
+    u = BlzCreateUnitWithSkin(p, FourCC("ndmg"), 192.0, 0.0, 270.000, FourCC("ndmg"))
+end
+
 function CreatePlayerBuildings()
+    CreateBuildingsForPlayer2()
 end
 
 function CreatePlayerUnits()

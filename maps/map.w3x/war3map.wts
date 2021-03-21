@@ -53,3 +53,183 @@ STRING 11
 Player 12
 }
 
+STRING 12
+// Units: e000 (Soul Anchor), Name (Name)
+{
+Soul Anchor
+}
+
+STRING 14
+// Items: IM00 (Stone), Name (Name)
+{
+Stone
+}
+
+STRING 15
+// Items: IM00 (Stone), Description (Description)
+{
+Material.
+}
+
+STRING 16
+// Items: IM00 (Stone), Ubertip (Tooltip - Extended)
+{
+Material.
+}
+
+STRING 17
+// Items: IM00 (Stone), Tip (Tooltip - Basic)
+{
+Stone
+}
+
+STRING 18
+// Items: IM01 (Wood), Name (Name)
+{
+Wood
+}
+
+STRING 19
+// Items: IM01 (Wood), Ubertip (Tooltip - Extended)
+{
+Material.
+}
+
+STRING 20
+// Items: IM01 (Wood), Description (Description)
+{
+Material.
+}
+
+STRING 21
+// Items: IM02 (Felstone), Name (Name)
+{
+Felstone
+}
+
+STRING 22
+// Items: IM02 (Felstone), Description (Description)
+{
+A crystalized fel, can be used to regain 100 fel.
+}
+
+STRING 23
+// Items: IM02 (Felstone), Ubertip (Tooltip - Extended)
+{
+A crystalized fel, can be used to regain 100 fel.
+}
+
+STRING 24
+// Items: IM03 (Cursewood), Name (Name)
+{
+Cursewood
+}
+
+STRING 25
+// Items: IM03 (Cursewood), Description (Description)
+{
+Material.
+}
+
+STRING 26
+// Items: IM03 (Cursewood), Ubertip (Tooltip - Extended)
+{
+Material.
+}
+
+STRING 27
+// Items: IM04 (Organic Matter), Name (Name)
+{
+Organic Matter
+}
+
+STRING 28
+// Items: IM04 (Organic Matter), Description (Description)
+{
+Material.
+}
+
+STRING 29
+// Items: IM04 (Organic Matter), Ubertip (Tooltip - Extended)
+{
+Material.
+}
+
+STRING 33
+// Items: I000 (Fel (5)), Tip (Tooltip - Basic)
+{
+5
+}
+
+STRING 34
+// Items: I000 (Fel (5)), Description (Description)
+{
+A crystalized fel, can be consumed for 5 fel.
+}
+
+STRING 35
+// Items: I000 (Fel (5)), Ubertip (Tooltip - Extended)
+{
+A crystalized fel, can be consumed for 5 fel.
+}
+
+STRING 36
+// Items: I000 (Fel (5)), Name (Name)
+{
+Fel (5)
+}
+
+STRING 37
+// Items: I002 (Fel (30)), Name (Name)
+{
+Fel (30)
+}
+
+STRING 38
+// Items: I002 (Fel (30)), Description (Description)
+{
+A crystalized fel, can be consumed for 30 fel.
+}
+
+STRING 39
+// Items: I002 (Fel (30)), Ubertip (Tooltip - Extended)
+{
+A crystalized fel, can be consumed for 30 fel.
+}
+
+STRING 40
+// Items: I002 (Fel (30)), Tip (Tooltip - Basic)
+{
+30
+}
+
+STRING 43
+// Items: I003 (Fel (100)), Tip (Tooltip - Basic)
+{
+100
+}
+
+STRING 44
+// Items: I003 (Fel (100)), Name (Name)
+{
+Fel (100)
+}
+
+STRING 45
+// Items: I003 (Fel (100)), Description (Description)
+{
+A crystalized fel, can be consumed for 100 fel.
+}
+
+STRING 46
+// Items: I003 (Fel (100)), Ubertip (Tooltip - Extended)
+{
+A crystalized fel, can be consumed for 100 fel.
+}
+
+STRING 47
+// Units: n000 (Hell Forge), Name (Name)
+{
+Hell Forge
+}
+
