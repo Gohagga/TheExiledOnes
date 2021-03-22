@@ -26,6 +26,7 @@ export class MapGenerator {
     
     public progress: number = 0;
     public isDone: boolean = false;
+    public startPoint: { x: number, y: number } = { x: 0, y: 0 }
 
     constructor(
         private readonly heightNoise: IHeightNoiseProvider,
@@ -52,7 +53,7 @@ export class MapGenerator {
 
     private generateMap() {{
 
-        Log.info("Started map generation");
+        Log.Info("Started map generation");
         const { maxX, maxY } = this.mapBounds;
         const { minX, minY } = this.mapBounds;
         const maxProgress = (-minX + maxX) * (-minY + maxY);
@@ -60,13 +61,13 @@ export class MapGenerator {
         FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
         // CreateFogModifierRectSimple(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), false);
 
-        Log.info(minX, minY, maxX, maxY, maxProgress);
+        Log.Info(minX, minY, maxX, maxY, maxProgress);
 
         let smallest = 1000;
         let highest = 0;
 
         // let halfTilePercX = 64 / maxX;
-        let spawnPoints: Point[] = [];
+        let spawnPoints: { x: number, y: number }[] = [];
 
         // Generate height
         for (let y = minY; y < maxY; y += this.stepOffset) {
@@ -174,7 +175,9 @@ export class MapGenerator {
 
                 if (math.abs(nx) < 0.5 && math.abs(ny) < 0.5 && height <= 70 && height > 64) {
                     // SetTerrainType(x, y, TerrainType.Rock, 0, 1, 0);
-                    SetBlight(Player(0), x+64, y+64, 60, true);
+                    // SetBlight(Player(0), x+64, y+64, 60, true);
+                    // let destrNearby = false;
+                    spawnPoints.push({ x, y });
                 }
                 // if (distSquared < 1000*1000) {
                 // }
@@ -239,7 +242,7 @@ export class MapGenerator {
                         SetTerrainPathable(x + 16, y + 32, PATHING_TYPE_BUILDABILITY, false);
                     }
 
-                    this.debt += 1;
+                    this.debt += 0.2;
                 } else if (height > 0) {
                     SetTerrainPathable(x, y, PATHING_TYPE_BUILDABILITY, true);
                 } else {
@@ -255,7 +258,21 @@ export class MapGenerator {
 
         }
 
-        Log.info("SMALLEST", smallest, "HIGHEST", highest);
+        let remainingPoints: { x: number, y: number }[] = [];
+        for (let p of spawnPoints) {
+            let nearDestruct = false;
+            EnumDestructablesInRectAll(Rect(p.x-100, p.y-100, p.x+100, p.y+100), () => {
+                if (GetEnumDestructable())
+                    nearDestruct = true;
+            });
+            if (nearDestruct == false) {
+                remainingPoints.push(p);
+            }
+        }
+        if (remainingPoints.length > 0)
+            spawnPoints = remainingPoints;
+
+        Log.Info("SMALLEST", smallest, "HIGHEST", highest, "starting points", spawnPoints.length);
 
         // Log.info("Starting poisson.");
         // let treePoisson = this.poisson.generate(maxX - minX, maxY - minY, 40,
@@ -274,6 +291,9 @@ export class MapGenerator {
         // for (let point of treePoisson) {
         //     CreateDestructable(FourCC('LTlt'), point.x + minX, point.y + minY, 270, this.random.next(0.8, 1.3), 0);
         // }
+
+        let spawnIndex = math.floor(math.random() * (spawnPoints.length - 1));
+        this.startPoint = spawnPoints[spawnIndex];
 
         this.isDone = true;
     }}

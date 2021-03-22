@@ -50,23 +50,23 @@ export class PoissonDisk {
         while (processList.length > 0) {
             let point = processList.pop();
 
-            Log.info(point?.x, point?.y);
+            Log.Info(point?.x, point?.y);
             if (!point) continue;
 
             let minDistance = getMinDistance(point.x, point.y);
-            Log.info("minDistance", minDistance);
+            Log.Info("minDistance", minDistance);
 
             for (let i = 0; i < pointsCount; i++) {
-                Log.info("i", i);
+                Log.Info("i", i);
                 let newPoint = this.generateRandomPointAround(point, minDistance);
-                Log.info("newPoint: ", newPoint.x, newPoint.y);
+                Log.Info("newPoint: ", newPoint.x, newPoint.y);
 
                 // check that the point is in the image region
                 // and no points exists in the point's neighbourhood
                 if (point.x <= 0 || point.y <= 0 || point.x >= width || point.y >= height)
                     continue;
 
-                Log.info("Within bounds");
+                Log.Info("Within bounds");
 
                 if (!PoissonDisk.inNeighbourhood(grid, newPoint, minDistance, cellSize, cellWidth)) {
                     // update containers
@@ -76,7 +76,7 @@ export class PoissonDisk {
                     let pointIndex = gridIndex.y * cellWidth + gridIndex.x;
                     grid[pointIndex] =  newPoint;
 
-                    Log.info("Placing tree at ", newPoint.x + minX, newPoint.y + minY);
+                    Log.Info("Placing tree at ", newPoint.x + minX, newPoint.y + minY);
                     CreateDestructable(FourCC('LTlt'), newPoint.x + minX, newPoint.y + minY, 270, this.random.next(0.8, 1.3), 0);
 
 
@@ -91,11 +91,11 @@ export class PoissonDisk {
     static inNeighbourhood(grid: Point[], point: Point, minDistance: number, cellSize: number, cellWidth: number) {
 
         let gridPoint = this.imageToGrid(point, cellSize);
-        Log.info("gridPoint", gridPoint.x, gridPoint.y);
-        Log.info("cellWidth", cellWidth);
+        Log.Info("gridPoint", gridPoint.x, gridPoint.y);
+        Log.Info("cellWidth", cellWidth);
         let pointIndex = gridPoint.y * cellWidth + gridPoint.x;
 
-        Log.info("pointIndex", pointIndex);
+        Log.Info("pointIndex", pointIndex);
 
         let neighbouringPointIndices = [
             pointIndex,
@@ -114,10 +114,10 @@ export class PoissonDisk {
             let np = grid[index];
             if (np) {
                 let dist = (np.x-point.x)*(np.x-point.x) + (np.y-point.y)*(np.y-point.y);
-                Log.info("Distance", dist, "against", minDistSquared);
+                Log.Info("Distance", dist, "against", minDistSquared);
 
                 if ((np.x-point.x)*(np.x-point.x) + (np.y-point.y)*(np.y-point.y) < minDistSquared) {
-                    Log.error("too close");
+                    Log.Error("too close");
                     return true
                 }
             }

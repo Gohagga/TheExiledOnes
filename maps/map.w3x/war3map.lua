@@ -2,6 +2,7 @@ gg_trg_Initialization = nil
 gg_trg_Untitled_Trigger_001 = nil
 gg_unit_Hblm_0003 = nil
 gg_unit_Hpal_0002 = nil
+gg_rct_UndergroundMap = nil
 function InitGlobals()
 end
 
@@ -24,18 +25,7 @@ function CreateUnitsForPlayer1()
     gg_unit_Hpal_0002 = BlzCreateUnitWithSkin(p, FourCC("Hpal"), 237.9, -832.4, 269.898, FourCC("Hpal"))
 end
 
-function CreateBuildingsForPlayer2()
-    local p = Player(2)
-    local u
-    local unitID
-    local t
-    local life
-    u = BlzCreateUnitWithSkin(p, FourCC("nshr"), -384.0, -192.0, 270.000, FourCC("nshr"))
-    u = BlzCreateUnitWithSkin(p, FourCC("ndmg"), 192.0, 0.0, 270.000, FourCC("ndmg"))
-end
-
 function CreatePlayerBuildings()
-    CreateBuildingsForPlayer2()
 end
 
 function CreatePlayerUnits()
@@ -46,6 +36,11 @@ end
 function CreateAllUnits()
     CreatePlayerBuildings()
     CreatePlayerUnits()
+end
+
+function CreateRegions()
+    local we
+    gg_rct_UndergroundMap = Rect(-3264.0, -3520.0, 3264.0, 3008.0)
 end
 
 --
@@ -172,6 +167,7 @@ function main()
     SetAmbientDaySound("LordaeronSummerDay")
     SetAmbientNightSound("LordaeronSummerNight")
     SetMapMusic("Music", true, 0)
+    CreateRegions()
     CreateAllUnits()
     InitBlizzard()
     InitGlobals()

@@ -1,4 +1,4 @@
-import { Initialize, OnStart } from "Bootstrapper";
+import { Initialize } from "Bootstrapper";
 import { Timer, Unit } from "w3ts";
 // import { Players } from "w3ts/globals";
 import { addScriptHook, W3TS_HOOK } from "w3ts/hooks";
@@ -15,9 +15,9 @@ function tsMain() {
     // print("Welcome to TypeScript!");
     
     Initialize();
-    new Timer().start(0, false, () => {
-        OnStart();
-    });
+    // new Timer().start(0, false, () => {
+    //     OnStart();
+    // });
 }
 
 addScriptHook(W3TS_HOOK.MAIN_AFTER, tsMain);
