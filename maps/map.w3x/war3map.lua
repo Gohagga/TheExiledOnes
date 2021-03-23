@@ -1,8 +1,9 @@
+gg_rct_UndergroundMap = nil
 gg_trg_Initialization = nil
 gg_trg_Untitled_Trigger_001 = nil
 gg_unit_Hblm_0003 = nil
 gg_unit_Hpal_0002 = nil
-gg_rct_UndergroundMap = nil
+gg_rct_SurfaceMap = nil
 function InitGlobals()
 end
 
@@ -40,7 +41,8 @@ end
 
 function CreateRegions()
     local we
-    gg_rct_UndergroundMap = Rect(-3264.0, -3520.0, 3264.0, 3008.0)
+    gg_rct_UndergroundMap = Rect(-11424.0, -3520.0, -4896.0, 3008.0)
+    gg_rct_SurfaceMap = Rect(-3296.0, -3520.0, 3232.0, 3008.0)
 end
 
 --
@@ -160,7 +162,7 @@ function InitAllyPriorities()
 end
 
 function main()
-    SetCameraBounds(-3328.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), -3584.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 3328.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 3072.0 - GetCameraMargin(CAMERA_MARGIN_TOP), -3328.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 3072.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 3328.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), -3584.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM))
+    SetCameraBounds(-11520.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), -3584.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 3328.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 3072.0 - GetCameraMargin(CAMERA_MARGIN_TOP), -11520.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 3072.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 3328.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), -3584.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM))
     SetDayNightModels("Environment\\DNC\\DNCLordaeron\\DNCLordaeronTerrain\\DNCLordaeronTerrain.mdl", "Environment\\DNC\\DNCLordaeron\\DNCLordaeronUnit\\DNCLordaeronUnit.mdl")
     SetTerrainFogEx(0, 25000.0, 25000.0, 0.500, 0.000, 0.000, 0.000)
     NewSoundEnvironment("Default")

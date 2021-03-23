@@ -1,6 +1,7 @@
 import { Log } from "Log";
 import { Random } from "systems/random/Random";
 import { Point, Rectangle } from "w3ts/index";
+import { ICavernNoiseProvider } from "./interfaces/ICavernNoiseProvider";
 import { IHeightNoiseProvider } from "./interfaces/IHeightNoiseProvider";
 import { IMoistureNoiseProvider } from "./interfaces/IMoistureNoiseProvider";
 import { ITreeNoiseProvider } from "./interfaces/ITreeNoiseProvider";
@@ -11,6 +12,8 @@ export enum TerrainType {
     ThinGrass = FourCC('Ldrg'),
     ThickGrass = FourCC('Lgrd'),
     Grass = FourCC('Lgrs'),
+    Dirt = FourCC('Ldrt'),
+    RoughDirt = FourCC('Ldro'),
 }
 
 export class MapGenerator {
@@ -21,7 +24,6 @@ export class MapGenerator {
     private debt: number = 0;
     private maxDebt: number = 300;
     private stepOffset: number = 128;
-    private mapBounds = Rectangle.fromHandle(GetPlayableMapRect());
     private paused = true;
     
     public progress: number = 0;
@@ -32,6 +34,9 @@ export class MapGenerator {
         private readonly heightNoise: IHeightNoiseProvider,
         private readonly treeNoise: ITreeNoiseProvider,
         private readonly moistureNoise: IMoistureNoiseProvider,
+        private readonly cavernNoise: ICavernNoiseProvider,
+        private readonly surfaceBounds: Rectangle,
+        private readonly undergroundBounds: Rectangle,
         random: Random,
     ) {
         this.generatorThread = coroutine.create(() => this.generateMap());
@@ -41,7 +46,8 @@ export class MapGenerator {
 
     private static pause(gen: MapGenerator) {
         gen.paused = true;
-        coroutine.yield();
+        // coroutine.yield();
+        // coroutine.resume(gen.generatorThread);
     }
 
     public resume() {
@@ -54,21 +60,29 @@ export class MapGenerator {
     private generateMap() {{
 
         Log.Info("Started map generation");
-        const { maxX, maxY } = this.mapBounds;
-        const { minX, minY } = this.mapBounds;
-        const maxProgress = (-minX + maxX) * (-minY + maxY);
-
+        
         FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
-        // CreateFogModifierRectSimple(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), false);
 
-        Log.Info(minX, minY, maxX, maxY, maxProgress);
+        this.generateSurface();
+
+        this.generateUnderground();
+
+        this.isDone = true;
+    }}
+
+    private generateSurface() {
+
+        // Generate Surface
+        const { maxX, maxY } = this.surfaceBounds;
+        const { minX, minY } = this.surfaceBounds;
+        const maxProgress = (-minX + maxX) * (-minY + maxY);
 
         let smallest = 1000;
         let highest = 0;
 
         // let halfTilePercX = 64 / maxX;
         let spawnPoints: { x: number, y: number }[] = [];
-
+        
         // Generate height
         for (let y = minY; y < maxY; y += this.stepOffset) {
             
@@ -77,28 +91,13 @@ export class MapGenerator {
 
                 let nx = x / maxX;
                 let height = this.heightNoise.getHeightValue(nx, ny);
-                // let height = this.moistureNoise.getValue(nx, ny);
-                
                 height = 2750 * height + 64;
-                
-                // Player start area
-                let distSquared = (x-0)*(x-0)+(y-0)*(y-0);
-                if (distSquared < 1000*1000) {
-                    // height = height * 0.4;
-                    // if (height < 50) {
-                        
-                    // }
-                }
 
-                // height = 1000 * height + 64;
                 TerrainDeformCrater(x, y, this.stepOffset, -height, 1, true);
 
                 this.debt += 2;
-
                 
                 this.progress = ((y - minY) * (maxX - minX) + x - minX) / maxProgress;
-                // ClearTextMessages();
-                // Log.info("Progress: ", this.progress);
                 
                 if (height > 100) {
 
@@ -174,13 +173,8 @@ export class MapGenerator {
                 }
 
                 if (math.abs(nx) < 0.5 && math.abs(ny) < 0.5 && height <= 70 && height > 64) {
-                    // SetTerrainType(x, y, TerrainType.Rock, 0, 1, 0);
-                    // SetBlight(Player(0), x+64, y+64, 60, true);
-                    // let destrNearby = false;
                     spawnPoints.push({ x, y });
                 }
-                // if (distSquared < 1000*1000) {
-                // }
 
                 if (this.debt >= this.maxDebt)
                     MapGenerator.pause(this);
@@ -274,27 +268,49 @@ export class MapGenerator {
 
         Log.Info("SMALLEST", smallest, "HIGHEST", highest, "starting points", spawnPoints.length);
 
-        // Log.info("Starting poisson.");
-        // let treePoisson = this.poisson.generate(maxX - minX, maxY - minY, 40,
-        //     (x, y) => {
-        //         let treeVal = this.treeNoise.getTreeValue(x, y, 50).type * 0.111;
-        //         if (treeVal < 0) treeVal = 0;
-        //         if (treeVal > 1) treeVal = 1;
-        //         treeVal = 350 - treeVal * 300;
-
-        //         Log.info("TREE VAL:", treeVal);
-        //         return treeVal;
-
-        //     }, 350, minX, minY);
-        // Log.info("Finished Poisson, sample size ", treePoisson.length);
-
-        // for (let point of treePoisson) {
-        //     CreateDestructable(FourCC('LTlt'), point.x + minX, point.y + minY, 270, this.random.next(0.8, 1.3), 0);
-        // }
-
         let spawnIndex = math.floor(math.random() * (spawnPoints.length - 1));
         this.startPoint = spawnPoints[spawnIndex];
+    }
 
-        this.isDone = true;
-    }}
+    private generateUnderground() {
+
+        const { maxX, maxY } = this.undergroundBounds;
+        const { minX, minY } = this.undergroundBounds;
+        const maxProgress = (-minX + maxX) * (-minY + maxY);
+
+        // Generate underground
+        for (let y = minY; y < maxY; y += this.stepOffset) {
+            
+            let ny = y / maxY;
+            for (let x = minX; x < maxX; x += this.stepOffset) {
+
+                let nx = x / maxX;
+                Log.Info("before getting height for ", x, y);
+                let height = this.cavernNoise.getDepthValue((x - minX)/(maxX-minX), (y - minY)/(maxY-minY));
+                height = 1000 * height + 100;
+                
+                if (height < 64) {
+                    height = height ** 0.8 + 64;
+                    // height += 64;
+                } else if (height > 0) {
+                    CreateDestructableZ(FourCC('DTrc'), x + 64, y, 100, this.random.next(0, 360), 1.25, this.random.nextInt(0, 6));
+                }
+                TerrainDeformCrater(x, y, this.stepOffset, -64, 1, true);
+                this.debt += 2;
+                
+                this.progress = ((y - minY) * (maxX - minX) + x - minX) / maxProgress;
+                
+                let moisture = height / 1100;
+                if (moisture % 0.2 > 0.1 || moisture < 0.1) {
+                    SetTerrainType(x, y, TerrainType.RoughDirt, 0, 1, 1);
+                } else
+                    SetTerrainType(x, y, TerrainType.Dirt, 0, 1, 1);
+
+                SetTerrainPathable(x, y, PATHING_TYPE_BUILDABILITY, true);
+
+                if (this.debt >= this.maxDebt)
+                    MapGenerator.pause(this);
+            }
+        }
+    }
 }
