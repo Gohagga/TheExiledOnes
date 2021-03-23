@@ -11,6 +11,7 @@ import { CavernNoiseProvider } from "systems/map-generation/providers/CavernNois
 import { HeightNoiseProvider } from "systems/map-generation/providers/HeightNoise";
 import { MoistureNoiseProvider } from "systems/map-generation/providers/MoistureNoise";
 import { TreeNoiseProvider } from "systems/map-generation/providers/TreeNoise";
+import { Minimap } from "systems/minimap/Minimap";
 import { Random } from "systems/random/Random";
 import { ErrorService } from "systems/ui/ErrorService";
 import { CameraSetup, MapPlayer, Rectangle, Timer, Trigger, Unit } from "w3ts/index";
@@ -25,52 +26,62 @@ export function Initialize() {
     // const seed = 6;
     const random = new Random(seed);
 
-    const heightNoise = new HeightNoiseProvider(random);
-    const treeNoise = new TreeNoiseProvider(random);
-    const moistureNoise = new MoistureNoiseProvider(random);
-    const cavernNoise = new CavernNoiseProvider(random);
-    const mapGenerator = new MapGenerator(
-        heightNoise,
-        treeNoise, 
-        moistureNoise, 
-        cavernNoise, 
-        Rectangle.fromHandle(gg_rct_SurfaceMap), 
-        Rectangle.fromHandle(gg_rct_UndergroundMap), 
-        random);
+    const surfaceRect = Rectangle.fromHandle(gg_rct_SurfaceMap);
 
+    
     // mapGenerator.resume();
+    
+    const tim1 = new Timer();
+    tim1.start(1, false, () => {
 
-    const tim = new Timer()
-    tim.start(0.2, true, () => {
-        ClearTextMessages();
-        Log.Info("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%');
-        if (mapGenerator.isDone) {
-            tim.destroy();
-            
-            // EnumDestructablesInRectAll(Rect(p.x-100, p.y-100, p.x+100, p.y+100), () => {
-                //     if (GetEnumDestructable())
-                //         nearDestruct = true;
-                // });
+        const minimap = new Minimap(surfaceRect);
+        const heightNoise = new HeightNoiseProvider(random);
+        const treeNoise = new TreeNoiseProvider(random);
+        const moistureNoise = new MoistureNoiseProvider(random);
+        const cavernNoise = new CavernNoiseProvider(random);
+        const mapGenerator = new MapGenerator(
+            minimap,
+            heightNoise,
+            treeNoise, 
+            moistureNoise, 
+            cavernNoise, 
+            surfaceRect, 
+            Rectangle.fromHandle(gg_rct_UndergroundMap), 
+            random);
+    
+        const tim = new Timer()
+        tim.start(0.2, true, () => {
+            // ClearTextMessages();
+            // Log.Info("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%');
+            if (mapGenerator.isDone) {
+                tim.destroy();
                 
-        } else
-            mapGenerator.resume();
+                // EnumDestructablesInRectAll(Rect(p.x-100, p.y-100, p.x+100, p.y+100), () => {
+                    //     if (GetEnumDestructable())
+                    //         nearDestruct = true;
+                    // });
+                    
+            } else
+                mapGenerator.resume();
+        });
     });
+
     // Abilities
     const abilityEvent = new AbilityEventHandler();
     const abilityEventProvider = new AbilityEventProvider(abilityEvent);
     const slotManager = new AbilitySlotManager();
     const errorService = new ErrorService();
 
-    let abilities = {
-        ProspectorSpellbook: new BasicAbility(config.ProspectorSpellbook),
-        Defile: new Defile(config.Defile, abilityEvent, errorService),
-        EyeOfKilrogg: new BasicAbility(config.EyeOfKilrogg),
-        InfuseFelstone: new BasicAbility(config.InfuseFelstone),
-        CrystalizeFel: new BasicAbility(config.CrystalizeFel),
-        Demonfruit: new BasicAbility(config.Demonfruit),
-        TransferFel: new BasicAbility(config.TransferFel),
-        PrepareFelCollector: new BasicAbility(config.PrepareFelCollector)
-    }
+    // let abilities = {
+    //     ProspectorSpellbook: new BasicAbility(config.ProspectorSpellbook),
+    //     Defile: new Defile(config.Defile, abilityEvent, errorService),
+    //     EyeOfKilrogg: new BasicAbility(config.EyeOfKilrogg),
+    //     InfuseFelstone: new BasicAbility(config.InfuseFelstone),
+    //     CrystalizeFel: new BasicAbility(config.CrystalizeFel),
+    //     Demonfruit: new BasicAbility(config.Demonfruit),
+    //     TransferFel: new BasicAbility(config.TransferFel),
+    //     PrepareFelCollector: new BasicAbility(config.PrepareFelCollector)
+    // }
     
     // abilities.ProspectorSpellbook.AddToUnit(u);
     // p.setAbilityAvailable(abilities.Defile.extId as number, false);

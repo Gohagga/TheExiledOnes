@@ -1,6 +1,7 @@
 import { Log } from "Log";
+import { Minimap } from "systems/minimap/Minimap";
 import { Random } from "systems/random/Random";
-import { Point, Rectangle } from "w3ts/index";
+import { Color, Point, Rectangle } from "w3ts/index";
 import { ICavernNoiseProvider } from "./interfaces/ICavernNoiseProvider";
 import { IHeightNoiseProvider } from "./interfaces/IHeightNoiseProvider";
 import { IMoistureNoiseProvider } from "./interfaces/IMoistureNoiseProvider";
@@ -31,6 +32,7 @@ export class MapGenerator {
     public startPoint: { x: number, y: number } = { x: 0, y: 0 }
 
     constructor(
+        private readonly minimap: Minimap,
         private readonly heightNoise: IHeightNoiseProvider,
         private readonly treeNoise: ITreeNoiseProvider,
         private readonly moistureNoise: IMoistureNoiseProvider,
@@ -46,7 +48,7 @@ export class MapGenerator {
 
     private static pause(gen: MapGenerator) {
         gen.paused = true;
-        // coroutine.yield();
+        coroutine.yield();
         // coroutine.resume(gen.generatorThread);
     }
 
@@ -98,11 +100,15 @@ export class MapGenerator {
                 this.debt += 2;
                 
                 this.progress = ((y - minY) * (maxX - minX) + x - minX) / maxProgress;
+
                 
                 if (height > 100) {
-
+                    
                     if (height > 160) {
+                        this.minimap.setPoint(x, y, BlzConvertColor(255, 60, 60, 60));
                         SetTerrainType(x, y, TerrainType.Rock, 0, 1, 0);
+                    } else {
+                        this.minimap.setPoint(x, y, BlzConvertColor(256, 256, 256, 256));
                     }
 
                     // Check slopes around
@@ -285,7 +291,7 @@ export class MapGenerator {
             for (let x = minX; x < maxX; x += this.stepOffset) {
 
                 let nx = x / maxX;
-                Log.Info("before getting height for ", x, y);
+                // Log.Info("before getting height for ", x, y);
                 let height = this.cavernNoise.getDepthValue((x - minX)/(maxX-minX), (y - minY)/(maxY-minY));
                 height = 1000 * height + 100;
                 

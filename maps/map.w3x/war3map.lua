@@ -1,9 +1,9 @@
 gg_rct_UndergroundMap = nil
+gg_rct_SurfaceMap = nil
 gg_trg_Initialization = nil
 gg_trg_Untitled_Trigger_001 = nil
 gg_unit_Hblm_0003 = nil
 gg_unit_Hpal_0002 = nil
-gg_rct_SurfaceMap = nil
 function InitGlobals()
 end
 
@@ -42,7 +42,7 @@ end
 function CreateRegions()
     local we
     gg_rct_UndergroundMap = Rect(-11424.0, -3520.0, -4896.0, 3008.0)
-    gg_rct_SurfaceMap = Rect(-3296.0, -3520.0, 3232.0, 3008.0)
+    gg_rct_SurfaceMap = Rect(-3296.0, -3584.0, 3296.0, 3040.0)
 end
 
 --

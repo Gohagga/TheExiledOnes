@@ -32,4 +32,13 @@ export class Log {
         msg[msg.length - 1] += "|r";
         print(prefix, ...msg);
     }
+
+    private static step = 0;
+    public static ResetStep(to: number = 0) {
+        this.step = to;
+    }
+
+    public static Step(...msg: any[]) {
+        print(this.step++, ...msg);
+    }
 }
