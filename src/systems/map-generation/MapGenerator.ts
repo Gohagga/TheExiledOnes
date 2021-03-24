@@ -63,7 +63,7 @@ export class MapGenerator {
 
         Log.Info("Started map generation");
         
-        FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
+        // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
 
         this.generateSurface();
 
@@ -105,10 +105,7 @@ export class MapGenerator {
                 if (height > 100) {
                     
                     if (height > 160) {
-                        this.minimap.setPoint(x, y, BlzConvertColor(255, 60, 60, 60));
                         SetTerrainType(x, y, TerrainType.Rock, 0, 1, 0);
-                    } else {
-                        this.minimap.setPoint(x, y, BlzConvertColor(256, 256, 256, 256));
                     }
 
                     // Check slopes around
@@ -187,6 +184,9 @@ export class MapGenerator {
             }
         }
 
+        // this.minimap.updateMinimap(this.surfaceBounds, (x1, y1) =>
+        //     this.heightNoise.getHeightValue(x1 / maxX, y1 / maxY));
+
         // Generate pathing
         for (let y = minY; y < maxY; y += 16) {
             
@@ -196,9 +196,33 @@ export class MapGenerator {
                 let nx = x / maxX;
                 let height = 2750 * this.heightNoise.getHeightValue(nx, ny) + 64;
 
+                // if (height > 160) {
+                //     let col = BlzConvertColor(255, 60, 60, 60);
+                //     this.minimap.setPoint(x, y, col);
+                //     this.minimap.setPoint(x+64, y, col);
+                //     this.minimap.setPoint(x, y+64, col);
+                //     this.minimap.setPoint(x+64, y+64, col);
+                // } else {
+                //     let col = BlzConvertColor(256, 256, 256, 256);
+                //     this.minimap.setPoint(x, y, col);
+                //     this.minimap.setPoint(x+64, y, col);
+                //     this.minimap.setPoint(x, y+64, col);
+                //     this.minimap.setPoint(x+64, y+64, col);
+                // }
+
                 if (height > 100) {
 
                     if (height < 160) SetTerrainPathable(x, y, PATHING_TYPE_BUILDABILITY, true);
+                    else {
+                        let darkness = height / 700;
+                        if (darkness < 0) darkness = 0.1;
+                        else if (darkness > 1) darkness = 1;
+
+                        let grey = math.floor(150 - 150*darkness);
+                        let col = BlzConvertColor(255, 5+grey, grey, grey);
+                        this.minimap.setPoint(x, y, col);
+                    }
+
                     // Check slopes around
                     let slope = 30;
                     let c1 = 2750 * this.heightNoise.getHeightValue((x - 16) / maxX, (y - 16) / maxY) + 64;
@@ -242,12 +266,14 @@ export class MapGenerator {
                         SetTerrainPathable(x + 16, y + 32, PATHING_TYPE_BUILDABILITY, false);
                     }
 
-                    this.debt += 0.2;
+                    this.debt += 0.4;
                 } else if (height > 0) {
                     SetTerrainPathable(x, y, PATHING_TYPE_BUILDABILITY, true);
+                    this.minimap.setPoint(x, y, BlzConvertColor(255, 166, 192, 137));
                 } else {
                     SetTerrainPathable(x, y, PATHING_TYPE_FLOATABILITY, true);
                     SetTerrainPathable(x, y, PATHING_TYPE_WALKABILITY, false);
+                    this.minimap.setPoint(x, y, BlzConvertColor(255, 0, 157, 225));
                 }
 
                 this.progress = ((y - minY) * (maxX - minX) + x - minX) / maxProgress;
@@ -255,7 +281,6 @@ export class MapGenerator {
                 if (this.debt >= this.maxDebt)
                     MapGenerator.pause(this);
             }
-
         }
 
         let remainingPoints: { x: number, y: number }[] = [];

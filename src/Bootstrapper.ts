@@ -27,15 +27,14 @@ export function Initialize() {
     const random = new Random(seed);
 
     const surfaceRect = Rectangle.fromHandle(gg_rct_SurfaceMap);
-
     
     // mapGenerator.resume();
     
     const tim1 = new Timer();
     tim1.start(1, false, () => {
 
-        const minimap = new Minimap(surfaceRect);
         const heightNoise = new HeightNoiseProvider(random);
+        const minimap = new Minimap(surfaceRect, heightNoise);
         const treeNoise = new TreeNoiseProvider(random);
         const moistureNoise = new MoistureNoiseProvider(random);
         const cavernNoise = new CavernNoiseProvider(random);
@@ -51,8 +50,8 @@ export function Initialize() {
     
         const tim = new Timer()
         tim.start(0.2, true, () => {
-            // ClearTextMessages();
-            // Log.Info("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%');
+            ClearTextMessages();
+            Log.Info("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%');
             if (mapGenerator.isDone) {
                 tim.destroy();
                 
