@@ -36,6 +36,7 @@ export class MoistureNoiseProvider implements IMoistureNoiseProvider {
     private readonly freq3: number = 2.5 * 1.5;
 
     getValue(x: number, y: number): number {
+
         let value = 
             this.div1 * (this.gen1.getValueAt(x * this.freq1, y * this.freq1) * this.focus + this.offset) + 
             this.div2 * (this.gen2.getValueAt(x * this.freq2, y * this.freq2) * this.focus + this.offset) +

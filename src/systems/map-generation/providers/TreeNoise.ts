@@ -33,7 +33,8 @@ export class TreeNoiseProvider implements ITreeNoiseProvider {
         this.gen3 = new Simplex(random);
     }
 
-    getTreeValue(x: number, y: number, terrainHeight: number): { x: number; y: number; type: number; } {
+    getTreeValue(x: number, y: number): number {
+
         let tree = 
             this.div1 * (this.gen1.getValueAt(x * 2, y * 2) * this.focus + this.offset) + 
             this.div2 * (this.gen2.getValueAt(x * 4, y * 4) * this.focus + this.offset) +
@@ -43,26 +44,7 @@ export class TreeNoiseProvider implements ITreeNoiseProvider {
         // let sign = tree / math.abs(tree);
         tree **= this.exponent;
         tree /= 3;
-        // tree = math.abs(tree) * sign;
 
-        // tree -= terrainHeight;
-
-        // print("TREE TERRAIN?: ", terrainHeight);
-        if (terrainHeight > 70 || terrainHeight < 40) {
-            tree = 0;
-        }
-        // Offset
-        // tree = tree * 100 + 64;
-
-        // if (tree > 0)
-        //     tree = 1;
-        // else
-        //     tree = 0;
-
-        return {
-            x,
-            y,
-            type: tree
-        };
+        return tree;
     }
 }

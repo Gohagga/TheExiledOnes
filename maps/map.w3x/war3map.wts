@@ -623,3 +623,51 @@ STRING 112
 A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
 }
 
+STRING 113
+// Abilities: A000 (DebugHeight), Name (Name)
+{
+DebugHeight
+}
+
+STRING 114
+// Abilities: A000 (DebugHeight), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 115
+// Abilities: A000 (DebugHeight), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 116
+// Abilities: A000 (DebugHeight), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 117
+// Abilities: A000 (DebugHeight), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 118
+// Abilities: A000 (DebugHeight), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 119
+// Abilities: A000 (DebugHeight), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 120
+// Abilities: A000 (DebugHeight), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+

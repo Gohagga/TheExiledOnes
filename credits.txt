@@ -1,2 +1,9 @@
 Fred for his awesome spark of proc gen, and some code
 Tasyen, William, Rayman.90, pr for helping me set up the minimap, Boar
+
+167.496 seconds start
+147 seconds non responsive
+
+[change not recalculating] 57 seconds nonresponsive
+
+[with minimap] 68.0

@@ -7,10 +7,12 @@ import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
 import { AbilityEventHandler } from "systems/events/ability-events/AbilityEventHandler";
 import { AbilityEventProvider } from "systems/events/ability-events/AbilityEventProvider";
 import { MapGenerator } from "systems/map-generation/MapGenerator";
+import { MapGenerator2 } from "systems/map-generation/MapGenerator2";
 import { CavernNoiseProvider } from "systems/map-generation/providers/CavernNoiseProvider";
 import { HeightNoiseProvider } from "systems/map-generation/providers/HeightNoise";
 import { MoistureNoiseProvider } from "systems/map-generation/providers/MoistureNoise";
 import { TreeNoiseProvider } from "systems/map-generation/providers/TreeNoise";
+import { CustomMinimap } from "systems/minimap/CustomMinimap";
 import { Minimap } from "systems/minimap/Minimap";
 import { Random } from "systems/random/Random";
 import { ErrorService } from "systems/ui/ErrorService";
@@ -20,41 +22,74 @@ export function Initialize() {
 
     const config = new Config();
 
+    // Abilities
+    const abilityEvent = new AbilityEventHandler();
+    const abilityEventProvider = new AbilityEventProvider(abilityEvent);
+    const slotManager = new AbilitySlotManager();
+    const errorService = new ErrorService();
+
     Log.Level = Level.All;
 
-    const seed = 5;
-    // const seed = 6;
+    // const seed = 5;
+    const seed = 6;
     const random = new Random(seed);
-
-    const surfaceRect = Rectangle.fromHandle(gg_rct_SurfaceMap);
     
     // mapGenerator.resume();
+    FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
     
     const tim1 = new Timer();
     tim1.start(1, false, () => {
 
+        const surfaceRect = Rectangle.fromHandle(gg_rct_SurfaceMap);
+        const undergroundRect = Rectangle.fromHandle(gg_rct_UndergroundMap);
+        // SetCameraBoundsToRect(gg_rct_SurfaceMap);
+
+        // let xMaxBound = GetRectMaxX(GetWorldBounds());
+        // let xMinBound = GetRectMinX(GetWorldBounds());
+        // let yMaxBound = GetRectMaxY(GetWorldBounds());
+        // let yMinBound = GetRectMinY(GetWorldBounds());
+        // let widthBound = xMaxBound - xMinBound;
+        // let heightBound = yMaxBound - yMinBound;
+
+        // let padding = 128 * 6;
+        // let boxSide = math.floor(widthBound - padding) * 0.5;
+        // surfaceRect.setRect(boxSide + padding, yMaxBound - 128, xMaxBound - 128, yMaxBound - 128 - boxSide);
+
+        // Log.Info(surfaceRect.minX, surfaceRect.minY, surfaceRect.maxX, surfaceRect.maxY);
+
         const heightNoise = new HeightNoiseProvider(random);
-        const minimap = new Minimap(surfaceRect, heightNoise);
+        const minimap = new CustomMinimap(surfaceRect);
         const treeNoise = new TreeNoiseProvider(random);
         const moistureNoise = new MoistureNoiseProvider(random);
         const cavernNoise = new CavernNoiseProvider(random);
-        const mapGenerator = new MapGenerator(
-            minimap,
-            heightNoise,
-            treeNoise, 
-            moistureNoise, 
-            cavernNoise, 
-            surfaceRect, 
-            Rectangle.fromHandle(gg_rct_UndergroundMap), 
-            random);
+        const mapGenerator = new MapGenerator2(minimap, heightNoise, treeNoise, moistureNoise, cavernNoise, surfaceRect, undergroundRect, random);
+        // const mapGenerator = new MapGenerator(
+        //     minimap,
+        //     heightNoise,
+        //     treeNoise, 
+        //     moistureNoise, 
+        //     cavernNoise, 
+        //     surfaceRect, 
+        //     Rectangle.fromHandle(gg_rct_UndergroundMap), 
+        //     random);
+
+        
+        abilityEvent.OnAbilityCast(FourCC('A000'), () => {
+            // Log.Info("Terrain height:", mapGenerator.heightBuilder.getHeight(GetSpellTargetX(), GetSpellTargetY()));
+        });
     
+        let time = os.clock();
+        mapGenerator.resume();
+
         const tim = new Timer()
-        tim.start(0.2, true, () => {
-            ClearTextMessages();
-            Log.Info("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%');
+        const progressTim = new Timer();
+        tim.start(0.02, true, () => {
             if (mapGenerator.isDone) {
                 tim.destroy();
-                
+                progressTim.destroy();
+                time = os.clock() - time;
+
+                Log.Info("Finished generating in ", time);
                 // EnumDestructablesInRectAll(Rect(p.x-100, p.y-100, p.x+100, p.y+100), () => {
                     //     if (GetEnumDestructable())
                     //         nearDestruct = true;
@@ -63,13 +98,13 @@ export function Initialize() {
             } else
                 mapGenerator.resume();
         });
+        progressTim.start(1, true, () => {
+            ClearTextMessages();
+            let passed = math.floor(os.clock() - time + 0.5);
+            let prediction = passed / mapGenerator.progress;
+            Log.Info("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%', "seconds passed: ", passed, "prediction: ", prediction);
+        });
     });
-
-    // Abilities
-    const abilityEvent = new AbilityEventHandler();
-    const abilityEventProvider = new AbilityEventProvider(abilityEvent);
-    const slotManager = new AbilitySlotManager();
-    const errorService = new ErrorService();
 
     // let abilities = {
     //     ProspectorSpellbook: new BasicAbility(config.ProspectorSpellbook),

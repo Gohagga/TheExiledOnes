@@ -1,4 +1,5 @@
 import { Log } from "Log";
+import { CustomMinimap } from "systems/minimap/CustomMinimap";
 import { Minimap } from "systems/minimap/Minimap";
 import { Random } from "systems/random/Random";
 import { Color, Point, Rectangle } from "w3ts/index";
@@ -32,7 +33,7 @@ export class MapGenerator {
     public startPoint: { x: number, y: number } = { x: 0, y: 0 }
 
     constructor(
-        private readonly minimap: Minimap,
+        private readonly minimap: CustomMinimap,
         private readonly heightNoise: IHeightNoiseProvider,
         private readonly treeNoise: ITreeNoiseProvider,
         private readonly moistureNoise: IMoistureNoiseProvider,
@@ -49,7 +50,7 @@ export class MapGenerator {
     private static pause(gen: MapGenerator) {
         gen.paused = true;
         coroutine.yield();
-        // coroutine.resume(gen.generatorThread);
+        coroutine.resume(gen.generatorThread);
     }
 
     public resume() {
@@ -65,7 +66,7 @@ export class MapGenerator {
         
         // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
 
-        this.generateSurface();
+        // this.generateSurface();
 
         this.generateUnderground();
 
@@ -85,14 +86,25 @@ export class MapGenerator {
         // let halfTilePercX = 64 / maxX;
         let spawnPoints: { x: number, y: number }[] = [];
         
+        // let minimapThread = this.minimap.generateThread();
+        // coroutine.resume(minimapThread);
+
         // Generate height
         for (let y = minY; y < maxY; y += this.stepOffset) {
             
-            let ny = y / maxY;
+            // let ny = y / 3500;
+            // let ny = y / 2784.0;
+            // let ny = y / 3008.0;//2784.0;
+            // let ny = y / maxY;
             for (let x = minX; x < maxX; x += this.stepOffset) {
 
-                let nx = x / maxX;
-                let height = this.heightNoise.getHeightValue(nx, ny);
+                // minimapThread(x, y);
+
+                // let nx = x / 3500;
+                // let nx = x / 2784.0;
+                // let nx = x / 3008.0;
+                // let nx = x / maxX;
+                let height = this.heightNoise.getHeightValue(x, y);
                 height = 2750 * height + 64;
 
                 TerrainDeformCrater(x, y, this.stepOffset, -height, 1, true);
@@ -110,7 +122,7 @@ export class MapGenerator {
 
                     // Check slopes around
                     let slope = 80;
-                    let c1 = 2750 * this.heightNoise.getHeightValue((x - 64) / maxX, (y - 64) / maxY) + 64;
+                    let c1 = 2750 * this.heightNoise.getHeightValue(x - 64, y - 64) + 64;
                     if (math.abs(c1 - height) > slope) {
                         SetTerrainType(x, y, TerrainType.Rock, 0, 1, 0);
                         // SetTerrainPathable(x, y, PATHING_TYPE_WALKABILITY, false);
@@ -118,7 +130,7 @@ export class MapGenerator {
                         // SetTerrainPathable(x, y - 64, PATHING_TYPE_WALKABILITY, false);
                         // Log.error("height", height, "c1", c1);
                     }
-                    let c2 = 2750 * this.heightNoise.getHeightValue((x + 128) / maxX, (y - 64) / maxY) + 64;
+                    let c2 = 2750 * this.heightNoise.getHeightValue(x + 128, y - 64) + 64;
                     if (math.abs(c2 - height) > slope) {
                         SetTerrainType(x + 64, y, TerrainType.Rock, 0, 1, 0);
                         // SetTerrainPathable(x + 64, y, PATHING_TYPE_WALKABILITY, false);
@@ -126,7 +138,7 @@ export class MapGenerator {
                         // SetTerrainPathable(x + 128, y, PATHING_TYPE_WALKABILITY, false);
                         // Log.error("height", height, "c2", c2);
                     }
-                    let c3 = 2750 * this.heightNoise.getHeightValue((x - 64) / maxX, (y + 128) / maxY) + 64;
+                    let c3 = 2750 * this.heightNoise.getHeightValue(x - 64, y + 128) + 64;
                     if (math.abs(c3 - height) > slope) {
                         SetTerrainType(x, y + 64, TerrainType.Rock, 0, 1, 0);
                         // SetTerrainPathable(x, y + 64, PATHING_TYPE_WALKABILITY, false);
@@ -134,7 +146,7 @@ export class MapGenerator {
                         // SetTerrainPathable(x, y + 128, PATHING_TYPE_WALKABILITY, false);
                         // Log.error("height", height, "c3", c3);
                     }
-                    let c4 = 2750 * this.heightNoise.getHeightValue((x + 128) / maxX, (y + 128) / maxY) + 64;
+                    let c4 = 2750 * this.heightNoise.getHeightValue(x + 128, y + 128) + 64;
                     if (math.abs(c4 - height) > slope) {
                         SetTerrainType(x + 64, y + 64, TerrainType.Rock, 0, 1, 0);
                         // SetTerrainPathable(x + 64, y + 64, PATHING_TYPE_WALKABILITY, false);
@@ -144,7 +156,7 @@ export class MapGenerator {
                     }
                     // }
                 } else if (height > 60) {
-                    let moisture = this.moistureNoise.getValue(nx, ny);
+                    let moisture = this.moistureNoise.getValue(x, y);
                     if (moisture > highest) highest = moisture;
                     if (moisture < smallest) smallest = moisture;
                     if (moisture >= 0.55) {
@@ -164,18 +176,18 @@ export class MapGenerator {
                     // SetTerrainPathable(x + 64, y, PATHING_TYPE_WALKABILITY, false);
                 }
                     
-                let tree = this.treeNoise.getTreeValue(nx, ny, height).type;
-                if (tree > 0) {
-                    this.debt += 3;
-                    if (this.random.next() <= tree * 0.5) {
+                // let tree = this.treeNoise.getTreeValue(x, y, height).type;
+                // if (tree > 0) {
+                //     this.debt += 3;
+                //     if (this.random.next() <= tree * 0.5) {
 
-                        let tx = this.random.nextInt(-32, 32) + x;
-                        let ty = this.random.nextInt(-32, 32) + y;
-                        CreateDestructable(FourCC('LTlt'), tx, ty, 270, this.random.next(0.8, 1.3), 0);
-                    }
-                }
+                //         let tx = this.random.nextInt(-32, 32) + x;
+                //         let ty = this.random.nextInt(-32, 32) + y;
+                //         CreateDestructable(FourCC('LTlt'), tx, ty, 270, this.random.next(0.8, 1.3), 0);
+                //     }
+                // }
 
-                if (math.abs(nx) < 0.5 && math.abs(ny) < 0.5 && height <= 70 && height > 64) {
+                if (math.abs(x) < 0.5 && math.abs(y) < 0.5 && height <= 70 && height > 64) {
                     spawnPoints.push({ x, y });
                 }
 
@@ -190,11 +202,11 @@ export class MapGenerator {
         // Generate pathing
         for (let y = minY; y < maxY; y += 16) {
             
-            let ny = y / maxY;
+            // let ny = y / maxY;
             for (let x = minX; x < maxX; x += 16) {
 
-                let nx = x / maxX;
-                let height = 2750 * this.heightNoise.getHeightValue(nx, ny) + 64;
+                // let nx = x / maxX;
+                let height = 2750 * this.heightNoise.getHeightValue(x, y) + 64;
 
                 // if (height > 160) {
                 //     let col = BlzConvertColor(255, 60, 60, 60);
@@ -214,18 +226,18 @@ export class MapGenerator {
 
                     if (height < 160) SetTerrainPathable(x, y, PATHING_TYPE_BUILDABILITY, true);
                     else {
-                        let darkness = height / 700;
-                        if (darkness < 0) darkness = 0.1;
-                        else if (darkness > 1) darkness = 1;
+                        // let darkness = height / 700;
+                        // if (darkness < 0) darkness = 0.1;
+                        // else if (darkness > 1) darkness = 1;
 
-                        let grey = math.floor(150 - 150*darkness);
-                        let col = BlzConvertColor(255, 5+grey, grey, grey);
-                        this.minimap.setPoint(x, y, col);
+                        // let grey = math.floor(150 - 150*darkness);
+                        // let col = BlzConvertColor(255, 5+grey, grey, grey);
+                        // this.minimap.setPoint(x, y, col);
                     }
 
                     // Check slopes around
                     let slope = 30;
-                    let c1 = 2750 * this.heightNoise.getHeightValue((x - 16) / maxX, (y - 16) / maxY) + 64;
+                    let c1 = 2750 * this.heightNoise.getHeightValue(x - 16, y - 16) + 64;
                     if (math.abs(c1 - height) > slope) {
                         SetTerrainPathable(x, y, PATHING_TYPE_WALKABILITY, false);
                         SetTerrainPathable(x - 16, y, PATHING_TYPE_WALKABILITY, false);
@@ -235,7 +247,7 @@ export class MapGenerator {
                         SetTerrainPathable(x - 16, y, PATHING_TYPE_BUILDABILITY, false);
                         SetTerrainPathable(x, y - 16, PATHING_TYPE_BUILDABILITY, false);
                     }
-                    let c2 = 2750 * this.heightNoise.getHeightValue((x + 32) / maxX, (y - 16) / maxY) + 64;
+                    let c2 = 2750 * this.heightNoise.getHeightValue(x + 32, y - 16) + 64;
                     if (math.abs(c2 - height) > slope) {
                         SetTerrainPathable(x + 16, y, PATHING_TYPE_WALKABILITY, false);
                         SetTerrainPathable(x + 16, y - 16, PATHING_TYPE_WALKABILITY, false);
@@ -245,7 +257,7 @@ export class MapGenerator {
                         SetTerrainPathable(x + 16, y - 16, PATHING_TYPE_BUILDABILITY, false);
                         SetTerrainPathable(x + 32, y, PATHING_TYPE_BUILDABILITY, false);
                     }
-                    let c3 = 2750 * this.heightNoise.getHeightValue((x - 16) / maxX, (y + 32) / maxY) + 64;
+                    let c3 = 2750 * this.heightNoise.getHeightValue(x - 16, y + 32) + 64;
                     if (math.abs(c3 - height) > slope) {
                         SetTerrainPathable(x, y + 16, PATHING_TYPE_WALKABILITY, false);
                         SetTerrainPathable(x - 16, y + 16, PATHING_TYPE_WALKABILITY, false);
@@ -255,7 +267,7 @@ export class MapGenerator {
                         SetTerrainPathable(x - 16, y + 16, PATHING_TYPE_BUILDABILITY, false);
                         SetTerrainPathable(x, y + 32, PATHING_TYPE_BUILDABILITY, false);
                     }
-                    let c4 = 2750 * this.heightNoise.getHeightValue((x + 32) / maxX, (y + 32) / maxY) + 64;
+                    let c4 = 2750 * this.heightNoise.getHeightValue(x + 32, y + 32) + 64;
                     if (math.abs(c4 - height) > slope) {
                         SetTerrainPathable(x + 16, y + 16, PATHING_TYPE_WALKABILITY, false);
                         SetTerrainPathable(x + 32, y + 16, PATHING_TYPE_WALKABILITY, false);
@@ -267,13 +279,14 @@ export class MapGenerator {
                     }
 
                     this.debt += 0.4;
-                } else if (height > 0) {
+                } else if (height > 40) {
                     SetTerrainPathable(x, y, PATHING_TYPE_BUILDABILITY, true);
-                    this.minimap.setPoint(x, y, BlzConvertColor(255, 166, 192, 137));
+                    // this.minimap.setPoint(x, y, BlzConvertColor(255, 166, 192, 137));
                 } else {
                     SetTerrainPathable(x, y, PATHING_TYPE_FLOATABILITY, true);
                     SetTerrainPathable(x, y, PATHING_TYPE_WALKABILITY, false);
-                    this.minimap.setPoint(x, y, BlzConvertColor(255, 0, 157, 225));
+                    SetTerrainPathable(x, y, PATHING_TYPE_BUILDABILITY, false);
+                    // this.minimap.setPoint(x, y, BlzConvertColor(255, 0, 157, 225));
                 }
 
                 this.progress = ((y - minY) * (maxX - minX) + x - minX) / maxProgress;
@@ -307,17 +320,25 @@ export class MapGenerator {
 
         const { maxX, maxY } = this.undergroundBounds;
         const { minX, minY } = this.undergroundBounds;
+
+        const minX1 = -11424.0;
+        const minY1 = -3520.0;
+        const maxX1 = -4896.0;
+        // const maxX1 = maxX;
+        const maxY1 = 3008.0;
+        // const maxY1 = maxY;
         const maxProgress = (-minX + maxX) * (-minY + maxY);
 
         // Generate underground
         for (let y = minY; y < maxY; y += this.stepOffset) {
             
-            let ny = y / maxY;
+            let ny = y / maxY1;
             for (let x = minX; x < maxX; x += this.stepOffset) {
 
-                let nx = x / maxX;
+                let nx = x / maxX1;
                 // Log.Info("before getting height for ", x, y);
-                let height = this.cavernNoise.getDepthValue((x - minX)/(maxX-minX), (y - minY)/(maxY-minY));
+                // let height = this.cavernNoise.getDepthValue(nx, ny);
+                let height = this.cavernNoise.getDepthValue((x - minX1)/(maxX1-minX1), (y - minY1)/(maxY1-minY1));
                 height = 1000 * height + 100;
                 
                 if (height < 64) {
