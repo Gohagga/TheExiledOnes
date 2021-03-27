@@ -38,7 +38,7 @@ export function Initialize() {
     FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
     
     const tim1 = new Timer();
-    tim1.start(1, false, () => {
+    tim1.start(0, false, () => {
 
         const surfaceRect = Rectangle.fromHandle(gg_rct_SurfaceMap);
         const undergroundRect = Rectangle.fromHandle(gg_rct_UndergroundMap);

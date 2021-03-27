@@ -42,7 +42,9 @@ export class PathingBuilder {
             let sw = this.heightBuilder.getHeight(x, y + 16);
             let se = this.heightBuilder.getHeight(x + 16, y + 16);
 
-            if (math.abs(nw - se) > slope ||
+            if (height > neutralHeight + 500) {
+                return PathingType.HillSteepUnwalkable;
+            } else if (math.abs(nw - se) > slope ||
                 math.abs(ne - sw) > slope
             ) {
                 if (height > neutralHeight + 50)

@@ -1,6 +1,6 @@
 import { Log } from "Log";
 import { IHeightNoiseProvider } from "systems/map-generation/interfaces/IHeightNoiseProvider";
-import { Frame, Rectangle, Timer } from "w3ts/index";
+import { Frame, MapPlayer, Rectangle, Timer, Trigger } from "w3ts/index";
 
 export class CustomMinimap {
 
@@ -13,11 +13,13 @@ export class CustomMinimap {
     // Minimap pixel properties
     private readonly pixelWidth: number;
     private readonly pixelHeight: number;
-    private readonly mapPixelFrames: Frame[] = [];
+    private readonly colors: number[] = [];
+    private readonly mapPixelFrames: framehandle[] = [];
+    private mapFrame: framehandle;
 
     // Default minimap options
-    private readonly defaultColor = BlzConvertColor(255, 145, 104, 60);
-    private readonly pixelTexture = 'Textures\\white.blp';//'2Pixel.dds';
+    private readonly defaultColor;
+    private pixelTexture = 'Textures\\white.blp';
 
     // Generator options
     private currentX = 0;
@@ -32,6 +34,8 @@ export class CustomMinimap {
         this.width = mapBounds.maxX - mapBounds.minX;
         this.height = mapBounds.maxY - mapBounds.minY;
 
+        this.defaultColor = BlzConvertColor(255, 145, 104, 60);
+
         const minimapOrigin = Frame.fromOrigin(ORIGIN_FRAME_MINIMAP, 0);
         minimapOrigin.setAlpha(0);
 
@@ -44,25 +48,65 @@ export class CustomMinimap {
         let customMinimap = Frame.fromHandle(BlzCreateSimpleFrame("CustomMinimap", BlzGetFrameByName("ConsoleUI", 0), 0));
         customMinimap
             .setPoint(FRAMEPOINT_BOTTOMLEFT, minimapOrigin, FRAMEPOINT_BOTTOMLEFT, 0, 0)
-            .setPoint(FRAMEPOINT_TOPRIGHT, minimapOrigin, FRAMEPOINT_TOPRIGHT, 0, 0)
+            .setPoint(FRAMEPOINT_TOPRIGHT, minimapOrigin, FRAMEPOINT_TOPRIGHT, 0, 0);
+
+        this.mapFrame = customMinimap.handle;
 
         const widthFuzz = 0.01 * width;
         const heightFuzz = 0.01 * height;
         for (let x = 0; x < 64; x++) {
             for (let y = 0; y < 64; y++) {
 
+                let i = x + y * 64;
+                this.colors[i] = this.defaultColor;
                 let name = "Pix_" + x + "_" + y;
-                const pixel = Frame.fromName(name, 0);
+                const pixel = BlzGetFrameByName(name, 0);
                 this.mapPixelFrames[x + 64 * y] = pixel;
                 
-                pixel
-                    .clearPoints()
-                    .setSize(width + widthFuzz, height + heightFuzz)
-                    .setPoint(FRAMEPOINT_BOTTOMLEFT, customMinimap, FRAMEPOINT_BOTTOMLEFT, x * width, y * height)
-                    .setTexture(this.pixelTexture, 0, true)
-                    .setVertexColor(this.defaultColor);
+                BlzFrameClearAllPoints(pixel)
+                BlzFrameSetSize(pixel, width + widthFuzz, height + heightFuzz);
+                BlzFrameSetPoint(pixel, FRAMEPOINT_BOTTOMLEFT, customMinimap.handle, FRAMEPOINT_BOTTOMLEFT, x * width, y * height)
+                BlzFrameSetTexture(pixel, this.pixelTexture, 0, true)
+                BlzFrameSetVertexColor(pixel, this.defaultColor);
             }
         }
+
+        // let trg = new Trigger();
+        // trg.registerPlayerChatEvent(MapPlayer.fromIndex(0), '-restore minimap', true);
+        // trg.addAction(() => {
+        //     if (this.pixelTexture == 'Textures\\white.blp') this.pixelTexture = '2Pixel.dds';
+        //     else (this.pixelTexture = 'Textures\\white.blp');
+
+        //     Log.Info("Restored minimap using texture", this.pixelTexture);
+
+        //     BlzFrameSetVisible(this.mapFrame, false);
+        //     let customMinimap = Frame.fromHandle(BlzCreateSimpleFrame("CustomMinimap", BlzGetFrameByName("ConsoleUI", 0), 0));
+        //     customMinimap
+        //         .setPoint(FRAMEPOINT_BOTTOMLEFT, minimapOrigin, FRAMEPOINT_BOTTOMLEFT, 0, 0)
+        //         .setPoint(FRAMEPOINT_TOPRIGHT, minimapOrigin, FRAMEPOINT_TOPRIGHT, 0, 0);
+
+        //     this.mapFrame = customMinimap.handle;
+
+        //     try {
+        //         for (let x = 0; x < 64; x++) {
+        //             for (let y = 0; y < 64; y++) {
+        
+        //                 let i = x + y * 64;
+        //                 let name = "Pix_" + x + "_" + y;
+        //                 const pixel = BlzGetFrameByName(name, 0);
+        //                 this.mapPixelFrames[x + 64 * y] = pixel;
+                        
+        //                 BlzFrameClearAllPoints(pixel)
+        //                 BlzFrameSetSize(pixel, width + widthFuzz, height + heightFuzz);
+        //                 BlzFrameSetPoint(pixel, FRAMEPOINT_BOTTOMLEFT, customMinimap.handle, FRAMEPOINT_BOTTOMLEFT, x * width, y * height)
+        //                 BlzFrameSetTexture(pixel, this.pixelTexture, 0, true)
+        //                 BlzFrameSetVertexColor(pixel, this.colors[i]);
+        //             }
+        //         }
+        //     } catch (ex) {
+        //         Log.Error(ex);
+        //     }
+        // })
     }
 
     // public generateThread() {
@@ -132,15 +176,21 @@ export class CustomMinimap {
         let mapX = math.floor(64 * (x - this.minX) / this.width + 0.5);
         let mapY = math.floor(64 * (y - this.minY) / this.height + 0.5);
         
-        const pixel = this.mapPixelFrames[mapX + mapY * 64];
-        if (pixel)
-            pixel.setVertexColor(color);
+        let i = mapX + mapY * 64;
+        const pixel = this.mapPixelFrames[i];
+        if (pixel) {
+            this.colors[i] = color;
+            BlzFrameSetVertexColor(pixel, color);
+        }
     }
 
     setMiniPixel(col: number, row: number, color: number) {
         
-        const pixel = this.mapPixelFrames[col + row * 64];
-        if (pixel)
-            pixel.setVertexColor(color);
+        let i = col + row * 64;
+        const pixel = this.mapPixelFrames[i];
+        if (pixel) {
+            this.colors[i] = color;
+            BlzFrameSetVertexColor(pixel, color);
+        }
     }
 }
