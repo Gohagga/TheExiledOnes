@@ -57,5 +57,60 @@ export class Config {
         tooltip: 'Collection of main prospector abilities.'
     }
 
+    // Artisan
+    CrudeAxe: Wc3Ability = {
+        name: 'Craft Crude Axe',
+        codeId: 'A0A0',
+        extCodeId: 'ASA0'
+    }
+
+    CrudePickaxe: Wc3Ability = {
+        name: 'Craft Crude Pickaxe',
+        codeId: 'A0A1',
+        extCodeId: 'ASA1',
+        tooltip: 'Summons two eyes for 60 seconds that can scout nearby land.'
+    }
+
+    Workstation: Wc3Ability = {
+        name: 'Prepare Workstation',
+        codeId: 'A0A2',
+        extCodeId: 'ASA2',
+        tooltip: 'Creates a felstone material using 3 stones and 50 fel.'
+    }
+
+    HellForge: Wc3Ability = {
+        name: 'Prepare Hell Forge',
+        codeId: 'A0A3',
+        extCodeId: 'ASA3',
+        tooltip: 'Consume 100 fel to create a Crystallized Fel item which can be consumed for 100 fel.'
+    }
+
+    Transmuter: Wc3Ability = {
+        name: 'Prepare Transmuter',
+        codeId: 'A0A4',
+        extCodeId: 'ASA4',
+        tooltip: 'Unleash parasites onto a tree. They will mutate the tree, changing its internal structure. When cut down, Demonfruit trees will drop cursewood and demonfruit.'
+    }
+
+    ArtisanSpellbook: Wc3Ability = {
+        name: 'Basic Abilities',
+        codeId: 'A0AQ',
+        tooltip: 'Collection of main artisan abilities.'
+    }
+
+    // Tools
+
+    Axe: Wc3Ability = {
+        name: 'Use Axe',
+        codeId: 'AT00',
+        tooltip: 'Chop down trees and stuff'
+    }
+
+    Pickaxe: Wc3Ability = {
+        name: 'Use Pickaxe',
+        codeId: 'AT01',
+        tooltip: 'Pick rocks and stuff'
+    }
+
 //#endregion
 }

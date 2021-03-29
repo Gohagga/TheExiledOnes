@@ -45,7 +45,7 @@ export class TileBuilder {
                     return TerrainType.Dirt;
 
             case PathingType.Hills:
-                if (height || this.heightBuilder.getHeight(x, y) > 150)
+                if (height || this.heightBuilder.getHeight(x, y)-this.pathingBuilder.waterHeight > 180)
                     return TerrainType.Rock;
                 else
                     return TerrainType.Dirt;

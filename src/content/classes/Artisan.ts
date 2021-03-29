@@ -6,13 +6,19 @@ import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
 import { MapPlayer, Unit } from "w3ts/index";
 import { PlayerClass } from "./PlayerClass";
 
-export class Prospector extends PlayerClass {
+export class Artisan extends PlayerClass {
     
     constructor(
         protected unit: Unit,
         protected abilities: {
             ArtisanSpellbook: IAbility,
-            Felsmithing: IAbility,
+            // Felsmithing: IAbility,
+
+            CrudeAxe: IAbility,
+            CrudePickaxe: IAbility,
+            Workstation: IAbility,
+            HellForge: IAbility,
+            Transmuter: IAbility
         },
         protected slotManager: AbilitySlotManager
     ) {
@@ -28,7 +34,13 @@ export class Prospector extends PlayerClass {
 
         // Add Prospector spellbook for this unit
         this.abilities.ArtisanSpellbook.AddToUnit(this.unit);
-        
+
+        this.Add(AbilitySlot.Q, this.abilities.CrudeAxe);
+        this.Add(AbilitySlot.W, this.abilities.CrudePickaxe);
+        this.Add(AbilitySlot.E, this.abilities.Workstation);
+        this.Add(AbilitySlot.R, this.abilities.HellForge);
+        this.Add(AbilitySlot.A, this.abilities.Transmuter);
+
         // Remove and readd spells
         Log.Info("Updating spell list");
         this.slotManager.UpdateSpellList(this.unit);

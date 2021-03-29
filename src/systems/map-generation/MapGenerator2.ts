@@ -1,18 +1,20 @@
 import { Log } from "Log";
 import { CustomMinimap } from "systems/minimap/CustomMinimap";
 import { Random } from "systems/random/Random";
+import { ResourceDropManager } from "systems/resource-drops/ResourceDropManager";
 import { Rectangle } from "w3ts/index";
 import { CaveHeightBuilder } from "./builders/CaveHeightBuilder";
 import { CaveTileBuilder } from "./builders/CaveTileBuilder";
 import { HeightBuilder } from "./builders/HeightBuilder";
 import { MinimapBuilder } from "./builders/MinimapBuilder";
-import { PathingBuilder } from "./builders/PathingBuilder";
+import { PathingBuilder, PathingType } from "./builders/PathingBuilder";
 import { TileBuilder } from "./builders/TileBuilder";
 import { TreeBuilder } from "./builders/TreeBuilder";
 import { ICavernNoiseProvider } from "./interfaces/ICavernNoiseProvider";
 import { IHeightNoiseProvider } from "./interfaces/IHeightNoiseProvider";
 import { IMoistureNoiseProvider } from "./interfaces/IMoistureNoiseProvider";
 import { ITreeNoiseProvider } from "./interfaces/ITreeNoiseProvider";
+import { OrePlacer } from "./object-placers/OrePlacer";
 
 export class MapGenerator2 {
     private readonly generatorThread: LuaThread;
@@ -28,6 +30,7 @@ export class MapGenerator2 {
     public startPoint: { x: number, y: number } = { x: 0, y: 0 }
 
     public heightBuilder!: HeightBuilder;
+    public pathingBuilder!: PathingBuilder;
 
     constructor(
         private readonly minimap: CustomMinimap,
@@ -35,6 +38,7 @@ export class MapGenerator2 {
         private readonly treeNoise: ITreeNoiseProvider,
         private readonly moistureNoise: IMoistureNoiseProvider,
         private readonly cavernNoise: ICavernNoiseProvider,
+        private readonly resourceDropManager: ResourceDropManager,
         private readonly surfaceBounds: Rectangle,
         private readonly undergroundBounds: Rectangle,
         random: Random,
@@ -68,15 +72,21 @@ export class MapGenerator2 {
             let rec = new Rectangle(-11424.0, -3520.0, -4896.0, 3008.0);
             Log.Info("Rect", rec.minX, rec.minY, rec.maxX, rec.maxY);
     
+            // Builders
             let neutralHeight = 74;
+            let waterHeight = 45;
             let heightBuilder = new HeightBuilder(this.heightNoise, neutralHeight, xDensity, yDensity, 128);
             this.heightBuilder = heightBuilder;
-            let pathingBuilder = new PathingBuilder(heightBuilder, 45);
+            let pathingBuilder = new PathingBuilder(heightBuilder, waterHeight);
+            this.pathingBuilder = pathingBuilder;
             let tileBuilder = new TileBuilder(heightBuilder, pathingBuilder, this.moistureNoise);
-            let treeBuilder = new TreeBuilder(heightBuilder, pathingBuilder, this.treeNoise, xDensity, yDensity, this.random)
+            let treeBuilder = new TreeBuilder(heightBuilder, pathingBuilder, this.treeNoise, this.resourceDropManager, xDensity, yDensity, this.random)
             let caveHeightBuilder = new CaveHeightBuilder(this.cavernNoise, xDensUnder, yDensUnder, this.stepOffset, this.random); //1 / this.undergroundBounds.maxX
             let caveTileBuilder = new CaveTileBuilder(caveHeightBuilder);
             let minimapBuilder = new MinimapBuilder(this.minimap, heightBuilder, pathingBuilder, tileBuilder);
+
+            // Object Placers
+            let orePlacer = new OrePlacer(this.random, this.surfaceBounds, heightBuilder);
             
             // Generate Surface
             const { maxX, maxY } = this.surfaceBounds;
@@ -112,6 +122,10 @@ export class MapGenerator2 {
                         let underY = y - this.surfaceBounds.minY + this.undergroundBounds.minY;
                         this.debt += caveHeightBuilder.buildCaveHeight(underX, underY);
                         this.debt += caveTileBuilder.buildCaveTile(underX, underY);
+
+                        if (height > 150 && height < 180 && pathing == PathingType.HillSteepUnwalkable) {
+                            orePlacer.AddPossibleStoneSpot({ x, y, z: height - waterHeight });
+                        }
                     }
                     this.debt += pathingBuilder.buildPathing(x, y, pathing);
 
@@ -135,6 +149,8 @@ export class MapGenerator2 {
                 }
                 miniLine++;
             }
+
+            orePlacer.placeRocksAndStones(20, 30);
     
             this.isDone = true;
         } catch (err) {

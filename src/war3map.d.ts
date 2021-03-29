@@ -4,3 +4,5 @@ declare var gg_unit_Hblm_0003: unit;
 declare var gg_unit_Hpal_0002: unit;
 declare var gg_rct_UndergroundMap: rect;
 declare var gg_rct_SurfaceMap: rect;
+declare var gg_rct_TestSurface: rect;
+declare var gg_rct_TestUnderground: rect;

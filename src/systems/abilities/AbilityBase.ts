@@ -20,7 +20,6 @@ export abstract class AbilityBase implements Wc3Ability, IAbility {
         this.name = data.name;
 
         this.id = FourCC(data.codeId);
-        Log.Info(this.id);
         if (!this.id) Log.Error(this.name, "Failed to translate Ability Id", data.codeId);
         BlzSetAbilityTooltip(this.id, data.name, 0);
 

@@ -671,3 +671,603 @@ STRING 120
 Crystalizes 100 fel into a powerup item that can be picked up by other units.
 }
 
+STRING 121
+// Items: IMS1 (Rock), Name (Name)
+{
+Rock
+}
+
+STRING 122
+// Items: IMS1 (Rock), Tip (Tooltip - Basic)
+{
+Stone
+}
+
+STRING 123
+// Items: IMS1 (Rock), Description (Description)
+{
+Material.
+}
+
+STRING 124
+// Items: IMS1 (Rock), Ubertip (Tooltip - Extended)
+{
+Material.
+}
+
+STRING 126
+// Destructibles: B0R0 (Stone Pile), Name (Name)
+{
+Stone Pile
+}
+
+STRING 127
+// Abilities: A001 (TestQueue), Name (Name)
+{
+TestQueue
+}
+
+STRING 128
+// Abilities: A001 (TestQueue), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 129
+// Abilities: A001 (TestQueue), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 130
+// Abilities: A001 (TestQueue), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 131
+// Abilities: A001 (TestQueue), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 132
+// Abilities: A001 (TestQueue), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 133
+// Abilities: A001 (TestQueue), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 134
+// Abilities: A001 (TestQueue), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 136
+// Abilities: AT00 (Axe), Name (Name)
+{
+Axe
+}
+
+STRING 137
+// Abilities: AT00 (Axe), EditorSuffix (Editor Suffix)
+{
+ (Tool)
+}
+
+STRING 138
+// Abilities: AT00 (Axe), Tip (Tooltip - Normal)
+{
+Axe
+}
+
+STRING 139
+// Abilities: AT00 (Axe), Tip (Tooltip - Normal)
+{
+Axe
+}
+
+STRING 140
+// Abilities: AT00 (Axe), Tip (Tooltip - Normal)
+{
+Axe
+}
+
+STRING 141
+// Abilities: AT00 (Axe), Tip (Tooltip - Normal)
+{
+Axe
+}
+
+STRING 142
+// Abilities: AT01 (Pickaxe), Name (Name)
+{
+Pickaxe
+}
+
+STRING 143
+// Abilities: AT01 (Pickaxe), EditorSuffix (Editor Suffix)
+{
+ (Tool)
+}
+
+STRING 144
+// Abilities: AT01 (Pickaxe), Tip (Tooltip - Normal)
+{
+Axe
+}
+
+STRING 145
+// Abilities: AT01 (Pickaxe), Tip (Tooltip - Normal)
+{
+Axe
+}
+
+STRING 146
+// Abilities: AT01 (Pickaxe), Tip (Tooltip - Normal)
+{
+Axe
+}
+
+STRING 147
+// Abilities: AT01 (Pickaxe), Tip (Tooltip - Normal)
+{
+Axe
+}
+
+STRING 148
+// Items: IT00 (Stone Axe), Name (Name)
+{
+Stone Axe
+}
+
+STRING 149
+// Abilities: AT0Z (Equip Tool), Name (Name)
+{
+Equip Tool
+}
+
+STRING 150
+// Abilities: AT0Z (Equip Tool), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 151
+// Abilities: AT0Z (Equip Tool), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 152
+// Abilities: AT0Z (Equip Tool), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 153
+// Abilities: AT0Z (Equip Tool), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 154
+// Abilities: AT0Z (Equip Tool), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 155
+// Abilities: AT0Z (Equip Tool), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 156
+// Abilities: AT0Z (Equip Tool), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 157
+// Items: IT01 (Stone Pickaxe), Name (Name)
+{
+Stone Pickaxe
+}
+
+STRING 158
+// Units: h000 (Workstation), Name (Name)
+{
+Workstation
+}
+
+STRING 160
+// Abilities: A0A0 (Craft Crude Axe), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 161
+// Abilities: A0A0 (Craft Crude Axe), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 162
+// Abilities: A0A0 (Craft Crude Axe), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 163
+// Abilities: A0A0 (Craft Crude Axe), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 164
+// Abilities: A0A0 (Craft Crude Axe), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 165
+// Abilities: A0A0 (Craft Crude Axe), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 166
+// Abilities: A0A0 (Craft Crude Axe), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 168
+// Abilities: A0A1 (Craft Crude Pickaxe), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 169
+// Abilities: A0A1 (Craft Crude Pickaxe), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 170
+// Abilities: A0A1 (Craft Crude Pickaxe), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 171
+// Abilities: A0A1 (Craft Crude Pickaxe), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 172
+// Abilities: A0A1 (Craft Crude Pickaxe), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 173
+// Abilities: A0A1 (Craft Crude Pickaxe), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 174
+// Abilities: A0A1 (Craft Crude Pickaxe), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 175
+// Abilities: A0A2 (Prepare Workstation), Name (Name)
+{
+Prepare Workstation
+}
+
+STRING 176
+// Abilities: A0A2 (Prepare Workstation), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 177
+// Abilities: A0A2 (Prepare Workstation), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 178
+// Abilities: A0A2 (Prepare Workstation), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 179
+// Abilities: A0A2 (Prepare Workstation), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 180
+// Abilities: A0A2 (Prepare Workstation), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 181
+// Abilities: A0A2 (Prepare Workstation), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 182
+// Abilities: A0A2 (Prepare Workstation), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 183
+// Abilities: A0A3 (Prepare Hell Forge), Name (Name)
+{
+Prepare Hell Forge
+}
+
+STRING 184
+// Abilities: A0A3 (Prepare Hell Forge), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 185
+// Abilities: A0A3 (Prepare Hell Forge), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 186
+// Abilities: A0A3 (Prepare Hell Forge), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 187
+// Abilities: A0A3 (Prepare Hell Forge), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 188
+// Abilities: A0A3 (Prepare Hell Forge), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 189
+// Abilities: A0A3 (Prepare Hell Forge), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 190
+// Abilities: A0A3 (Prepare Hell Forge), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 191
+// Abilities: ASA3 (Addition Prepare Hell Forge), Name (Name)
+{
+Addition Prepare Hell Forge
+}
+
+STRING 192
+// Abilities: ASA2 (Addition Prepare Workstation), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 193
+// Abilities: ASA2 (Addition Prepare Workstation), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 194
+// Abilities: ASA2 (Addition Prepare Workstation), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 195
+// Abilities: ASA0 (Addition Craft Crude Axe), Name (Name)
+{
+Addition Craft Crude Axe
+}
+
+STRING 196
+// Abilities: ASA0 (Addition Craft Crude Axe), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 197
+// Abilities: ASA0 (Addition Craft Crude Axe), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 198
+// Abilities: ASA0 (Addition Craft Crude Axe), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 199
+// Abilities: ASA1 (Addition Craft Crude Pickaxe), Name (Name)
+{
+Addition Craft Crude Pickaxe
+}
+
+STRING 200
+// Abilities: ASA1 (Addition Craft Crude Pickaxe), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 201
+// Abilities: ASA1 (Addition Craft Crude Pickaxe), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 202
+// Abilities: ASA1 (Addition Craft Crude Pickaxe), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 203
+// Abilities: ASA2 (Addition Prepare Workstation), Name (Name)
+{
+Addition Prepare Workstation
+}
+
+STRING 204
+// Abilities: ASA3 (Addition Prepare Hell Forge), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 205
+// Abilities: ASA3 (Addition Prepare Hell Forge), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 206
+// Abilities: ASA3 (Addition Prepare Hell Forge), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 207
+// Abilities: A0A4 (Prepare Transmuter), Name (Name)
+{
+Prepare Transmuter
+}
+
+STRING 208
+// Abilities: A0A4 (Prepare Transmuter), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 209
+// Abilities: A0A4 (Prepare Transmuter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 210
+// Abilities: A0A4 (Prepare Transmuter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 211
+// Abilities: A0A4 (Prepare Transmuter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 212
+// Abilities: A0A4 (Prepare Transmuter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 213
+// Abilities: A0A4 (Prepare Transmuter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 214
+// Abilities: A0A4 (Prepare Transmuter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 215
+// Abilities: ASA4 (Addition Prepare Transmuter), Name (Name)
+{
+Addition Prepare Transmuter
+}
+
+STRING 216
+// Abilities: ASA4 (Addition Prepare Transmuter), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 217
+// Abilities: ASA4 (Addition Prepare Transmuter), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 218
+// Abilities: ASA4 (Addition Prepare Transmuter), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 221
+// Abilities: A0A0 (Craft Crude Axe), Name (Name)
+{
+Craft Crude Axe
+}
+
+STRING 222
+// Abilities: A0A1 (Craft Crude Pickaxe), Name (Name)
+{
+Craft Crude Pickaxe
+}
+
+STRING 224
+// Abilities: A0AQ (Base Artisan Spellbook), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 225
+// Abilities: A0AQ (Base Artisan Spellbook), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 226
+// Abilities: A0AQ (Base Artisan Spellbook), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 227
+// Abilities: A0AQ (Base Artisan Spellbook), Name (Name)
+{
+Base Artisan Spellbook
+}
+
