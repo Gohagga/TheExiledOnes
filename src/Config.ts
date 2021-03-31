@@ -1,4 +1,7 @@
+import { TransmuteAbility } from "content/abilities/artisan/Transmute"
+import { Wc3BuildingAbility } from "systems/abilities/BuildingAbilityBase"
 import { Wc3Ability } from "systems/abilities/Wc3Ability"
+import { Material } from "systems/crafting/Material"
 
 export class Config {
 
@@ -58,6 +61,31 @@ export class Config {
     }
 
     // Artisan
+    Transmute: Wc3Ability = {
+        name: 'Transmute',
+        codeId: 'A0A5',
+        extCodeId: 'ASA5',
+        tooltip: 'Transmutes materials'
+    }
+
+    TransmuteRock: TransmuteAbility = {
+        name: 'Transmute Rock',
+        codeId: 'A0A6',
+        extCodeId: 'ASA6',
+        matAmount: 3,
+        material: Material.Wood | Material.TierI,
+        tooltip: 'Transmutes 3 sticks into rock'
+    }
+
+    TransmuteIron: TransmuteAbility = {
+        name: 'Transmute Iron',
+        codeId: 'A0A7',
+        extCodeId: 'ASA7',
+        matAmount: 3,
+        material: Material.Stone | Material.TierI,
+        tooltip: 'Transmutes 3 rocks into an iron'
+    }
+
     CrudeAxe: Wc3Ability = {
         name: 'Craft Crude Axe',
         codeId: 'A0A0',
@@ -71,9 +99,10 @@ export class Config {
         tooltip: 'Summons two eyes for 60 seconds that can scout nearby land.'
     }
 
-    Workstation: Wc3Ability = {
+    Workstation: Wc3BuildingAbility = {
         name: 'Prepare Workstation',
-        codeId: 'A0A2',
+        buildCodeId: 'ABA2',
+        prepareCodeId: 'A0A2',
         extCodeId: 'ASA2',
         tooltip: 'Creates a felstone material using 3 stones and 50 fel.'
     }

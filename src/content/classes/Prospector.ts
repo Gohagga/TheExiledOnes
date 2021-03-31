@@ -20,7 +20,8 @@ export class Prospector extends PlayerClass {
             TransferFel: IAbility,
             PrepareFelCollector: IAbility
         },
-        protected slotManager: AbilitySlotManager
+        protected basicSlotManager: AbilitySlotManager,
+        protected specialSlotManager: AbilitySlotManager
     ) {
         super(unit);
         this.Start();
@@ -29,7 +30,7 @@ export class Prospector extends PlayerClass {
     protected Progress(): void {
 
         // Register this unit or reset slots if it exists
-        this.slotManager.RegisterUnit(this.unit)
+        this.basicSlotManager.RegisterUnit(this.unit)
         //     this.slotManager.ResetSlots(this.unit);
 
         // Add Prospector spellbook for this unit
@@ -45,10 +46,10 @@ export class Prospector extends PlayerClass {
 
         // Remove and readd spells
         Log.Info("Updating spell list");
-        this.slotManager.UpdateSpellList(this.unit);
+        this.basicSlotManager.UpdateSpellList(this.unit);
     }
 
     private Add(slot: AbilitySlot, ability: IAbility) {
-        this.slotManager.ApplySlot(this.unit, slot, ability);
+        this.basicSlotManager.ApplySlot(this.unit, slot, ability);
     }
 }

@@ -1,10 +1,14 @@
 import { Config } from "Config";
 import { CrudeAxe } from "content/abilities/artisan/CrudeAxe";
+import { CrudePickaxe } from "content/abilities/artisan/CrudePickaxe";
+import { Transmute } from "content/abilities/artisan/Transmute";
+import { Workstation } from "content/abilities/artisan/Workstation";
 import { Defile } from "content/abilities/prospector/Defile";
 import { Axe } from "content/abilities/tools/Axe";
 import { Pickaxe } from "content/abilities/tools/Pickaxe";
 import { Artisan } from "content/classes/Artisan";
 import { Prospector } from "content/classes/Prospector";
+import { ResourceItem } from "content/items/ResourceItem";
 import { Level, Log } from "Log";
 import { PathingService } from "services/PathingService";
 import { BasicAbility } from "systems/abilities/BasicAbility";
@@ -35,7 +39,8 @@ export function Initialize() {
     // Abilities
     const abilityEvent = new AbilityEventHandler();
     const abilityEventProvider = new AbilityEventProvider(abilityEvent);
-    const slotManager = new AbilitySlotManager();
+    const basicSlotManager = new AbilitySlotManager();
+    const specialSlotManager = new AbilitySlotManager();
     const errorService = new ErrorService();
 
     const pathingService = new PathingService('hval');
@@ -104,32 +109,32 @@ export function Initialize() {
             Log.Info("Terrain height:", mapGenerator.heightBuilder.getHeight(x, y), pathingName);
         });
     
-        // let time = os.clock();
-        // // mapGenerator.resume();
+        let time = os.clock();
+        mapGenerator.resume();
 
-        // const tim = new Timer()
-        // const progressTim = new Timer();
-        // tim.start(0.02, true, () => {
-        //     if (mapGenerator.isDone) {
-        //         tim.destroy();
-        //         progressTim.destroy();
-        //         time = os.clock() - time;
+        const tim = new Timer()
+        const progressTim = new Timer();
+        tim.start(0.02, true, () => {
+            if (mapGenerator.isDone) {
+                tim.destroy();
+                progressTim.destroy();
+                time = os.clock() - time;
 
-        //         Log.Info("Finished generating in ", time);
-        //         // EnumDestructablesInRectAll(Rect(p.x-100, p.y-100, p.x+100, p.y+100), () => {
-        //             //     if (GetEnumDestructable())
-        //             //         nearDestruct = true;
-        //             // });
+                Log.Info("Finished generating in ", time);
+                // EnumDestructablesInRectAll(Rect(p.x-100, p.y-100, p.x+100, p.y+100), () => {
+                    //     if (GetEnumDestructable())
+                    //         nearDestruct = true;
+                    // });
                     
-        //     } else
-        //         mapGenerator.resume();
-        // });
-        // progressTim.start(1, true, () => {
-        //     ClearTextMessages();
-        //     let passed = math.floor(os.clock() - time + 0.5);
-        //     let prediction = passed / mapGenerator.progress;
-        //     Log.Info("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%', "seconds passed: ", passed, "prediction: ", prediction);
-        // });
+            } else
+                mapGenerator.resume();
+        });
+        progressTim.start(1, true, () => {
+            ClearTextMessages();
+            let passed = math.floor(os.clock() - time + 0.5);
+            let prediction = passed / mapGenerator.progress;
+            Log.Info("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%', "seconds passed: ", passed, "prediction: ", prediction);
+        });
     });
 
     const mapArea = Rectangle.getWorldBounds();
@@ -150,15 +155,20 @@ export function Initialize() {
         const craftingManager = new CraftingManager();
 
         // Materials
-        craftingManager.RegisterItemMaterial(FourCC('IM00'), Material.Stone | Material.TierI);
-        craftingManager.RegisterItemMaterial(FourCC('IM01'), Material.Wood | Material.TierI | Material.TierII);
-        craftingManager.RegisterItemMaterial(FourCC('IM02'), Material.Stone | Material.TierI | Material.TierII);
-        craftingManager.RegisterItemMaterial(FourCC('IM03'), Material.Wood | Material.TierI | Material.TierII | Material.TierIII);
+        craftingManager.RegisterItemMaterial(FourCC('IMS1'), Material.Stone | Material.TierI);
+        craftingManager.RegisterItemMaterial(FourCC('IMS2'), Material.Stone | Material.TierII);
+        craftingManager.RegisterItemMaterial(FourCC('IMS3'), Material.Stone | Material.TierIII);
 
+        craftingManager.RegisterItemMaterial(FourCC('IMW1'), Material.Wood | Material.TierI);
+        craftingManager.RegisterItemMaterial(FourCC('IMW2'), Material.Wood | Material.TierII);
+        // craftingManager.RegisterItemMaterial(FourCC('IMW3'), Material.Wood | Material.TierIII);
+
+        let prospectorQ = new BasicAbility(config.ProspectorSpellbook);
+        let artisanQ = new BasicAbility(config.ArtisanSpellbook);
         let abilities = {
 
             // Prospector
-            ProspectorSpellbook: new BasicAbility(config.ProspectorSpellbook),
+            ProspectorSpellbook: prospectorQ,
             Defile: new Defile(config.Defile, abilityEvent, errorService),
             EyeOfKilrogg: new BasicAbility(config.EyeOfKilrogg),
             InfuseFelstone: new BasicAbility(config.InfuseFelstone),
@@ -168,10 +178,13 @@ export function Initialize() {
             PrepareFelCollector: new BasicAbility(config.PrepareFelCollector),
 
             // Artisan
-            ArtisanSpellbook: new BasicAbility(config.ArtisanSpellbook),
-            CrudeAxe: new CrudeAxe(config.CrudeAxe, abilityEvent, craftingManager),
-            CrudePickaxe: new BasicAbility(config.CrudePickaxe),
-            Workstation: new BasicAbility(config.Workstation),
+            ArtisanSpellbook: artisanQ,
+            Transmute: new BasicAbility(config.Transmute),
+            TransmuteRock: new Transmute(config.TransmuteRock, abilityEvent, craftingManager, errorService, ResourceItem.Rock),
+            TransmuteIron: new Transmute(config.TransmuteIron, abilityEvent, craftingManager, errorService, ResourceItem.Iron),
+            CrudeAxe: new CrudeAxe(config.CrudeAxe, abilityEvent, craftingManager, errorService),
+            CrudePickaxe: new CrudePickaxe(config.CrudePickaxe, abilityEvent, craftingManager, errorService),
+            Workstation: new Workstation(config.Workstation, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService),
             HellForge: new BasicAbility(config.HellForge),
             Transmuter: new BasicAbility(config.Transmuter),
 
@@ -181,8 +194,10 @@ export function Initialize() {
         }
 
         // Tools
-        toolManager.RegisterTool('IT00', abilities.Axe);
-        toolManager.RegisterTool('IT01', abilities.Pickaxe);
+        toolManager.RegisterTool('IT00', abilities.Axe, 1);
+        toolManager.RegisterTool('IT02', abilities.Axe, 2);
+        toolManager.RegisterTool('IT01', abilities.Pickaxe, 1);
+        toolManager.RegisterTool('IT03', abilities.Pickaxe, 2);
 
         // // Make players
         // let startPoint = { x: 0, y: 0 };
@@ -192,7 +207,7 @@ export function Initialize() {
 
         let p = MapPlayer.fromIndex(0);
         let u = Unit.fromHandle(gg_unit_Hblm_0003);
-        let pc = new Artisan(u, abilities, slotManager);
+        let pc = new Artisan(u, abilities, basicSlotManager, specialSlotManager);
     
         let cam = new Trigger();
         cam.registerPlayerChatEvent(MapPlayer.fromLocal(), '-cam', false);

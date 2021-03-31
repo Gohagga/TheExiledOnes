@@ -11,5 +11,7 @@ export const enum AbilitySlot {
 
     Z = 8,
     X = 9,
-    C = 10
+    C = 10,
+
+    PreparedSlot = 20
 }

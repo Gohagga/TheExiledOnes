@@ -11,16 +11,21 @@ export class Prospector extends PlayerClass {
     constructor(
         protected unit: Unit,
         protected abilities: {
-            ProspectorSpellbook: IAbility,
-            Defile: IAbility,
-            EyeOfKilrogg: IAbility,
-            InfuseFelstone: IAbility,
-            CrystalizeFel: IAbility,
-            Demonfruit: IAbility,
-            TransferFel: IAbility,
-            PrepareFelCollector: IAbility
+            ResearcherSpellbook: IAbility,
+            ResearchSpellbook: IAbility,
+            Study: IAbility,
+            OrganicMatter: IAbility,
+            Obliterum: IAbility,
+            ExperimentChamber: IAbility,
+            Bellows: IAbility,
+            Collector: IAbility,
+            FelInjector: IAbility,
+
+            // Research
+
         },
-        protected slotManager: AbilitySlotManager
+        protected basicSlotManager: AbilitySlotManager,
+        protected specialSlotManager: AbilitySlotManager
     ) {
         super(unit);
         this.Start();
@@ -29,26 +34,27 @@ export class Prospector extends PlayerClass {
     protected Progress(): void {
 
         // Register this unit or reset slots if it exists
-        this.slotManager.RegisterUnit(this.unit)
+        this.basicSlotManager.RegisterUnit(this.unit)
         //     this.slotManager.ResetSlots(this.unit);
 
         // Add Prospector spellbook for this unit
-        this.abilities.ProspectorSpellbook.AddToUnit(this.unit);
+        this.abilities.ResearcherSpellbook.AddToUnit(this.unit);
+        this.abilities.ResearchSpellbook.AddToUnit(this.unit);
 
-        this.Add(AbilitySlot.Q, this.abilities.Defile);
-        this.Add(AbilitySlot.W, this.abilities.EyeOfKilrogg);
-        this.Add(AbilitySlot.E, this.abilities.InfuseFelstone);
-        this.Add(AbilitySlot.R, this.abilities.CrystalizeFel);
-        this.Add(AbilitySlot.A, this.abilities.Demonfruit);
-        this.Add(AbilitySlot.S, this.abilities.TransferFel);
-        this.Add(AbilitySlot.D, this.abilities.PrepareFelCollector);
+        // this.Add(AbilitySlot.Q, this.abilities.Defile);
+        // this.Add(AbilitySlot.W, this.abilities.EyeOfKilrogg);
+        // this.Add(AbilitySlot.E, this.abilities.InfuseFelstone);
+        // this.Add(AbilitySlot.R, this.abilities.CrystalizeFel);
+        // this.Add(AbilitySlot.A, this.abilities.Demonfruit);
+        // this.Add(AbilitySlot.S, this.abilities.TransferFel);
+        // this.Add(AbilitySlot.D, this.abilities.PrepareFelCollector);
 
         // Remove and readd spells
         Log.Info("Updating spell list");
-        this.slotManager.UpdateSpellList(this.unit);
+        this.basicSlotManager.UpdateSpellList(this.unit);
     }
 
     private Add(slot: AbilitySlot, ability: IAbility) {
-        this.slotManager.ApplySlot(this.unit, slot, ability);
+        this.basicSlotManager.ApplySlot(this.unit, slot, ability);
     }
 }

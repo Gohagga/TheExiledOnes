@@ -3,13 +3,16 @@ import { MapPlayer, Sound } from "w3ts/index";
 export class ErrorService {
 
     private errorSound: Sound;
+    // private color = 'ff6038';
+    // private color = 'ff4c38';
+    private color = 'f9ce0d';
     constructor() {
         this.errorSound = Sound.fromHandle(CreateSoundFromLabel('InterfaceError', false, false, false, 10, 10));
     }
 
     DisplayError(player: MapPlayer, message: string) {
 
-        message = `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n|cffffcc00${message}|r`;
+        message = `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n|cff${this.color}${message}|r`;
         if (GetLocalPlayer() == player.handle) {
             ClearTextMessages();
             DisplayTimedTextToPlayer(player.handle, 0.51, 0.96, 2, message);

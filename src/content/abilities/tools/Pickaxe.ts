@@ -1,11 +1,13 @@
+import { ResourceItem } from "content/items/ResourceItem";
 import { AbilityBase } from "systems/abilities/AbilityBase";
 import { Wc3Ability } from "systems/abilities/Wc3Ability";
 import { AbilityEvent } from "systems/events/ability-events/event-models/AbilityEvent";
 import { IAbilityEventHandler } from "systems/events/ability-events/IAbilityEventHandler";
-import { OreType, ResourceItem } from "systems/map-generation/object-placers/OrePlacer";
+import { OreType } from "systems/map-generation/object-placers/OrePlacer";
 import { Item, Unit } from "w3ts/index";
+import { ToolAbilityBase } from "../../../systems/abilities/ToolAbilityBase";
 
-export class Pickaxe extends AbilityBase {
+export class Pickaxe extends ToolAbilityBase {
 
     constructor(
         data: Wc3Ability,
@@ -25,7 +27,7 @@ export class Pickaxe extends AbilityBase {
         let intervalLife = target.maxLife / totalDrops;
 
         // 15
-        let dmg = 30;//6.25 + (level - 1) * 2;
+        let dmg = 30 + (level - 1) * 15;
         caster.damageTarget(target.handle, dmg, true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_AXE_MEDIUM_CHOP);
         
         switch (target.typeId) {
@@ -37,7 +39,7 @@ export class Pickaxe extends AbilityBase {
                 
                 let { x, y } = target;
                 for (let i = 0; i < toDrop; i++) {
-                    let it = new Item(FourCC('IM00'), x, y);
+                    let it = new Item(ResourceItem.StoneII, x, y);
                     caster.addItem(it);
                 }
                 break;

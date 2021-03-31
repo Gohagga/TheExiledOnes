@@ -6,6 +6,7 @@ gg_trg_Initialization = nil
 gg_trg_Untitled_Trigger_003 = nil
 gg_trg_Untitled_Trigger_001 = nil
 gg_trg_Untitled_Trigger_002 = nil
+gg_trg_Untitled_Trigger_004 = nil
 gg_unit_Hblm_0003 = nil
 gg_unit_Hpal_0002 = nil
 function InitGlobals()
@@ -13,16 +14,28 @@ end
 
 function CreateAllItems()
     local itemID
-    BlzCreateItemWithSkin(FourCC("IM00"), -11202.3, -13031.8, FourCC("IM00"))
-    BlzCreateItemWithSkin(FourCC("IM00"), -11010.4, -12790.9, FourCC("IM00"))
-    BlzCreateItemWithSkin(FourCC("IM00"), -11163.7, -13065.2, FourCC("IM00"))
-    BlzCreateItemWithSkin(FourCC("IM01"), -11332.8, -13001.1, FourCC("IM01"))
-    BlzCreateItemWithSkin(FourCC("IM01"), -11288.0, -12921.2, FourCC("IM01"))
-    BlzCreateItemWithSkin(FourCC("IM02"), -11213.9, -13156.2, FourCC("IM02"))
-    BlzCreateItemWithSkin(FourCC("IM02"), -11122.1, -13161.0, FourCC("IM02"))
-    BlzCreateItemWithSkin(FourCC("IM03"), -11366.9, -13125.4, FourCC("IM03"))
-    BlzCreateItemWithSkin(FourCC("IM03"), -11330.5, -13168.8, FourCC("IM03"))
+    BlzCreateItemWithSkin(FourCC("IMS1"), -11292.3, -12841.6, FourCC("IMS1"))
     BlzCreateItemWithSkin(FourCC("IMS1"), -10908.6, -12816.3, FourCC("IMS1"))
+    BlzCreateItemWithSkin(FourCC("IMS1"), -11348.3, -12906.4, FourCC("IMS1"))
+    BlzCreateItemWithSkin(FourCC("IMS1"), -11028.7, -13103.6, FourCC("IMS1"))
+    BlzCreateItemWithSkin(FourCC("IMS1"), -11401.2, -12967.5, FourCC("IMS1"))
+    BlzCreateItemWithSkin(FourCC("IMS1"), -11371.4, -12946.8, FourCC("IMS1"))
+    BlzCreateItemWithSkin(FourCC("IMS2"), -11352.6, -13101.9, FourCC("IMS2"))
+    BlzCreateItemWithSkin(FourCC("IMS2"), -11440.5, -13082.6, FourCC("IMS2"))
+    BlzCreateItemWithSkin(FourCC("IMS2"), -11375.7, -13046.6, FourCC("IMS2"))
+    BlzCreateItemWithSkin(FourCC("IMS2"), -11485.7, -13138.4, FourCC("IMS2"))
+    BlzCreateItemWithSkin(FourCC("IMS3"), -11199.7, -13041.0, FourCC("IMS3"))
+    BlzCreateItemWithSkin(FourCC("IMS3"), -11180.7, -13104.7, FourCC("IMS3"))
+    BlzCreateItemWithSkin(FourCC("IMS3"), -11235.9, -13146.0, FourCC("IMS3"))
+    BlzCreateItemWithSkin(FourCC("IMS3"), -11121.9, -13065.0, FourCC("IMS3"))
+    BlzCreateItemWithSkin(FourCC("IMW1"), -11484.8, -12967.5, FourCC("IMW1"))
+    BlzCreateItemWithSkin(FourCC("IMW1"), -11365.4, -12819.5, FourCC("IMW1"))
+    BlzCreateItemWithSkin(FourCC("IMW1"), -11240.0, -12915.3, FourCC("IMW1"))
+    BlzCreateItemWithSkin(FourCC("IMW1"), -11492.7, -12886.8, FourCC("IMW1"))
+    BlzCreateItemWithSkin(FourCC("IMW2"), -11387.1, -12886.8, FourCC("IMW2"))
+    BlzCreateItemWithSkin(FourCC("IMW2"), -11375.4, -13182.0, FourCC("IMW2"))
+    BlzCreateItemWithSkin(FourCC("IMW2"), -11484.7, -13040.0, FourCC("IMW2"))
+    BlzCreateItemWithSkin(FourCC("IMW2"), -11308.7, -12946.8, FourCC("IMW2"))
     BlzCreateItemWithSkin(FourCC("IT00"), -11185.3, -12839.9, FourCC("IT00"))
     BlzCreateItemWithSkin(FourCC("IT01"), -11149.5, -12968.9, FourCC("IT01"))
     BlzCreateItemWithSkin(FourCC("IT01"), -11275.6, -13069.0, FourCC("IT01"))
@@ -44,7 +57,13 @@ function CreateUnitsForPlayer0()
     local unitID
     local t
     local life
-    gg_unit_Hblm_0003 = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -11106.4, -12393.6, 3.208, FourCC("Hblm"))
+    gg_unit_Hblm_0003 = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -11565.9, -12597.5, 3.210, FourCC("Hblm"))
+    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM01"), 0)
+    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM01"), 1)
+    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM01"), 2)
+    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM00"), 3)
+    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM00"), 4)
+    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM00"), 5)
     u = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -10535.4, -11694.8, 279.402, FourCC("Hblm"))
     u = BlzCreateUnitWithSkin(p, FourCC("hpea"), 1539.6, -1122.3, 214.328, FourCC("hpea"))
     u = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -10620.7, -11459.1, 279.402, FourCC("Hblm"))
@@ -109,26 +128,20 @@ function InitTrig_Untitled_Trigger_001()
     TriggerAddAction(gg_trg_Untitled_Trigger_001, Trig_Untitled_Trigger_001_Actions)
 end
 
-function Trig_Untitled_Trigger_002_Actions()
-    DisplayTextToForce(GetPlayersAll(), (GetUnitName(GetTriggerUnit()) .. (" starts " .. GetAbilityName(GetSpellAbilityId()))))
-    DisplayTextToForce(GetPlayersAll(), (GetUnitName(GetTriggerUnit()) .. (" starts " .. GetAbilityName(GetSpellAbilityId()))))
-    DisplayTextToForce(GetPlayersAll(), (GetUnitName(GetTriggerUnit()) .. (" orders " .. OrderId2StringBJ(GetIssuedOrderIdBJ()))))
+function Trig_Untitled_Trigger_004_Actions()
 end
 
-function InitTrig_Untitled_Trigger_002()
-    gg_trg_Untitled_Trigger_002 = CreateTrigger()
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Untitled_Trigger_002, EVENT_PLAYER_UNIT_SPELL_EFFECT)
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Untitled_Trigger_002, EVENT_PLAYER_UNIT_SPELL_CHANNEL)
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Untitled_Trigger_002, EVENT_PLAYER_UNIT_SPELL_CAST)
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Untitled_Trigger_002, EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER)
-    TriggerAddAction(gg_trg_Untitled_Trigger_002, Trig_Untitled_Trigger_002_Actions)
+function InitTrig_Untitled_Trigger_004()
+    gg_trg_Untitled_Trigger_004 = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Untitled_Trigger_004, EVENT_PLAYER_UNIT_CONSTRUCT_START)
+    TriggerAddAction(gg_trg_Untitled_Trigger_004, Trig_Untitled_Trigger_004_Actions)
 end
 
 function InitCustomTriggers()
     InitTrig_Initialization()
     InitTrig_Untitled_Trigger_003()
     InitTrig_Untitled_Trigger_001()
-    InitTrig_Untitled_Trigger_002()
+    InitTrig_Untitled_Trigger_004()
 end
 
 function RunInitializationTriggers()

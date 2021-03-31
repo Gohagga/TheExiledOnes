@@ -11,7 +11,7 @@ export const enum Material {
     TierII = 1 << 2,
     TierIII = 1 << 3,
     TierIV = 1 << 4,
-    // AnyTier = 1 << 5 | TierI | TierII | TierIII | TierIV,
+    AnyTier = (1 << 5) | TierI | TierII | TierIII | TierIV,
 
     Wood = 1 << 10,
     Stone = 1 << 11,

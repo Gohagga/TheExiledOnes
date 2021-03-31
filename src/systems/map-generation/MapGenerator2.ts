@@ -15,6 +15,7 @@ import { IHeightNoiseProvider } from "./interfaces/IHeightNoiseProvider";
 import { IMoistureNoiseProvider } from "./interfaces/IMoistureNoiseProvider";
 import { ITreeNoiseProvider } from "./interfaces/ITreeNoiseProvider";
 import { OrePlacer } from "./object-placers/OrePlacer";
+import { RandomObjectPlacer } from "./object-placers/RandomObjectPlacer";
 
 export class MapGenerator2 {
     private readonly generatorThread: LuaThread;
@@ -87,6 +88,7 @@ export class MapGenerator2 {
 
             // Object Placers
             let orePlacer = new OrePlacer(this.random, this.surfaceBounds, heightBuilder);
+            let randomPlacer = new RandomObjectPlacer(this.random);
             
             // Generate Surface
             const { maxX, maxY } = this.surfaceBounds;
@@ -126,6 +128,8 @@ export class MapGenerator2 {
                         if (height > 150 && height < 180 && pathing == PathingType.HillSteepUnwalkable) {
                             orePlacer.AddPossibleStoneSpot({ x, y, z: height - waterHeight });
                         }
+                        
+                        if (tree) randomPlacer.AddTree(tree);
                     }
                     this.debt += pathingBuilder.buildPathing(x, y, pathing);
 
@@ -151,6 +155,7 @@ export class MapGenerator2 {
             }
 
             orePlacer.placeRocksAndStones(20, 30);
+            randomPlacer.PlaceBranches(40);
     
             this.isDone = true;
         } catch (err) {

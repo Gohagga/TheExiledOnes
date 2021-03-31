@@ -7,6 +7,20 @@ export class AbilitySlotManager {
 
     protected instances: Record<number, Record<AbilitySlot, IAbility>> = {};
 
+    GetSlot(unit: Unit, slot: AbilitySlot): IAbility | null {
+        
+        let unitId = unit.id;
+        if (unitId in this.instances == false) {
+            Log.Error(AbilitySlotManager, "Unit has not been registered", unit.name);
+            return null;
+        } else {
+        
+            let unitSlots = this.instances[unitId];
+            if (slot in unitSlots) return unitSlots[slot];
+            return null;
+        }
+    }
+
     ApplySlot(unit: Unit, slot: AbilitySlot, ability: IAbility) {
         
         let unitId = unit.id;
@@ -18,6 +32,20 @@ export class AbilitySlotManager {
             let unitSlots = this.instances[unitId];
             if (slot in unitSlots) unitSlots[slot].RemoveFromUnit(unit);
             this.instances[unitId][slot] = ability;
+        }
+    }
+
+    ClearSlot(unit: Unit, slot: AbilitySlot): boolean {
+
+        let unitId = unit.id;
+        if (unitId in this.instances == false) {
+            Log.Error(AbilitySlotManager, "Unit has not been registered", unit.name);
+            return false;
+        } else {
+        
+            let unitSlots = this.instances[unitId];
+            if (slot in unitSlots) delete unitSlots[slot];
+            return true;
         }
     }
 
@@ -33,7 +61,7 @@ export class AbilitySlotManager {
         }
     }
 
-    ResetSlots(unit: Unit): boolean {
+    ResetAllSlots(unit: Unit): boolean {
 
         let unitId = unit.id;
         if (unitId in this.instances == false) {

@@ -1,13 +1,9 @@
+import { ResourceItem } from "content/items/ResourceItem";
 import { Log } from "Log";
 import { PathingService } from "services/PathingService";
 import { Random } from "systems/random/Random";
 import { Rectangle } from "w3ts/index";
 import { HeightBuilder } from "../builders/HeightBuilder";
-
-export enum ResourceItem {
-    Rock            = FourCC('IMS1'),
-    Stone           = FourCC('IMS2'),
-}
 
 export enum OreType {
 

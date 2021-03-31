@@ -1,9 +1,11 @@
+import { ResourceItem } from "content/items/ResourceItem";
 import { AbilityBase } from "systems/abilities/AbilityBase";
 import { Wc3Ability } from "systems/abilities/Wc3Ability";
 import { AbilityEvent } from "systems/events/ability-events/event-models/AbilityEvent";
 import { IAbilityEventHandler } from "systems/events/ability-events/IAbilityEventHandler";
 import { Unit } from "w3ts/index";
-export class Axe extends AbilityBase {
+import { ToolAbilityBase } from "../../../systems/abilities/ToolAbilityBase";
+export class Axe extends ToolAbilityBase {
 
     constructor(
         data: Wc3Ability,
@@ -31,10 +33,11 @@ export class Axe extends AbilityBase {
 
             let { x, y } = target;
             for (let i = 0; i < drop; i++) {
-                CreateItem(FourCC('IM01'), x, y);
+                CreateItem(ResourceItem.WoodII, x, y);
             }
         }
     }
     
-    TooltipDescription?: ((unit: Unit) => string) | undefined;
+    TooltipDescription = (unit: Unit) => 
+`Use Axe to chop down trees.`;
 }

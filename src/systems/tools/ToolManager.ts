@@ -3,11 +3,12 @@ import { IAbility } from "systems/abilities/IAbility";
 import { IAbilityEventHandler } from "systems/events/ability-events/IAbilityEventHandler";
 import { Item } from "w3ts/handles/item";
 import { MapPlayer, Trigger, Unit } from "w3ts/index";
+import { IToolAbility } from "./IToolAbility";
 
 export class ToolManager {
 
-    private readonly toolDefinition: Record<number, { ability: IAbility }> = {};
-    private readonly instances: Record<number, { ability: IAbility, item: Item }> = {};
+    private readonly toolDefinition: Record<number, { ability: IToolAbility, tier: number }> = {};
+    private readonly instances: Record<number, { ability: IToolAbility, item: Item }> = {};
 
     private readonly equipAbilityId: number;
 
@@ -20,12 +21,13 @@ export class ToolManager {
         t.addAction(() => this.Equip(Unit.fromEvent(), Item.fromEvent()));
     }
 
-    RegisterTool(itemTypeCode: string, ability: IAbility) {
+    RegisterTool(itemTypeCode: string, ability: IToolAbility, tier: number) {
 
         let itemType = FourCC(itemTypeCode);
 
         this.toolDefinition[itemType] = {
-            ability
+            ability,
+            tier
         }
     }
 
@@ -56,6 +58,7 @@ export class ToolManager {
             }
         }
         def.ability.AddToUnit(unit);
+        def.ability.SetLevel(unit, def.tier);
     }
 
     unequip(unit: Unit) {
