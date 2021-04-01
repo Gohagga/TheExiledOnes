@@ -9,6 +9,7 @@ import { Pickaxe } from "content/abilities/tools/Pickaxe";
 import { Artisan } from "content/classes/Artisan";
 import { Prospector } from "content/classes/Prospector";
 import { ResourceItem } from "content/items/ResourceItem";
+import { WorkstationMachine } from "content/machines/WorkstationMachine";
 import { Level, Log } from "Log";
 import { PathingService } from "services/PathingService";
 import { BasicAbility } from "systems/abilities/BasicAbility";
@@ -163,6 +164,9 @@ export function Initialize() {
         craftingManager.RegisterItemMaterial(FourCC('IMW2'), Material.Wood | Material.TierII);
         // craftingManager.RegisterItemMaterial(FourCC('IMW3'), Material.Wood | Material.TierIII);
 
+        craftingManager.RegisterItemMaterial(ResourceItem.Iron, Material.Metal | Material.TierI);
+        // craftingManager.RegisterItemMaterial(FourCC('IMW2'), Material.Wood | Material.TierII);
+
         let prospectorQ = new BasicAbility(config.ProspectorSpellbook);
         let artisanQ = new BasicAbility(config.ArtisanSpellbook);
         let abilities = {
@@ -198,6 +202,9 @@ export function Initialize() {
         toolManager.RegisterTool('IT02', abilities.Axe, 2);
         toolManager.RegisterTool('IT01', abilities.Pickaxe, 1);
         toolManager.RegisterTool('IT03', abilities.Pickaxe, 2);
+
+        // Machines
+        const workstation = new WorkstationMachine(FourCC('h000'), errorService, craftingManager);
 
         // // Make players
         // let startPoint = { x: 0, y: 0 };

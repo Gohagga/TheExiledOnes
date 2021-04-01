@@ -1,23 +1,23 @@
 import { Log } from "Log";
+import { Timer, Unit } from "w3ts/index";
 import { CraftingRecipe } from "./CraftingRecipe";
 import { Material } from "./Material";
 
 export class CraftingManager {
 
     private readonly itemMaterials: Record<number, Material> = {};
-    private readonly recipes: Record<number, CraftingRecipe> = {};
+    // private readonly recipes: Record<number, CraftingRecipe> = {};
     
     constructor(
     ) {
-        
     }
 
-    CreateRecipe(materials: [number, ...Material[]][]): CraftingRecipe {
+    public CreateRecipe(materials: [number, ...Material[]][]): CraftingRecipe {
 
         return new CraftingRecipe(this.itemMaterials, materials, []);
     }
 
-    private MaterialToString(material: Material) {
+    private MaterialToString(material: Material): string {
 
         let name = '';
         if (Material.Wood == (Material.Wood & material)) name += ' Wood'
@@ -33,7 +33,7 @@ export class CraftingManager {
         return name.trim();
     }
 
-    RegisterItemMaterial(itemTypeId: number, material: Material) {
+    public RegisterItemMaterial(itemTypeId: number, material: Material) {
 
         Log.Info("Registered", itemTypeId, material);
         this.itemMaterials[itemTypeId] = material;

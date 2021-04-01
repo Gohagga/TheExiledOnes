@@ -1601,3 +1601,33 @@ STRING 342
 S
 }
 
+STRING 343
+// Units: oP00 (Mechanism), Name (Name)
+{
+Mechanism
+}
+
+STRING 344
+// Units: oP01 (Tank), Name (Name)
+{
+Tank
+}
+
+STRING 345
+// Items: IP00 (Mechanism), Name (Name)
+{
+Mechanism
+}
+
+STRING 346
+// Items: IP00 (Mechanism), Ubertip (Tooltip - Extended)
+{
+Material |cff808080Wood I|r
+}
+
+STRING 347
+// Items: IP00 (Mechanism), Description (Description)
+{
+Material |cff808080Wood I|r
+}
+
