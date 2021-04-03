@@ -1,0 +1,5 @@
+Frame "SIMPLEFRAME" "MinimapPixel" {
+    Width 0.001,
+    Height 0.001,
+    Texture "Pix" { }
+}

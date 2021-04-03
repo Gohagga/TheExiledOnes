@@ -194,9 +194,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_0_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_0_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_1_0" { }
     }
     Layer "ARTWORK" {
@@ -387,9 +384,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_1_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_1_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_2_0" { }
@@ -584,9 +578,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_2_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_2_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_3_0" { }
     }
     Layer "ARTWORK" {
@@ -777,9 +768,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_3_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_3_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_4_0" { }
@@ -974,9 +962,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_4_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_4_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_5_0" { }
     }
     Layer "ARTWORK" {
@@ -1167,9 +1152,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_5_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_5_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_6_0" { }
@@ -1364,9 +1346,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_6_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_6_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_7_0" { }
     }
     Layer "ARTWORK" {
@@ -1557,9 +1536,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_7_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_7_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_8_0" { }
@@ -1754,9 +1730,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_8_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_8_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_9_0" { }
     }
     Layer "ARTWORK" {
@@ -1947,9 +1920,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_9_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_9_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_10_0" { }
@@ -2144,9 +2114,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_10_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_10_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_11_0" { }
     }
     Layer "ARTWORK" {
@@ -2337,9 +2304,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_11_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_11_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_12_0" { }
@@ -2534,9 +2498,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_12_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_12_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_13_0" { }
     }
     Layer "ARTWORK" {
@@ -2727,9 +2688,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_13_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_13_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_14_0" { }
@@ -2924,9 +2882,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_14_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_14_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_15_0" { }
     }
     Layer "ARTWORK" {
@@ -3117,9 +3072,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_15_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_15_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_16_0" { }
@@ -3314,9 +3266,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_16_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_16_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_17_0" { }
     }
     Layer "ARTWORK" {
@@ -3507,9 +3456,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_17_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_17_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_18_0" { }
@@ -3704,9 +3650,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_18_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_18_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_19_0" { }
     }
     Layer "ARTWORK" {
@@ -3897,9 +3840,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_19_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_19_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_20_0" { }
@@ -4094,9 +4034,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_20_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_20_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_21_0" { }
     }
     Layer "ARTWORK" {
@@ -4287,9 +4224,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_21_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_21_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_22_0" { }
@@ -4484,9 +4418,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_22_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_22_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_23_0" { }
     }
     Layer "ARTWORK" {
@@ -4677,9 +4608,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_23_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_23_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_24_0" { }
@@ -4874,9 +4802,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_24_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_24_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_25_0" { }
     }
     Layer "ARTWORK" {
@@ -5067,9 +4992,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_25_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_25_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_26_0" { }
@@ -5264,9 +5186,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_26_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_26_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_27_0" { }
     }
     Layer "ARTWORK" {
@@ -5457,9 +5376,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_27_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_27_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_28_0" { }
@@ -5654,9 +5570,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_28_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_28_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_29_0" { }
     }
     Layer "ARTWORK" {
@@ -5847,9 +5760,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_29_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_29_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_30_0" { }
@@ -6044,9 +5954,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_30_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_30_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_31_0" { }
     }
     Layer "ARTWORK" {
@@ -6237,9 +6144,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_31_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_31_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_32_0" { }
@@ -6434,9 +6338,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_32_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_32_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_33_0" { }
     }
     Layer "ARTWORK" {
@@ -6627,9 +6528,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_33_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_33_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_34_0" { }
@@ -6824,9 +6722,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_34_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_34_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_35_0" { }
     }
     Layer "ARTWORK" {
@@ -7017,9 +6912,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_35_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_35_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_36_0" { }
@@ -7214,9 +7106,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_36_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_36_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_37_0" { }
     }
     Layer "ARTWORK" {
@@ -7407,9 +7296,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_37_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_37_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_38_0" { }
@@ -7604,9 +7490,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_38_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_38_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_39_0" { }
     }
     Layer "ARTWORK" {
@@ -7797,9 +7680,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_39_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_39_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_40_0" { }
@@ -7994,9 +7874,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_40_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_40_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_41_0" { }
     }
     Layer "ARTWORK" {
@@ -8187,9 +8064,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_41_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_41_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_42_0" { }
@@ -8384,9 +8258,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_42_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_42_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_43_0" { }
     }
     Layer "ARTWORK" {
@@ -8577,9 +8448,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_43_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_43_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_44_0" { }
@@ -8774,9 +8642,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_44_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_44_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_45_0" { }
     }
     Layer "ARTWORK" {
@@ -8967,9 +8832,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_45_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_45_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_46_0" { }
@@ -9164,9 +9026,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_46_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_46_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_47_0" { }
     }
     Layer "ARTWORK" {
@@ -9357,9 +9216,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_47_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_47_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_48_0" { }
@@ -9554,9 +9410,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_48_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_48_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_49_0" { }
     }
     Layer "ARTWORK" {
@@ -9747,9 +9600,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_49_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_49_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_50_0" { }
@@ -9944,9 +9794,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_50_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_50_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_51_0" { }
     }
     Layer "ARTWORK" {
@@ -10137,9 +9984,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_51_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_51_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_52_0" { }
@@ -10334,9 +10178,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_52_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_52_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_53_0" { }
     }
     Layer "ARTWORK" {
@@ -10527,9 +10368,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_53_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_53_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_54_0" { }
@@ -10724,9 +10562,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_54_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_54_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_55_0" { }
     }
     Layer "ARTWORK" {
@@ -10917,9 +10752,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_55_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_55_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_56_0" { }
@@ -11114,9 +10946,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_56_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_56_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_57_0" { }
     }
     Layer "ARTWORK" {
@@ -11307,9 +11136,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_57_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_57_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_58_0" { }
@@ -11504,9 +11330,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_58_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_58_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_59_0" { }
     }
     Layer "ARTWORK" {
@@ -11697,9 +11520,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_59_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_59_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_60_0" { }
@@ -11894,9 +11714,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_60_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_60_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_61_0" { }
     }
     Layer "ARTWORK" {
@@ -12087,9 +11904,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_61_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_61_64" { }
     }
     Layer "ARTWORK" {
         Texture "DM_62_0" { }
@@ -12284,9 +12098,6 @@ Frame "SIMPLEFRAME" "DungeonMap" {
         Texture "DM_62_63" { }
     }
     Layer "ARTWORK" {
-        Texture "DM_62_64" { }
-    }
-    Layer "ARTWORK" {
         Texture "DM_63_0" { }
     }
     Layer "ARTWORK" {
@@ -12477,203 +12288,5 @@ Frame "SIMPLEFRAME" "DungeonMap" {
     }
     Layer "ARTWORK" {
         Texture "DM_63_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_63_64" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_0" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_1" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_2" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_3" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_4" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_5" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_6" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_7" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_8" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_9" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_10" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_11" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_12" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_13" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_14" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_15" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_16" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_17" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_18" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_19" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_20" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_21" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_22" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_23" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_24" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_25" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_26" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_27" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_28" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_29" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_30" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_31" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_32" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_33" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_34" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_35" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_36" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_37" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_38" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_39" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_40" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_41" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_42" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_43" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_44" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_45" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_46" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_47" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_48" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_49" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_50" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_51" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_52" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_53" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_54" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_55" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_56" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_57" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_58" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_59" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_60" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_61" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_62" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_63" { }
-    }
-    Layer "ARTWORK" {
-        Texture "DM_64_64" { }
     }
 }
