@@ -8,8 +8,12 @@ gg_trg_Untitled_Trigger_003 = nil
 gg_trg_Untitled_Trigger_001 = nil
 gg_trg_Untitled_Trigger_002 = nil
 gg_trg_Untitled_Trigger_004 = nil
+gg_trg_Untitled_Trigger_005 = nil
+gg_trg_Untitled_Trigger_005_Copy = nil
+gg_trg_Untitled_Trigger_006 = nil
 gg_unit_Hblm_0003 = nil
 gg_unit_Hpal_0002 = nil
+gg_unit_h000_0016 = nil
 function InitGlobals()
 end
 
@@ -39,9 +43,17 @@ function CreateAllItems()
     BlzCreateItemWithSkin(FourCC("IMW2"), -11375.4, -13182.0, FourCC("IMW2"))
     BlzCreateItemWithSkin(FourCC("IMW2"), -11484.7, -13040.0, FourCC("IMW2"))
     BlzCreateItemWithSkin(FourCC("IMW2"), -11387.1, -12886.8, FourCC("IMW2"))
+    BlzCreateItemWithSkin(FourCC("IPF1"), -11813.3, -12437.1, FourCC("IPF1"))
+    BlzCreateItemWithSkin(FourCC("IPF2"), -11817.6, -12335.7, FourCC("IPF2"))
+    BlzCreateItemWithSkin(FourCC("IPF3"), -11827.1, -12242.4, FourCC("IPF3"))
+    BlzCreateItemWithSkin(FourCC("IPF4"), -11831.4, -12133.9, FourCC("IPF4"))
+    BlzCreateItemWithSkin(FourCC("IPM1"), -11699.0, -12409.1, FourCC("IPM1"))
+    BlzCreateItemWithSkin(FourCC("IPM2"), -11699.3, -12310.7, FourCC("IPM2"))
+    BlzCreateItemWithSkin(FourCC("IPM3"), -11697.8, -12210.6, FourCC("IPM3"))
+    BlzCreateItemWithSkin(FourCC("IPM4"), -11695.7, -12109.0, FourCC("IPM4"))
     BlzCreateItemWithSkin(FourCC("IT00"), -11185.3, -12839.9, FourCC("IT00"))
-    BlzCreateItemWithSkin(FourCC("IT01"), -11275.6, -13069.0, FourCC("IT01"))
     BlzCreateItemWithSkin(FourCC("IT01"), -11149.5, -12968.9, FourCC("IT01"))
+    BlzCreateItemWithSkin(FourCC("IT01"), -11275.6, -13069.0, FourCC("IT01"))
     BlzCreateItemWithSkin(FourCC("hval"), -10389.8, -12681.8, FourCC("hval"))
 end
 
@@ -51,7 +63,10 @@ function CreateBuildingsForPlayer0()
     local unitID
     local t
     local life
-    u = BlzCreateUnitWithSkin(p, FourCC("h000"), -10624.0, -13120.0, 270.000, FourCC("h000"))
+    gg_unit_h000_0016 = BlzCreateUnitWithSkin(p, FourCC("h000"), -10624.0, -13120.0, 270.000, FourCC("h000"))
+    u = BlzCreateUnitWithSkin(p, FourCC("halt"), -11424.0, -11744.0, 270.000, FourCC("halt"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h003"), -10368.0, -13120.0, 270.000, FourCC("h003"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h004"), -10496.0, -13312.0, 270.000, FourCC("h004"))
 end
 
 function CreateUnitsForPlayer0()
@@ -60,16 +75,18 @@ function CreateUnitsForPlayer0()
     local unitID
     local t
     local life
-    gg_unit_Hblm_0003 = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -1538.0, 100.8, 3.210, FourCC("Hblm"))
+    gg_unit_Hblm_0003 = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -11527.3, -12379.4, 3.210, FourCC("Hblm"))
     UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM01"), 0)
     UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM01"), 1)
     UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM01"), 2)
     UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM00"), 3)
     UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM00"), 4)
     UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM00"), 5)
-    u = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -10535.4, -11694.8, 279.402, FourCC("Hblm"))
+    u = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -11427.2, -11361.5, 279.402, FourCC("Hblm"))
     u = BlzCreateUnitWithSkin(p, FourCC("hpea"), 1539.6, -1122.3, 214.328, FourCC("hpea"))
-    u = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -10620.7, -11459.1, 279.402, FourCC("Hblm"))
+    u = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -11512.4, -11125.9, 279.402, FourCC("Hblm"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h002"), -10756.4, -13272.4, 204.385, FourCC("h002"))
+    u = BlzCreateUnitWithSkin(p, FourCC("ufro"), -10752.1, -10665.5, 33.310, FourCC("ufro"))
 end
 
 function CreateUnitsForPlayer1()
@@ -81,8 +98,18 @@ function CreateUnitsForPlayer1()
     gg_unit_Hpal_0002 = BlzCreateUnitWithSkin(p, FourCC("Hpal"), 237.9, -832.4, 269.898, FourCC("Hpal"))
 end
 
+function CreateBuildingsForPlayer11()
+    local p = Player(11)
+    local u
+    local unitID
+    local t
+    local life
+    u = BlzCreateUnitWithSkin(p, FourCC("uslh"), -10048.0, -11136.0, 270.000, FourCC("uslh"))
+end
+
 function CreatePlayerBuildings()
     CreateBuildingsForPlayer0()
+    CreateBuildingsForPlayer11()
 end
 
 function CreatePlayerUnits()
@@ -107,6 +134,7 @@ end
 function Trig_Initialization_Actions()
     SelectUnitForPlayerSingle(gg_unit_Hblm_0003, Player(0))
     SelectUnitForPlayerSingle(gg_unit_Hpal_0002, Player(1))
+    SelectUnitForPlayerSingle(gg_unit_h000_0016, Player(1))
 end
 
 function InitTrig_Initialization()
@@ -152,11 +180,46 @@ function InitTrig_Untitled_Trigger_004()
     TriggerAddAction(gg_trg_Untitled_Trigger_004, Trig_Untitled_Trigger_004_Actions)
 end
 
+function Trig_Untitled_Trigger_005_Actions()
+    udg_u = GroupPickRandomUnit(GetUnitsSelectedAll(Player(0)))
+    CreateNUnitsAtLoc(1, FourCC("nDUM"), Player(0), GetUnitLoc(udg_u), bj_UNIT_FACING)
+    UnitAddAbilityBJ(FourCC("ACcb"), GetLastCreatedUnit())
+    IssueTargetOrderBJ(GetLastCreatedUnit(), "thunderbolt", udg_u)
+end
+
+function InitTrig_Untitled_Trigger_005()
+    gg_trg_Untitled_Trigger_005 = CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Untitled_Trigger_005, Player(0), "-pause", true)
+    TriggerAddAction(gg_trg_Untitled_Trigger_005, Trig_Untitled_Trigger_005_Actions)
+end
+
+function Trig_Untitled_Trigger_005_Copy_Actions()
+    udg_u = GroupPickRandomUnit(GetUnitsSelectedAll(Player(0)))
+    SetPlayerAbilityAvailableBJ(true, FourCC("A005"), Player(0))
+end
+
+function InitTrig_Untitled_Trigger_005_Copy()
+    gg_trg_Untitled_Trigger_005_Copy = CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Untitled_Trigger_005_Copy, Player(0), "-unpause", true)
+    TriggerAddAction(gg_trg_Untitled_Trigger_005_Copy, Trig_Untitled_Trigger_005_Copy_Actions)
+end
+
+function Trig_Untitled_Trigger_006_Actions()
+end
+
+function InitTrig_Untitled_Trigger_006()
+    gg_trg_Untitled_Trigger_006 = CreateTrigger()
+    TriggerAddAction(gg_trg_Untitled_Trigger_006, Trig_Untitled_Trigger_006_Actions)
+end
+
 function InitCustomTriggers()
     InitTrig_Initialization()
     InitTrig_Untitled_Trigger_003()
     InitTrig_Untitled_Trigger_001()
     InitTrig_Untitled_Trigger_004()
+    InitTrig_Untitled_Trigger_005()
+    InitTrig_Untitled_Trigger_005_Copy()
+    InitTrig_Untitled_Trigger_006()
 end
 
 function RunInitializationTriggers()

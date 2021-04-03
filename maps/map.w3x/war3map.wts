@@ -1601,33 +1601,363 @@ STRING 342
 S
 }
 
-STRING 343
-// Units: oP00 (Mechanism), Name (Name)
-{
-Mechanism
-}
-
 STRING 344
 // Units: oP01 (Tank), Name (Name)
 {
 Tank
 }
 
-STRING 345
-// Items: IP00 (Mechanism), Name (Name)
+STRING 348
+// Units: oPM1 (Mechanism I), Name (Name)
 {
-Mechanism
+Mechanism I
 }
 
-STRING 346
-// Items: IP00 (Mechanism), Ubertip (Tooltip - Extended)
+STRING 349
+// Units: oPM2 (Mechanism II), Name (Name)
 {
-Material |cff808080Wood I|r
+Mechanism II
 }
 
-STRING 347
-// Items: IP00 (Mechanism), Description (Description)
+STRING 352
+// Units: oPM3 (Mechanism III), Name (Name)
 {
-Material |cff808080Wood I|r
+Mechanism III
+}
+
+STRING 355
+// Units: oPM4 (Mechanism IV), Name (Name)
+{
+Mechanism IV
+}
+
+STRING 358
+// Items: IPM1 (Mechanism I), Ubertip (Tooltip - Extended)
+{
+Part
+}
+
+STRING 359
+// Items: IPM1 (Mechanism I), Description (Description)
+{
+Part
+}
+
+STRING 360
+// Items: IPM2 (Mechanism II), Ubertip (Tooltip - Extended)
+{
+Part
+}
+
+STRING 361
+// Items: IPM2 (Mechanism II), Description (Description)
+{
+Part
+}
+
+STRING 362
+// Items: IPM3 (Mechanism III), Ubertip (Tooltip - Extended)
+{
+Part
+}
+
+STRING 363
+// Items: IPM3 (Mechanism III), Description (Description)
+{
+Part
+}
+
+STRING 364
+// Items: IPM4 (Mechanism IV), Ubertip (Tooltip - Extended)
+{
+Part
+}
+
+STRING 365
+// Items: IPM4 (Mechanism IV), Description (Description)
+{
+Part
+}
+
+STRING 366
+// Units: oPF1 (Frame I), Name (Name)
+{
+Frame I
+}
+
+STRING 367
+// Items: IPF1 (Frame I), Ubertip (Tooltip - Extended)
+{
+Part
+}
+
+STRING 368
+// Items: IPF1 (Frame I), Description (Description)
+{
+Part
+}
+
+STRING 369
+// Units: oPF2 (Frame II), Name (Name)
+{
+Frame II
+}
+
+STRING 370
+// Items: IPF2 (Frame II), Ubertip (Tooltip - Extended)
+{
+Part
+}
+
+STRING 371
+// Items: IPF2 (Frame II), Description (Description)
+{
+Part
+}
+
+STRING 372
+// Units: oPF3 (Frame III), Name (Name)
+{
+Frame III
+}
+
+STRING 373
+// Items: IPF3 (Frame III), Ubertip (Tooltip - Extended)
+{
+Part
+}
+
+STRING 374
+// Items: IPF3 (Frame III), Description (Description)
+{
+Part
+}
+
+STRING 375
+// Units: oPF4 (Frame IV), Name (Name)
+{
+Frame IV
+}
+
+STRING 376
+// Items: IPF4 (Frame IV), Ubertip (Tooltip - Extended)
+{
+Part
+}
+
+STRING 377
+// Items: IPF4 (Frame IV), Description (Description)
+{
+Part
+}
+
+STRING 379
+// Units: oPM1 (Mechanism I), Tip (Tooltip - Basic)
+{
+Mechanism I
+}
+
+STRING 380
+// Units: oPM2 (Mechanism II), Tip (Tooltip - Basic)
+{
+Mechanism II
+}
+
+STRING 381
+// Units: oPM3 (Mechanism III), Tip (Tooltip - Basic)
+{
+Mechanism III
+}
+
+STRING 382
+// Units: oPM4 (Mechanism IV), Tip (Tooltip - Basic)
+{
+Mechanism IV
+}
+
+STRING 383
+// Units: oPF1 (Frame I), Tip (Tooltip - Basic)
+{
+Frame I
+}
+
+STRING 384
+// Units: oPF2 (Frame II), Tip (Tooltip - Basic)
+{
+Frame II
+}
+
+STRING 385
+// Units: oPF3 (Frame III), Tip (Tooltip - Basic)
+{
+Frame III
+}
+
+STRING 386
+// Units: oPF4 (Frame IV), Tip (Tooltip - Basic)
+{
+Frame IV
+}
+
+STRING 387
+// Items: IPM1 (Mechanism I), Name (Name)
+{
+Mechanism I
+}
+
+STRING 388
+// Items: IPM2 (Mechanism II), Name (Name)
+{
+Mechanism II
+}
+
+STRING 389
+// Items: IPM3 (Mechanism III), Name (Name)
+{
+Mechanism III
+}
+
+STRING 390
+// Items: IPM4 (Mechanism IV), Name (Name)
+{
+Mechanism IV
+}
+
+STRING 391
+// Items: IPF1 (Frame I), Name (Name)
+{
+Frame I
+}
+
+STRING 392
+// Items: IPF2 (Frame II), Name (Name)
+{
+Frame II
+}
+
+STRING 393
+// Items: IPF3 (Frame III), Name (Name)
+{
+Frame III
+}
+
+STRING 394
+// Items: IPF4 (Frame IV), Name (Name)
+{
+Frame IV
+}
+
+STRING 395
+// Abilities: A005 (TestPause), Name (Name)
+{
+TestPause
+}
+
+STRING 396
+// Abilities: A005 (TestPause), Hotkey (Hotkey - Normal)
+{
+D
+}
+
+STRING 397
+// Abilities: A005 (TestPause), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 398
+// Abilities: A005 (TestPause), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 399
+// Abilities: A005 (TestPause), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 400
+// Abilities: A005 (TestPause), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 401
+// Abilities: A005 (TestPause), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 402
+// Abilities: A005 (TestPause), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 403
+// Abilities: A004 (Machine Stuck), Name (Name)
+{
+Machine Stuck
+}
+
+STRING 404
+// Buffs/Effects: Bfrz (Stuck), Bufftip (Tooltip)
+{
+Stuck
+}
+
+STRING 405
+// Buffs/Effects: Bfrz (Stuck), EditorName (Name (Editor Only))
+{
+Stuck
+}
+
+STRING 406
+// Buffs/Effects: Bfrz (Stuck), Buffubertip (Tooltip - Extended)
+{
+Machine is stuck. To continue, slap it hard.
+}
+
+STRING 408
+// Units: h002 (Attack Dummy), Name (Name)
+{
+Attack Dummy
+}
+
+STRING 409
+// Buffs/Effects: B000 (Stuck), EditorName (Name (Editor Only))
+{
+Stuck
+}
+
+STRING 410
+// Buffs/Effects: B000 (Stuck), Bufftip (Tooltip)
+{
+Stuck
+}
+
+STRING 411
+// Buffs/Effects: B000 (Stuck), Buffubertip (Tooltip - Extended)
+{
+Machine is stuck. To continue, slap it hard.
+}
+
+STRING 412
+// Units: oPM1 (Mechanism I), Ubertip (Tooltip - Extended)
+{
+Crafting component.|n|nMaterials|n1 Wood I|n1 Stone I|n1 Metal I
+}
+
+STRING 413
+// Units: h003 (Workstation: Tanks), Name (Name)
+{
+Workstation: Tanks
+}
+
+STRING 414
+// Units: h004 (Workstation: Converters), Name (Name)
+{
+Workstation: Converters
 }
 
