@@ -11,6 +11,7 @@ gg_trg_Untitled_Trigger_004 = nil
 gg_trg_Untitled_Trigger_005 = nil
 gg_trg_Untitled_Trigger_005_Copy = nil
 gg_trg_Untitled_Trigger_006 = nil
+gg_trg_Untitled_Trigger_007 = nil
 gg_unit_Hblm_0003 = nil
 gg_unit_Hpal_0002 = nil
 gg_unit_h000_0016 = nil
@@ -19,31 +20,45 @@ end
 
 function CreateAllItems()
     local itemID
-    BlzCreateItemWithSkin(FourCC("IMI1"), -10760.5, -13115.9, FourCC("IMI1"))
-    BlzCreateItemWithSkin(FourCC("IMI1"), -10789.7, -13151.7, FourCC("IMI1"))
+    BlzCreateItemWithSkin(FourCC("IMF1"), -11991.6, -12351.6, FourCC("IMF1"))
+    BlzCreateItemWithSkin(FourCC("IMF1"), -11931.7, -12485.8, FourCC("IMF1"))
+    BlzCreateItemWithSkin(FourCC("IMF1"), -12028.1, -12287.1, FourCC("IMF1"))
+    BlzCreateItemWithSkin(FourCC("IMF1"), -11968.2, -12421.3, FourCC("IMF1"))
+    BlzCreateItemWithSkin(FourCC("IMF2"), -12160.3, -12463.5, FourCC("IMF2"))
+    BlzCreateItemWithSkin(FourCC("IMF2"), -12205.2, -12404.6, FourCC("IMF2"))
+    BlzCreateItemWithSkin(FourCC("IMF2"), -12100.4, -12597.7, FourCC("IMF2"))
+    BlzCreateItemWithSkin(FourCC("IMF2"), -12145.3, -12538.8, FourCC("IMF2"))
+    BlzCreateItemWithSkin(FourCC("IMF3"), -11834.5, -12474.4, FourCC("IMF3"))
+    BlzCreateItemWithSkin(FourCC("IMF3"), -11894.4, -12340.2, FourCC("IMF3"))
+    BlzCreateItemWithSkin(FourCC("IMF3"), -11870.9, -12409.9, FourCC("IMF3"))
+    BlzCreateItemWithSkin(FourCC("IMF3"), -11930.8, -12275.7, FourCC("IMF3"))
+    BlzCreateItemWithSkin(FourCC("IMM1"), -12022.8, -12494.6, FourCC("IMM1"))
+    BlzCreateItemWithSkin(FourCC("IMM1"), -12082.7, -12360.5, FourCC("IMM1"))
+    BlzCreateItemWithSkin(FourCC("IMM1"), -12119.2, -12295.9, FourCC("IMM1"))
+    BlzCreateItemWithSkin(FourCC("IMM1"), -12059.3, -12430.1, FourCC("IMM1"))
+    BlzCreateItemWithSkin(FourCC("IMS1"), -11904.9, -12042.2, FourCC("IMS1"))
+    BlzCreateItemWithSkin(FourCC("IMS1"), -11912.6, -11928.0, FourCC("IMS1"))
+    BlzCreateItemWithSkin(FourCC("IMS1"), -11401.2, -12967.5, FourCC("IMS1"))
     BlzCreateItemWithSkin(FourCC("IMS1"), -10908.6, -12816.3, FourCC("IMS1"))
-    BlzCreateItemWithSkin(FourCC("IMS1"), -10784.6, -13040.6, FourCC("IMS1"))
-    BlzCreateItemWithSkin(FourCC("IMS1"), -10840.6, -13105.5, FourCC("IMS1"))
     BlzCreateItemWithSkin(FourCC("IMS1"), -11028.7, -13103.6, FourCC("IMS1"))
     BlzCreateItemWithSkin(FourCC("IMS1"), -11371.4, -12946.8, FourCC("IMS1"))
-    BlzCreateItemWithSkin(FourCC("IMS1"), -11401.2, -12967.5, FourCC("IMS1"))
+    BlzCreateItemWithSkin(FourCC("IMS2"), -11352.6, -13101.9, FourCC("IMS2"))
     BlzCreateItemWithSkin(FourCC("IMS2"), -11485.7, -13138.4, FourCC("IMS2"))
     BlzCreateItemWithSkin(FourCC("IMS2"), -11375.7, -13046.6, FourCC("IMS2"))
-    BlzCreateItemWithSkin(FourCC("IMS2"), -11352.6, -13101.9, FourCC("IMS2"))
     BlzCreateItemWithSkin(FourCC("IMS2"), -11440.5, -13082.6, FourCC("IMS2"))
-    BlzCreateItemWithSkin(FourCC("IMS3"), -11235.9, -13146.0, FourCC("IMS3"))
     BlzCreateItemWithSkin(FourCC("IMS3"), -11121.9, -13065.0, FourCC("IMS3"))
     BlzCreateItemWithSkin(FourCC("IMS3"), -11199.7, -13041.0, FourCC("IMS3"))
     BlzCreateItemWithSkin(FourCC("IMS3"), -11180.7, -13104.7, FourCC("IMS3"))
-    BlzCreateItemWithSkin(FourCC("IMW1"), -11484.8, -12967.5, FourCC("IMW1"))
+    BlzCreateItemWithSkin(FourCC("IMS3"), -11235.9, -13146.0, FourCC("IMS3"))
+    BlzCreateItemWithSkin(FourCC("IMW1"), -11805.1, -11953.8, FourCC("IMW1"))
     BlzCreateItemWithSkin(FourCC("IMW1"), -11492.7, -12886.8, FourCC("IMW1"))
-    BlzCreateItemWithSkin(FourCC("IMW1"), -10708.5, -13032.9, FourCC("IMW1"))
-    BlzCreateItemWithSkin(FourCC("IMW1"), -10751.8, -13065.4, FourCC("IMW1"))
-    BlzCreateItemWithSkin(FourCC("IMW2"), -11308.7, -12946.8, FourCC("IMW2"))
-    BlzCreateItemWithSkin(FourCC("IMW2"), -11375.4, -13182.0, FourCC("IMW2"))
+    BlzCreateItemWithSkin(FourCC("IMW1"), -11848.4, -11986.4, FourCC("IMW1"))
+    BlzCreateItemWithSkin(FourCC("IMW1"), -11484.8, -12967.5, FourCC("IMW1"))
     BlzCreateItemWithSkin(FourCC("IMW2"), -11484.7, -13040.0, FourCC("IMW2"))
+    BlzCreateItemWithSkin(FourCC("IMW2"), -11375.4, -13182.0, FourCC("IMW2"))
     BlzCreateItemWithSkin(FourCC("IMW2"), -11387.1, -12886.8, FourCC("IMW2"))
-    BlzCreateItemWithSkin(FourCC("IPF1"), -11813.3, -12437.1, FourCC("IPF1"))
+    BlzCreateItemWithSkin(FourCC("IMW2"), -11308.7, -12946.8, FourCC("IMW2"))
+    BlzCreateItemWithSkin(FourCC("IPF1"), -11785.9, -12425.6, FourCC("IPF1"))
     BlzCreateItemWithSkin(FourCC("IPF2"), -11817.6, -12335.7, FourCC("IPF2"))
     BlzCreateItemWithSkin(FourCC("IPF3"), -11827.1, -12242.4, FourCC("IPF3"))
     BlzCreateItemWithSkin(FourCC("IPF4"), -11831.4, -12133.9, FourCC("IPF4"))
@@ -63,10 +78,9 @@ function CreateBuildingsForPlayer0()
     local unitID
     local t
     local life
-    gg_unit_h000_0016 = BlzCreateUnitWithSkin(p, FourCC("h000"), -10624.0, -13120.0, 270.000, FourCC("h000"))
     u = BlzCreateUnitWithSkin(p, FourCC("halt"), -11424.0, -11744.0, 270.000, FourCC("halt"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h003"), -10368.0, -13120.0, 270.000, FourCC("h003"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h004"), -10496.0, -13312.0, 270.000, FourCC("h004"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h003"), -10880.0, -11584.0, 270.000, FourCC("h003"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h004"), -10944.0, -11456.0, 270.000, FourCC("h004"))
 end
 
 function CreateUnitsForPlayer0()
@@ -82,11 +96,20 @@ function CreateUnitsForPlayer0()
     UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM00"), 3)
     UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM00"), 4)
     UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM00"), 5)
-    u = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -11427.2, -11361.5, 279.402, FourCC("Hblm"))
+    u = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -10983.4, -11216.0, 279.402, FourCC("Hblm"))
     u = BlzCreateUnitWithSkin(p, FourCC("hpea"), 1539.6, -1122.3, 214.328, FourCC("hpea"))
-    u = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -11512.4, -11125.9, 279.402, FourCC("Hblm"))
+    u = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -10924.6, -11345.9, 279.402, FourCC("Hblm"))
     u = BlzCreateUnitWithSkin(p, FourCC("h002"), -10756.4, -13272.4, 204.385, FourCC("h002"))
     u = BlzCreateUnitWithSkin(p, FourCC("ufro"), -10752.1, -10665.5, 33.310, FourCC("ufro"))
+end
+
+function CreateBuildingsForPlayer1()
+    local p = Player(1)
+    local u
+    local unitID
+    local t
+    local life
+    u = BlzCreateUnitWithSkin(p, FourCC("hvlt"), -11648.0, -11136.0, 270.000, FourCC("hvlt"))
 end
 
 function CreateUnitsForPlayer1()
@@ -107,9 +130,20 @@ function CreateBuildingsForPlayer11()
     u = BlzCreateUnitWithSkin(p, FourCC("uslh"), -10048.0, -11136.0, 270.000, FourCC("uslh"))
 end
 
+function CreateBuildingsForPlayer20()
+    local p = Player(20)
+    local u
+    local unitID
+    local t
+    local life
+    gg_unit_h000_0016 = BlzCreateUnitWithSkin(p, FourCC("h000"), -12032.0, -11840.0, 270.000, FourCC("h000"))
+end
+
 function CreatePlayerBuildings()
     CreateBuildingsForPlayer0()
+    CreateBuildingsForPlayer1()
     CreateBuildingsForPlayer11()
+    CreateBuildingsForPlayer20()
 end
 
 function CreatePlayerUnits()
@@ -182,9 +216,7 @@ end
 
 function Trig_Untitled_Trigger_005_Actions()
     udg_u = GroupPickRandomUnit(GetUnitsSelectedAll(Player(0)))
-    CreateNUnitsAtLoc(1, FourCC("nDUM"), Player(0), GetUnitLoc(udg_u), bj_UNIT_FACING)
-    UnitAddAbilityBJ(FourCC("ACcb"), GetLastCreatedUnit())
-    IssueTargetOrderBJ(GetLastCreatedUnit(), "thunderbolt", udg_u)
+    PauseUnitBJ(true, GroupPickRandomUnit(GetUnitsSelectedAll(Player(0))))
 end
 
 function InitTrig_Untitled_Trigger_005()
@@ -205,11 +237,24 @@ function InitTrig_Untitled_Trigger_005_Copy()
 end
 
 function Trig_Untitled_Trigger_006_Actions()
+    IssueTrainOrderByIdBJ(gg_unit_h000_0016, FourCC("oPM1"))
 end
 
 function InitTrig_Untitled_Trigger_006()
     gg_trg_Untitled_Trigger_006 = CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Untitled_Trigger_006, Player(0), "-train", true)
     TriggerAddAction(gg_trg_Untitled_Trigger_006, Trig_Untitled_Trigger_006_Actions)
+end
+
+function Trig_Untitled_Trigger_007_Actions()
+    DisplayTextToForce(GetPlayersAll(), "TRIGSTR_461")
+    DisplayTextToForce(GetPlayersAll(), GetUnitName(GetTriggerUnit()))
+end
+
+function InitTrig_Untitled_Trigger_007()
+    gg_trg_Untitled_Trigger_007 = CreateTrigger()
+    TriggerRegisterAnyUnitEventBJ(gg_trg_Untitled_Trigger_007, EVENT_PLAYER_UNIT_SELL_ITEM)
+    TriggerAddAction(gg_trg_Untitled_Trigger_007, Trig_Untitled_Trigger_007_Actions)
 end
 
 function InitCustomTriggers()
@@ -220,6 +265,7 @@ function InitCustomTriggers()
     InitTrig_Untitled_Trigger_005()
     InitTrig_Untitled_Trigger_005_Copy()
     InitTrig_Untitled_Trigger_006()
+    InitTrig_Untitled_Trigger_007()
 end
 
 function RunInitializationTriggers()
@@ -257,38 +303,87 @@ function InitCustomPlayerSlots()
     SetPlayerRacePreference(Player(11), RACE_PREF_NIGHTELF)
     SetPlayerRaceSelectable(Player(11), false)
     SetPlayerController(Player(11), MAP_CONTROL_COMPUTER)
+    SetPlayerStartLocation(Player(20), 5)
+    ForcePlayerStartLocation(Player(20), 5)
+    SetPlayerColor(Player(20), ConvertPlayerColor(20))
+    SetPlayerRacePreference(Player(20), RACE_PREF_HUMAN)
+    SetPlayerRaceSelectable(Player(20), false)
+    SetPlayerController(Player(20), MAP_CONTROL_NEUTRAL)
 end
 
 function InitCustomTeams()
     SetPlayerTeam(Player(0), 0)
+    SetPlayerState(Player(0), PLAYER_STATE_ALLIED_VICTORY, 1)
     SetPlayerTeam(Player(1), 0)
+    SetPlayerState(Player(1), PLAYER_STATE_ALLIED_VICTORY, 1)
     SetPlayerTeam(Player(2), 0)
+    SetPlayerState(Player(2), PLAYER_STATE_ALLIED_VICTORY, 1)
     SetPlayerTeam(Player(3), 0)
+    SetPlayerState(Player(3), PLAYER_STATE_ALLIED_VICTORY, 1)
+    SetPlayerTeam(Player(20), 0)
+    SetPlayerState(Player(20), PLAYER_STATE_ALLIED_VICTORY, 1)
     SetPlayerAllianceStateAllyBJ(Player(0), Player(1), true)
     SetPlayerAllianceStateAllyBJ(Player(0), Player(2), true)
     SetPlayerAllianceStateAllyBJ(Player(0), Player(3), true)
+    SetPlayerAllianceStateAllyBJ(Player(0), Player(20), true)
     SetPlayerAllianceStateAllyBJ(Player(1), Player(0), true)
     SetPlayerAllianceStateAllyBJ(Player(1), Player(2), true)
     SetPlayerAllianceStateAllyBJ(Player(1), Player(3), true)
+    SetPlayerAllianceStateAllyBJ(Player(1), Player(20), true)
     SetPlayerAllianceStateAllyBJ(Player(2), Player(0), true)
     SetPlayerAllianceStateAllyBJ(Player(2), Player(1), true)
     SetPlayerAllianceStateAllyBJ(Player(2), Player(3), true)
+    SetPlayerAllianceStateAllyBJ(Player(2), Player(20), true)
     SetPlayerAllianceStateAllyBJ(Player(3), Player(0), true)
     SetPlayerAllianceStateAllyBJ(Player(3), Player(1), true)
     SetPlayerAllianceStateAllyBJ(Player(3), Player(2), true)
+    SetPlayerAllianceStateAllyBJ(Player(3), Player(20), true)
+    SetPlayerAllianceStateAllyBJ(Player(20), Player(0), true)
+    SetPlayerAllianceStateAllyBJ(Player(20), Player(1), true)
+    SetPlayerAllianceStateAllyBJ(Player(20), Player(2), true)
+    SetPlayerAllianceStateAllyBJ(Player(20), Player(3), true)
     SetPlayerAllianceStateVisionBJ(Player(0), Player(1), true)
     SetPlayerAllianceStateVisionBJ(Player(0), Player(2), true)
     SetPlayerAllianceStateVisionBJ(Player(0), Player(3), true)
+    SetPlayerAllianceStateVisionBJ(Player(0), Player(20), true)
     SetPlayerAllianceStateVisionBJ(Player(1), Player(0), true)
     SetPlayerAllianceStateVisionBJ(Player(1), Player(2), true)
     SetPlayerAllianceStateVisionBJ(Player(1), Player(3), true)
+    SetPlayerAllianceStateVisionBJ(Player(1), Player(20), true)
     SetPlayerAllianceStateVisionBJ(Player(2), Player(0), true)
     SetPlayerAllianceStateVisionBJ(Player(2), Player(1), true)
     SetPlayerAllianceStateVisionBJ(Player(2), Player(3), true)
+    SetPlayerAllianceStateVisionBJ(Player(2), Player(20), true)
     SetPlayerAllianceStateVisionBJ(Player(3), Player(0), true)
     SetPlayerAllianceStateVisionBJ(Player(3), Player(1), true)
     SetPlayerAllianceStateVisionBJ(Player(3), Player(2), true)
+    SetPlayerAllianceStateVisionBJ(Player(3), Player(20), true)
+    SetPlayerAllianceStateVisionBJ(Player(20), Player(0), true)
+    SetPlayerAllianceStateVisionBJ(Player(20), Player(1), true)
+    SetPlayerAllianceStateVisionBJ(Player(20), Player(2), true)
+    SetPlayerAllianceStateVisionBJ(Player(20), Player(3), true)
+    SetPlayerAllianceStateControlBJ(Player(0), Player(1), true)
+    SetPlayerAllianceStateControlBJ(Player(0), Player(2), true)
+    SetPlayerAllianceStateControlBJ(Player(0), Player(3), true)
+    SetPlayerAllianceStateControlBJ(Player(0), Player(20), true)
+    SetPlayerAllianceStateControlBJ(Player(1), Player(0), true)
+    SetPlayerAllianceStateControlBJ(Player(1), Player(2), true)
+    SetPlayerAllianceStateControlBJ(Player(1), Player(3), true)
+    SetPlayerAllianceStateControlBJ(Player(1), Player(20), true)
+    SetPlayerAllianceStateControlBJ(Player(2), Player(0), true)
+    SetPlayerAllianceStateControlBJ(Player(2), Player(1), true)
+    SetPlayerAllianceStateControlBJ(Player(2), Player(3), true)
+    SetPlayerAllianceStateControlBJ(Player(2), Player(20), true)
+    SetPlayerAllianceStateControlBJ(Player(3), Player(0), true)
+    SetPlayerAllianceStateControlBJ(Player(3), Player(1), true)
+    SetPlayerAllianceStateControlBJ(Player(3), Player(2), true)
+    SetPlayerAllianceStateControlBJ(Player(3), Player(20), true)
+    SetPlayerAllianceStateControlBJ(Player(20), Player(0), true)
+    SetPlayerAllianceStateControlBJ(Player(20), Player(1), true)
+    SetPlayerAllianceStateControlBJ(Player(20), Player(2), true)
+    SetPlayerAllianceStateControlBJ(Player(20), Player(3), true)
     SetPlayerTeam(Player(11), 1)
+    SetPlayerState(Player(11), PLAYER_STATE_ALLIED_VICTORY, 1)
 end
 
 function InitAllyPriorities()
@@ -303,6 +398,8 @@ function InitAllyPriorities()
     SetStartLocPrioCount(4, 3)
     SetStartLocPrio(4, 0, 0, MAP_LOC_PRIO_HIGH)
     SetStartLocPrio(4, 1, 2, MAP_LOC_PRIO_HIGH)
+    SetStartLocPrioCount(5, 2)
+    SetStartLocPrio(5, 0, 4, MAP_LOC_PRIO_LOW)
 end
 
 function main()
@@ -325,14 +422,15 @@ end
 function config()
     SetMapName("TRIGSTR_001")
     SetMapDescription("TRIGSTR_003")
-    SetPlayers(5)
-    SetTeams(5)
+    SetPlayers(6)
+    SetTeams(6)
     SetGamePlacement(MAP_PLACEMENT_TEAMS_TOGETHER)
     DefineStartLocation(0, -22272.0, -22592.0)
     DefineStartLocation(1, -22272.0, -22592.0)
     DefineStartLocation(2, 128.0, -896.0)
     DefineStartLocation(3, 128.0, -896.0)
     DefineStartLocation(4, 128.0, -896.0)
+    DefineStartLocation(5, -10560.0, -11776.0)
     InitCustomPlayerSlots()
     InitCustomTeams()
     InitAllyPriorities()

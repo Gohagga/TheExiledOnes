@@ -12,6 +12,7 @@ export class Artisan extends PlayerClass {
         protected unit: Unit,
         protected abilities: {
             ArtisanSpellbook: IAbility,
+            TransferItems: IAbility,
             // Felsmithing: IAbility,
 
             Transmute: IAbility,
@@ -39,6 +40,7 @@ export class Artisan extends PlayerClass {
 
         // Add Prospector spellbook for this unit
         this.abilities.ArtisanSpellbook.AddToUnit(this.unit);
+        this.abilities.TransferItems.AddToUnit(this.unit);
 
         this.AddBasic(AbilitySlot.Q, this.abilities.Transmute);
         this.AddBasic(AbilitySlot.W, this.abilities.CrudeAxe);

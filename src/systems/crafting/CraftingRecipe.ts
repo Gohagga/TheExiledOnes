@@ -2,6 +2,7 @@ import { Log } from "Log";
 import { Item, Unit } from "w3ts/index";
 import { CraftingResult } from "./CraftingResult";
 import { AllTiers, InvertTier, Material, TierEnd, TierStart } from "./Material";
+import { MaterialToString } from "./MaterialToString";
 
 export class CraftingRecipe {
 
@@ -27,7 +28,9 @@ export class CraftingRecipe {
             if (matGroup.length < 2) Log.Error("Need to define at least one material type.");
             let matType = matGroup[1];
 
-            let name = neededAmount + ' ' + this.MaterialToString(matType);
+            let name = MaterialToString(matType);
+            if (neededAmount > 1) name = neededAmount + ' ' + name;
+
             costStringFormatted += '\n' + name;
             costString += ' ' + name;
         }
@@ -38,15 +41,15 @@ export class CraftingRecipe {
         
         try {
 
-            Log.Info("Getting unit items")
+            Log.Debug("Getting unit items")
             let items: Item[] = [];
             for (let i = 0; i < 6; i++) {
                 let it = UnitItemInSlot(unit.handle, i);
-                Log.Info("Found", GetItemName(it));
+                Log.Debug("Found", GetItemName(it));
                 if (it) items.push(Item.fromHandle(it));
             }
     
-            Log.Info("Returning items", items.length);
+            Log.Debug("Returning items", items.length);
             return items;
         } catch (ex) {
             Log.Error(ex);
@@ -60,25 +63,9 @@ export class CraftingRecipe {
         return tierX;
     }
 
-    private MaterialToString(material: Material) {
-
-        let name = '';
-        if (Material.Wood == (Material.Wood & material)) name += ' Wood'
-        if (Material.Stone == (Material.Stone & material)) name += ' Stone'
-        if (Material.Metal == (Material.Metal & material)) name += ' Metal'
-        if (Material.FineMetal == (Material.FineMetal & material)) name += ' Fine Metal'
-        
-        if (Material.TierI == (Material.TierI & material)) name += ' I'
-        if (Material.TierII == (Material.TierII & material)) name += ' II'
-        if (Material.TierIII == (Material.TierIII & material)) name += ' III'
-        if (Material.TierIV == (Material.TierIV & material)) name += ' IV'
-
-        return name.trim();
-    }
-
     CraftTierInclusive(unit: Unit): CraftingResult {
 
-        Log.Info("Getting highest materials")
+        Log.Debug("Getting highest materials")
         let items = this.GetUnitItems(unit);
         let toConsume: Item[] = [];
         let lowestTier: Material = AllTiers;
@@ -111,7 +98,7 @@ export class CraftingRecipe {
                     let itemMaterial = this.materialDefs[typeId];
                     let itemTier = this.GetMaterialTier(itemMaterial);
 
-                    Log.Info("Mat tier", matTypeTiers, "item tier", itemMaterial & matTypeTiers, "last", foundTier);
+                    Log.Debug("Mat tier", matTypeTiers, "item tier", itemMaterial & matTypeTiers, "last", foundTier);
 
                     // If everything except tier is same
                     // And something matches the tier
@@ -120,17 +107,16 @@ export class CraftingRecipe {
                     ) {
                         foundIndex = i;
                         foundTier = itemTier;
-                        Log.Info("Found item", item.name, "Type", item.typeId, "Material", this.MaterialToString(itemMaterial), "Tier", itemTier);
+                        Log.Debug("Found item", item.name, "Type", item.typeId, "Material", MaterialToString(itemMaterial), "Tier", itemTier);
                     }
                 }
 
                 if (foundIndex == -1) {
 
                 } else {
-                    Log.Info("123");
                     toConsume.push(items[foundIndex]);
                     let last = items.pop();
-                    Log.Info("Lowest, found", lowestTier, foundTier);
+                    Log.Debug("Lowest, found", lowestTier, foundTier);
                     if (foundTier < lowestTier) lowestTier = foundTier;
                     if (foundIndex != items.length && last) {
                         items[foundIndex] = last;
@@ -140,7 +126,10 @@ export class CraftingRecipe {
             }
 
             if (found != neededAmount) {
-                errors.push((neededAmount - found).toString() + " " + this.MaterialToString(matType));
+                let msg = MaterialToString(matType);
+                if (neededAmount - found > 1) msg = neededAmount - found + ' ' + msg;
+
+                errors.push(msg);
             }
         }
 
@@ -149,7 +138,7 @@ export class CraftingRecipe {
 
     GetHighestTierMaterials(unit: Unit): CraftingResult {
 
-        Log.Info("Getting highest materials")
+        Log.Debug("Getting highest materials")
         let items = this.GetUnitItems(unit);
         let toConsume: Item[] = [];
         let lowestTier: Material = AllTiers;
@@ -184,7 +173,7 @@ export class CraftingRecipe {
                     ) {
                         foundIndex = i;
                         foundTier = itemTier;
-                        Log.Info("Found item", item.name, "Type", item.typeId, "Material", this.MaterialToString(itemMaterial), "Tier", itemTier);
+                        Log.Debug("Found item", item.name, "Type", item.typeId, "Material", MaterialToString(itemMaterial), "Tier", itemTier);
                     }
                 }
 
@@ -202,15 +191,13 @@ export class CraftingRecipe {
             }
 
             if (found != neededAmount) {
-                errors.push((neededAmount - found).toString() + " " + this.MaterialToString(matType));
+                let msg = MaterialToString(matType);
+                if (neededAmount - found > 1) msg = neededAmount - found + ' ' + msg;
+
+                errors.push(msg);
             }
         }
 
         return new CraftingResult(errors.length == 0, toConsume, lowestTier, errors);
-    }
-
-    Consume(unit: Unit): boolean {
-
-        return true;
     }
 }

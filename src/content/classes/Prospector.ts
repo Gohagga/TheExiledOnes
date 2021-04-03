@@ -12,6 +12,8 @@ export class Prospector extends PlayerClass {
         protected unit: Unit,
         protected abilities: {
             ProspectorSpellbook: IAbility,
+            TransferItems: IAbility,
+
             Defile: IAbility,
             EyeOfKilrogg: IAbility,
             InfuseFelstone: IAbility,
@@ -35,6 +37,8 @@ export class Prospector extends PlayerClass {
 
         // Add Prospector spellbook for this unit
         this.abilities.ProspectorSpellbook.AddToUnit(this.unit);
+        // Add Transfer items
+        this.abilities.TransferItems.AddToUnit(this.unit);
 
         this.Add(AbilitySlot.Q, this.abilities.Defile);
         this.Add(AbilitySlot.W, this.abilities.EyeOfKilrogg);

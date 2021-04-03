@@ -21,6 +21,8 @@ export class Axe extends ToolAbilityBase {
         let level = e.abilityLevel;
         let target = e.targetDestructable;
 
+        if (!target) return;
+
         // 15
         let dmg = 6.25 + (level - 1) * 2;
         caster.damageTarget(target.handle, dmg, true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_AXE_MEDIUM_CHOP);

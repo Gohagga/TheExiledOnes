@@ -22,6 +22,8 @@ export class Pickaxe extends ToolAbilityBase {
         let caster = e.caster;
         let level = e.abilityLevel;
         let target = e.targetDestructable;
+        if (!target) return;
+        
         let life = target.life;
         let totalDrops = 4;
         let intervalLife = target.maxLife / totalDrops;

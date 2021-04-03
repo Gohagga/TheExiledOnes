@@ -13,6 +13,8 @@ export class Prospector extends PlayerClass {
         protected abilities: {
             ResearcherSpellbook: IAbility,
             ResearchSpellbook: IAbility,
+            TransferItems: IAbility,
+            
             Study: IAbility,
             OrganicMatter: IAbility,
             Obliterum: IAbility,
@@ -40,6 +42,8 @@ export class Prospector extends PlayerClass {
         // Add Prospector spellbook for this unit
         this.abilities.ResearcherSpellbook.AddToUnit(this.unit);
         this.abilities.ResearchSpellbook.AddToUnit(this.unit);
+
+        this.abilities.TransferItems.AddToUnit(this.unit);
 
         // this.Add(AbilitySlot.Q, this.abilities.Defile);
         // this.Add(AbilitySlot.W, this.abilities.EyeOfKilrogg);

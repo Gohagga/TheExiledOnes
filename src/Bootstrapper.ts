@@ -1,4 +1,4 @@
-import { Config } from "Config";
+import { Config, SharedPlayer } from "Config";
 import { CrudeAxe } from "content/abilities/artisan/CrudeAxe";
 import { CrudePickaxe } from "content/abilities/artisan/CrudePickaxe";
 import { Transmute } from "content/abilities/artisan/Transmute";
@@ -6,18 +6,22 @@ import { Workstation } from "content/abilities/artisan/Workstation";
 import { Defile } from "content/abilities/prospector/Defile";
 import { Axe } from "content/abilities/tools/Axe";
 import { Pickaxe } from "content/abilities/tools/Pickaxe";
+import { TransferInventory } from "content/abilities/tools/TransferInventory";
 import { Artisan } from "content/classes/Artisan";
 import { Prospector } from "content/classes/Prospector";
-import { ResourceItem } from "content/items/ResourceItem";
+import { ComponentItem, ResourceItem } from "content/items/ResourceItem";
 import { WorkstationMachine } from "content/machines/WorkstationMachine";
 import { Level, Log } from "Log";
 import { PathingService } from "services/PathingService";
 import { BasicAbility } from "systems/abilities/BasicAbility";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
 import { CraftingManager } from "systems/crafting/CraftingManager";
+import { MachineBase } from "systems/crafting/machine/Machine";
+import { MachineManager } from "systems/crafting/machine/MachineManager";
 import { Material } from "systems/crafting/Material";
 import { AbilityEventHandler } from "systems/events/ability-events/AbilityEventHandler";
 import { AbilityEventProvider } from "systems/events/ability-events/AbilityEventProvider";
+import { ItemFactory } from "systems/items/ItemFactory";
 import { PathingType } from "systems/map-generation/builders/PathingBuilder";
 import { MapGenerator } from "systems/map-generation/MapGenerator";
 import { MapGenerator2 } from "systems/map-generation/MapGenerator2";
@@ -26,16 +30,45 @@ import { HeightNoiseProvider } from "systems/map-generation/providers/HeightNois
 import { MoistureNoiseProvider } from "systems/map-generation/providers/MoistureNoise";
 import { TreeNoiseProvider } from "systems/map-generation/providers/TreeNoise";
 import { CustomMinimap } from "systems/minimap/CustomMinimap";
+import { CustomMinimap2 } from "systems/minimap/CustomMinimap2";
 import { Minimap } from "systems/minimap/Minimap";
 import { Random } from "systems/random/Random";
 import { ResourceDropManager } from "systems/resource-drops/ResourceDropManager";
 import { ToolManager } from "systems/tools/ToolManager";
 import { ErrorService } from "systems/ui/ErrorService";
-import { CameraSetup, MapPlayer, Rectangle, Timer, Trigger, Unit } from "w3ts/index";
+import { CameraSetup, Item, MapPlayer, Rectangle, Timer, Trigger, Unit } from "w3ts/index";
 
 export function Initialize() {
 
     const config = new Config();
+
+    // Set Player alliances
+
+    let p = MapPlayer.fromIndex(0);
+    p.setAlliance(SharedPlayer, ALLIANCE_PASSIVE, true);
+    p.setAlliance(SharedPlayer, ALLIANCE_HELP_REQUEST, true);
+    p.setAlliance(SharedPlayer, ALLIANCE_HELP_RESPONSE, true);
+    p.setAlliance(SharedPlayer, ALLIANCE_SHARED_XP, true);
+    p.setAlliance(SharedPlayer, ALLIANCE_SHARED_SPELLS, true);
+    // p.setAlliance(SharedPlayer, ALLIANCE_SHARED_CONTROL, true);
+    p.setAlliance(SharedPlayer, ALLIANCE_SHARED_ADVANCED_CONTROL, true);
+
+    SharedPlayer.setAlliance(p, ALLIANCE_PASSIVE, true);
+    SharedPlayer.setAlliance(p, ALLIANCE_HELP_REQUEST, true);
+    SharedPlayer.setAlliance(p, ALLIANCE_HELP_RESPONSE, true);
+    SharedPlayer.setAlliance(p, ALLIANCE_SHARED_XP, true);
+    SharedPlayer.setAlliance(p, ALLIANCE_SHARED_SPELLS, true);
+    // SharedPlayer.setAlliance(p, ALLIANCE_SHARED_CONTROL, true);
+    SharedPlayer.setAlliance(p, ALLIANCE_SHARED_ADVANCED_CONTROL, true);
+
+    // SetPlayerAllianceStateBJ(Player(0), SharedPlayer.handle, bj_ALLIANCE_ALLIED_UNITS);
+    // SetPlayerAllianceStateBJ(SharedPlayer.handle, Player(0), bj_ALLIANCE_ALLIED_ADVUNITS);
+    // SharedPlayer.setAlliance(MapPlayer.fromIndex(0), ALLIANCE_SHARED_SPELLS, true);
+    // SharedPlayer.setAlliance(MapPlayer.fromIndex(0), ALLIANCE_SHARED_CONTROL, true);
+    // SetPlayerAlliance(Player(0), SharedPlayer.handle, ALLIANCE_SHARED_CONTROL, true);
+
+    MultiboardSuppressDisplay(true);
+    ClearTextMessages();
 
     // Abilities
     const abilityEvent = new AbilityEventHandler();
@@ -46,10 +79,10 @@ export function Initialize() {
 
     const pathingService = new PathingService('hval');
 
-    Log.Level = Level.All;
+    Log.Level = Level.Info;
 
     // const seed = 5;
-    const seed = 6;
+    const seed = math.floor(math.random(0, 100));
     const random = new Random(seed);
     
     // mapGenerator.resume();
@@ -58,8 +91,8 @@ export function Initialize() {
     const tim1 = new Timer();
     tim1.start(0, false, () => {
 
-        const surfaceRect = Rectangle.fromHandle(gg_rct_TestSurface);
-        const undergroundRect = Rectangle.fromHandle(gg_rct_TestUnderground);
+        const surfaceRect = Rectangle.fromHandle(gg_rct_SurfaceMap);
+        const undergroundRect = Rectangle.fromHandle(gg_rct_UndergroundMap);
         // SetCameraBoundsToRect(gg_rct_SurfaceMap);
 
         // let xMaxBound = GetRectMaxX(GetWorldBounds());
@@ -131,10 +164,10 @@ export function Initialize() {
                 mapGenerator.resume();
         });
         progressTim.start(1, true, () => {
-            ClearTextMessages();
-            let passed = math.floor(os.clock() - time + 0.5);
-            let prediction = passed / mapGenerator.progress;
-            Log.Info("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%', "seconds passed: ", passed, "prediction: ", prediction);
+            // ClearTextMessages();
+            // let passed = math.floor(os.clock() - time + 0.5);
+            // let prediction = passed / mapGenerator.progress;
+            // Log.Info("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%', "seconds passed: ", passed, "prediction: ", prediction);
         });
     });
 
@@ -154,18 +187,34 @@ export function Initialize() {
 
         const toolManager = new ToolManager('AT0Z', { x: mapArea.maxX, y: mapArea.minY });
         const craftingManager = new CraftingManager();
+        const itemFactory = new ItemFactory(config.items, craftingManager);
 
         // Materials
-        craftingManager.RegisterItemMaterial(FourCC('IMS1'), Material.Stone | Material.TierI);
-        craftingManager.RegisterItemMaterial(FourCC('IMS2'), Material.Stone | Material.TierII);
-        craftingManager.RegisterItemMaterial(FourCC('IMS3'), Material.Stone | Material.TierIII);
+        itemFactory.RegisterResource(FourCC('IMS1'), Material.Stone | Material.TierI);
+        itemFactory.RegisterResource(FourCC('IMS2'), Material.Stone | Material.TierII);
+        itemFactory.RegisterResource(FourCC('IMS3'), Material.Stone | Material.TierIII);
 
-        craftingManager.RegisterItemMaterial(FourCC('IMW1'), Material.Wood | Material.TierI);
-        craftingManager.RegisterItemMaterial(FourCC('IMW2'), Material.Wood | Material.TierII);
-        // craftingManager.RegisterItemMaterial(FourCC('IMW3'), Material.Wood | Material.TierIII);
+        itemFactory.RegisterResource(FourCC('IMW1'), Material.Wood | Material.TierI);
+        itemFactory.RegisterResource(FourCC('IMW2'), Material.Wood | Material.TierII);
+        // itemFactory.RegisterResource(FourCC('IMW3'), Material.Wood | Material.TierIII);
 
-        craftingManager.RegisterItemMaterial(ResourceItem.Iron, Material.Metal | Material.TierI);
+        itemFactory.RegisterResource(ResourceItem.Iron, Material.Metal | Material.TierI);
         // craftingManager.RegisterItemMaterial(FourCC('IMW2'), Material.Wood | Material.TierII);
+
+        itemFactory.RegisterResource(ResourceItem.Copper, Material.FineMetal | Material.TierI);
+        itemFactory.RegisterResource(ResourceItem.Silver, Material.FineMetal | Material.TierII);
+        itemFactory.RegisterResource(ResourceItem.Gold, Material.FineMetal | Material.TierIII);
+
+        // Material parts
+        // craftingManager.RegisterItemMaterial(ComponentItem.MechanismI, Material.Mechanism | Material.TierI);
+        // craftingManager.RegisterItemMaterial(ComponentItem.MechanismII, Material.Mechanism | Material.TierII);
+        // craftingManager.RegisterItemMaterial(ComponentItem.MechanismIII, Material.Mechanism | Material.TierIII);
+        // craftingManager.RegisterItemMaterial(ComponentItem.MechanismIV, Material.Mechanism | Material.TierIII);
+
+        // craftingManager.RegisterItemMaterial(ComponentItem.FrameI, Material.Frame | Material.TierI);
+        // craftingManager.RegisterItemMaterial(ComponentItem.FrameII, Material.Frame | Material.TierII);
+        // craftingManager.RegisterItemMaterial(ComponentItem.FrameIII, Material.Frame | Material.TierIII);
+        // craftingManager.RegisterItemMaterial(ComponentItem.FrameIV, Material.Frame | Material.TierIII);
 
         let prospectorQ = new BasicAbility(config.ProspectorSpellbook);
         let artisanQ = new BasicAbility(config.ArtisanSpellbook);
@@ -195,6 +244,7 @@ export function Initialize() {
             // Tool Abilities
             Axe: new Axe(config.Axe, abilityEvent),
             Pickaxe: new Pickaxe(config.Pickaxe, abilityEvent),
+            TransferItems: new TransferInventory(config.TransferInventory, abilityEvent),
         }
 
         // Tools
@@ -204,12 +254,22 @@ export function Initialize() {
         toolManager.RegisterTool('IT03', abilities.Pickaxe, 2);
 
         // Machines
-        const workstation = new WorkstationMachine(FourCC('h000'), errorService, craftingManager);
+        const machineManager = new MachineManager(abilityEvent);
+        const workstation = new WorkstationMachine(config.WorkstationMachine, Unit.fromHandle(gg_unit_h000_0016), errorService, craftingManager, itemFactory);
+        // workstation.RegisterMachineRecipe(FourCC('oPM1'), (m, recipe, result) => {
+        //     result.destroy();
+        //     m.unit.addItem(new Item(FourCC('IPM1'), 0, 0));
+        // }, craftingManager.CreateRecipe([
+        //     [1, Material.Wood | Material.TierI],
+        //     [1, Material.Stone | Material.TierI],
+        //     [1, Material.Metal | Material.TierI]
+        // ]));
+        machineManager.Register(workstation);
+        // const workstation = new WorkstationMachine(FourCC('h000'), errorService, craftingManager);
 
         // // Make players
         // let startPoint = { x: 0, y: 0 };
-        // SetPlayerAlliance(Player(15), Player(0), ALLIANCE_SHARED_CONTROL, true);
-        // SetPlayerAllianceStateBJ(Player(0), Player(15), bj_ALLIANCE_ALLIED);
+
         // let u = new Unit(MapPlayer.fromIndex(15), FourCC('e000'), startPoint.x, startPoint.y, 270);
 
         let p = MapPlayer.fromIndex(0);
@@ -238,8 +298,19 @@ export function Initialize() {
             SetCameraFieldForPlayer(MapPlayer.fromEvent().handle, CAMERA_FIELD_FARZ, 100000, 0.5);
         });
     
-        SetCameraFieldForPlayer(MapPlayer.fromIndex(0).handle, CAMERA_FIELD_TARGET_DISTANCE, 8600, 0.5);
-        SetCameraFieldForPlayer(MapPlayer.fromIndex(0).handle, CAMERA_FIELD_FARZ, 100000, 0.5);
+        // SetCameraFieldForPlayer(MapPlayer.fromIndex(0).handle, CAMERA_FIELD_TARGET_DISTANCE, 8600, 0.5);
+        // SetCameraFieldForPlayer(MapPlayer.fromIndex(0).handle, CAMERA_FIELD_FARZ, 100000, 0.5);
+
+        // let time = 0;
+        // new Timer().start(1, true, () => {
+            
+        //     time++;
+        //     let hours = time / 3600;
+        //     let minutes = (time % 3600) / 60;
+        //     let seconds = (time % 60);
+        //     print(string.format('%02.0f:%02.0f:%02.0f', hours, minutes, seconds)); // 02:05:01
+        //     print(string.format('%2.0f:%02.0f:%02.0f', hours, minutes, seconds)); // 2:05:01
+        // });
     });
     onGameStartTimer.destroy();
 }

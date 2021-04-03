@@ -1,8 +1,9 @@
 import { Log } from "Log";
 import { IHeightNoiseProvider } from "systems/map-generation/interfaces/IHeightNoiseProvider";
 import { Frame, MapPlayer, Rectangle, Timer, Trigger } from "w3ts/index";
+import { IMinimap } from "./IMinimap";
 
-export class CustomMinimap {
+export class CustomMinimap implements IMinimap {
 
     // Actual map properties
     private minX: number;
@@ -19,15 +20,15 @@ export class CustomMinimap {
 
     // Default minimap options
     private readonly defaultColor;
-    private pixelTexture = 'Textures\\white.blp';
+    private pixelTexture = '2Pixel.dds';
+    // private pixelTexture = 'Textures\\white.blp';
 
     // Generator options
     private currentX = 0;
     private currentY = 0;
 
     constructor(
-        private readonly mapBounds: Rectangle,
-        // private readonly heightProvider: IHeightNoiseProvider,
+        private readonly mapBounds: Rectangle
     ) {
         this.minX = mapBounds.minX;
         this.minY = mapBounds.minY;
@@ -43,9 +44,9 @@ export class CustomMinimap {
         const width = this.pixelWidth = minimapOrigin.width / 64;
         const height = this.pixelHeight = minimapOrigin.height / 64;
 
-        BlzLoadTOCFile('MapPixel.toc');
+        BlzLoadTOCFile('DungeonMap.toc');
 
-        let customMinimap = Frame.fromHandle(BlzCreateSimpleFrame("CustomMinimap", BlzGetFrameByName("ConsoleUI", 0), 0));
+        let customMinimap = Frame.fromHandle(BlzCreateSimpleFrame("DungeonMap", BlzGetFrameByName("ConsoleUI", 0), 0));
         customMinimap
             .setPoint(FRAMEPOINT_BOTTOMLEFT, minimapOrigin, FRAMEPOINT_BOTTOMLEFT, 0, 0)
             .setPoint(FRAMEPOINT_TOPRIGHT, minimapOrigin, FRAMEPOINT_TOPRIGHT, 0, 0);
@@ -59,7 +60,7 @@ export class CustomMinimap {
 
                 let i = x + y * 64;
                 this.colors[i] = this.defaultColor;
-                let name = "Pix_" + x + "_" + y;
+                let name = "DM_" + x + "_" + y;
                 const pixel = BlzGetFrameByName(name, 0);
                 this.mapPixelFrames[x + 64 * y] = pixel;
                 
@@ -70,43 +71,6 @@ export class CustomMinimap {
                 BlzFrameSetVertexColor(pixel, this.defaultColor);
             }
         }
-
-        // let trg = new Trigger();
-        // trg.registerPlayerChatEvent(MapPlayer.fromIndex(0), '-restore minimap', true);
-        // trg.addAction(() => {
-        //     if (this.pixelTexture == 'Textures\\white.blp') this.pixelTexture = '2Pixel.dds';
-        //     else (this.pixelTexture = 'Textures\\white.blp');
-
-        //     Log.Info("Restored minimap using texture", this.pixelTexture);
-
-        //     BlzFrameSetVisible(this.mapFrame, false);
-        //     let customMinimap = Frame.fromHandle(BlzCreateSimpleFrame("CustomMinimap", BlzGetFrameByName("ConsoleUI", 0), 0));
-        //     customMinimap
-        //         .setPoint(FRAMEPOINT_BOTTOMLEFT, minimapOrigin, FRAMEPOINT_BOTTOMLEFT, 0, 0)
-        //         .setPoint(FRAMEPOINT_TOPRIGHT, minimapOrigin, FRAMEPOINT_TOPRIGHT, 0, 0);
-
-        //     this.mapFrame = customMinimap.handle;
-
-        //     try {
-        //         for (let x = 0; x < 64; x++) {
-        //             for (let y = 0; y < 64; y++) {
-        
-        //                 let i = x + y * 64;
-        //                 let name = "Pix_" + x + "_" + y;
-        //                 const pixel = BlzGetFrameByName(name, 0);
-        //                 this.mapPixelFrames[x + 64 * y] = pixel;
-                        
-        //                 BlzFrameClearAllPoints(pixel)
-        //                 BlzFrameSetSize(pixel, width + widthFuzz, height + heightFuzz);
-        //                 BlzFrameSetPoint(pixel, FRAMEPOINT_BOTTOMLEFT, customMinimap.handle, FRAMEPOINT_BOTTOMLEFT, x * width, y * height)
-        //                 BlzFrameSetTexture(pixel, this.pixelTexture, 0, true)
-        //                 BlzFrameSetVertexColor(pixel, this.colors[i]);
-        //             }
-        //         }
-        //     } catch (ex) {
-        //         Log.Error(ex);
-        //     }
-        // })
     }
 
     // public generateThread() {

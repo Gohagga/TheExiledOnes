@@ -1,5 +1,5 @@
 import { Log } from "Log";
-import { CustomMinimap } from "systems/minimap/CustomMinimap";
+import { IMinimap } from "systems/minimap/IMinimap";
 import { Random } from "systems/random/Random";
 import { ResourceDropManager } from "systems/resource-drops/ResourceDropManager";
 import { Rectangle } from "w3ts/index";
@@ -34,7 +34,7 @@ export class MapGenerator2 {
     public pathingBuilder!: PathingBuilder;
 
     constructor(
-        private readonly minimap: CustomMinimap,
+        private readonly minimap: IMinimap,
         private readonly heightNoise: IHeightNoiseProvider,
         private readonly treeNoise: ITreeNoiseProvider,
         private readonly moistureNoise: IMoistureNoiseProvider,
@@ -63,7 +63,6 @@ export class MapGenerator2 {
     private generateMap() {{
 
         try {
-
             let xDensity = 1 / 2784;
             let yDensity = 1 / 3008;
 
@@ -154,8 +153,11 @@ export class MapGenerator2 {
                 miniLine++;
             }
 
-            orePlacer.placeRocksAndStones(20, 30);
-            randomPlacer.PlaceBranches(40);
+            let stonePileCount = math.floor((maxX - minX) / 305);
+            let rocksCount = math.floor((maxX - minX) / 205);
+            let branchCount = math.floor((maxX - minX) / 153);
+            orePlacer.placeRocksAndStones(stonePileCount, rocksCount);
+            randomPlacer.PlaceBranches(branchCount);
     
             this.isDone = true;
         } catch (err) {

@@ -1,7 +1,13 @@
 import { TransmuteAbility } from "content/abilities/artisan/Transmute"
+import { ComponentItem, ResourceItem } from "content/items/ResourceItem"
 import { Wc3BuildingAbility } from "systems/abilities/BuildingAbilityBase"
 import { Wc3Ability } from "systems/abilities/Wc3Ability"
+import { RecipeMachineConfig } from "systems/crafting/machine/MachineConfig"
 import { Material } from "systems/crafting/Material"
+import { ItemConfig } from "systems/items/ItemConfig"
+import { MapPlayer } from "w3ts/index"
+
+export const SharedPlayer = MapPlayer.fromIndex(20);
 
 export class Config {
 
@@ -141,5 +147,147 @@ export class Config {
         tooltip: 'Pick rocks and stuff'
     }
 
+    TransferInventory: Wc3Ability = {
+        name: 'Transfer Inventory',
+        codeId: 'AT0T',
+        tooltip: 
+`If targeting the ground, will drop all items on that point.
+
+Deposits existing items to target unit.
+Takes items from target unit if inventory is empty.`
+    }
+
+    
 //#endregion
+
+//#region Machines
+    // Artisan
+    WorkstationMachine: RecipeMachineConfig = {
+        workEffectPath: 'Effect_MechanicGears.mdx',
+        workEffectPosition: { x: 0, y: 0, z: 250 },
+        recipes: [{
+            trainId: 'oPM1',
+            resultId: ComponentItem.MechanismI,
+            materials: [[1, Material.Metal      | Material.TierI],
+                        [1, Material.FineMetal  | Material.TierI]]
+        }, {
+            trainId: 'oPM2',
+            resultId: ComponentItem.MechanismII,
+            materials: [[1, Material.Mechanism  | Material.TierI],
+                        [1, Material.Metal      | Material.TierII],
+                        [1, Material.FineMetal  | Material.TierII]]
+        }, {
+            trainId: 'oPM3',
+            resultId: ComponentItem.MechanismIII,
+            materials: [[1, Material.Mechanism  | Material.TierII],
+                        [1, Material.Metal      | Material.TierIII],
+                        [1, Material.FineMetal  | Material.TierIII]]
+        }, {
+            trainId: 'oPM4',
+            resultId: ComponentItem.MechanismIV,
+            materials: [[1, Material.Mechanism  | Material.TierIII],
+                        [1, Material.Metal      | Material.TierIV],
+                        [1, Material.FineMetal  | Material.TierIV]]
+        },
+        
+        {
+            trainId: 'oPF1',
+            resultId: ComponentItem.FrameI,
+            materials: [[1, Material.Wood       | Material.TierI],
+                        [1, Material.Stone      | Material.TierI],
+                        [1, Material.Metal      | Material.TierI]]
+        }, {
+            trainId: 'oPF2',
+            resultId: ComponentItem.FrameII,
+            materials: [[1, Material.Frame      | Material.TierI],
+                        [1, Material.Wood       | Material.TierII],
+                        [1, Material.Stone      | Material.TierII],
+                        [1, Material.Metal      | Material.TierII]]
+        }, {
+            trainId: 'oPF3',
+            resultId: ComponentItem.FrameIII,
+            materials: [[1, Material.Frame      | Material.TierII],
+                        [1, Material.Wood       | Material.TierIII],
+                        [1, Material.Stone      | Material.TierIII],
+                        [1, Material.Metal      | Material.TierIII]]
+        }, {
+            trainId: 'oPF4',
+            resultId: ComponentItem.FrameIV,
+            materials: [[1, Material.Frame      | Material.TierIII],
+                        [1, Material.Wood       | Material.TierIV],
+                        [1, Material.Stone      | Material.TierIV],
+                        [1, Material.Metal      | Material.TierIV]]
+        }]
+    }
+
+//#endregion
+
+    items: ItemConfig[] = [
+        
+        // {
+        //     name: 'Branch',
+        //     itemTypeId: ResourceItem.WoodI,
+        //     tooltip: 'Simple piece of wood.',
+        //     material: Material.Wood | Material.TierI
+        // }, {
+        //     name: 'Rock',
+        //     itemTypeId: ResourceItem.StoneI,
+        //     tooltip: 'Simple rock.',
+        //     material: Material.Mechanism | Material.TierII
+        // }, {
+        //     name: 'Iron',
+        //     itemTypeId: ResourceItem.MechanismIII,
+        //     tooltip: 'Sturdy ore.',
+        //     material: Material.Mechanism | Material.TierIII
+        // }, {
+        //     name: 'Copper',
+        //     itemTypeId: ResourceItem.MechanismIV,
+        //     tooltip: 'Component part.',
+        //     material: Material.Mechanism | Material.TierIV
+        // }, 
+        
+        {
+            name: 'Mechanism I',
+            itemTypeId: ComponentItem.MechanismI,
+            tooltip: 'Component part.',
+            material: Material.Mechanism | Material.TierI
+        }, {
+            name: 'Mechanism II',
+            itemTypeId: ComponentItem.MechanismII,
+            tooltip: 'Component part.',
+            material: Material.Mechanism | Material.TierII
+        }, {
+            name: 'Mechanism III',
+            itemTypeId: ComponentItem.MechanismIII,
+            tooltip: 'Component part.',
+            material: Material.Mechanism | Material.TierIII
+        }, {
+            name: 'Mechanism IV',
+            itemTypeId: ComponentItem.MechanismIV,
+            tooltip: 'Component part.',
+            material: Material.Mechanism | Material.TierIV
+        },
+        
+        {
+            name: 'Frame I',
+            itemTypeId: ComponentItem.FrameI,
+            tooltip: 'Component part.',
+            material: Material.Frame | Material.TierI
+        }, {
+            name: 'Frame II',
+            itemTypeId: ComponentItem.FrameII,
+            tooltip: 'Component part.',
+            material: Material.Frame | Material.TierII
+        }, {
+            name: 'Frame III',
+            itemTypeId: ComponentItem.FrameIII,
+            tooltip: 'Component part.',
+            material: Material.Frame | Material.TierIII
+        }, {
+            name: 'Frame IV',
+            itemTypeId: ComponentItem.FrameIV,
+            tooltip: 'Component part.',
+            material: Material.Frame | Material.TierIV
+        }, 
+    ]
 }

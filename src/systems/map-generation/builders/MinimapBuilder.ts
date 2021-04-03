@@ -1,9 +1,5 @@
-import { CustomMinimap } from "systems/minimap/CustomMinimap";
-import { Random } from "systems/random/Random";
-import { ICavernNoiseProvider } from "../interfaces/ICavernNoiseProvider";
-import { IHeightNoiseProvider } from "../interfaces/IHeightNoiseProvider";
+import { IMinimap } from "systems/minimap/IMinimap";
 import { TerrainType } from "../MapGenerator";
-import { CaveHeightBuilder } from "./CaveHeightBuilder";
 import { HeightBuilder } from "./HeightBuilder";
 import { PathingBuilder, PathingType } from "./PathingBuilder";
 import { TileBuilder } from "./TileBuilder";
@@ -12,7 +8,7 @@ export class MinimapBuilder {
 
     
     constructor(
-        private readonly minimap: CustomMinimap,
+        private readonly minimap: IMinimap,
         private readonly heightBuilder: HeightBuilder,
         private readonly pathingBuilder: PathingBuilder,
         private readonly tileBuilder: TileBuilder,
