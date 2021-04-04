@@ -155,7 +155,7 @@ export class Config {
 `If targeting the ground, will drop all items on that point.
 
 Deposits existing items to target unit.
-Takes items from target unit if inventory is empty.`
+Takes items from target unit if inventory is empty (only owned or shared units).`
     }
 
     
@@ -233,21 +233,25 @@ Takes items from target unit if inventory is empty.`
         {
             trainId: 'oPT1',
             resultId: ComponentItem.TankI,
+            neededFel: 10,
             materials: [[1, Material.Frame      | Material.TierI],
-                        [1, Material.Metal      | Material.TierI]]
+                        [1, Material.Metal      | Material.TierI]],
         }, {
             trainId: 'oPT2',
             resultId: ComponentItem.TankII,
+            neededFel: 20,
             materials: [[1, Material.Frame      | Material.TierII],
                         [1, Material.Metal      | Material.TierII]]
         }, {
             trainId: 'oPT3',
             resultId: ComponentItem.TankIII,
+            neededFel: 30,
             materials: [[1, Material.Frame      | Material.TierIII],
                         [1, Material.Metal      | Material.TierIII]]
         }, {
             trainId: 'oPT4',
             resultId: ComponentItem.TankIV,
+            neededFel: 40,
             materials: [[1, Material.Frame      | Material.TierIV],
                         [1, Material.Metal      | Material.TierIV]]
         }]

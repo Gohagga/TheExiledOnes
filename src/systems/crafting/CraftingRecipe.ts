@@ -12,7 +12,8 @@ export class CraftingRecipe {
     constructor(
         private readonly materialDefs: Record<number, Material>,
         private readonly neededMaterialsGrouped: [number, ...Material[]][] = [],
-        private readonly neededMaterials: Material[]
+        private readonly neededMaterials: Material[],
+        private readonly neededFel: number = 0
     ) {
         [this.costString, this.costStringFormatted] = this.GenerateCostMessage();
     }
@@ -33,6 +34,10 @@ export class CraftingRecipe {
 
             costStringFormatted += '\n' + name;
             costString += ' ' + name;
+        }
+        if (this.neededFel > 0) {
+            costStringFormatted += '\n' + this.neededFel + ' Fel';
+            costString += ' ' + this.neededFel + ' Fel';
         }
         return [costString.trim(), costStringFormatted.trim()];
     }
@@ -133,6 +138,11 @@ export class CraftingRecipe {
             }
         }
 
+        if (this.neededFel > 0) {
+            let felDiff = this.neededFel - unit.mana;
+            if (felDiff > 0) errors.push(felDiff + ' Fel');
+        }
+
         return new CraftingResult(errors.length == 0, toConsume, lowestTier, errors);
     }
 
@@ -196,6 +206,11 @@ export class CraftingRecipe {
 
                 errors.push(msg);
             }
+        }
+        
+        if (this.neededFel > 0) {
+            let felDiff = this.neededFel - unit.mana;
+            if (felDiff > 0) errors.push(felDiff + ' Fel');
         }
 
         return new CraftingResult(errors.length == 0, toConsume, lowestTier, errors);

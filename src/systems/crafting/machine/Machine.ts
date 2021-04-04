@@ -89,9 +89,10 @@ export class MachineBase implements IMachine {
             machine.unit.addItem(item);
 
             let rallyUnit = GetUnitRallyUnit(this.unit.handle);
-            if (rallyUnit && rallyUnit == this.unit.handle || IsUnitInRangeLoc(this.unit.handle, GetUnitLoc(rallyUnit), 150)) {
+            if (rallyUnit && (rallyUnit == this.unit.handle || IsUnitInRangeLoc(this.unit.handle, GetUnitLoc(rallyUnit), 220))) {
 
                 UnitAddItem(rallyUnit, item.handle);
+                return;
             }
             
             let rallyPoint = this.unit.rallyPoint;

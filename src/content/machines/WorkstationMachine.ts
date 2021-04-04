@@ -24,7 +24,7 @@ export class WorkstationMachine extends MachineBase {
         let index = 0;
         for (let r of config.recipes) {
 
-            let recipe = craftingManager.CreateRecipe(r.materials);
+            let recipe = craftingManager.CreateRecipe(r.materials, r.neededFel);
             let trainId = typeof r.trainId === "string" ? FourCC(r.trainId) : r.trainId;
 
             if (r.resultId) {

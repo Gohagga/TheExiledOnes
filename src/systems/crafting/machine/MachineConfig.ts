@@ -11,6 +11,7 @@ export interface RecipeMachineConfig {
     recipes: {
         trainId: number | string,
         resultId?: number | string,
-        materials: [number, Material][]
+        materials: [number, Material][],
+        neededFel?: number,
     }[]
 }

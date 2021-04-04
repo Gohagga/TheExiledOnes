@@ -15,6 +15,7 @@ gg_trg_Untitled_Trigger_007 = nil
 gg_unit_Hblm_0003 = nil
 gg_unit_Hpal_0002 = nil
 gg_unit_h000_0016 = nil
+gg_trg_Share = nil
 function InitGlobals()
 end
 
@@ -95,10 +96,10 @@ function CreateAllItems()
     BlzCreateItemWithSkin(FourCC("IPM2"), -11699.3, -12310.7, FourCC("IPM2"))
     BlzCreateItemWithSkin(FourCC("IPM3"), -11697.8, -12210.6, FourCC("IPM3"))
     BlzCreateItemWithSkin(FourCC("IPM4"), -11695.7, -12109.0, FourCC("IPM4"))
-    BlzCreateItemWithSkin(FourCC("IPT1"), -11763.3, -12039.9, FourCC("IPT1"))
-    BlzCreateItemWithSkin(FourCC("IPT2"), -11716.5, -12032.2, FourCC("IPT2"))
-    BlzCreateItemWithSkin(FourCC("IPT3"), -11669.2, -12024.1, FourCC("IPT3"))
-    BlzCreateItemWithSkin(FourCC("IPT4"), -11608.0, -12016.6, FourCC("IPT4"))
+    BlzCreateItemWithSkin(FourCC("IPT1"), -11818.8, -11871.5, FourCC("IPT1"))
+    BlzCreateItemWithSkin(FourCC("IPT2"), -11772.0, -11863.8, FourCC("IPT2"))
+    BlzCreateItemWithSkin(FourCC("IPT3"), -11724.7, -11855.7, FourCC("IPT3"))
+    BlzCreateItemWithSkin(FourCC("IPT4"), -11663.5, -11848.2, FourCC("IPT4"))
     BlzCreateItemWithSkin(FourCC("IT00"), -11185.3, -12839.9, FourCC("IT00"))
     BlzCreateItemWithSkin(FourCC("IT01"), -11149.5, -12968.9, FourCC("IT01"))
     BlzCreateItemWithSkin(FourCC("IT01"), -11275.6, -13069.0, FourCC("IT01"))
@@ -290,6 +291,27 @@ function InitTrig_Untitled_Trigger_007()
     TriggerAddAction(gg_trg_Untitled_Trigger_007, Trig_Untitled_Trigger_007_Actions)
 end
 
+function Trig_Share_Func002C()
+    if (not (IsUnitType(udg_u, UNIT_TYPE_STRUCTURE) == true)) then
+        return false
+    end
+    return true
+end
+
+function Trig_Share_Actions()
+    udg_u = GroupPickRandomUnit(GetUnitsSelectedAll(Player(0)))
+    if (Trig_Share_Func002C()) then
+        SetUnitOwner(udg_u, Player(20), true)
+    else
+    end
+end
+
+function InitTrig_Share()
+    gg_trg_Share = CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Share, Player(0), "-share", true)
+    TriggerAddAction(gg_trg_Share, Trig_Share_Actions)
+end
+
 function InitCustomTriggers()
     InitTrig_Initialization()
     InitTrig_Untitled_Trigger_003()
@@ -299,6 +321,7 @@ function InitCustomTriggers()
     InitTrig_Untitled_Trigger_005_Copy()
     InitTrig_Untitled_Trigger_006()
     InitTrig_Untitled_Trigger_007()
+    InitTrig_Share()
 end
 
 function RunInitializationTriggers()

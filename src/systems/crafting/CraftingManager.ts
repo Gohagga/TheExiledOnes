@@ -12,8 +12,9 @@ export class CraftingManager {
     ) {
     }
 
-    public CreateRecipe(materials: [number, ...Material[]][]): CraftingRecipe {
+    public CreateRecipe(materials: [number, ...Material[]][], fel?: number): CraftingRecipe {
 
+        if (fel) return new CraftingRecipe(this.itemMaterials, materials, [], fel);
         return new CraftingRecipe(this.itemMaterials, materials, []);
     }
 
