@@ -3,27 +3,31 @@ import { Log } from "Log";
 import { IAbility } from "systems/abilities/IAbility";
 import { AbilitySlot } from "systems/ability-slots/AbilitySlot";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
+import { ToolManager } from "systems/tools/ToolManager";
 import { Unit } from "w3ts/index";
 import { PlayerClass } from "./PlayerClass";
+
+export type ProspectorAbilities = {
+    ProspectorSpellbook: IAbility,
+    TransferItems: IAbility,
+
+    Defile: IAbility,
+    EyeOfKilrogg: IAbility,
+    InfuseFelstone: IAbility,
+    CrystalizeFel: IAbility,
+    Demonfruit: IAbility,
+    TransferFel: IAbility,
+    PrepareFelCollector: IAbility
+}
 
 export class Prospector extends PlayerClass {
     
     constructor(
         protected unit: Unit,
-        protected abilities: {
-            ProspectorSpellbook: IAbility,
-            TransferItems: IAbility,
-
-            Defile: IAbility,
-            EyeOfKilrogg: IAbility,
-            InfuseFelstone: IAbility,
-            CrystalizeFel: IAbility,
-            Demonfruit: IAbility,
-            TransferFel: IAbility,
-            PrepareFelCollector: IAbility
-        },
+        protected abilities: ProspectorAbilities,
         protected basicSlotManager: AbilitySlotManager,
-        protected specialSlotManager: AbilitySlotManager
+        protected specialSlotManager: AbilitySlotManager,
+        protected toolManager: ToolManager
     ) {
         super(unit);
         this.Start();

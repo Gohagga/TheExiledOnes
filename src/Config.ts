@@ -1,4 +1,5 @@
 import { TransmuteAbility } from "content/abilities/artisan/Transmute"
+import { HeroConfig, HeroType } from "content/gameplay/HeroManager"
 import { ComponentItem, ResourceItem } from "content/items/ResourceItem"
 import { Wc3BuildingAbility } from "systems/abilities/BuildingAbilityBase"
 import { Wc3Ability } from "systems/abilities/Wc3Ability"
@@ -7,9 +8,37 @@ import { Material } from "systems/crafting/Material"
 import { ItemConfig } from "systems/items/ItemConfig"
 import { MapPlayer } from "w3ts/index"
 
-export const SharedPlayer = MapPlayer.fromIndex(20);
+export const SharedPlayer = MapPlayer.fromIndex(15);
 
 export class Config {
+
+    players: MapPlayer[] = [
+        MapPlayer.fromIndex(0),
+        MapPlayer.fromIndex(1),
+        MapPlayer.fromIndex(2),
+        MapPlayer.fromIndex(3),
+        MapPlayer.fromIndex(4),
+        MapPlayer.fromIndex(5),
+        MapPlayer.fromIndex(6),
+        MapPlayer.fromIndex(7),
+        MapPlayer.fromIndex(8),
+        MapPlayer.fromIndex(9)
+    ]
+
+    heroes: HeroConfig[] = [{
+            name: 'Prospector',
+            type: HeroType.Prospector,
+            unitCode: 'H00P',
+        }, {
+            name: 'Artisan',
+            type: HeroType.Artisan,
+            unitCode: 'H00A',
+        }, {
+            name: 'Researcher',
+            type: HeroType.Researcher,
+            unitCode: 'H00R',
+        }
+    ]
 
 //#region Abilities
     Defile: Wc3Ability = {
@@ -134,7 +163,80 @@ export class Config {
         tooltip: 'Collection of main artisan abilities.'
     }
 
+    // Researcher
+    // Transmute: Wc3Ability = {
+    //     name: 'Transmute',
+    //     codeId: 'A0A5',
+    //     extCodeId: 'ASA5',
+    //     tooltip: 'Transmutes materials'
+    // }
+
+    // TransmuteRock: TransmuteAbility = {
+    //     name: 'Transmute Rock',
+    //     codeId: 'A0A6',
+    //     extCodeId: 'ASA6',
+    //     matAmount: 3,
+    //     material: Material.Wood | Material.TierI,
+    //     tooltip: 'Transmutes 3 sticks into rock'
+    // }
+
+    // TransmuteIron: TransmuteAbility = {
+    //     name: 'Transmute Iron',
+    //     codeId: 'A0A7',
+    //     extCodeId: 'ASA7',
+    //     matAmount: 3,
+    //     material: Material.Stone | Material.TierI,
+    //     tooltip: 'Transmutes 3 rocks into an iron'
+    // }
+
+    // CrudeAxe: Wc3Ability = {
+    //     name: 'Craft Crude Axe',
+    //     codeId: 'A0A0',
+    //     extCodeId: 'ASA0'
+    // }
+
+    // CrudePickaxe: Wc3Ability = {
+    //     name: 'Craft Crude Pickaxe',
+    //     codeId: 'A0A1',
+    //     extCodeId: 'ASA1',
+    //     tooltip: 'Summons two eyes for 60 seconds that can scout nearby land.'
+    // }
+
+    // Workstation: Wc3BuildingAbility = {
+    //     name: 'Prepare Workstation',
+    //     buildCodeId: 'ABA2',
+    //     prepareCodeId: 'A0A2',
+    //     builtUnitCodeId: 'h000',
+    //     extCodeId: 'ASA2',
+    //     tooltip: 'Creates a felstone material using 3 stones and 50 fel.'
+    // }
+
+    // HellForge: Wc3Ability = {
+    //     name: 'Prepare Hell Forge',
+    //     codeId: 'A0A3',
+    //     extCodeId: 'ASA3',
+    //     tooltip: 'Consume 100 fel to create a Crystallized Fel item which can be consumed for 100 fel.'
+    // }
+
+    // Transmuter: Wc3Ability = {
+    //     name: 'Prepare Transmuter',
+    //     codeId: 'A0A4',
+    //     extCodeId: 'ASA4',
+    //     tooltip: 'Unleash parasites onto a tree. They will mutate the tree, changing its internal structure. When cut down, Demonfruit trees will drop cursewood and demonfruit.'
+    // }
+
+    ResearcherSpellbook: Wc3Ability = {
+        name: 'Basic Abilities',
+        codeId: 'A0AQ',
+        tooltip: 'Collection of main artisan abilities.'
+    }
+
     // Tools
+
+    Hand: Wc3Ability = {
+        name: 'Use Hand',
+        codeId: 'AT02'
+    }
 
     Axe: Wc3Ability = {
         name: 'Use Axe',
@@ -233,27 +335,45 @@ Takes items from target unit if inventory is empty (only owned or shared units).
         {
             trainId: 'oPT1',
             resultId: ComponentItem.TankI,
-            neededFel: 10,
             materials: [[1, Material.Frame      | Material.TierI],
                         [1, Material.Metal      | Material.TierI]],
         }, {
             trainId: 'oPT2',
             resultId: ComponentItem.TankII,
-            neededFel: 20,
             materials: [[1, Material.Frame      | Material.TierII],
                         [1, Material.Metal      | Material.TierII]]
         }, {
             trainId: 'oPT3',
             resultId: ComponentItem.TankIII,
-            neededFel: 30,
             materials: [[1, Material.Frame      | Material.TierIII],
                         [1, Material.Metal      | Material.TierIII]]
         }, {
             trainId: 'oPT4',
             resultId: ComponentItem.TankIV,
-            neededFel: 40,
             materials: [[1, Material.Frame      | Material.TierIV],
                         [1, Material.Metal      | Material.TierIV]]
+        },
+    
+        {
+            trainId: 'oPC1',
+            resultId: ComponentItem.ConverterI,
+            materials: [[1, Material.Mechanism  | Material.TierI],
+                        [1, Material.Tank       | Material.TierI]],
+        }, {
+            trainId: 'oPC2',
+            resultId: ComponentItem.ConverterII,
+            materials: [[1, Material.Mechanism  | Material.TierII],
+                        [1, Material.Tank       | Material.TierII]]
+        }, {
+            trainId: 'oPC3',
+            resultId: ComponentItem.ConverterIII,
+            materials: [[1, Material.Mechanism  | Material.TierIII],
+                        [1, Material.Tank       | Material.TierIII]]
+        }, {
+            trainId: 'oPC4',
+            resultId: ComponentItem.ConverterIV,
+            materials: [[1, Material.Mechanism  | Material.TierIV],
+                        [1, Material.Tank       | Material.TierIV]]
         }]
     }
 
@@ -347,6 +467,28 @@ Takes items from target unit if inventory is empty (only owned or shared units).
             itemTypeId: ComponentItem.TankIV,
             tooltip: 'Component part.',
             material: Material.Tank | Material.TierIV
+        }, 
+
+        {
+            name: 'Converter I',
+            itemTypeId: ComponentItem.ConverterI,
+            tooltip: 'Component part.',
+            material: Material.Converter | Material.TierI
+        }, {
+            name: 'Converter II',
+            itemTypeId: ComponentItem.ConverterII,
+            tooltip: 'Component part.',
+            material: Material.Converter | Material.TierII
+        }, {
+            name: 'Converter III',
+            itemTypeId: ComponentItem.ConverterIII,
+            tooltip: 'Component part.',
+            material: Material.Converter | Material.TierIII
+        }, {
+            name: 'Converter IV',
+            itemTypeId: ComponentItem.ConverterIV,
+            tooltip: 'Component part.',
+            material: Material.Converter | Material.TierIV
         }, 
     ]
 }

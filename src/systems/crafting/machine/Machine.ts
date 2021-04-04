@@ -119,7 +119,7 @@ export class MachineBase implements IMachine {
             result = recipe.CraftTierInclusive(this.unit);
             this.processedResult = result;
         } else {
-            result = new CraftingResult(true, [], 0, ['Recipe does not exist']);
+            result = new CraftingResult(true, [], 0, 0, this.unit, ['Recipe does not exist']);
         }
 
         if (result.successful == false) {

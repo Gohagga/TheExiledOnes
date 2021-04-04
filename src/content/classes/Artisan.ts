@@ -1,31 +1,36 @@
-import { Defile } from "content/abilities/prospector/Defile";
 import { Log } from "Log";
 import { IAbility } from "systems/abilities/IAbility";
 import { AbilitySlot } from "systems/ability-slots/AbilitySlot";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
-import { MapPlayer, Unit } from "w3ts/index";
+import { IToolAbility } from "systems/tools/IToolAbility";
+import { ToolManager } from "systems/tools/ToolManager";
+import { Unit } from "w3ts/index";
 import { PlayerClass } from "./PlayerClass";
+
+export type ArtisanAbilities = {
+    ArtisanSpellbook: IAbility,
+    TransferItems: IAbility,
+    Hand: IToolAbility,
+    // Felsmithing: IAbility,
+
+    Transmute: IAbility,
+    TransmuteRock: IAbility,
+    TransmuteIron: IAbility,
+    CrudeAxe: IAbility,
+    CrudePickaxe: IAbility,
+    Workstation: IAbility,
+    HellForge: IAbility,
+    Transmuter: IAbility
+}
 
 export class Artisan extends PlayerClass {
     
     constructor(
         protected unit: Unit,
-        protected abilities: {
-            ArtisanSpellbook: IAbility,
-            TransferItems: IAbility,
-            // Felsmithing: IAbility,
-
-            Transmute: IAbility,
-            TransmuteRock: IAbility,
-            TransmuteIron: IAbility,
-            CrudeAxe: IAbility,
-            CrudePickaxe: IAbility,
-            Workstation: IAbility,
-            HellForge: IAbility,
-            Transmuter: IAbility
-        },
+        protected abilities: ArtisanAbilities,
         protected basicSlotManager: AbilitySlotManager,
-        protected specialSlotManager: AbilitySlotManager
+        protected specialSlotManager: AbilitySlotManager,
+        protected toolManager: ToolManager,
     ) {
         super(unit);
         this.Start();
@@ -41,6 +46,7 @@ export class Artisan extends PlayerClass {
         // Add Prospector spellbook for this unit
         this.abilities.ArtisanSpellbook.AddToUnit(this.unit);
         this.abilities.TransferItems.AddToUnit(this.unit);
+        this.toolManager.SetDefault(this.unit, this.abilities.Hand);
 
         this.AddBasic(AbilitySlot.Q, this.abilities.Transmute);
         this.AddBasic(AbilitySlot.W, this.abilities.CrudeAxe);

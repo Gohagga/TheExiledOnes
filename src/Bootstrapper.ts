@@ -5,39 +5,36 @@ import { Transmute } from "content/abilities/artisan/Transmute";
 import { Workstation } from "content/abilities/artisan/Workstation";
 import { Defile } from "content/abilities/prospector/Defile";
 import { Axe } from "content/abilities/tools/Axe";
+import { Hand } from "content/abilities/tools/Hand";
 import { Pickaxe } from "content/abilities/tools/Pickaxe";
 import { TransferInventory } from "content/abilities/tools/TransferInventory";
 import { Artisan } from "content/classes/Artisan";
-import { Prospector } from "content/classes/Prospector";
-import { ComponentItem, ResourceItem } from "content/items/ResourceItem";
+import { HeroManager } from "content/gameplay/HeroManager";
+import { ResourceItem } from "content/items/ResourceItem";
 import { MachineFactory } from "content/machines/MachineFactory";
-import { WorkstationMachine } from "content/machines/WorkstationMachine";
 import { Level, Log } from "Log";
 import { PathingService } from "services/PathingService";
 import { BasicAbility } from "systems/abilities/BasicAbility";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
 import { CraftingManager } from "systems/crafting/CraftingManager";
-import { MachineBase } from "systems/crafting/machine/Machine";
 import { MachineManager } from "systems/crafting/machine/MachineManager";
 import { Material } from "systems/crafting/Material";
 import { AbilityEventHandler } from "systems/events/ability-events/AbilityEventHandler";
 import { AbilityEventProvider } from "systems/events/ability-events/AbilityEventProvider";
+import { InputHandler } from "systems/events/input-events/InputHandler";
 import { ItemFactory } from "systems/items/ItemFactory";
 import { PathingType } from "systems/map-generation/builders/PathingBuilder";
-import { MapGenerator } from "systems/map-generation/MapGenerator";
 import { MapGenerator2 } from "systems/map-generation/MapGenerator2";
 import { CavernNoiseProvider } from "systems/map-generation/providers/CavernNoiseProvider";
 import { HeightNoiseProvider } from "systems/map-generation/providers/HeightNoise";
 import { MoistureNoiseProvider } from "systems/map-generation/providers/MoistureNoise";
 import { TreeNoiseProvider } from "systems/map-generation/providers/TreeNoise";
 import { CustomMinimap } from "systems/minimap/CustomMinimap";
-import { CustomMinimap2 } from "systems/minimap/CustomMinimap2";
-import { Minimap } from "systems/minimap/Minimap";
 import { Random } from "systems/random/Random";
 import { ResourceDropManager } from "systems/resource-drops/ResourceDropManager";
 import { ToolManager } from "systems/tools/ToolManager";
 import { ErrorService } from "systems/ui/ErrorService";
-import { CameraSetup, Item, MapPlayer, Rectangle, Timer, Trigger, Unit } from "w3ts/index";
+import { MapPlayer, Rectangle, Timer, Trigger, Unit } from "w3ts/index";
 
 export function Initialize() {
 
@@ -63,6 +60,8 @@ export function Initialize() {
     SharedPlayer.setAlliance(p, ALLIANCE_SHARED_SPELLS, true);
     // SharedPlayer.setAlliance(p, ALLIANCE_SHARED_CONTROL, true);
     SharedPlayer.setAlliance(p, ALLIANCE_SHARED_ADVANCED_CONTROL, true);
+
+    p.setState(PLAYER_STATE_RESOURCE_FOOD_CAP, 1);
 
     // SetPlayerAllianceStateBJ(Player(0), SharedPlayer.handle, bj_ALLIANCE_ALLIED_UNITS);
     // SetPlayerAllianceStateBJ(SharedPlayer.handle, Player(0), bj_ALLIANCE_ALLIED_ADVUNITS);
@@ -191,14 +190,15 @@ export function Initialize() {
         const itemFactory = new ItemFactory(config.items, craftingManager);
         const machineManager = new MachineManager(abilityEvent);
         const machineFactory = new MachineFactory(config, craftingManager, itemFactory, errorService);
+        const inputHandler = new InputHandler(config.players);
 
         // Materials
-        itemFactory.RegisterResource(FourCC('IMS1'), Material.Stone | Material.TierI);
-        itemFactory.RegisterResource(FourCC('IMS2'), Material.Stone | Material.TierII);
-        itemFactory.RegisterResource(FourCC('IMS3'), Material.Stone | Material.TierIII);
+        itemFactory.RegisterResource(ResourceItem.Rock, Material.Stone | Material.TierI);
+        itemFactory.RegisterResource(ResourceItem.Stone, Material.Stone | Material.TierII);
+        itemFactory.RegisterResource(ResourceItem.Felstone, Material.Stone | Material.TierIII);
 
-        itemFactory.RegisterResource(FourCC('IMW1'), Material.Wood | Material.TierI);
-        itemFactory.RegisterResource(FourCC('IMW2'), Material.Wood | Material.TierII);
+        itemFactory.RegisterResource(ResourceItem.Branch, Material.Wood | Material.TierI);
+        itemFactory.RegisterResource(ResourceItem.Log, Material.Wood | Material.TierII);
         // itemFactory.RegisterResource(FourCC('IMW3'), Material.Wood | Material.TierIII);
 
         itemFactory.RegisterResource(ResourceItem.Iron, Material.Metal | Material.TierI);
@@ -222,6 +222,7 @@ export function Initialize() {
 
         let prospectorQ = new BasicAbility(config.ProspectorSpellbook);
         let artisanQ = new BasicAbility(config.ArtisanSpellbook);
+        let researcherQ = new BasicAbility(config.ResearcherSpellbook);
         let abilities = {
 
             // Prospector
@@ -245,7 +246,19 @@ export function Initialize() {
             HellForge: new BasicAbility(config.HellForge),
             Transmuter: new BasicAbility(config.Transmuter),
 
+            // Researcher
+            ResearcherSpellbook: artisanQ,
+            // Transmute: new BasicAbility(config.Transmute),
+            // TransmuteRock: new Transmute(config.TransmuteRock, abilityEvent, craftingManager, errorService, ResourceItem.Rock),
+            // TransmuteIron: new Transmute(config.TransmuteIron, abilityEvent, craftingManager, errorService, ResourceItem.Iron),
+            // CrudeAxe: new CrudeAxe(config.CrudeAxe, abilityEvent, craftingManager, errorService),
+            // CrudePickaxe: new CrudePickaxe(config.CrudePickaxe, abilityEvent, craftingManager, errorService),
+            // Workstation: new Workstation(config.Workstation, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager),
+            // HellForge: new BasicAbility(config.HellForge),
+            // Transmuter: new BasicAbility(config.Transmuter),
+
             // Tool Abilities
+            Hand: new Hand(config.Hand, abilityEvent, inputHandler, toolManager, itemFactory),
             Axe: new Axe(config.Axe, abilityEvent),
             Pickaxe: new Pickaxe(config.Pickaxe, abilityEvent),
             TransferItems: new TransferInventory(config.TransferInventory, abilityEvent),
@@ -258,26 +271,18 @@ export function Initialize() {
         toolManager.RegisterTool('IT03', abilities.Pickaxe, 2);
 
         // Machines
-        const workstation = new WorkstationMachine(config.WorkstationMachine, Unit.fromHandle(gg_unit_h000_0016), errorService, craftingManager, itemFactory);
-        // workstation.RegisterMachineRecipe(FourCC('oPM1'), (m, recipe, result) => {
-        //     result.destroy();
-        //     m.unit.addItem(new Item(FourCC('IPM1'), 0, 0));
-        // }, craftingManager.CreateRecipe([
-        //     [1, Material.Wood | Material.TierI],
-        //     [1, Material.Stone | Material.TierI],
-        //     [1, Material.Metal | Material.TierI]
-        // ]));
-        machineManager.Register(workstation);
-        // const workstation = new WorkstationMachine(FourCC('h000'), errorService, craftingManager);
+        // const workstation = new WorkstationMachine(config.WorkstationMachine, Unit.fromHandle(gg_unit_h000_0016), errorService, craftingManager, itemFactory);
 
-        // // Make players
+        // Make players
+        const heroManager = new HeroManager(config.heroes, abilities, basicSlotManager, specialSlotManager, toolManager);
+
         // let startPoint = { x: 0, y: 0 };
 
         // let u = new Unit(MapPlayer.fromIndex(15), FourCC('e000'), startPoint.x, startPoint.y, 270);
 
         let p = MapPlayer.fromIndex(0);
         let u = Unit.fromHandle(gg_unit_Hblm_0003);
-        let pc = new Artisan(u, abilities, basicSlotManager, specialSlotManager);
+        let pc = new Artisan(u, abilities, basicSlotManager, specialSlotManager, toolManager);
     
         let cam = new Trigger();
         cam.registerPlayerChatEvent(MapPlayer.fromLocal(), '-cam', false);

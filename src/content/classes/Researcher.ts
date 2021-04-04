@@ -3,31 +3,35 @@ import { Log } from "Log";
 import { IAbility } from "systems/abilities/IAbility";
 import { AbilitySlot } from "systems/ability-slots/AbilitySlot";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
+import { ToolManager } from "systems/tools/ToolManager";
 import { Unit } from "w3ts/index";
 import { PlayerClass } from "./PlayerClass";
 
-export class Prospector extends PlayerClass {
+export type ResearcherAbilities = {
+    ResearcherSpellbook: IAbility,
+    ResearchSpellbook: IAbility,
+    TransferItems: IAbility,
+    
+    Study: IAbility,
+    OrganicMatter: IAbility,
+    Obliterum: IAbility,
+    ExperimentChamber: IAbility,
+    Bellows: IAbility,
+    Collector: IAbility,
+    FelInjector: IAbility,
+
+    // Research
+
+}
+
+export class Researcher extends PlayerClass {
 
     constructor(
         protected unit: Unit,
-        protected abilities: {
-            ResearcherSpellbook: IAbility,
-            ResearchSpellbook: IAbility,
-            TransferItems: IAbility,
-            
-            Study: IAbility,
-            OrganicMatter: IAbility,
-            Obliterum: IAbility,
-            ExperimentChamber: IAbility,
-            Bellows: IAbility,
-            Collector: IAbility,
-            FelInjector: IAbility,
-
-            // Research
-
-        },
+        protected abilities: ResearcherAbilities,
         protected basicSlotManager: AbilitySlotManager,
-        protected specialSlotManager: AbilitySlotManager
+        protected specialSlotManager: AbilitySlotManager,
+        protected toolManager: ToolManager,
     ) {
         super(unit);
         this.Start();

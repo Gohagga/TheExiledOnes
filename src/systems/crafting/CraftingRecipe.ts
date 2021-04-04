@@ -143,7 +143,7 @@ export class CraftingRecipe {
             if (felDiff > 0) errors.push(felDiff + ' Fel');
         }
 
-        return new CraftingResult(errors.length == 0, toConsume, lowestTier, errors);
+        return new CraftingResult(errors.length == 0, toConsume, this.neededFel, lowestTier, unit, errors);
     }
 
     GetHighestTierMaterials(unit: Unit): CraftingResult {
@@ -213,6 +213,6 @@ export class CraftingRecipe {
             if (felDiff > 0) errors.push(felDiff + ' Fel');
         }
 
-        return new CraftingResult(errors.length == 0, toConsume, lowestTier, errors);
+        return new CraftingResult(errors.length == 0, toConsume, this.neededFel, lowestTier, unit, errors);
     }
 }

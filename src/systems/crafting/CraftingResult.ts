@@ -1,5 +1,5 @@
 import { Log } from "Log";
-import { Item } from "w3ts/index";
+import { Item, Unit } from "w3ts/index";
 import { Material } from "./Material";
 
 export class CraftingResult {
@@ -7,7 +7,9 @@ export class CraftingResult {
     constructor(
         public readonly successful: boolean,
         public readonly itemsToConsume: Item[],
+        public readonly felToConsume: number,
         public readonly lowestTier: Material,
+        public readonly unit: Unit,
         public readonly errors: string[],
     ) {
         
@@ -17,6 +19,7 @@ export class CraftingResult {
         for (let item of this.itemsToConsume) {
             item.destroy();
         }
+        this.unit.mana -= this.felToConsume;
     }
 
     DisplayErrors() {

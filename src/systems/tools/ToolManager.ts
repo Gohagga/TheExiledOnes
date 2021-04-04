@@ -1,14 +1,12 @@
 import { Log } from "Log";
-import { IAbility } from "systems/abilities/IAbility";
-import { IAbilityEventHandler } from "systems/events/ability-events/IAbilityEventHandler";
 import { Item } from "w3ts/handles/item";
-import { MapPlayer, Trigger, Unit } from "w3ts/index";
+import { Trigger, Unit } from "w3ts/index";
 import { IToolAbility } from "./IToolAbility";
 
 export class ToolManager {
 
     private readonly toolDefinition: Record<number, { ability: IToolAbility, tier: number }> = {};
-    private readonly instances: Record<number, { ability: IToolAbility, item: Item }> = {};
+    private readonly instances: Record<number, { ability: IToolAbility | null, item: Item | null, defaultAbility?: IToolAbility }> = {};
 
     private readonly equipAbilityId: number;
 
@@ -31,6 +29,24 @@ export class ToolManager {
         }
     }
 
+    SetDefault(unit: Unit, ability: IToolAbility) {
+
+        let id = unit.id;
+        if (id in this.instances) {
+            
+            let current = this.instances[id];
+            current.defaultAbility = ability;
+        } else {
+            
+            this.instances[id] = {
+                ability: ability,
+                item: null,
+                defaultAbility: ability,
+            }
+            ability.AddToUnit(unit);
+        }
+    }
+
     Equip(unit: Unit, item: Item) {
 
         Log.Info("Equipped item", item.name);
@@ -45,8 +61,9 @@ export class ToolManager {
         if (id in this.instances) {
             
             let current = this.instances[id];
-            current.ability.RemoveFromUnit(unit);
-            unit.addItem(current.item);
+            if (current.ability) current.ability.RemoveFromUnit(unit);
+
+            if (current.item) unit.addItem(current.item);
             
             current.ability = def.ability;
             current.item = item;
@@ -61,15 +78,24 @@ export class ToolManager {
         def.ability.SetLevel(unit, def.tier);
     }
 
-    unequip(unit: Unit) {
+    Unequip(unit: Unit) {
 
         let id = unit.id;
         
         if (id in this.instances) {
 
             let current = this.instances[id];
-            current.ability.RemoveFromUnit(unit);
-            unit.addItem(current.item);
+            if (current.ability) current.ability.RemoveFromUnit(unit);
+
+            if (current.item) unit.addItem(current.item);
+            current.item = null;
+
+            if (current.defaultAbility) {
+                current.defaultAbility.AddToUnit(unit);
+                current.ability = current.defaultAbility;
+            } else {
+                current.ability = null;
+            }
         }
     }
 }
