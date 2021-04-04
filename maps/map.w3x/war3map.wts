@@ -264,7 +264,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 62
-// Abilities: A0PQ (Base Prospector Spellbook), Hotkey (Hotkey - Normal)
+// Units: oPC1 (Converter I), Hotkey (Hotkey)
 {
 Q
 }
@@ -288,7 +288,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 66
-// Abilities: A0P0 (Defile), Hotkey (Hotkey - Normal)
+// Units: oPC2 (Converter II), Hotkey (Hotkey)
 {
 Q
 }
@@ -354,7 +354,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 78
-// Abilities: ASP0 (Addition Defile), Hotkey (Hotkey - Normal)
+// Units: oPC3 (Converter III), Hotkey (Hotkey)
 {
 Q
 }
@@ -426,7 +426,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 90
-// Abilities: ASP1 (Addition Eye of Kilrogg), Hotkey (Hotkey - Normal)
+// Units: oPC4 (Converter IV), Hotkey (Hotkey)
 {
 Q
 }
@@ -474,7 +474,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 98
-// Abilities: ASP2 (Addition Create Felstone), Hotkey (Hotkey - Normal)
+// Abilities: A0PQ (Base Prospector Spellbook), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -504,7 +504,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 103
-// Abilities: ASP3 (Addition Crystalize), Hotkey (Hotkey - Normal)
+// Abilities: A0P0 (Defile), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -528,7 +528,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 107
-// Abilities: ASP4 (Addition Demonfruit), Hotkey (Hotkey - Normal)
+// Abilities: ASP0 (Addition Defile), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -882,7 +882,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 193
-// Abilities: ASP5 (Addition Transfer Fel), Hotkey (Hotkey - Normal)
+// Abilities: ASP1 (Addition Eye of Kilrogg), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -906,7 +906,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 197
-// Abilities: ASP6 (Addition Fel Collector), Hotkey (Hotkey - Normal)
+// Abilities: ASP2 (Addition Create Felstone), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -930,7 +930,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 201
-// Abilities: ASA2 (Addition Prepare Workstation), Hotkey (Hotkey - Normal)
+// Abilities: ASP3 (Addition Crystalize), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -954,7 +954,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 205
-// Abilities: ASA0 (Addition Craft Crude Axe), Hotkey (Hotkey - Normal)
+// Abilities: ASP4 (Addition Demonfruit), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -984,7 +984,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 217
-// Abilities: ASA1 (Addition Craft Crude Pickaxe), Hotkey (Hotkey - Normal)
+// Abilities: ASP5 (Addition Transfer Fel), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -1014,7 +1014,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 225
-// Abilities: ASA3 (Addition Prepare Hell Forge), Hotkey (Hotkey - Normal)
+// Abilities: ASP6 (Addition Fel Collector), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -1212,13 +1212,13 @@ A
 }
 
 STRING 258
-// Abilities: ASA4 (Addition Prepare Transmuter), Hotkey (Hotkey - Normal)
+// Abilities: ASA2 (Addition Prepare Workstation), Hotkey (Hotkey - Normal)
 {
 Q
 }
 
 STRING 259
-// Abilities: A0AQ (Base Artisan Spellbook), Hotkey (Hotkey - Normal)
+// Abilities: ASA0 (Addition Craft Crude Axe), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -1416,7 +1416,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 304
-// Abilities: ASA5 (Addition Transmute), Hotkey (Hotkey - Normal)
+// Abilities: ASA1 (Addition Craft Crude Pickaxe), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -1440,7 +1440,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 308
-// Abilities: A0A5 (Transmute), Hotkey (Hotkey - Normal)
+// Abilities: ASA3 (Addition Prepare Hell Forge), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -1458,7 +1458,7 @@ Transmute Rock
 }
 
 STRING 311
-// Abilities: A0A6 (Transmute Rock), Hotkey (Hotkey - Normal)
+// Abilities: ASA4 (Addition Prepare Transmuter), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -1482,7 +1482,7 @@ STRING 314
 }
 
 STRING 315
-// Abilities: A0A6 (Transmute Rock), Researchhotkey (Hotkey - Learn)
+// Abilities: A0AQ (Base Artisan Spellbook), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -1776,7 +1776,7 @@ Frame IV
 }
 
 STRING 387
-// Units: oPT1 (Tank I), Tip (Tooltip - Basic)
+// Units: oPC1 (Converter I), Tip (Tooltip - Basic)
 {
 Mechanism I
 }
@@ -2021,18 +2021,6 @@ STRING 429
 W
 }
 
-STRING 430
-// Abilities: AT0Z (Equip Tool), Tip (Tooltip - Normal)
-{
-Prepare Fel Collector (R)
-}
-
-STRING 431
-// Abilities: AT0Z (Equip Tool), Ubertip (Tooltip - Normal - Extended)
-{
-A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
-}
-
 STRING 433
 // Abilities: A0A7 (Transmute Iron), Researchhotkey (Hotkey - Learn)
 {
@@ -2046,7 +2034,7 @@ Machine Recipe Q
 }
 
 STRING 435
-// Abilities: ASA6 (Addition Transmute Rock), Hotkey (Hotkey - Normal)
+// Abilities: ASA5 (Addition Transmute), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -2058,7 +2046,7 @@ Machine Recipe
 }
 
 STRING 437
-// Abilities: ASA7 (Addition Transmute Iron), Hotkey (Hotkey - Normal)
+// Abilities: A0A5 (Transmute), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -2088,7 +2076,7 @@ Crystalizes 100 fel into a powerup item that can be picked up by other units.
 }
 
 STRING 442
-// Abilities: AT0Z (Equip Tool), Researchhotkey (Hotkey - Learn)
+// Abilities: AR01 (Machine Recipe W), Hotkey (Hotkey - Normal)
 {
 W
 }
@@ -2195,7 +2183,7 @@ Crafting component.|n|nMaterials|nMetal I|nFine Metal I
 }
 
 STRING 460
-// Units: oPT2 (Tank II), Tip (Tooltip - Basic)
+// Units: oPC2 (Converter II), Tip (Tooltip - Basic)
 {
 Mechanism I
 }
@@ -2329,7 +2317,7 @@ Part
 }
 
 STRING 487
-// Items: IPT1 (Tank I), Name (Name)
+// Units: oPT1 (Tank I), Tip (Tooltip - Basic)
 {
 Tank I
 }
@@ -2347,7 +2335,7 @@ Part
 }
 
 STRING 491
-// Items: IPT1 (Tank I), Tip (Tooltip - Basic)
+// Items: IPT1 (Tank I), Name (Name)
 {
 Tank I
 }
@@ -2417,19 +2405,19 @@ Metal IV
 }
 
 STRING 504
-// Items: IPT2 (Tank II), Name (Name)
+// Units: oPT2 (Tank II), Tip (Tooltip - Basic)
 {
 Tank II
 }
 
 STRING 505
-// Items: IPT3 (Tank III), Name (Name)
+// Units: oPT3 (Tank III), Tip (Tooltip - Basic)
 {
 Tank III
 }
 
 STRING 506
-// Items: IPT4 (Tank IV), Name (Name)
+// Units: oPT4 (Tank IV), Tip (Tooltip - Basic)
 {
 Tank IV
 }
@@ -2455,7 +2443,7 @@ Metal II
 }
 
 STRING 509
-// Units: oPT3 (Tank III), Tip (Tooltip - Basic)
+// Units: oPC3 (Converter III), Tip (Tooltip - Basic)
 {
 Mechanism I
 }
@@ -2471,7 +2459,7 @@ Metal III
 }
 
 STRING 511
-// Units: oPT4 (Tank IV), Tip (Tooltip - Basic)
+// Units: oPC4 (Converter IV), Tip (Tooltip - Basic)
 {
 Mechanism I
 }
@@ -2499,19 +2487,19 @@ Mechanism I
 }
 
 STRING 515
-// Items: IPT2 (Tank II), Tip (Tooltip - Basic)
+// Items: IPT2 (Tank II), Name (Name)
 {
 Tank II
 }
 
 STRING 516
-// Items: IPT3 (Tank III), Tip (Tooltip - Basic)
+// Items: IPT3 (Tank III), Name (Name)
 {
 Tank III
 }
 
 STRING 517
-// Items: IPT4 (Tank IV), Tip (Tooltip - Basic)
+// Items: IPT4 (Tank IV), Name (Name)
 {
 Tank IV
 }
@@ -2595,24 +2583,18 @@ A
 }
 
 STRING 535
-// Abilities: AR00 (Machine Recipe Q), Hotkey (Hotkey - Normal)
+// Abilities: A0A6 (Transmute Rock), Hotkey (Hotkey - Normal)
 {
 Q
 }
 
 STRING 536
-// Abilities: AR00 (Machine Recipe Q), Researchhotkey (Hotkey - Learn)
+// Abilities: A0A6 (Transmute Rock), Researchhotkey (Hotkey - Learn)
 {
 Q
 }
 
 STRING 537
-// Abilities: AR01 (Machine Recipe W), Hotkey (Hotkey - Normal)
-{
-W
-}
-
-STRING 538
 // Abilities: AR01 (Machine Recipe W), Researchhotkey (Hotkey - Learn)
 {
 W
@@ -2678,5 +2660,403 @@ Specializes in production of Converter components that are required for building
 Materials
 Frame I
 Fine Metal I
+}
+
+STRING 550
+// Items: IT04 (Steel Pickaxe III), Name (Name)
+{
+Steel Pickaxe III
+}
+
+STRING 551
+// Items: IT05 (Soulsteel Pickaxe IV), Name (Name)
+{
+Soulsteel Pickaxe IV
+}
+
+STRING 552
+// Units: oPC1 (Converter I), Name (Name)
+{
+Converter I
+}
+
+STRING 553
+// Units: oPC1 (Converter I), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism I
+Tank I
+}
+
+STRING 554
+// Items: IPC1 (Converter I), Description (Description)
+{
+Part
+}
+
+STRING 555
+// Items: IPT1 (Tank I), Tip (Tooltip - Basic)
+{
+Tank I
+}
+
+STRING 556
+// Units: oPC2 (Converter II), Name (Name)
+{
+Converter II
+}
+
+STRING 557
+// Items: IPC1 (Converter I), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism I
+Tank I
+}
+
+STRING 558
+// Items: IPC2 (Converter II), Description (Description)
+{
+Part
+}
+
+STRING 559
+// Items: IPC1 (Converter I), Tip (Tooltip - Basic)
+{
+Tank I
+}
+
+STRING 560
+// Units: oPC3 (Converter III), Name (Name)
+{
+Converter III
+}
+
+STRING 561
+// Items: IPR1 (Resonator I), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism I
+Tank I
+}
+
+STRING 562
+// Items: IPC3 (Converter III), Description (Description)
+{
+Part
+}
+
+STRING 563
+// Items: IPR1 (Resonator I), Tip (Tooltip - Basic)
+{
+Tank I
+}
+
+STRING 564
+// Units: oPC4 (Converter IV), Name (Name)
+{
+Converter IV
+}
+
+STRING 566
+// Items: IPC4 (Converter IV), Description (Description)
+{
+Part
+}
+
+STRING 568
+// Units: oPC2 (Converter II), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism II
+Tank II
+}
+
+STRING 570
+// Units: oPC3 (Converter III), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism III
+Tank III
+}
+
+STRING 572
+// Units: oPC4 (Converter IV), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism IV
+Tank IV
+}
+
+STRING 575
+// Items: IPC1 (Converter I), Name (Name)
+{
+Converter I
+}
+
+STRING 576
+// Items: IPC2 (Converter II), Name (Name)
+{
+Converter II
+}
+
+STRING 577
+// Items: IPC2 (Converter II), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism II
+Tank II
+}
+
+STRING 578
+// Items: IPC2 (Converter II), Tip (Tooltip - Basic)
+{
+Converter II
+}
+
+STRING 579
+// Items: IPC3 (Converter III), Name (Name)
+{
+Converter III
+}
+
+STRING 580
+// Items: IPC3 (Converter III), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism III
+Tank III
+}
+
+STRING 581
+// Items: IPC3 (Converter III), Tip (Tooltip - Basic)
+{
+Converter III
+}
+
+STRING 582
+// Items: IPC4 (Converter IV), Name (Name)
+{
+Converter IV
+}
+
+STRING 583
+// Items: IPC4 (Converter IV), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism IV
+Tank IV
+}
+
+STRING 584
+// Items: IPC4 (Converter IV), Tip (Tooltip - Basic)
+{
+Converter IV
+}
+
+STRING 585
+// Abilities: ASA6 (Addition Transmute Rock), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 586
+// Abilities: ASA7 (Addition Transmute Iron), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 587
+// Abilities: AR00 (Machine Recipe Q), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 588
+// Abilities: AR00 (Machine Recipe Q), Researchhotkey (Hotkey - Learn)
+{
+Q
+}
+
+STRING 589
+// Items: IPT2 (Tank II), Tip (Tooltip - Basic)
+{
+Tank II
+}
+
+STRING 590
+// Items: IPT3 (Tank III), Tip (Tooltip - Basic)
+{
+Tank III
+}
+
+STRING 591
+// Items: IPT4 (Tank IV), Tip (Tooltip - Basic)
+{
+Tank IV
+}
+
+STRING 592
+// Abilities: AT0Z (Equip Tool), Hotkey (Hotkey - Normal)
+{
+D
+}
+
+STRING 593
+// Abilities: AT0Z (Equip Tool), Tip (Tooltip - Normal)
+{
+Transfer Inventory
+}
+
+STRING 594
+// Abilities: AT0Z (Equip Tool), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 595
+// Abilities: AT0Z (Equip Tool), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 596
+// Abilities: AT0Z (Equip Tool), Ubertip (Tooltip - Normal - Extended)
+{
+If targeting the ground, will drop all items on that point.
+
+Deposits existing items to target unit.
+Takes items from target unit if inventory is empty.
+}
+
+STRING 597
+// Abilities: AT0Z (Equip Tool), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 598
+// Abilities: AT0Z (Equip Tool), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 599
+// Abilities: AT0Z (Equip Tool), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 600
+// Items: IPR1 (Resonator I), Name (Name)
+{
+Resonator I
+}
+
+STRING 601
+// Items: IPR1 (Resonator I), Description (Description)
+{
+Part
+}
+
+STRING 602
+// Abilities: AT02 (Use Hand), Name (Name)
+{
+Use Hand
+}
+
+STRING 603
+// Abilities: AT02 (Use Hand), EditorSuffix (Editor Suffix)
+{
+ (Tool)
+}
+
+STRING 604
+// Abilities: AT02 (Use Hand), Tip (Tooltip - Normal)
+{
+Use Hand
+}
+
+STRING 605
+// Abilities: AT02 (Use Hand), Tip (Tooltip - Normal)
+{
+Use Hand
+}
+
+STRING 606
+// Abilities: AT02 (Use Hand), Tip (Tooltip - Normal)
+{
+Use Hand
+}
+
+STRING 607
+// Abilities: AT02 (Use Hand), Tip (Tooltip - Normal)
+{
+Use Hand
+}
+
+STRING 608
+// Units: H00P (Prospector), Name (Name)
+{
+Prospector
+}
+
+STRING 609
+// Units: H00R (Researcher), Name (Name)
+{
+Researcher
+}
+
+STRING 610
+// Units: H00A (Artisan), Name (Name)
+{
+Artisan
+}
+
+STRING 611
+// Abilities: A0RQ (Base Researcher Spellbook), Name (Name)
+{
+Base Researcher Spellbook
+}
+
+STRING 612
+// Abilities: A0RQ (Base Researcher Spellbook), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 613
+// Abilities: A0RQ (Base Researcher Spellbook), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 614
+// Abilities: A0RQ (Base Researcher Spellbook), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 615
+{
+Player 16
 }
 
