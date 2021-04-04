@@ -26,9 +26,13 @@ export class WorkstationMachine extends MachineBase {
 
             let recipe = craftingManager.CreateRecipe(r.materials);
             let trainId = typeof r.trainId === "string" ? FourCC(r.trainId) : r.trainId;
-            let resultId = typeof r.resultId === "string" ? FourCC(r.resultId) : r.resultId;
 
-            this.RegisterSimpleItemMachineRecipe(trainId, resultId, recipe);
+            if (r.resultId) {
+                let resultId = typeof r.resultId === "string" ? FourCC(r.resultId) : r.resultId;
+                this.RegisterSimpleItemMachineRecipe(trainId, resultId, recipe);
+            } else {
+                this.RegisterMachineRecipe(trainId, () => null, recipe);
+            }
             
             // this.unit.addItemToStock(resultId, 1, 1);
 

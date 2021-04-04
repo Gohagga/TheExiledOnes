@@ -11,6 +11,9 @@ enum MachineEvent {
     TrainStart,
     TrainCancel,
     TrainFinish,
+    UpgradeStart,
+    UpgradeCancel,
+    UpgradeFinish,
     Attacked
 }
 
@@ -60,6 +63,18 @@ export class MachineManager {
         t.addAction(() => this.ExecuteEvent(MachineEvent.TrainFinish));
 
         t = new Trigger();
+        t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_UPGRADE_START)
+        t.addAction(() => this.ExecuteEvent(MachineEvent.UpgradeStart));
+
+        t = new Trigger();
+        t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_UPGRADE_CANCEL)
+        t.addAction(() => this.ExecuteEvent(MachineEvent.UpgradeCancel));
+
+        t = new Trigger();
+        t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_UPGRADE_FINISH)
+        t.addAction(() => this.ExecuteEvent(MachineEvent.UpgradeFinish));
+
+        t = new Trigger();
         t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_DAMAGED);
         t.addAction(() => this.ExecuteEvent(MachineEvent.Attacked));
     }
@@ -85,10 +100,16 @@ export class MachineManager {
                         this.instance[id].QueueUnit(unit, GetIssuedOrderId());
                 case MachineEvent.TrainStart:
                     return this.instance[id].Start(unit, GetTrainedUnitType());
+                case MachineEvent.UpgradeStart:
+                    return this.instance[id].Start(unit, unit.typeId);
                 case MachineEvent.TrainCancel:
                     return this.instance[id].Cancel(unit, GetTrainedUnitType());
+                case MachineEvent.UpgradeCancel:
+                    return this.instance[id].Cancel(unit, unit.typeId);
                 case MachineEvent.TrainFinish:
                     return this.instance[id].Finish(unit, GetTrainedUnitType(), Unit.fromHandle(GetTrainedUnit()));
+                case MachineEvent.UpgradeFinish:
+                    return this.instance[id].Finish(unit, unit.typeId, unit);
                 case MachineEvent.Attacked:
                     return this.instance[id].Attack(unit, Unit.fromHandle(GetEventDamageSource()));
                 // case MachineEvent.Order:

@@ -13,6 +13,7 @@ import { Wc3Ability } from "./Wc3Ability";
 export interface Wc3BuildingAbility {
     buildCodeId: string,
     prepareCodeId: string,
+    builtUnitCodeId: string,
     extCodeId?: string,
     name: string,
     tooltip?: string
@@ -22,12 +23,13 @@ export class BuildingAbilityBase extends AbilityBase {
 
     protected buildId: number;
     protected prepareId: number;
+    protected builtUnitId: number;
     
     constructor(
         data: Wc3BuildingAbility,
         private readonly spellbookAbility: IAbility,
         abilityEvent: IAbilityEventHandler,
-        private readonly slotManager: AbilitySlotManager,
+        protected readonly slotManager: AbilitySlotManager,
         protected readonly errorService: ErrorService,
         protected readonly recipe: CraftingRecipe,
     ) {
@@ -39,6 +41,7 @@ export class BuildingAbilityBase extends AbilityBase {
         });
         this.prepareId = this.id;
         this.buildId = FourCC(data.buildCodeId);
+        this.builtUnitId = FourCC(data.builtUnitCodeId);
 
         abilityEvent.OnAbilityEffect(this.prepareId, (e: AbilityEvent) => this.OnPrepare(e));
         abilityEvent.OnAbilityEffect(this.buildId, (e: AbilityEvent) => this.OnBuild(e.caster));

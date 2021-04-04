@@ -109,6 +109,7 @@ export class Config {
         name: 'Prepare Workstation',
         buildCodeId: 'ABA2',
         prepareCodeId: 'A0A2',
+        builtUnitCodeId: 'h000',
         extCodeId: 'ASA2',
         tooltip: 'Creates a felstone material using 3 stones and 50 fel.'
     }
@@ -166,6 +167,16 @@ Takes items from target unit if inventory is empty.`
         workEffectPath: 'Effect_MechanicGears.mdx',
         workEffectPosition: { x: 0, y: 0, z: 250 },
         recipes: [{
+            trainId: 'h003', // Upgrade Tanks
+            materials: [[1, Material.Frame      | Material.TierI],
+                        [1, Material.Metal      | Material.TierI]]
+        }, {
+            trainId: 'h004', // Upgrade Converters
+            materials: [[1, Material.Frame      | Material.TierI],
+                        [1, Material.FineMetal  | Material.TierI]]
+        },
+            
+        {
             trainId: 'oPM1',
             resultId: ComponentItem.MechanismI,
             materials: [[1, Material.Metal      | Material.TierI],
@@ -216,6 +227,28 @@ Takes items from target unit if inventory is empty.`
             materials: [[1, Material.Frame      | Material.TierIII],
                         [1, Material.Wood       | Material.TierIV],
                         [1, Material.Stone      | Material.TierIV],
+                        [1, Material.Metal      | Material.TierIV]]
+        },
+    
+        {
+            trainId: 'oPT1',
+            resultId: ComponentItem.TankI,
+            materials: [[1, Material.Frame      | Material.TierI],
+                        [1, Material.Metal      | Material.TierI]]
+        }, {
+            trainId: 'oPT2',
+            resultId: ComponentItem.TankII,
+            materials: [[1, Material.Frame      | Material.TierII],
+                        [1, Material.Metal      | Material.TierII]]
+        }, {
+            trainId: 'oPT3',
+            resultId: ComponentItem.TankIII,
+            materials: [[1, Material.Frame      | Material.TierIII],
+                        [1, Material.Metal      | Material.TierIII]]
+        }, {
+            trainId: 'oPT4',
+            resultId: ComponentItem.TankIV,
+            materials: [[1, Material.Frame      | Material.TierIV],
                         [1, Material.Metal      | Material.TierIV]]
         }]
     }
@@ -288,6 +321,28 @@ Takes items from target unit if inventory is empty.`
             itemTypeId: ComponentItem.FrameIV,
             tooltip: 'Component part.',
             material: Material.Frame | Material.TierIV
+        },
+        
+        {
+            name: 'Tank I',
+            itemTypeId: ComponentItem.TankI,
+            tooltip: 'Component part.',
+            material: Material.Tank | Material.TierI
+        }, {
+            name: 'Tank II',
+            itemTypeId: ComponentItem.TankII,
+            tooltip: 'Component part.',
+            material: Material.Tank | Material.TierII
+        }, {
+            name: 'Tank III',
+            itemTypeId: ComponentItem.TankIII,
+            tooltip: 'Component part.',
+            material: Material.Tank | Material.TierIII
+        }, {
+            name: 'Tank IV',
+            itemTypeId: ComponentItem.TankIV,
+            tooltip: 'Component part.',
+            material: Material.Tank | Material.TierIV
         }, 
     ]
 }

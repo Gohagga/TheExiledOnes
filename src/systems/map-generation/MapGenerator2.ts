@@ -22,7 +22,7 @@ export class MapGenerator2 {
     private readonly random: Random;
 
     private debt: number = 0;
-    private maxDebt: number = 300;
+    private maxDebt: number = 250;
     private stepOffset: number = 128;
     private paused = true;
     

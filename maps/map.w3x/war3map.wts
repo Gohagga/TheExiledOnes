@@ -192,7 +192,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 50
-// Abilities: A0PQ (Base Prospector Spellbook), Hotkey (Hotkey - Normal)
+// Units: oPM1 (Mechanism I), Hotkey (Hotkey)
 {
 Q
 }
@@ -246,7 +246,7 @@ Sprays <ANhs,DataF3> waves of filth, corrupting the land and gathering fel energ
 }
 
 STRING 59
-// Abilities: A0P0 (Defile), Hotkey (Hotkey - Normal)
+// Units: oPT1 (Tank I), Hotkey (Hotkey)
 {
 Q
 }
@@ -264,7 +264,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 62
-// Abilities: ASP0 (Addition Defile), Hotkey (Hotkey - Normal)
+// Abilities: A0PQ (Base Prospector Spellbook), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -288,7 +288,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 66
-// Abilities: ASP1 (Addition Eye of Kilrogg), Hotkey (Hotkey - Normal)
+// Abilities: A0P0 (Defile), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -300,7 +300,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 69
-// Abilities: A0P1 (Eye of Kilrog), Researchhotkey (Hotkey - Learn)
+// Units: oPM2 (Mechanism II), Hotkey (Hotkey)
 {
 W
 }
@@ -354,7 +354,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 78
-// Abilities: ASP2 (Addition Create Felstone), Hotkey (Hotkey - Normal)
+// Abilities: ASP0 (Addition Defile), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -372,7 +372,7 @@ Crystalize
 }
 
 STRING 81
-// Abilities: A0P3 (Crystalize), Hotkey (Hotkey - Normal)
+// Units: oPM3 (Mechanism III), Hotkey (Hotkey)
 {
 E
 }
@@ -426,7 +426,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 90
-// Abilities: ASP3 (Addition Crystalize), Hotkey (Hotkey - Normal)
+// Abilities: ASP1 (Addition Eye of Kilrogg), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -444,7 +444,7 @@ Demonfruit
 }
 
 STRING 93
-// Abilities: A0P4 (Demonfruit), Hotkey (Hotkey - Normal)
+// Units: oPF1 (Frame I), Hotkey (Hotkey)
 {
 A
 }
@@ -474,7 +474,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 98
-// Abilities: ASP4 (Addition Demonfruit), Hotkey (Hotkey - Normal)
+// Abilities: ASP2 (Addition Create Felstone), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -504,7 +504,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 103
-// Abilities: ASP5 (Addition Transfer Fel), Hotkey (Hotkey - Normal)
+// Abilities: ASP3 (Addition Crystalize), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -528,7 +528,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 107
-// Abilities: ASP6 (Addition Fel Collector), Hotkey (Hotkey - Normal)
+// Abilities: ASP4 (Addition Demonfruit), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -546,7 +546,7 @@ Prepare Fel Collector
 }
 
 STRING 110
-// Abilities: A0P6 (Prepare Fel Collector), Hotkey (Hotkey - Normal)
+// Units: oPM4 (Mechanism IV), Hotkey (Hotkey)
 {
 R
 }
@@ -570,7 +570,7 @@ DebugHeight
 }
 
 STRING 114
-// Abilities: A0A1 (Craft Crude Pickaxe), Hotkey (Hotkey - Normal)
+// Units: oPT3 (Tank III), Hotkey (Hotkey)
 {
 E
 }
@@ -636,7 +636,7 @@ TestQueue
 }
 
 STRING 128
-// Abilities: A0P1 (Eye of Kilrog), Hotkey (Hotkey - Normal)
+// Units: oPT2 (Tank II), Hotkey (Hotkey)
 {
 W
 }
@@ -732,7 +732,7 @@ Equip Tool
 }
 
 STRING 150
-// Abilities: A0A1 (Craft Crude Pickaxe), Researchhotkey (Hotkey - Learn)
+// Abilities: A0P3 (Crystalize), Hotkey (Hotkey - Normal)
 {
 E
 }
@@ -780,7 +780,7 @@ Workstation
 }
 
 STRING 160
-// Abilities: A003 (Test Build), Hotkey (Hotkey - Normal)
+// Abilities: A0A1 (Craft Crude Pickaxe), Hotkey (Hotkey - Normal)
 {
 E
 }
@@ -882,7 +882,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 193
-// Abilities: ASA2 (Addition Prepare Workstation), Hotkey (Hotkey - Normal)
+// Abilities: ASP5 (Addition Transfer Fel), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -906,7 +906,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 197
-// Abilities: ASA0 (Addition Craft Crude Axe), Hotkey (Hotkey - Normal)
+// Abilities: ASP6 (Addition Fel Collector), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -930,7 +930,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 201
-// Abilities: ASA1 (Addition Craft Crude Pickaxe), Hotkey (Hotkey - Normal)
+// Abilities: ASA2 (Addition Prepare Workstation), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -954,7 +954,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 205
-// Abilities: ASA3 (Addition Prepare Hell Forge), Hotkey (Hotkey - Normal)
+// Abilities: ASA0 (Addition Craft Crude Axe), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -984,7 +984,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 217
-// Abilities: ASA4 (Addition Prepare Transmuter), Hotkey (Hotkey - Normal)
+// Abilities: ASA1 (Addition Craft Crude Pickaxe), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -1014,7 +1014,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 225
-// Abilities: A0AQ (Base Artisan Spellbook), Hotkey (Hotkey - Normal)
+// Abilities: ASA3 (Addition Prepare Hell Forge), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -1104,7 +1104,7 @@ Fel Infusion
 }
 
 STRING 240
-// Abilities: A0P2 (Fel Infusion), Hotkey (Hotkey - Normal)
+// Abilities: A0P1 (Eye of Kilrog), Researchhotkey (Hotkey - Learn)
 {
 W
 }
@@ -1140,7 +1140,7 @@ STRING 245
 }
 
 STRING 246
-// Abilities: A001 (TestQueue), Hotkey (Hotkey - Normal)
+// Abilities: A0P1 (Eye of Kilrog), Hotkey (Hotkey - Normal)
 {
 W
 }
@@ -1152,7 +1152,7 @@ STRING 247
 }
 
 STRING 248
-// Abilities: A0A0 (Craft Crude Axe), Hotkey (Hotkey - Normal)
+// Abilities: A0P2 (Fel Infusion), Hotkey (Hotkey - Normal)
 {
 W
 }
@@ -1164,7 +1164,7 @@ STRING 249
 }
 
 STRING 250
-// Abilities: A0A0 (Craft Crude Axe), Researchhotkey (Hotkey - Learn)
+// Abilities: A001 (TestQueue), Hotkey (Hotkey - Normal)
 {
 W
 }
@@ -1176,13 +1176,13 @@ STRING 251
 }
 
 STRING 252
-// Abilities: A0A3 (Prepare Hell Forge), Hotkey (Hotkey - Normal)
+// Units: oPT4 (Tank IV), Hotkey (Hotkey)
 {
 R
 }
 
 STRING 253
-// Abilities: A0A3 (Prepare Hell Forge), Researchhotkey (Hotkey - Learn)
+// Abilities: A0P6 (Prepare Fel Collector), Hotkey (Hotkey - Normal)
 {
 R
 }
@@ -1194,7 +1194,7 @@ STRING 254
 }
 
 STRING 255
-// Abilities: A0A2 (Prepare Workstation), Hotkey (Hotkey - Normal)
+// Abilities: A0P4 (Demonfruit), Hotkey (Hotkey - Normal)
 {
 A
 }
@@ -1206,25 +1206,25 @@ STRING 256
 }
 
 STRING 257
-// Abilities: A0A2 (Prepare Workstation), Researchhotkey (Hotkey - Learn)
+// Abilities: A0A2 (Prepare Workstation), Hotkey (Hotkey - Normal)
 {
 A
 }
 
 STRING 258
-// Abilities: ASA5 (Addition Transmute), Hotkey (Hotkey - Normal)
+// Abilities: ASA4 (Addition Prepare Transmuter), Hotkey (Hotkey - Normal)
 {
 Q
 }
 
 STRING 259
-// Abilities: A0A5 (Transmute), Hotkey (Hotkey - Normal)
+// Abilities: A0AQ (Base Artisan Spellbook), Hotkey (Hotkey - Normal)
 {
 Q
 }
 
 STRING 263
-// Abilities: ABA2 (Build Workstation), Hotkey (Hotkey - Normal)
+// Abilities: A0A3 (Prepare Hell Forge), Hotkey (Hotkey - Normal)
 {
 R
 }
@@ -1272,7 +1272,7 @@ A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer i
 }
 
 STRING 278
-// Abilities: A005 (TestPause), Hotkey (Hotkey - Normal)
+// Units: oPF3 (Frame III), Hotkey (Hotkey)
 {
 D
 }
@@ -1308,7 +1308,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 284
-// Abilities: AR02 (Machine Recipe E), Hotkey (Hotkey - Normal)
+// Abilities: A0A1 (Craft Crude Pickaxe), Researchhotkey (Hotkey - Learn)
 {
 E
 }
@@ -1416,7 +1416,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 304
-// Abilities: A0A6 (Transmute Rock), Hotkey (Hotkey - Normal)
+// Abilities: ASA5 (Addition Transmute), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -1440,7 +1440,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 308
-// Abilities: A0A6 (Transmute Rock), Researchhotkey (Hotkey - Learn)
+// Abilities: A0A5 (Transmute), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -1458,7 +1458,7 @@ Transmute Rock
 }
 
 STRING 311
-// Abilities: ASA6 (Addition Transmute Rock), Hotkey (Hotkey - Normal)
+// Abilities: A0A6 (Transmute Rock), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -1482,7 +1482,7 @@ STRING 314
 }
 
 STRING 315
-// Abilities: ASA7 (Addition Transmute Iron), Hotkey (Hotkey - Normal)
+// Abilities: A0A6 (Transmute Rock), Researchhotkey (Hotkey - Learn)
 {
 Q
 }
@@ -1554,7 +1554,7 @@ Iron
 }
 
 STRING 337
-// Abilities: A0A7 (Transmute Iron), Hotkey (Hotkey - Normal)
+// Abilities: A0A0 (Craft Crude Axe), Hotkey (Hotkey - Normal)
 {
 W
 }
@@ -1566,13 +1566,13 @@ STRING 338
 }
 
 STRING 339
-// Abilities: A0A7 (Transmute Iron), Researchhotkey (Hotkey - Learn)
+// Abilities: A0A0 (Craft Crude Axe), Researchhotkey (Hotkey - Learn)
 {
 W
 }
 
 STRING 340
-// Abilities: A0A4 (Prepare Transmuter), Hotkey (Hotkey - Normal)
+// Units: oPF2 (Frame II), Hotkey (Hotkey)
 {
 S
 }
@@ -1584,15 +1584,9 @@ STRING 341
 }
 
 STRING 342
-// Abilities: A0A4 (Prepare Transmuter), Researchhotkey (Hotkey - Learn)
+// Abilities: A0A4 (Prepare Transmuter), Hotkey (Hotkey - Normal)
 {
 S
-}
-
-STRING 344
-// Units: oP01 (Tank), Name (Name)
-{
-Tank
 }
 
 STRING 348
@@ -1782,7 +1776,7 @@ Frame IV
 }
 
 STRING 387
-// Items: IPM1 (Mechanism I), Name (Name)
+// Units: oPT1 (Tank I), Tip (Tooltip - Basic)
 {
 Mechanism I
 }
@@ -1836,7 +1830,7 @@ TestPause
 }
 
 STRING 396
-// Abilities: AT0T (Transfer Inventory), Hotkey (Hotkey - Normal)
+// Abilities: A005 (TestPause), Hotkey (Hotkey - Normal)
 {
 D
 }
@@ -2022,7 +2016,7 @@ Gold
 }
 
 STRING 429
-// Abilities: AT0Z (Equip Tool), Researchhotkey (Hotkey - Learn)
+// Abilities: A0A7 (Transmute Iron), Hotkey (Hotkey - Normal)
 {
 W
 }
@@ -2040,7 +2034,7 @@ A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer i
 }
 
 STRING 433
-// Abilities: AR01 (Machine Recipe W), Hotkey (Hotkey - Normal)
+// Abilities: A0A7 (Transmute Iron), Researchhotkey (Hotkey - Learn)
 {
 W
 }
@@ -2052,7 +2046,7 @@ Machine Recipe Q
 }
 
 STRING 435
-// Abilities: AR00 (Machine Recipe Q), Hotkey (Hotkey - Normal)
+// Abilities: ASA6 (Addition Transmute Rock), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -2064,7 +2058,7 @@ Machine Recipe
 }
 
 STRING 437
-// Abilities: AR00 (Machine Recipe Q), Researchhotkey (Hotkey - Learn)
+// Abilities: ASA7 (Addition Transmute Iron), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -2094,7 +2088,7 @@ Crystalizes 100 fel into a powerup item that can be picked up by other units.
 }
 
 STRING 442
-// Abilities: AR01 (Machine Recipe W), Researchhotkey (Hotkey - Learn)
+// Abilities: AT0Z (Equip Tool), Researchhotkey (Hotkey - Learn)
 {
 W
 }
@@ -2136,7 +2130,7 @@ Crystalizes 100 fel into a powerup item that can be picked up by other units.
 }
 
 STRING 449
-// Abilities: AR02 (Machine Recipe E), Researchhotkey (Hotkey - Learn)
+// Abilities: A003 (Test Build), Hotkey (Hotkey - Normal)
 {
 E
 }
@@ -2148,7 +2142,7 @@ Machine Recipe R
 }
 
 STRING 451
-// Abilities: AR03 (Machine Recipe R), Hotkey (Hotkey - Normal)
+// Abilities: A0A3 (Prepare Hell Forge), Researchhotkey (Hotkey - Learn)
 {
 R
 }
@@ -2184,7 +2178,7 @@ Crystalizes 100 fel into a powerup item that can be picked up by other units.
 }
 
 STRING 457
-// Abilities: AR03 (Machine Recipe R), Researchhotkey (Hotkey - Learn)
+// Abilities: ABA2 (Build Workstation), Hotkey (Hotkey - Normal)
 {
 R
 }
@@ -2201,7 +2195,7 @@ Crafting component.|n|nMaterials|nMetal I|nFine Metal I
 }
 
 STRING 460
-// Items: IPM1 (Mechanism I), Tip (Tooltip - Basic)
+// Units: oPT2 (Tank II), Tip (Tooltip - Basic)
 {
 Mechanism I
 }
@@ -2266,7 +2260,7 @@ Crafting component.|n|nMaterials|nFrame III|nWood IV|nStone IV|nMetal IV
 }
 
 STRING 473
-// Abilities: AT0T (Transfer Inventory), Researchhotkey (Hotkey - Learn)
+// Abilities: AR02 (Machine Recipe E), Hotkey (Hotkey - Normal)
 {
 E
 }
@@ -2320,5 +2314,369 @@ STRING 483
 // Abilities: A000 (DebugHeight), Hotkey (Hotkey - Normal)
 {
 G
+}
+
+STRING 484
+// Units: oPT1 (Tank I), Name (Name)
+{
+Tank I
+}
+
+STRING 486
+// Items: IPT1 (Tank I), Description (Description)
+{
+Part
+}
+
+STRING 487
+// Items: IPT1 (Tank I), Name (Name)
+{
+Tank I
+}
+
+STRING 488
+// Units: oPT2 (Tank II), Name (Name)
+{
+Tank II
+}
+
+STRING 490
+// Items: IPT2 (Tank II), Description (Description)
+{
+Part
+}
+
+STRING 491
+// Items: IPT1 (Tank I), Tip (Tooltip - Basic)
+{
+Tank I
+}
+
+STRING 492
+// Units: oPT3 (Tank III), Name (Name)
+{
+Tank III
+}
+
+STRING 494
+// Items: IPT3 (Tank III), Description (Description)
+{
+Part
+}
+
+STRING 496
+// Units: oPT4 (Tank IV), Name (Name)
+{
+Tank IV
+}
+
+STRING 498
+// Items: IPT4 (Tank IV), Description (Description)
+{
+Part
+}
+
+STRING 500
+// Items: IPT1 (Tank I), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Frame I
+Metal I
+}
+
+STRING 501
+// Items: IPT2 (Tank II), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Frame II
+Metal II
+}
+
+STRING 502
+// Items: IPT3 (Tank III), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Frame III
+Metal III
+}
+
+STRING 503
+// Items: IPT4 (Tank IV), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Frame IV
+Metal IV
+}
+
+STRING 504
+// Items: IPT2 (Tank II), Name (Name)
+{
+Tank II
+}
+
+STRING 505
+// Items: IPT3 (Tank III), Name (Name)
+{
+Tank III
+}
+
+STRING 506
+// Items: IPT4 (Tank IV), Name (Name)
+{
+Tank IV
+}
+
+STRING 507
+// Units: oPT1 (Tank I), Ubertip (Tooltip - Extended)
+{
+Crafting component.
+
+Materials
+Frame I
+Metal I
+}
+
+STRING 508
+// Units: oPT2 (Tank II), Ubertip (Tooltip - Extended)
+{
+Crafting component.
+
+Materials
+Frame II
+Metal II
+}
+
+STRING 509
+// Units: oPT3 (Tank III), Tip (Tooltip - Basic)
+{
+Mechanism I
+}
+
+STRING 510
+// Units: oPT3 (Tank III), Ubertip (Tooltip - Extended)
+{
+Crafting component.
+
+Materials
+Frame III
+Metal III
+}
+
+STRING 511
+// Units: oPT4 (Tank IV), Tip (Tooltip - Basic)
+{
+Mechanism I
+}
+
+STRING 512
+// Units: oPT4 (Tank IV), Ubertip (Tooltip - Extended)
+{
+Crafting component.
+
+Materials
+Frame IV
+Metal IV
+}
+
+STRING 513
+// Items: IPM1 (Mechanism I), Name (Name)
+{
+Mechanism I
+}
+
+STRING 514
+// Items: IPM1 (Mechanism I), Tip (Tooltip - Basic)
+{
+Mechanism I
+}
+
+STRING 515
+// Items: IPT2 (Tank II), Tip (Tooltip - Basic)
+{
+Tank II
+}
+
+STRING 516
+// Items: IPT3 (Tank III), Tip (Tooltip - Basic)
+{
+Tank III
+}
+
+STRING 517
+// Items: IPT4 (Tank IV), Tip (Tooltip - Basic)
+{
+Tank IV
+}
+
+STRING 522
+// Items: IMM2 (Steel), Name (Name)
+{
+Steel
+}
+
+STRING 523
+// Items: IMM2 (Steel), Tip (Tooltip - Basic)
+{
+Steel
+}
+
+STRING 524
+// Items: IMM2 (Steel), Description (Description)
+{
+Material |cff808080Metal II|r
+}
+
+STRING 525
+// Items: IMM2 (Steel), Ubertip (Tooltip - Extended)
+{
+Material |cff808080Metal II|r
+}
+
+STRING 526
+// Items: IMM3 (Fel Steel), Name (Name)
+{
+Fel Steel
+}
+
+STRING 527
+// Items: IMM3 (Fel Steel), Description (Description)
+{
+Material |cff808080Metal III|r
+}
+
+STRING 528
+// Items: IMM3 (Fel Steel), Ubertip (Tooltip - Extended)
+{
+Material |cff808080Metal III|r
+}
+
+STRING 529
+// Items: IMM3 (Fel Steel), Tip (Tooltip - Basic)
+{
+Fel Steel
+}
+
+STRING 530
+// Units: oPF4 (Frame IV), Hotkey (Hotkey)
+{
+F
+}
+
+STRING 531
+// Units: h003 (Workstation: Tanks), Hotkey (Hotkey)
+{
+Z
+}
+
+STRING 532
+// Units: h004 (Workstation: Converters), Hotkey (Hotkey)
+{
+X
+}
+
+STRING 533
+// Abilities: A0A4 (Prepare Transmuter), Researchhotkey (Hotkey - Learn)
+{
+S
+}
+
+STRING 534
+// Abilities: A0A2 (Prepare Workstation), Researchhotkey (Hotkey - Learn)
+{
+A
+}
+
+STRING 535
+// Abilities: AR00 (Machine Recipe Q), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 536
+// Abilities: AR00 (Machine Recipe Q), Researchhotkey (Hotkey - Learn)
+{
+Q
+}
+
+STRING 537
+// Abilities: AR01 (Machine Recipe W), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 538
+// Abilities: AR01 (Machine Recipe W), Researchhotkey (Hotkey - Learn)
+{
+W
+}
+
+STRING 539
+// Abilities: AR02 (Machine Recipe E), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 540
+// Abilities: AR03 (Machine Recipe R), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 541
+// Abilities: AR03 (Machine Recipe R), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 542
+// Abilities: AT0T (Transfer Inventory), Hotkey (Hotkey - Normal)
+{
+D
+}
+
+STRING 543
+// Abilities: AT0T (Transfer Inventory), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 544
+// Units: h003 (Workstation: Tanks), Tip (Tooltip - Basic)
+{
+Upgrade to Workstation: Tanks
+}
+
+STRING 546
+// Units: h004 (Workstation: Converters), Tip (Tooltip - Basic)
+{
+Upgrade to Workstation: Tanks
+}
+
+STRING 548
+// Units: h003 (Workstation: Tanks), Ubertip (Tooltip - Extended)
+{
+Specializes in production of Tank components that are required for buildings that consume fel.
+
+Materials
+Frame I
+Metal I
+}
+
+STRING 549
+// Units: h004 (Workstation: Converters), Ubertip (Tooltip - Extended)
+{
+Specializes in production of Converter components that are required for buildings that manipulate fel.
+
+Materials
+Frame I
+Fine Metal I
 }
 

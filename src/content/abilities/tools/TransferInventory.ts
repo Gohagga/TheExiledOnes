@@ -20,7 +20,6 @@ export class TransferInventory extends AbilityBase {
 
     Execute(e: AbilityEvent): void {
         
-        
         try {
             let caster = e.caster;
             let target = e.targetUnit;

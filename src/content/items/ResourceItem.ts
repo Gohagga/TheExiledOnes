@@ -14,6 +14,8 @@ export enum ResourceItem {
     WoodIII = FourCC('IMW3'),
     
     Iron = FourCC('IMM1'),
+    Steel = FourCC('IMM2'),
+    FelSteel = FourCC('IMM3'),
 
     Copper = FourCC('IMF1'),
     Silver = FourCC('IMF2'),
@@ -31,4 +33,19 @@ export enum ComponentItem {
     FrameII             = FourCC('IPF2'),
     FrameIII            = FourCC('IPF3'),
     FrameIV             = FourCC('IPF4'),
+
+    TankI              = FourCC('IPT1'),
+    TankII             = FourCC('IPT2'),
+    TankIII            = FourCC('IPT3'),
+    TankIV             = FourCC('IPT4'),
+
+    ConverterI              = FourCC('IPC1'),
+    ConverterII             = FourCC('IPC2'),
+    ConverterIII            = FourCC('IPC3'),
+    ConverterIV             = FourCC('IPC4'),
+
+    ResonatorI              = FourCC('IPR1'),
+    ResonatorII             = FourCC('IPR2'),
+    ResonatorIII            = FourCC('IPR3'),
+    ResonatorIV             = FourCC('IPR4'),
 }

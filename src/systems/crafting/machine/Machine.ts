@@ -1,6 +1,6 @@
 import { Log } from "Log";
 import { ErrorService } from "systems/ui/ErrorService";
-import { Effect, Item, MapPlayer, Timer, Unit } from "w3ts/index";
+import { Effect, Item, MapPlayer, Timer, Trigger, Unit } from "w3ts/index";
 import { CraftingRecipe } from "../CraftingRecipe";
 import { CraftingResult } from "../CraftingResult";
 import { OrderId } from "w3ts/globals/order";
@@ -50,6 +50,30 @@ export class MachineBase implements IMachine {
         this.runningSfxPath = config.workEffectPath;
         this.workSfxOffset = config.workEffectPosition || { x: 0, y: 0, z: 0 };
 
+        //#region trash rally
+        // let t = new Trigger();
+        // t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER);
+        // t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_ISSUED_POINT_ORDER);
+        // t.addAction(() => {
+        //     if (GetTriggerUnit() != this.unit.handle || GetIssuedOrderId() != OrderId.Setrally) return;
+        //     let x = GetOrderPointX();
+        //     let y = GetOrderPointY();
+        //     let u = GetOrderTargetUnit();
+        //     if (u) {
+        //         x = GetUnitX(u);
+        //         y = GetUnitY(u);
+        //     }
+        //     if (this.unit.inRange(x, y, 220)) return;
+        //     let tim = new Timer();
+        //     tim.start(0.1, false, () => {
+
+        //         let angle = math.atan(y - this.unit.x, x - this.unit.x);
+        //         SetUnitRallyPoint(this.unit.handle, Location(math.cos(angle) * 220, math.sin(angle) * 200));
+        //         tim.destroy();
+        //     });
+        // });
+        //#endregion
+
         this.state = this.idleState;
     }
 
@@ -63,6 +87,18 @@ export class MachineBase implements IMachine {
             result.destroy();
             let item = this.itemFactory.CreateItemByType(resultItemType);
             machine.unit.addItem(item);
+
+            let rallyUnit = GetUnitRallyUnit(this.unit.handle);
+            if (rallyUnit && rallyUnit == this.unit.handle || IsUnitInRangeLoc(this.unit.handle, GetUnitLoc(rallyUnit), 150)) {
+
+                UnitAddItem(rallyUnit, item.handle);
+            }
+            
+            let rallyPoint = this.unit.rallyPoint;
+            if (IsUnitInRangeLoc(this.unit.handle, rallyPoint.handle, 150)) {
+                item.setPoint(rallyPoint);
+            }
+
         }, recipe);
     }
     
@@ -89,6 +125,7 @@ export class MachineBase implements IMachine {
             if (IsUnitSelected(this.unit.handle, GetLocalPlayer()))
                 this.errorService.DisplayError(MapPlayer.fromLocal(), `Missing: ${result.errors.join(', ')}`);
         } else {
+            Log.Info("Consuming items");
             result.Consume();
         }
 

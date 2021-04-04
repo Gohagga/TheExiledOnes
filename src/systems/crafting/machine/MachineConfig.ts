@@ -10,7 +10,7 @@ export interface RecipeMachineConfig {
     workEffectPath: string,
     recipes: {
         trainId: number | string,
-        resultId: number | string,
+        resultId?: number | string,
         materials: [number, Material][]
     }[]
 }

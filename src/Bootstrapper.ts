@@ -10,6 +10,7 @@ import { TransferInventory } from "content/abilities/tools/TransferInventory";
 import { Artisan } from "content/classes/Artisan";
 import { Prospector } from "content/classes/Prospector";
 import { ComponentItem, ResourceItem } from "content/items/ResourceItem";
+import { MachineFactory } from "content/machines/MachineFactory";
 import { WorkstationMachine } from "content/machines/WorkstationMachine";
 import { Level, Log } from "Log";
 import { PathingService } from "services/PathingService";
@@ -43,6 +44,8 @@ export function Initialize() {
     const config = new Config();
 
     // Set Player alliances
+
+    Log.Level = Level.All;
 
     let p = MapPlayer.fromIndex(0);
     p.setAlliance(SharedPlayer, ALLIANCE_PASSIVE, true);
@@ -78,8 +81,6 @@ export function Initialize() {
     const errorService = new ErrorService();
 
     const pathingService = new PathingService('hval');
-
-    Log.Level = Level.Info;
 
     // const seed = 5;
     const seed = math.floor(math.random(0, 100));
@@ -188,6 +189,8 @@ export function Initialize() {
         const toolManager = new ToolManager('AT0Z', { x: mapArea.maxX, y: mapArea.minY });
         const craftingManager = new CraftingManager();
         const itemFactory = new ItemFactory(config.items, craftingManager);
+        const machineManager = new MachineManager(abilityEvent);
+        const machineFactory = new MachineFactory(config, craftingManager, itemFactory, errorService);
 
         // Materials
         itemFactory.RegisterResource(FourCC('IMS1'), Material.Stone | Material.TierI);
@@ -199,7 +202,8 @@ export function Initialize() {
         // itemFactory.RegisterResource(FourCC('IMW3'), Material.Wood | Material.TierIII);
 
         itemFactory.RegisterResource(ResourceItem.Iron, Material.Metal | Material.TierI);
-        // craftingManager.RegisterItemMaterial(FourCC('IMW2'), Material.Wood | Material.TierII);
+        itemFactory.RegisterResource(ResourceItem.Steel, Material.Metal | Material.TierII);
+        itemFactory.RegisterResource(ResourceItem.FelSteel, Material.Metal | Material.TierIII);
 
         itemFactory.RegisterResource(ResourceItem.Copper, Material.FineMetal | Material.TierI);
         itemFactory.RegisterResource(ResourceItem.Silver, Material.FineMetal | Material.TierII);
@@ -237,7 +241,7 @@ export function Initialize() {
             TransmuteIron: new Transmute(config.TransmuteIron, abilityEvent, craftingManager, errorService, ResourceItem.Iron),
             CrudeAxe: new CrudeAxe(config.CrudeAxe, abilityEvent, craftingManager, errorService),
             CrudePickaxe: new CrudePickaxe(config.CrudePickaxe, abilityEvent, craftingManager, errorService),
-            Workstation: new Workstation(config.Workstation, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService),
+            Workstation: new Workstation(config.Workstation, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager),
             HellForge: new BasicAbility(config.HellForge),
             Transmuter: new BasicAbility(config.Transmuter),
 
@@ -254,7 +258,6 @@ export function Initialize() {
         toolManager.RegisterTool('IT03', abilities.Pickaxe, 2);
 
         // Machines
-        const machineManager = new MachineManager(abilityEvent);
         const workstation = new WorkstationMachine(config.WorkstationMachine, Unit.fromHandle(gg_unit_h000_0016), errorService, craftingManager, itemFactory);
         // workstation.RegisterMachineRecipe(FourCC('oPM1'), (m, recipe, result) => {
         //     result.destroy();
