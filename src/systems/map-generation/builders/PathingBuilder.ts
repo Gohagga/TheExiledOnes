@@ -82,9 +82,11 @@ export class PathingBuilder {
 
         switch (pathing) {
             case PathingType.HillSteepUnwalkable:
-                // SetTerrainPathable(x, y, PATHING_TYPE_WALKABILITY, false);
-                // SetTerrainPathable(x, y, PATHING_TYPE_BUILDABILITY, false);
-                SetTerrainPathable(x, y, PATHING_TYPE_ANY, false);
+                SetTerrainPathable(x, y, PATHING_TYPE_WALKABILITY, false);
+                SetTerrainPathable(x, y, PATHING_TYPE_BUILDABILITY, false);
+                SetTerrainPathable(x, y, PATHING_TYPE_FLOATABILITY, false);
+                SetTerrainPathable(x, y, PATHING_TYPE_AMPHIBIOUSPATHING, false);
+                // SetTerrainPathable(x, y, PATHING_TYPE_ANY, false);
                 return cost;
 
             case PathingType.Plains:

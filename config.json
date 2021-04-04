@@ -8,6 +8,6 @@
     "-windowmode",
     "windowed",
     "-hd",
-    "0"
+    "1"
   ]
 }

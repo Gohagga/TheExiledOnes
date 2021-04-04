@@ -16,6 +16,7 @@ export type ArtisanAbilities = {
     Transmute: IAbility,
     TransmuteRock: IAbility,
     TransmuteIron: IAbility,
+    TransmuteCopper: IAbility,
     CrudeAxe: IAbility,
     CrudePickaxe: IAbility,
     Workstation: IAbility,
@@ -57,8 +58,10 @@ export class Artisan extends PlayerClass {
         
         this.abilities.TransmuteRock.AddToUnit(this.unit, true);
         this.abilities.TransmuteIron.AddToUnit(this.unit, true);
+        this.abilities.TransmuteCopper.AddToUnit(this.unit, true);
         if (this.abilities.TransmuteRock.extId) this.unit.owner.setAbilityAvailable(this.abilities.TransmuteRock.extId, false);
         if (this.abilities.TransmuteIron.extId) this.unit.owner.setAbilityAvailable(this.abilities.TransmuteIron.extId, false);
+        if (this.abilities.TransmuteCopper.extId) this.unit.owner.setAbilityAvailable(this.abilities.TransmuteCopper.extId, false);
 
 
         // Remove and readd spells

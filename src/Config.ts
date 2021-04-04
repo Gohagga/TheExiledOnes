@@ -109,7 +109,7 @@ export class Config {
         extCodeId: 'ASA6',
         matAmount: 3,
         material: Material.Wood | Material.TierI,
-        tooltip: 'Transmutes 3 sticks into rock'
+        tooltip: 'Transmutes 3 sticks into rock.'
     }
 
     TransmuteIron: TransmuteAbility = {
@@ -118,7 +118,16 @@ export class Config {
         extCodeId: 'ASA7',
         matAmount: 3,
         material: Material.Stone | Material.TierI,
-        tooltip: 'Transmutes 3 rocks into an iron'
+        tooltip: 'Transmutes 3 rocks into an iron.'
+    }
+
+    TransmuteCopper: TransmuteAbility = {
+        name: 'Transmute Copper',
+        codeId: 'A0A8',
+        extCodeId: 'ASA8',
+        matAmount: 3,
+        material: Material.Metal | Material.TierI,
+        tooltip: 'Transmutes 3 iron into an copper.'
     }
 
     CrudeAxe: Wc3Ability = {
@@ -241,13 +250,19 @@ export class Config {
     Axe: Wc3Ability = {
         name: 'Use Axe',
         codeId: 'AT00',
-        tooltip: 'Chop down trees and stuff'
+        tooltip:
+`Can chop down trees to get Log.
+
+Press U to unequip.`
     }
 
     Pickaxe: Wc3Ability = {
         name: 'Use Pickaxe',
         codeId: 'AT01',
-        tooltip: 'Pick rocks and stuff'
+        tooltip:
+`Can mine Stone from Stone Piles and Ore from veins.
+
+Press U to unequip.`
     }
 
     TransferInventory: Wc3Ability = {

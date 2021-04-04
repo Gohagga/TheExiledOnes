@@ -84,16 +84,12 @@ export function Initialize() {
     // const seed = 5;
     const seed = math.floor(math.random(0, 100));
     const random = new Random(seed);
-    
-    // mapGenerator.resume();
-    FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
-    
+
     const tim1 = new Timer();
     tim1.start(0, false, () => {
 
         const surfaceRect = Rectangle.fromHandle(gg_rct_SurfaceMap);
         const undergroundRect = Rectangle.fromHandle(gg_rct_UndergroundMap);
-        // SetCameraBoundsToRect(gg_rct_SurfaceMap);
 
         // let xMaxBound = GetRectMaxX(GetWorldBounds());
         // let xMinBound = GetRectMinX(GetWorldBounds());
@@ -126,7 +122,6 @@ export function Initialize() {
         //     surfaceRect, 
         //     Rectangle.fromHandle(gg_rct_UndergroundMap), 
         //     random);
-
         
         abilityEvent.OnAbilityCast(FourCC('A000'), () => {
             let x = GetSpellTargetX();
@@ -146,6 +141,18 @@ export function Initialize() {
         let time = os.clock();
         mapGenerator.resume();
 
+        // Make players
+        // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
+        let soulAnchor = new Unit(SharedPlayer, FourCC('e000'), surfaceRect.centerX, surfaceRect.centerY, 0);
+        PanCameraToTimedWithZ(soulAnchor.x, soulAnchor.y, 100, 0);
+        SetCameraBoundsToRect(gg_rct_SurfaceMap);
+
+        // let startPoint = { x: 0, y: 0 };
+
+        // let p = MapPlayer.fromIndex(0);
+        // let u = Unit.fromHandle(gg_unit_Hblm_0003);
+        // let pc = new Artisan(u, abilities, basicSlotManager, specialSlotManager, toolManager);
+
         const tim = new Timer()
         const progressTim = new Timer();
         tim.start(0.02, true, () => {
@@ -154,20 +161,16 @@ export function Initialize() {
                 progressTim.destroy();
                 time = os.clock() - time;
 
-                Log.Info("Finished generating in ", time);
-                // EnumDestructablesInRectAll(Rect(p.x-100, p.y-100, p.x+100, p.y+100), () => {
-                    //     if (GetEnumDestructable())
-                    //         nearDestruct = true;
-                    // });
+                Log.Message("Finished generating in ", time);
                     
             } else
                 mapGenerator.resume();
         });
         progressTim.start(1, true, () => {
-            // ClearTextMessages();
-            // let passed = math.floor(os.clock() - time + 0.5);
-            // let prediction = passed / mapGenerator.progress;
-            // Log.Info("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%', "seconds passed: ", passed, "prediction: ", prediction);
+            ClearTextMessages();
+            let passed = math.floor(os.clock() - time + 0.5);
+            let prediction = passed / mapGenerator.progress;
+            Log.Message("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%', "seconds passed: ", passed, "prediction: ", prediction);
         });
     });
 
@@ -240,6 +243,7 @@ export function Initialize() {
             Transmute: new BasicAbility(config.Transmute),
             TransmuteRock: new Transmute(config.TransmuteRock, abilityEvent, craftingManager, errorService, ResourceItem.Rock),
             TransmuteIron: new Transmute(config.TransmuteIron, abilityEvent, craftingManager, errorService, ResourceItem.Iron),
+            TransmuteCopper: new Transmute(config.TransmuteCopper, abilityEvent, craftingManager, errorService, ResourceItem.Copper),
             CrudeAxe: new CrudeAxe(config.CrudeAxe, abilityEvent, craftingManager, errorService),
             CrudePickaxe: new CrudePickaxe(config.CrudePickaxe, abilityEvent, craftingManager, errorService),
             Workstation: new Workstation(config.Workstation, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager),
@@ -272,41 +276,29 @@ export function Initialize() {
 
         // Machines
         // const workstation = new WorkstationMachine(config.WorkstationMachine, Unit.fromHandle(gg_unit_h000_0016), errorService, craftingManager, itemFactory);
-
-        // Make players
         const heroManager = new HeroManager(config.heroes, abilities, basicSlotManager, specialSlotManager, toolManager);
 
-        // let startPoint = { x: 0, y: 0 };
-
-        // let u = new Unit(MapPlayer.fromIndex(15), FourCC('e000'), startPoint.x, startPoint.y, 270);
-
-        let p = MapPlayer.fromIndex(0);
-        let u = Unit.fromHandle(gg_unit_Hblm_0003);
-        let pc = new Artisan(u, abilities, basicSlotManager, specialSlotManager, toolManager);
-    
         let cam = new Trigger();
         cam.registerPlayerChatEvent(MapPlayer.fromLocal(), '-cam', false);
         cam.addAction(() => {
             print("EVENT");
             let str = GetEventPlayerChatString();
-            let number: number;
+            let number: number = 3000;
             let ind = 0;
             if (str.startsWith('-cam '))
                 ind = 4;
-            // else if (str.startsWith('-cam'))
-            //     ind = 4
-            else if (str.startsWith('-zoom '))
+            else if (str == '-cam') {
+                number = 3000;
+            } else if (str.startsWith('-zoom ')) {
                 ind = 5;
-            number = Number(str.substring(ind, 10).trim());
-            if (str = "") {
-                number = 6000;
+            } else {
+                return;
             }
+
             print("Camera distance set to ", number);
             SetCameraFieldForPlayer(MapPlayer.fromEvent().handle, CAMERA_FIELD_TARGET_DISTANCE, number, 0.5);
             SetCameraFieldForPlayer(MapPlayer.fromEvent().handle, CAMERA_FIELD_FARZ, 100000, 0.5);
         });
-    
-        // SetCameraFieldForPlayer(MapPlayer.fromIndex(0).handle, CAMERA_FIELD_TARGET_DISTANCE, 8600, 0.5);
         // SetCameraFieldForPlayer(MapPlayer.fromIndex(0).handle, CAMERA_FIELD_FARZ, 100000, 0.5);
 
         // let time = 0;

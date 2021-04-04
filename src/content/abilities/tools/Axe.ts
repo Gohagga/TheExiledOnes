@@ -40,6 +40,5 @@ export class Axe extends ToolAbilityBase {
         }
     }
     
-    TooltipDescription = (unit: Unit) => 
-`Use Axe to chop down trees.`;
+    TooltipDescription?: ((unit: Unit) => string) | undefined;
 }

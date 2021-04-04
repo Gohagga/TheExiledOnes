@@ -192,7 +192,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 50
-// Units: oPM1 (Mechanism I), Hotkey (Hotkey)
+// Units: oPF1 (Frame I), Hotkey (Hotkey)
 {
 Q
 }
@@ -300,7 +300,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 69
-// Units: oPM2 (Mechanism II), Hotkey (Hotkey)
+// Units: oPF2 (Frame II), Hotkey (Hotkey)
 {
 W
 }
@@ -372,7 +372,7 @@ Crystalize
 }
 
 STRING 81
-// Units: oPM3 (Mechanism III), Hotkey (Hotkey)
+// Units: oPF3 (Frame III), Hotkey (Hotkey)
 {
 E
 }
@@ -444,7 +444,7 @@ Demonfruit
 }
 
 STRING 93
-// Units: oPF1 (Frame I), Hotkey (Hotkey)
+// Units: oPM1 (Mechanism I), Hotkey (Hotkey)
 {
 A
 }
@@ -546,7 +546,7 @@ Prepare Fel Collector
 }
 
 STRING 110
-// Units: oPM4 (Mechanism IV), Hotkey (Hotkey)
+// Units: oPF4 (Frame IV), Hotkey (Hotkey)
 {
 R
 }
@@ -1272,7 +1272,7 @@ A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer i
 }
 
 STRING 278
-// Units: oPF3 (Frame III), Hotkey (Hotkey)
+// Units: oPM3 (Mechanism III), Hotkey (Hotkey)
 {
 D
 }
@@ -1572,7 +1572,7 @@ W
 }
 
 STRING 340
-// Units: oPF2 (Frame II), Hotkey (Hotkey)
+// Units: oPM2 (Mechanism II), Hotkey (Hotkey)
 {
 S
 }
@@ -2553,7 +2553,7 @@ Fel Steel
 }
 
 STRING 530
-// Units: oPF4 (Frame IV), Hotkey (Hotkey)
+// Units: oPM4 (Mechanism IV), Hotkey (Hotkey)
 {
 F
 }
@@ -2632,12 +2632,6 @@ E
 
 STRING 544
 // Units: h003 (Workstation: Tanks), Tip (Tooltip - Basic)
-{
-Upgrade to Workstation: Tanks
-}
-
-STRING 546
-// Units: h004 (Workstation: Converters), Tip (Tooltip - Basic)
 {
 Upgrade to Workstation: Tanks
 }
@@ -3058,5 +3052,175 @@ Base Prospector Spellbook (Q)
 STRING 615
 {
 Player 16
+}
+
+STRING 616
+// Abilities: AT00 (Axe), Hotkey (Hotkey - Normal)
+{
+T
+}
+
+STRING 617
+// Abilities: AT01 (Pickaxe), Hotkey (Hotkey - Normal)
+{
+T
+}
+
+STRING 618
+// Abilities: AT02 (Use Hand), Hotkey (Hotkey - Normal)
+{
+T
+}
+
+STRING 619
+// Abilities: ASA8 (Addition Transmute Copper), Name (Name)
+{
+Addition Transmute Copper
+}
+
+STRING 620
+// Abilities: ASA8 (Addition Transmute Copper), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 621
+// Abilities: ASA8 (Addition Transmute Copper), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 622
+// Abilities: ASA8 (Addition Transmute Copper), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 623
+// Abilities: A0A8 (Transmute Copper), Name (Name)
+{
+Transmute Copper
+}
+
+STRING 624
+// Abilities: A0A8 (Transmute Copper), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 625
+// Abilities: A0A8 (Transmute Copper), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 626
+// Abilities: A0A8 (Transmute Copper), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 627
+// Abilities: A0A8 (Transmute Copper), EditorSuffix (Editor Suffix)
+{
+(E)
+}
+
+STRING 628
+// Abilities: A0A8 (Transmute Copper), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 629
+// Units: H00P (Prospector), Tip (Tooltip - Basic)
+{
+Become Prospector
+}
+
+STRING 630
+// Units: H00P (Prospector), Ubertip (Tooltip - Extended)
+{
+Crafting
+
+Prospector is key for gathering and manipulating Fel. Creates buildable land. Has summons for scouting.
+}
+
+STRING 631
+// Units: H00A (Artisan), Tip (Tooltip - Basic)
+{
+Become Artisan
+}
+
+STRING 632
+// Units: H00A (Artisan), Ubertip (Tooltip - Extended)
+{
+Crafting
+
+Builds machines and items necessary to advance. Crafts gear that powers up Combat classes.
+}
+
+STRING 633
+// Units: H00R (Researcher), Tip (Tooltip - Basic)
+{
+Become Researcher
+}
+
+STRING 634
+// Units: H00R (Researcher), Ubertip (Tooltip - Extended)
+{
+Crafting
+
+Researches to unlock recipes for the team. Can build machines useful for automation and various unique powerful buildings.
+}
+
+STRING 635
+// Units: h004 (Workstation: Converters), Tip (Tooltip - Basic)
+{
+Upgrade to Workstation: Converters
+}
+
+STRING 636
+// Abilities: A007 (Info Fel), Name (Name)
+{
+Info Fel
+}
+
+STRING 637
+// Abilities: A007 (Info Fel), Tip (Tooltip - Normal)
+{
+Info - Fel
+}
+
+STRING 638
+// Abilities: A008 (Info General), Name (Name)
+{
+Info General
+}
+
+STRING 639
+// Abilities: A008 (Info General), Tip (Tooltip - Normal)
+{
+Info - General
+}
+
+STRING 640
+// Abilities: A007 (Info Fel), Ubertip (Tooltip - Normal - Extended)
+{
+Mana is refered to as Fel. It is used in many recipes and these are some general facts.
+
+- Units do not regenerate Fel
+- Fel is produced and exchanged in specific ways
+- Many buildings, machines and abilities require Fel
+}
+
+STRING 641
+// Abilities: A008 (Info General), Ubertip (Tooltip - Normal - Extended)
+{
+The game is heavy on crafting. It supports order queueing as much as possible (Hold Shift)
+
+- Queue orders as much as you can
+- Do not forget to use Transfer Inventory (D)
+- Many abilities do not interrupt current orders
 }
 
