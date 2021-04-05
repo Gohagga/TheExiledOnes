@@ -31,7 +31,6 @@ import { MoistureNoiseProvider } from "systems/map-generation/providers/Moisture
 import { TreeNoiseProvider } from "systems/map-generation/providers/TreeNoise";
 import { CustomMinimap } from "systems/minimap/CustomMinimap";
 import { Random } from "systems/random/Random";
-import { ResourceDropManager } from "systems/resource-drops/ResourceDropManager";
 import { ToolManager } from "systems/tools/ToolManager";
 import { ErrorService } from "systems/ui/ErrorService";
 import { MapPlayer, Rectangle, Timer, Trigger, Unit } from "w3ts/index";
@@ -105,14 +104,15 @@ export function Initialize() {
         // Log.Info(surfaceRect.minX, surfaceRect.minY, surfaceRect.maxX, surfaceRect.maxY);
 
         // Resources
-        let resourceDropManager = new ResourceDropManager();
+        const craftingManager = new CraftingManager();
+        const itemFactory = new ItemFactory(config.items, craftingManager);
 
         const heightNoise = new HeightNoiseProvider(random);
         const minimap = new CustomMinimap(surfaceRect);
         const treeNoise = new TreeNoiseProvider(random);
         const moistureNoise = new MoistureNoiseProvider(random);
         const cavernNoise = new CavernNoiseProvider(random);
-        const mapGenerator = new MapGenerator2(minimap, heightNoise, treeNoise, moistureNoise, cavernNoise, resourceDropManager, surfaceRect, undergroundRect, random);
+        const mapGenerator = new MapGenerator2(minimap, heightNoise, treeNoise, moistureNoise, cavernNoise, surfaceRect, undergroundRect, itemFactory, random);
         // const mapGenerator = new MapGenerator(
         //     minimap,
         //     heightNoise,
@@ -172,46 +172,24 @@ export function Initialize() {
             let prediction = passed / mapGenerator.progress;
             Log.Message("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%', "seconds passed: ", passed, "prediction: ", prediction);
         });
-    });
 
-    const mapArea = Rectangle.getWorldBounds();
-    
-    // abilities.ProspectorSpellbook.AddToUnit(u);
-    // p.setAbilityAvailable(abilities.Defile.extId as number, false);
-    // p.setAbilityAvailable(abilities.EyeOfKilrogg.extId as number, false);
-    // p.setAbilityAvailable(abilities.InfuseFelstone.extId as number, false);
+        const mapArea = Rectangle.getWorldBounds();
+        
+        // abilities.ProspectorSpellbook.AddToUnit(u);
+        // p.setAbilityAvailable(abilities.Defile.extId as number, false);
+        // p.setAbilityAvailable(abilities.EyeOfKilrogg.extId as number, false);
+        // p.setAbilityAvailable(abilities.InfuseFelstone.extId as number, false);
 
-    // abilities.Defile.AddToUnit(u, true);
-    // abilities.EyeOfKilrogg.AddToUnit(u, true);
-    // abilities.InfuseFelstone.AddToUnit(u, true);
-    
-    let onGameStartTimer = new Timer();
-    onGameStartTimer.start(0, false, () => {
+        // abilities.Defile.AddToUnit(u, true);
+        // abilities.EyeOfKilrogg.AddToUnit(u, true);
+        // abilities.InfuseFelstone.AddToUnit(u, true);
 
         const toolManager = new ToolManager('AT0Z', { x: mapArea.maxX, y: mapArea.minY });
-        const craftingManager = new CraftingManager();
-        const itemFactory = new ItemFactory(config.items, craftingManager);
         const machineManager = new MachineManager(abilityEvent);
         const machineFactory = new MachineFactory(config, craftingManager, itemFactory, errorService);
         const inputHandler = new InputHandler(config.players);
 
         // Materials
-        itemFactory.RegisterResource(ResourceItem.Rock, Material.Stone | Material.TierI);
-        itemFactory.RegisterResource(ResourceItem.Stone, Material.Stone | Material.TierII);
-        itemFactory.RegisterResource(ResourceItem.Felstone, Material.Stone | Material.TierIII);
-
-        itemFactory.RegisterResource(ResourceItem.Branch, Material.Wood | Material.TierI);
-        itemFactory.RegisterResource(ResourceItem.Log, Material.Wood | Material.TierII);
-        // itemFactory.RegisterResource(FourCC('IMW3'), Material.Wood | Material.TierIII);
-
-        itemFactory.RegisterResource(ResourceItem.Iron, Material.Metal | Material.TierI);
-        itemFactory.RegisterResource(ResourceItem.Steel, Material.Metal | Material.TierII);
-        itemFactory.RegisterResource(ResourceItem.FelSteel, Material.Metal | Material.TierIII);
-
-        itemFactory.RegisterResource(ResourceItem.Copper, Material.FineMetal | Material.TierI);
-        itemFactory.RegisterResource(ResourceItem.Silver, Material.FineMetal | Material.TierII);
-        itemFactory.RegisterResource(ResourceItem.Gold, Material.FineMetal | Material.TierIII);
-
         // Material parts
         // craftingManager.RegisterItemMaterial(ComponentItem.MechanismI, Material.Mechanism | Material.TierI);
         // craftingManager.RegisterItemMaterial(ComponentItem.MechanismII, Material.Mechanism | Material.TierII);
@@ -281,7 +259,6 @@ export function Initialize() {
         let cam = new Trigger();
         cam.registerPlayerChatEvent(MapPlayer.fromLocal(), '-cam', false);
         cam.addAction(() => {
-            print("EVENT");
             let str = GetEventPlayerChatString();
             let number: number = 3000;
             let ind = 0;
@@ -299,18 +276,18 @@ export function Initialize() {
             SetCameraFieldForPlayer(MapPlayer.fromEvent().handle, CAMERA_FIELD_TARGET_DISTANCE, number, 0.5);
             SetCameraFieldForPlayer(MapPlayer.fromEvent().handle, CAMERA_FIELD_FARZ, 100000, 0.5);
         });
-        // SetCameraFieldForPlayer(MapPlayer.fromIndex(0).handle, CAMERA_FIELD_FARZ, 100000, 0.5);
-
-        // let time = 0;
-        // new Timer().start(1, true, () => {
-            
-        //     time++;
-        //     let hours = time / 3600;
-        //     let minutes = (time % 3600) / 60;
-        //     let seconds = (time % 60);
-        //     print(string.format('%02.0f:%02.0f:%02.0f', hours, minutes, seconds)); // 02:05:01
-        //     print(string.format('%2.0f:%02.0f:%02.0f', hours, minutes, seconds)); // 2:05:01
-        // });
     });
-    onGameStartTimer.destroy();
+    
+    // SetCameraFieldForPlayer(MapPlayer.fromIndex(0).handle, CAMERA_FIELD_FARZ, 100000, 0.5);
+
+    // let time = 0;
+    // new Timer().start(1, true, () => {
+        
+    //     time++;
+    //     let hours = time / 3600;
+    //     let minutes = (time % 3600) / 60;
+    //     let seconds = (time % 60);
+    //     print(string.format('%02.0f:%02.0f:%02.0f', hours, minutes, seconds)); // 02:05:01
+    //     print(string.format('%2.0f:%02.0f:%02.0f', hours, minutes, seconds)); // 2:05:01
+    // });
 }

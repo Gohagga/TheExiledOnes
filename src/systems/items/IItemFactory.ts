@@ -6,5 +6,5 @@ export interface IItemFactory {
     
     RegisterItem(config: ItemConfig): void;
 
-    CreateItemByType(itemTypeId: number): Item;
+    CreateItemByType(itemTypeId: number, x?: number, y?: number): Item;
 }

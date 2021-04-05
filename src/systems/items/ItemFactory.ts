@@ -51,7 +51,7 @@ export class ItemFactory implements IItemFactory {
         
         if (def.name) item.tooltip = def.name;
 
-        let tooltip = item.tooltip;
+        let tooltip = item.extendedTooltip;
         if (def.tooltip) tooltip = def.tooltip;
         
         if (def.material)

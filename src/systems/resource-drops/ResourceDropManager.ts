@@ -22,7 +22,6 @@ export class ResourceDropManager {
         this.attackTreeTrigger.addAction(() => {
             
             let dest = GetOrderTargetDestructable();
-            print(1)
             if (GetDestructableTypeId(dest) == TreeType.SummerTreeWall) {
                 let id = GetHandleId(dest);
                 if (id in this.treeAliveTable == false) {

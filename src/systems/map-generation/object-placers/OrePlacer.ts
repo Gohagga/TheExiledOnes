@@ -1,6 +1,7 @@
 import { ResourceItem } from "content/items/ResourceItem";
 import { Log } from "Log";
 import { PathingService } from "services/PathingService";
+import { IItemFactory } from "systems/items/IItemFactory";
 import { Random } from "systems/random/Random";
 import { Rectangle } from "w3ts/index";
 import { HeightBuilder } from "../builders/HeightBuilder";
@@ -17,7 +18,8 @@ export class OrePlacer {
     constructor(
         private readonly random: Random,
         private readonly region: Rectangle,
-        private readonly heightBuilder: HeightBuilder
+        private readonly heightBuilder: HeightBuilder,
+        private readonly itemFactory: IItemFactory,
     ) {
         
     }
@@ -60,6 +62,7 @@ export class OrePlacer {
             if (this.heightBuilder.getHeight(x, y) >= 200) {
                 i--;
             } else {
+                this.itemFactory.CreateItemByType(ResourceItem.Rock, x, y);
                 CreateItem(ResourceItem.Rock, x, y);
             }
         }

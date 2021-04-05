@@ -1,6 +1,6 @@
 ﻿STRING 1
 {
-TypeScript Template
+Nondescript
 }
 
 STRING 2
@@ -15,7 +15,7 @@ Nondescript
 
 STRING 4
 {
-TriggerHappy
+Yes
 }
 
 STRING 5
@@ -2186,11 +2186,6 @@ STRING 460
 // Units: oPC2 (Converter II), Tip (Tooltip - Basic)
 {
 Mechanism I
-}
-
-STRING 461
-{
-SELL ITEM
 }
 
 STRING 463

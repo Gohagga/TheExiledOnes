@@ -109,7 +109,7 @@ export class Config {
         extCodeId: 'ASA6',
         matAmount: 3,
         material: Material.Wood | Material.TierI,
-        tooltip: 'Transmutes 3 sticks into rock.'
+        tooltip: 'Transmutes 3 sticks into a rock.'
     }
 
     TransmuteIron: TransmuteAbility = {
@@ -127,7 +127,7 @@ export class Config {
         extCodeId: 'ASA8',
         matAmount: 3,
         material: Material.Metal | Material.TierI,
-        tooltip: 'Transmutes 3 iron into an copper.'
+        tooltip: 'Transmutes 3 iron into a copper.'
     }
 
     CrudeAxe: Wc3Ability = {
@@ -149,21 +149,21 @@ export class Config {
         prepareCodeId: 'A0A2',
         builtUnitCodeId: 'h000',
         extCodeId: 'ASA2',
-        tooltip: 'Creates a felstone material using 3 stones and 50 fel.'
+        tooltip: 'Building used for crafting components used in many other building recipes.'
     }
 
     HellForge: Wc3Ability = {
         name: 'Prepare Hell Forge',
         codeId: 'A0A3',
         extCodeId: 'ASA3',
-        tooltip: 'Consume 100 fel to create a Crystallized Fel item which can be consumed for 100 fel.'
+        tooltip: 'Necessary for Fel Smithing recipes.'
     }
 
     Transmuter: Wc3Ability = {
         name: 'Prepare Transmuter',
         codeId: 'A0A4',
         extCodeId: 'ASA4',
-        tooltip: 'Unleash parasites onto a tree. They will mutate the tree, changing its internal structure. When cut down, Demonfruit trees will drop cursewood and demonfruit.'
+        tooltip: 'Machine that allows allies to transmute materials.'
     }
 
     ArtisanSpellbook: Wc3Ability = {
@@ -394,29 +394,68 @@ Takes items from target unit if inventory is empty (only owned or shared units).
 
 //#endregion
 
-    items: ItemConfig[] = [
+    items: ItemConfig[] = [{
+            name: 'Branch',
+            itemTypeId: ResourceItem.Branch,
+            tooltip: 'Simple piece of wood.',
+            material: Material.Wood | Material.TierI
+        }, {
+            name: 'Log',
+            itemTypeId: ResourceItem.Log,
+            tooltip: 'A large piece of wood.',
+            material: Material.Wood | Material.TierII
+        },
         
-        // {
-        //     name: 'Branch',
-        //     itemTypeId: ResourceItem.WoodI,
-        //     tooltip: 'Simple piece of wood.',
-        //     material: Material.Wood | Material.TierI
-        // }, {
-        //     name: 'Rock',
-        //     itemTypeId: ResourceItem.StoneI,
-        //     tooltip: 'Simple rock.',
-        //     material: Material.Mechanism | Material.TierII
-        // }, {
-        //     name: 'Iron',
-        //     itemTypeId: ResourceItem.MechanismIII,
-        //     tooltip: 'Sturdy ore.',
-        //     material: Material.Mechanism | Material.TierIII
-        // }, {
-        //     name: 'Copper',
-        //     itemTypeId: ResourceItem.MechanismIV,
-        //     tooltip: 'Component part.',
-        //     material: Material.Mechanism | Material.TierIV
-        // }, 
+        {
+            name: 'Rock',
+            itemTypeId: ResourceItem.Rock,
+            tooltip: 'A simple rock.',
+            material: Material.Stone | Material.TierI
+        }, {
+            name: 'Stone',
+            itemTypeId: ResourceItem.Stone,
+            tooltip: 'A carved piece of stone.',
+            material: Material.Stone | Material.TierII
+        }, {
+            name: 'Felstone',
+            itemTypeId: ResourceItem.Felstone,
+            tooltip: 'Fel infused piece of stone.',
+            material: Material.Stone | Material.TierIII
+        }, 
+
+        {
+            name: 'Iron',
+            itemTypeId: ResourceItem.Iron,
+            tooltip: 'Sturdy ore.',
+            material: Material.Metal | Material.TierI
+        }, {
+            name: 'Steel',
+            itemTypeId: ResourceItem.Steel,
+            tooltip: 'A refined metal ingot.',
+            material: Material.Metal | Material.TierII
+        }, {
+            name: 'Fel Steel',
+            itemTypeId: ResourceItem.FelSteel,
+            tooltip: 'Refined and fel-infused metal ingot.',
+            material: Material.Metal | Material.TierIII
+        }, 
+        
+        {
+            name: 'Copper',
+            itemTypeId: ResourceItem.Copper,
+            tooltip: 'Reddish ore.',
+            material: Material.FineMetal | Material.TierI
+        }, {
+            name: 'Silver',
+            itemTypeId: ResourceItem.Silver,
+            tooltip: 'Shiny metal ore.',
+            material: Material.FineMetal | Material.TierII
+        }, {
+            name: 'Gold',
+            itemTypeId: ResourceItem.Gold,
+            tooltip: 'Precious.',
+            material: Material.FineMetal | Material.TierIII
+        },
         
         {
             name: 'Mechanism I',

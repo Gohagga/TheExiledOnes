@@ -1,5 +1,4 @@
 import { Random } from "systems/random/Random";
-import { ResourceDropManager } from "systems/resource-drops/ResourceDropManager";
 import { IMoistureNoiseProvider } from "../interfaces/IMoistureNoiseProvider";
 import { ITreeNoiseProvider } from "../interfaces/ITreeNoiseProvider";
 import { TerrainType } from "../MapGenerator";
@@ -21,7 +20,6 @@ export class TreeBuilder {
         private readonly heightBuilder: HeightBuilder,
         private readonly pathingBuilder: PathingBuilder,
         private readonly treeNoise: ITreeNoiseProvider,
-        private readonly resourceDropManager: ResourceDropManager,
         public readonly xDensity: number = 1,
         public readonly yDensity: number = 1,
         private readonly random: Random,
@@ -68,7 +66,6 @@ export class TreeBuilder {
 
         if (treeOrNot) {
             let tree = CreateDestructable(treeOrNot.type, treeOrNot.x, treeOrNot.y, treeOrNot.facing, treeOrNot.scale, treeOrNot.variation);
-            this.resourceDropManager.registerTreeDrops(tree);
             return 0.6;
         }
 

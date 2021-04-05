@@ -27,11 +27,9 @@ export class Hand extends ToolAbilityBase {
         t.addAction(() => {
 
             let player = MapPlayer.fromEvent();
-            Log.Info(player.name, "has pressed U");
 
             let units: Unit[] = [];
             EnumUnitsSelected(player.handle, null, () => units.push(Unit.fromEnum()));
-            print("Units count", units.length);
             if (units.length > 1) return;
 
             let selected = units.pop();

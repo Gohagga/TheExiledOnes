@@ -1,6 +1,7 @@
 import { ResourceItem } from "content/items/ResourceItem";
 import { Log } from "Log";
 import { PathingService } from "services/PathingService";
+import { IItemFactory } from "systems/items/IItemFactory";
 import { Random } from "systems/random/Random";
 import { Destructable, Rectangle } from "w3ts/index";
 
@@ -9,7 +10,8 @@ export class RandomObjectPlacer {
     public readonly allTrees: { x: number, y: number }[] = [];
     
     constructor(
-        private readonly random: Random
+        private readonly random: Random,
+        private readonly itemFactory: IItemFactory,
     ) {
         
     }

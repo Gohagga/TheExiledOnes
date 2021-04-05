@@ -4,17 +4,9 @@ gg_rct_SurfaceMap = nil
 gg_rct_TestSurface = nil
 gg_rct_TestUnderground = nil
 gg_trg_Initialization = nil
-gg_trg_Untitled_Trigger_003 = nil
-gg_trg_Untitled_Trigger_001 = nil
-gg_trg_Untitled_Trigger_002 = nil
-gg_trg_Untitled_Trigger_004 = nil
-gg_trg_Untitled_Trigger_005 = nil
-gg_trg_Untitled_Trigger_005_Copy = nil
-gg_trg_Untitled_Trigger_006 = nil
-gg_trg_Untitled_Trigger_007 = nil
 gg_trg_Share = nil
-gg_unit_Hblm_0003 = nil
 gg_unit_h000_0016 = nil
+gg_unit_Hblm_0003 = nil
 function InitGlobals()
 end
 
@@ -136,13 +128,6 @@ function CreateUnitsForPlayer0()
     local unitID
     local t
     local life
-    gg_unit_Hblm_0003 = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -12075.0, -12160.3, 3.210, FourCC("Hblm"))
-    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM01"), 0)
-    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM01"), 1)
-    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM01"), 2)
-    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM00"), 3)
-    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM00"), 4)
-    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM00"), 5)
     u = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -10924.6, -11345.9, 279.402, FourCC("Hblm"))
 end
 
@@ -172,7 +157,22 @@ function CreateBuildingsForPlayer15()
     local life
     u = BlzCreateUnitWithSkin(p, FourCC("e000"), -7040.0, -11968.0, 270.000, FourCC("e000"))
     IssueImmediateOrder(u, "root")
-    gg_unit_h000_0016 = BlzCreateUnitWithSkin(p, FourCC("h000"), -12032.0, -11840.0, 270.000, FourCC("h000"))
+    gg_unit_h000_0016 = BlzCreateUnitWithSkin(p, FourCC("h000"), -11328.0, -11072.0, 270.000, FourCC("h000"))
+end
+
+function CreateUnitsForPlayer22()
+    local p = Player(22)
+    local u
+    local unitID
+    local t
+    local life
+    gg_unit_Hblm_0003 = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -13833.6, -11855.2, 3.210, FourCC("Hblm"))
+    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM01"), 0)
+    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM01"), 1)
+    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM01"), 2)
+    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM00"), 3)
+    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM00"), 4)
+    UnitAddItemToSlotById(gg_unit_Hblm_0003, FourCC("IM00"), 5)
 end
 
 function CreatePlayerBuildings()
@@ -184,6 +184,7 @@ end
 
 function CreatePlayerUnits()
     CreateUnitsForPlayer0()
+    CreateUnitsForPlayer22()
 end
 
 function CreateAllUnits()
@@ -210,87 +211,6 @@ function InitTrig_Initialization()
     TriggerAddAction(gg_trg_Initialization, Trig_Initialization_Actions)
 end
 
-function Trig_Untitled_Trigger_003_Actions()
-end
-
-function InitTrig_Untitled_Trigger_003()
-    gg_trg_Untitled_Trigger_003 = CreateTrigger()
-    TriggerAddAction(gg_trg_Untitled_Trigger_003, Trig_Untitled_Trigger_003_Actions)
-end
-
-function Trig_Untitled_Trigger_001_Actions()
-    SetTerrainTypeBJ(GetRectCenter(GetPlayableMapRect()), FourCC("Vrck"), -1, 1, 0)
-end
-
-function InitTrig_Untitled_Trigger_001()
-    gg_trg_Untitled_Trigger_001 = CreateTrigger()
-    TriggerAddAction(gg_trg_Untitled_Trigger_001, Trig_Untitled_Trigger_001_Actions)
-end
-
-function Trig_Untitled_Trigger_004_Func001C()
-    if (not (GetSpellAbilityId() ~= FourCC("AHbn"))) then
-        return false
-    end
-    return true
-end
-
-function Trig_Untitled_Trigger_004_Actions()
-    if (Trig_Untitled_Trigger_004_Func001C()) then
-        return 
-    else
-    end
-    udg_u = GetTriggerUnit()
-end
-
-function InitTrig_Untitled_Trigger_004()
-    gg_trg_Untitled_Trigger_004 = CreateTrigger()
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Untitled_Trigger_004, EVENT_PLAYER_UNIT_SPELL_EFFECT)
-    TriggerAddAction(gg_trg_Untitled_Trigger_004, Trig_Untitled_Trigger_004_Actions)
-end
-
-function Trig_Untitled_Trigger_005_Actions()
-    udg_u = GroupPickRandomUnit(GetUnitsSelectedAll(Player(0)))
-    PauseUnitBJ(true, GroupPickRandomUnit(GetUnitsSelectedAll(Player(0))))
-end
-
-function InitTrig_Untitled_Trigger_005()
-    gg_trg_Untitled_Trigger_005 = CreateTrigger()
-    TriggerRegisterPlayerChatEvent(gg_trg_Untitled_Trigger_005, Player(0), "-pause", true)
-    TriggerAddAction(gg_trg_Untitled_Trigger_005, Trig_Untitled_Trigger_005_Actions)
-end
-
-function Trig_Untitled_Trigger_005_Copy_Actions()
-    udg_u = GroupPickRandomUnit(GetUnitsSelectedAll(Player(0)))
-    SetPlayerAbilityAvailableBJ(true, FourCC("A005"), Player(0))
-end
-
-function InitTrig_Untitled_Trigger_005_Copy()
-    gg_trg_Untitled_Trigger_005_Copy = CreateTrigger()
-    TriggerRegisterPlayerChatEvent(gg_trg_Untitled_Trigger_005_Copy, Player(0), "-unpause", true)
-    TriggerAddAction(gg_trg_Untitled_Trigger_005_Copy, Trig_Untitled_Trigger_005_Copy_Actions)
-end
-
-function Trig_Untitled_Trigger_006_Actions()
-    IssueTrainOrderByIdBJ(gg_unit_h000_0016, FourCC("oPM1"))
-end
-
-function InitTrig_Untitled_Trigger_006()
-    gg_trg_Untitled_Trigger_006 = CreateTrigger()
-    TriggerRegisterPlayerChatEvent(gg_trg_Untitled_Trigger_006, Player(0), "-train", true)
-    TriggerAddAction(gg_trg_Untitled_Trigger_006, Trig_Untitled_Trigger_006_Actions)
-end
-
-function Trig_Untitled_Trigger_007_Actions()
-    DisplayTextToForce(GetPlayersAll(), "TRIGSTR_461")
-    DisplayTextToForce(GetPlayersAll(), GetUnitName(GetTriggerUnit()))
-end
-
-function InitTrig_Untitled_Trigger_007()
-    gg_trg_Untitled_Trigger_007 = CreateTrigger()
-    TriggerRegisterAnyUnitEventBJ(gg_trg_Untitled_Trigger_007, EVENT_PLAYER_UNIT_SELL_ITEM)
-    TriggerAddAction(gg_trg_Untitled_Trigger_007, Trig_Untitled_Trigger_007_Actions)
-end
-
 function Trig_Share_Func002C()
     if (not (IsUnitType(udg_u, UNIT_TYPE_STRUCTURE) == true)) then
         return false
@@ -301,7 +221,7 @@ end
 function Trig_Share_Actions()
     udg_u = GroupPickRandomUnit(GetUnitsSelectedAll(Player(0)))
     if (Trig_Share_Func002C()) then
-        SetUnitOwner(udg_u, Player(20), true)
+        SetUnitOwner(udg_u, Player(15), true)
     else
     end
 end
@@ -314,13 +234,6 @@ end
 
 function InitCustomTriggers()
     InitTrig_Initialization()
-    InitTrig_Untitled_Trigger_003()
-    InitTrig_Untitled_Trigger_001()
-    InitTrig_Untitled_Trigger_004()
-    InitTrig_Untitled_Trigger_005()
-    InitTrig_Untitled_Trigger_005_Copy()
-    InitTrig_Untitled_Trigger_006()
-    InitTrig_Untitled_Trigger_007()
     InitTrig_Share()
 end
 
