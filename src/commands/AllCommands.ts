@@ -1,4 +1,4 @@
-import { Config, sharedPlayer } from "Config";
+import { Config, sharedPlayer } from "config/Config";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
 import { InputHandler } from "systems/events/input-events/InputHandler";
 import { MapPlayer, Trigger } from "w3ts/index";

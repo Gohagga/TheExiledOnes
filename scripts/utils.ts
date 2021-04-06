@@ -5,12 +5,24 @@ import { createLogger, format, transports } from "winston";
 const { combine, timestamp, printf } = format;
 const luamin = require('luamin');
 
+export interface MapInfo {
+  author: string,
+  name: string,
+  description: string,
+  recommendedPlayers: string,
+  loadingScreenTitle: string,
+  loadingScreenSubtitle: string,
+  loadingScreenDescription: string,
+}
+
 export interface IProjectConfig {
   mapFolder: string;
   minifyScript: string;
   gameExecutable: string;
   outputFolder: string;
   archiveOutputFolder: string;
+  version: string;
+  mapInfo: MapInfo;
   launchArgs: string[];
   winePath?: string;
   winePrefix?: string;

@@ -1,4 +1,4 @@
-import { sharedPlayer } from "Config";
+import { sharedPlayer } from "config/Config";
 import { Log } from "Log";
 import { AbilityBase } from "systems/abilities/AbilityBase";
 import { Wc3Ability } from "systems/abilities/Wc3Ability";

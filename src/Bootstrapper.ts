@@ -1,5 +1,5 @@
 import { InitCommands } from "commands/AllCommands";
-import { Config, Global, sharedPlayer } from "Config";
+import { Config, Global, sharedPlayer } from "config/Config";
 import { CrudeAxe } from "content/abilities/artisan/CrudeAxe";
 import { CrudePickaxe } from "content/abilities/artisan/CrudePickaxe";
 import { Mineshaft } from "content/abilities/artisan/Mineshaft";

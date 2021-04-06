@@ -1,4 +1,4 @@
-import { Config } from "Config";
+import { Config } from "config/Config";
 import { CraftingManager } from "systems/crafting/CraftingManager";
 import { IMachine } from "systems/crafting/machine/IMachine";
 import { IItemFactory } from "systems/items/IItemFactory";
