@@ -2,11 +2,14 @@ import * as fs from "fs-extra";
 import * as path from "path";
 import War3Map from "mdx-m3-viewer/src/parsers/w3x/map";
 import War3MapW3i from "mdx-m3-viewer/src/parsers/w3x/w3i/file";
-import { compileMap, getFilesInDirectory, loadJsonFile, logger, toArrayBuffer, IProjectConfig } from "./utils";
+import { compileMap, getFilesInDirectory, loadJsonFile, logger, toArrayBuffer, IProjectConfig, saveJsonFile } from "./utils";
 
 function main() {
   const config: IProjectConfig = loadJsonFile("config.json");
   const result = compileMap(config);
+  
+  let v = config.version;
+  const version = `v${v.major}.${v.minor}.${++v.build}`;
 
   if (!result) {
     logger.error(`Failed to compile map.`);
@@ -18,7 +21,10 @@ function main() {
     fs.mkdirSync(config.outputFolder);
   }
 
-  createMapFromDir(`${config.archiveOutputFolder}/${config.mapFolder}`, `./dist/${config.mapFolder}`);
+  let mapFileName = config.mapFolder.replace('.w3x', '_' + version + '.w3x');
+
+  createMapFromDir(`${config.archiveOutputFolder}/${mapFileName}`, `./dist/${config.mapFolder}`);
+  saveJsonFile("config.json", config);
 }
 
 /**

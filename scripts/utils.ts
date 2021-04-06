@@ -21,7 +21,11 @@ export interface IProjectConfig {
   gameExecutable: string;
   outputFolder: string;
   archiveOutputFolder: string;
-  version: string;
+  version: {
+    major: number,
+    minor: number,
+    build: number,
+  };
   mapInfo: MapInfo;
   launchArgs: string[];
   winePath?: string;
@@ -38,6 +42,18 @@ export function loadJsonFile(fname: string) {
   } catch (e) {
     logger.error(e.toString());
     return {};
+  }
+}
+
+/**
+ * Load an object from a JSON file.
+ * @param fname The JSON file
+ */
+export function saveJsonFile<T>(fname: string, data: T) {
+  try {
+    return fs.writeFile(fname, JSON.stringify(data));
+  } catch (e) {
+    logger.error(e.toString());
   }
 }
 

@@ -4,7 +4,11 @@
   "gameExecutable": "C:\\Program Files (x86)\\Warcraft III\\_retail_\\x86_64\\Warcraft III.exe",
   "outputFolder": "./dist/bin",
   "archiveOutputFolder": "./dist/bin",
-  "version": "1.0.0",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "build": 0
+  },
   "mapInfo": {
     "author": "TheSpellweaver",
     "name": "The Exiled Ones",
