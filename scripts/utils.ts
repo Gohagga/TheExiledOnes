@@ -49,9 +49,9 @@ export function loadJsonFile(fname: string) {
  * Load an object from a JSON file.
  * @param fname The JSON file
  */
-export function saveJsonFile<T>(fname: string, data: T) {
+export function saveJsonFile<T>(fname: string, data: T, format?: number | string) {
   try {
-    return fs.writeFile(fname, JSON.stringify(data));
+    return fs.writeFile(fname, JSON.stringify(data, null, format));
   } catch (e) {
     logger.error(e.toString());
   }

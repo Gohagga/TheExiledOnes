@@ -3,11 +3,11 @@
   "minifyScript": false,
   "gameExecutable": "C:\\Program Files (x86)\\Warcraft III\\_retail_\\x86_64\\Warcraft III.exe",
   "outputFolder": "./dist/bin",
-  "archiveOutputFolder": "./dist/bin",
+  "archiveOutputFolder": "C:\\Users\\Bartul\\Documents\\Warcraft III\\Maps\\TestPC 2",
   "version": {
     "major": 1,
     "minor": 0,
-    "build": 0
+    "build": 1
   },
   "mapInfo": {
     "author": "TheSpellweaver",

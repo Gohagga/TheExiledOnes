@@ -24,7 +24,7 @@ function main() {
   let mapFileName = config.mapFolder.replace('.w3x', '_' + version + '.w3x');
 
   createMapFromDir(`${config.archiveOutputFolder}/${mapFileName}`, `./dist/${config.mapFolder}`);
-  saveJsonFile("config.json", config);
+  saveJsonFile("config.json", config, 2);
 }
 
 /**

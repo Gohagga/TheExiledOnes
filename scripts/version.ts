@@ -34,10 +34,23 @@ export function setVersionAuthor(config: IProjectConfig) {
     // w3i.loadingScreenSubtitle = mapInfo.loadingScreenSubtitle;
     // w3i.loadingScreenText = mapInfo.loadingScreenDescription;
 
+    let wts = fs.readFileSync(path + '/war3map.wts');
+    let stringsFileString = wts.toString();
+
+    // stringsFileString.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // let match = stringsFileString.match(/STRING \d+\n{\n(\w*)\n}/);
+    // if (match.length)
+    // let originalString = match[0];
+    /(?<=name="\w+)\d+(?=\w+")/
+
+    // name: 'TRIGSTR_001',
+    // author: 'TRIGSTR_004',
+    // description: 'TRIGSTR_003',
+
     // console.log(wts.stringMap);
   
-    // console.log(w3i);
-    fs.writeFile(`${path}/war3map.w3i`, w3i.save(), (err) => console.log(err));
+    console.log(w3i);
+    // fs.writeFile(`${path}/war3map.w3i`, w3i.save(), (err) => console.log(err));
     // fs.writeFile(`${path}/war3map.wts`, wts.save(), (err) => console.log(err));
 }
 
