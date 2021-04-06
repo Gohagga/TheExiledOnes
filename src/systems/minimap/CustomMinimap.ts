@@ -38,7 +38,21 @@ export class CustomMinimap implements IMinimap {
         this.defaultColor = BlzConvertColor(255, 145, 104, 60);
 
         const minimapOrigin = Frame.fromOrigin(ORIGIN_FRAME_MINIMAP, 0);
-        minimapOrigin.setAlpha(0);
+        minimapOrigin.setAlpha(180);
+
+        BlzChangeMinimapTerrainTex('war3mapImported\\Transparent.tga');
+
+        let t = new Trigger();
+        t.registerPlayerChatEvent(MapPlayer.fromIndex(0), '-resetfog', true);
+        t.addAction(() => {
+            ResetTerrainFog();
+        });
+
+        t = new Trigger();
+        t.registerPlayerChatEvent(MapPlayer.fromIndex(0), '-somethingelse', true);
+        t.addAction(() => {
+            // SetTerrainFogEx()
+        });
 
         // BlzFrameSetVisible(minimap, false);
         const width = this.pixelWidth = minimapOrigin.width / 64;

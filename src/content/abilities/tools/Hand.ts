@@ -14,7 +14,7 @@ export class Hand extends ToolAbilityBase {
     constructor(
         data: Wc3Ability,
         abilityEvent: IAbilityEventHandler,
-        inputHandler: InputHandler,
+        private readonly inputHandler: InputHandler,
         private readonly toolManager: ToolManager,
         private readonly itemFactory: IItemFactory,
     ) {
@@ -28,8 +28,7 @@ export class Hand extends ToolAbilityBase {
 
             let player = MapPlayer.fromEvent();
 
-            let units: Unit[] = [];
-            EnumUnitsSelected(player.handle, null, () => units.push(Unit.fromEnum()));
+            let units = this.inputHandler.GetPlayerSelectedUnitIds(player);
             if (units.length > 1) return;
 
             let selected = units.pop();
@@ -57,7 +56,8 @@ export class Hand extends ToolAbilityBase {
             
             // Log.Info("Dropping");
             let item = this.itemFactory.CreateItemByType(ResourceItem.Branch);
-            caster.addItem(item);
+            if (caster.addItem(item) == false)
+                item.setPosition(target.x, target.y);
         }
     }
     

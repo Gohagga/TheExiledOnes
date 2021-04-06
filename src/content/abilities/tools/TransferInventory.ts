@@ -1,4 +1,4 @@
-import { SharedPlayer } from "Config";
+import { sharedPlayer } from "Config";
 import { Log } from "Log";
 import { AbilityBase } from "systems/abilities/AbilityBase";
 import { Wc3Ability } from "systems/abilities/Wc3Ability";
@@ -50,7 +50,7 @@ export class TransferInventory extends AbilityBase {
                 if (target) {
                     let owner = target.owner.id;
                     if (owner == caster.owner.id ||
-                        owner == SharedPlayer.id
+                        owner == sharedPlayer.id
                     ) {
                         let targetItems = this.GetUnitItems(target);
                         for (let it of targetItems) {

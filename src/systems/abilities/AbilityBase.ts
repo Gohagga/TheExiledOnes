@@ -24,13 +24,22 @@ export abstract class AbilityBase implements Wc3Ability, IAbility {
         BlzSetAbilityTooltip(this.id, data.name, 0);
         if (data.tooltip) BlzSetAbilityExtendedTooltip(this.id, data.tooltip, 0);
 
+        // Preload
+        let dummy = new Unit(21, FourCC('nDUM'), 0, 0, 0);
+        dummy.addAbility(this.id)
+
         if (data.extCodeId) {
             this.extId = FourCC(data.extCodeId);
             Log.Info(this.extId);
             if (!this.extId) Log.Error(this.name, "Failed to translate Ability Id", data.extCodeId);
             BlzSetAbilityTooltip(this.extId, data.name, 0);
             if (data.tooltip) BlzSetAbilityExtendedTooltip(this.extId, data.tooltip, 0);
+
+            // Preload
+            dummy.addAbility(this.extId);
         }
+
+        dummy.kill();
     }
 
     AddToUnit(unit: Unit, extended?: boolean): boolean {

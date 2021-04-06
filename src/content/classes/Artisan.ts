@@ -21,7 +21,8 @@ export type ArtisanAbilities = {
     CrudePickaxe: IAbility,
     Workstation: IAbility,
     HellForge: IAbility,
-    Transmuter: IAbility
+    Transmuter: IAbility,
+    Mineshaft: IAbility,
 }
 
 export class Artisan extends PlayerClass {
@@ -55,13 +56,18 @@ export class Artisan extends PlayerClass {
         this.AddBasic(AbilitySlot.R, this.abilities.HellForge);
         this.AddBasic(AbilitySlot.A, this.abilities.Workstation);
         this.AddBasic(AbilitySlot.S, this.abilities.Transmuter);
+        this.AddBasic(AbilitySlot.F, this.abilities.Mineshaft);
         
-        this.abilities.TransmuteRock.AddToUnit(this.unit, true);
-        this.abilities.TransmuteIron.AddToUnit(this.unit, true);
-        this.abilities.TransmuteCopper.AddToUnit(this.unit, true);
-        if (this.abilities.TransmuteRock.extId) this.unit.owner.setAbilityAvailable(this.abilities.TransmuteRock.extId, false);
-        if (this.abilities.TransmuteIron.extId) this.unit.owner.setAbilityAvailable(this.abilities.TransmuteIron.extId, false);
-        if (this.abilities.TransmuteCopper.extId) this.unit.owner.setAbilityAvailable(this.abilities.TransmuteCopper.extId, false);
+        this.AddBasic(AbilitySlot.X1, this.abilities.TransmuteRock);
+        this.AddBasic(AbilitySlot.X2, this.abilities.TransmuteIron);
+        this.AddBasic(AbilitySlot.X3, this.abilities.TransmuteCopper);
+        
+        // this.abilities.TransmuteRock.AddToUnit(this.unit, true);
+        // this.abilities.TransmuteIron.AddToUnit(this.unit, true);
+        // this.abilities.TransmuteCopper.AddToUnit(this.unit, true);
+        // if (this.abilities.TransmuteRock.extId) this.unit.owner.setAbilityAvailable(this.abilities.TransmuteRock.extId, false);
+        // if (this.abilities.TransmuteIron.extId) this.unit.owner.setAbilityAvailable(this.abilities.TransmuteIron.extId, false);
+        // if (this.abilities.TransmuteCopper.extId) this.unit.owner.setAbilityAvailable(this.abilities.TransmuteCopper.extId, false);
 
 
         // Remove and readd spells

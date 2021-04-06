@@ -1,4 +1,4 @@
-import { MapPlayer, Trigger } from "w3ts/index";
+import { MapPlayer, Trigger, Unit } from "w3ts/index";
 
 export const enum MetaKey {
     None    = 0,
@@ -12,6 +12,8 @@ export class InputHandler {
 
     // private isCtrlDown: Record<number, boolean> = {};
     // private shiftTrigger: Trigger = new Trigger();
+
+    private selectedUnits: Record<number, Map<number, Unit>> = {};
 
     constructor(private readonly players: MapPlayer[]) {
 
@@ -27,6 +29,40 @@ export class InputHandler {
         //     this.isCtrlDown[playerId] = isDown;
         //     // print("Shift event", isDown);
         // });
+
+        let t = new Trigger();
+        t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_SELECTED);
+        t.addAction(() => {
+
+            let player = MapPlayer.fromEvent();
+            print("player selected", player.name);
+            let id = player.id;
+            let unit = Unit.fromEvent();
+            if (id in this.selectedUnits == false) this.selectedUnits[id] = new Map<number, Unit>();
+            let selected = this.selectedUnits[id];
+            selected.set(unit.id, unit);
+            print(this.selectedUnits[id].size);
+        });
+
+        t = new Trigger();
+        t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_DESELECTED);
+        t.addAction(() => {
+
+            let player = MapPlayer.fromEvent();
+            print("player deselected", player.name);
+            let unit = Unit.fromEvent();
+            let id = player.id;
+            let selected = this.selectedUnits[id];
+            selected.delete(unit.id);
+            print(this.selectedUnits[id].size);
+        });
+    }
+
+    public GetPlayerSelectedUnitIds(player: MapPlayer) {
+        let id = player.id;
+        if (!this.selectedUnits[id]) return [];
+        let values = this.selectedUnits[id].values();
+        return [...values];
     }
 
     public RegisterAllPlayerKeyEvent(trigger: Trigger, key: oskeytype, meta: MetaKey, keyDown: boolean) {

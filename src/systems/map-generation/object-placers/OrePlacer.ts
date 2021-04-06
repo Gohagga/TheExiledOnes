@@ -63,7 +63,6 @@ export class OrePlacer {
                 i--;
             } else {
                 this.itemFactory.CreateItemByType(ResourceItem.Rock, x, y);
-                CreateItem(ResourceItem.Rock, x, y);
             }
         }
     }

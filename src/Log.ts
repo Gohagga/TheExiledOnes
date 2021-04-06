@@ -19,17 +19,17 @@ export class Log {
     public static Level = Level.Error;
     
     static Message(...msg: any[]) {
-        if (Number(this.Level) >= Number(Level.Message)) return;
+        if (Number(this.Level) > Number(Level.Message)) return;
         print(...msg);
     }
 
     public static Info(...msg: any[]) {
-        if (Number(this.Level) >= Number(Level.Info)) return;
+        if (Number(this.Level) > Number(Level.Info)) return;
         print(...msg);
     }
 
     public static Debug(...msg: any[]) {
-        if (Number(this.Level) >= Number(Level.Debug)) return;
+        if (Number(this.Level) > Number(Level.Debug)) return;
         print(...msg);
     }
 

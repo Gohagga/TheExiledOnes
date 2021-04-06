@@ -1512,7 +1512,7 @@ Addition Transmute Rock
 }
 
 STRING 323
-// Abilities: ASA6 (Addition Transmute Rock), Tip (Tooltip - Normal)
+// Abilities: A0A5 (Transmute), Tip (Tooltip - Normal)
 {
 Base Prospector Spellbook (Q)
 }
@@ -1530,7 +1530,7 @@ Addition Transmute Iron
 }
 
 STRING 327
-// Abilities: ASA7 (Addition Transmute Iron), Tip (Tooltip - Normal)
+// Abilities: ASA6 (Addition Transmute Rock), Tip (Tooltip - Normal)
 {
 Base Prospector Spellbook (Q)
 }
@@ -3027,7 +3027,7 @@ Base Researcher Spellbook
 }
 
 STRING 612
-// Abilities: A0RQ (Base Researcher Spellbook), Tip (Tooltip - Normal)
+// Abilities: ASA7 (Addition Transmute Iron), Tip (Tooltip - Normal)
 {
 Base Prospector Spellbook (Q)
 }
@@ -3042,11 +3042,6 @@ STRING 614
 // Abilities: A0RQ (Base Researcher Spellbook), Tip (Tooltip - Normal)
 {
 Base Prospector Spellbook (Q)
-}
-
-STRING 615
-{
-Player 16
 }
 
 STRING 616
@@ -3074,7 +3069,7 @@ Addition Transmute Copper
 }
 
 STRING 620
-// Abilities: ASA8 (Addition Transmute Copper), Tip (Tooltip - Normal)
+// Abilities: A0RQ (Base Researcher Spellbook), Tip (Tooltip - Normal)
 {
 Base Prospector Spellbook (Q)
 }
@@ -3217,5 +3212,214 @@ The game is heavy on crafting. It supports order queueing as much as possible (H
 - Queue orders as much as you can
 - Do not forget to use Transfer Inventory (D)
 - Many abilities do not interrupt current orders
+}
+
+STRING 642
+// Abilities: A0PQ (Base Prospector Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main prospector abilities.
+}
+
+STRING 643
+// Abilities: A0PQ (Base Prospector Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main prospector abilities.
+}
+
+STRING 644
+// Abilities: A0PQ (Base Prospector Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main prospector abilities.
+}
+
+STRING 645
+// Abilities: A0AQ (Base Artisan Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main artisan abilities.
+}
+
+STRING 646
+// Abilities: A0AQ (Base Artisan Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main artisan abilities.
+}
+
+STRING 647
+// Abilities: A0AQ (Base Artisan Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main artisan abilities.
+}
+
+STRING 648
+// Abilities: A0A5 (Transmute), Ubertip (Tooltip - Normal - Extended)
+{
+Transmutation recipes.
+}
+
+STRING 649
+// Abilities: A0A5 (Transmute), Ubertip (Tooltip - Normal - Extended)
+{
+Transmutation recipes.
+}
+
+STRING 650
+// Abilities: A0A5 (Transmute), Ubertip (Tooltip - Normal - Extended)
+{
+Transmutation recipes.
+}
+
+STRING 651
+// Abilities: A0RQ (Base Researcher Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main researcher abilities.
+}
+
+STRING 652
+// Abilities: A0RQ (Base Researcher Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main researcher abilities.
+}
+
+STRING 653
+// Abilities: A0RQ (Base Researcher Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main researcher abilities.
+}
+
+STRING 654
+// Abilities: ASA8 (Addition Transmute Copper), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 655
+// Units: o000 (Mineshaft), Name (Name)
+{
+Mineshaft
+}
+
+STRING 656
+// Abilities: A0A9 (Prepare Mineshaft), Name (Name)
+{
+Prepare Mineshaft
+}
+
+STRING 657
+// Abilities: A0A9 (Prepare Mineshaft), Hotkey (Hotkey - Normal)
+{
+F
+}
+
+STRING 658
+// Abilities: A0A9 (Prepare Mineshaft), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 659
+// Abilities: A0A9 (Prepare Mineshaft), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 660
+// Abilities: A0A9 (Prepare Mineshaft), EditorSuffix (Editor Suffix)
+{
+(F)
+}
+
+STRING 661
+// Abilities: A0A9 (Prepare Mineshaft), Researchhotkey (Hotkey - Learn)
+{
+F
+}
+
+STRING 662
+// Abilities: ASA9 (Addition Prepare Mineshaft), Name (Name)
+{
+Addition Prepare Mineshaft
+}
+
+STRING 663
+// Abilities: ASA9 (Addition Prepare Mineshaft), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 664
+// Abilities: ASA9 (Addition Prepare Mineshaft), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 665
+// Abilities: ASA9 (Addition Prepare Mineshaft), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 666
+// Abilities: ABA9 (Build Mineshaft), Name (Name)
+{
+Build Mineshaft
+}
+
+STRING 667
+// Abilities: ABA9 (Build Mineshaft), Tip (Tooltip - Normal)
+{
+Build Fel Collector (Q)
+}
+
+STRING 668
+// Abilities: ABA9 (Build Mineshaft), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 669
+// Units: o001 (Underground Exit), Name (Name)
+{
+Underground Exit
+}
+
+STRING 670
+// Upgrades: R000 (Barrage), Name (Name)
+{
+Not Implemented
+}
+
+STRING 671
+{
+Player 5
+}
+
+STRING 672
+{
+Player 6
+}
+
+STRING 673
+{
+Player 7
+}
+
+STRING 674
+{
+Player 8
+}
+
+STRING 675
+{
+Player 9
+}
+
+STRING 676
+{
+Player 10
+}
+
+STRING 677
+{
+Demons
 }
 

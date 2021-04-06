@@ -17,7 +17,7 @@ function main() {
     fs.mkdirSync(config.outputFolder);
   }
 
-  createMapFromDir(`${config.outputFolder}/${config.mapFolder}`, `./dist/${config.mapFolder}`);
+  createMapFromDir(`${config.archiveOutputFolder}/${config.mapFolder}`, `./dist/${config.mapFolder}`);
 }
 
 /**

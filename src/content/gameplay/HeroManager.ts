@@ -6,16 +6,16 @@ import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
 import { ToolManager } from "systems/tools/ToolManager";
 import { Trigger, Unit } from "w3ts/index";
 
-export const enum HeroType {
-    Prospector,
-    Artisan,
-    Researcher,
+export enum HeroType {
+    Prospector          = FourCC('H00P'),
+    Artisan             = FourCC('H00A'),
+    Researcher          = FourCC('H00R'),
 }
 
 export type HeroConfig = {
 
     name: string,
-    unitCode: string,
+    unitId: number,
     type: HeroType,
 }
 
@@ -36,8 +36,7 @@ export class HeroManager {
         
         for (let c of config) {
 
-            let id = FourCC(c.unitCode);
-            this.unitTypeDef[id] = c;
+            this.unitTypeDef[c.unitId] = c;
         }
 
         let t = new Trigger();

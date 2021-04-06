@@ -38,7 +38,10 @@ export class CustomMinimap2 implements IMinimap {
         this.defaultColor = BlzConvertColor(255, 145, 104, 60);
 
         const minimapOrigin = Frame.fromOrigin(ORIGIN_FRAME_MINIMAP, 0);
-        minimapOrigin.setAlpha(0);
+        minimapOrigin.setAlpha(200);
+
+        // BlzChangeMinimapTerrainTex('Textures\\White.blp');
+        // BlzChangeMinimapTerrainTex('war3mapImported\\Transparent.tga');
 
         // BlzFrameSetVisible(minimap, false);
         const width = this.pixelWidth = minimapOrigin.width / 64;

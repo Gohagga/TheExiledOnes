@@ -81,18 +81,25 @@ export class BuildingAbilityBase extends AbilityBase {
     OnPrepare(e: AbilityEvent): void {
         
         let caster = e.caster;
-        let result = this.recipe.GetHighestTierMaterials(caster);
         
-        if (result.successful == false) {
-            this.errorService.DisplayError(caster.owner, `Missing materials: ${result.errors.join(', ')}`);
-            return;
-        }
-
-        result.Consume();
         let existingSlot = this.slotManager.GetSlot(caster, AbilitySlot.PreparedSlot);
-        if (existingSlot) existingSlot.RemoveFromUnit(caster, true);
-        this.AddToUnit(caster);
-        this.slotManager.ApplySlot(caster, AbilitySlot.PreparedSlot, this);
+        if (!existingSlot || existingSlot.id != this.id) {
+
+            let result = this.recipe.GetHighestTierMaterials(caster);
+            if (result.successful == false) {
+                this.errorService.DisplayError(caster.owner, `Missing materials: ${result.errors.join(', ')}`);
+                return;
+            }
+    
+            result.Consume();
+            // let existingSlot = this.slotManager.GetSlot(caster, AbilitySlot.PreparedSlot);
+            // if (existingSlot) {
+            //     print("found existing slot", existingSlot.id);
+            //     existingSlot.RemoveFromUnit(caster, true);
+            // }
+            this.AddToUnit(caster);
+            this.slotManager.ApplySlot(caster, AbilitySlot.PreparedSlot, this);
+        }
 
         this.spellbookAbility.RemoveFromUnit(caster);
         this.spellbookAbility.AddToUnit(caster);
@@ -101,8 +108,10 @@ export class BuildingAbilityBase extends AbilityBase {
     RemoveFromUnit(unit: Unit, onlyBuild?: boolean): boolean {
         
         if (onlyBuild) {
+            print("removing build ability", this.buildId);
             return unit.removeAbility(this.buildId);
         } else {
+            print("removing prepare ability", this.buildId);
             return unit.removeAbility(this.prepareId);
         }
     }

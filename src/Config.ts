@@ -1,3 +1,5 @@
+import { HeroId } from "config/HeroType"
+import { MineshaftWc3Ability } from "content/abilities/artisan/Mineshaft"
 import { TransmuteAbility } from "content/abilities/artisan/Transmute"
 import { HeroConfig, HeroType } from "content/gameplay/HeroManager"
 import { ComponentItem, ResourceItem } from "content/items/ResourceItem"
@@ -6,9 +8,13 @@ import { Wc3Ability } from "systems/abilities/Wc3Ability"
 import { RecipeMachineConfig } from "systems/crafting/machine/MachineConfig"
 import { Material } from "systems/crafting/Material"
 import { ItemConfig } from "systems/items/ItemConfig"
-import { MapPlayer } from "w3ts/index"
+import { MapPlayer, Unit } from "w3ts/index"
 
-export const SharedPlayer = MapPlayer.fromIndex(15);
+export const sharedPlayer = MapPlayer.fromIndex(15);
+
+export namespace Global {
+    export let soulAnchor: Unit;
+}
 
 export class Config {
 
@@ -28,15 +34,15 @@ export class Config {
     heroes: HeroConfig[] = [{
             name: 'Prospector',
             type: HeroType.Prospector,
-            unitCode: 'H00P',
+            unitId: HeroId.Prospector,
         }, {
             name: 'Artisan',
             type: HeroType.Artisan,
-            unitCode: 'H00A',
+            unitId: HeroId.Artisan,
         }, {
             name: 'Researcher',
             type: HeroType.Researcher,
-            unitCode: 'H00R',
+            unitId: HeroId.Researcher,
         }
     ]
 
@@ -164,6 +170,16 @@ export class Config {
         codeId: 'A0A4',
         extCodeId: 'ASA4',
         tooltip: 'Machine that allows allies to transmute materials.'
+    }
+
+    Mineshaft: MineshaftWc3Ability = {
+        name: 'Prepare Mineshaft',
+        buildCodeId: 'ABA9',
+        prepareCodeId: 'A0A9',
+        builtUnitCodeId: 'o000',
+        undergroundExitUnitCode: 'o001',
+        extCodeId: 'ASA9',
+        tooltip: 'Mineshaft allows players to go underground to mine ore.'
     }
 
     ArtisanSpellbook: Wc3Ability = {
