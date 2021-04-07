@@ -2,6 +2,7 @@ import { InitCommands } from "commands/AllCommands";
 import { Config, Global, sharedPlayer } from "config/Config";
 import { CrudeAxe } from "content/abilities/artisan/CrudeAxe";
 import { CrudePickaxe } from "content/abilities/artisan/CrudePickaxe";
+import { Minecart } from "content/abilities/artisan/Minecart";
 import { Mineshaft } from "content/abilities/artisan/Mineshaft";
 import { Transmute } from "content/abilities/artisan/Transmute";
 import { Workstation } from "content/abilities/artisan/Workstation";
@@ -21,6 +22,8 @@ import { CraftingManager } from "systems/crafting/CraftingManager";
 import { MachineManager } from "systems/crafting/machine/MachineManager";
 import { AbilityEventHandler } from "systems/events/ability-events/AbilityEventHandler";
 import { AbilityEventProvider } from "systems/events/ability-events/AbilityEventProvider";
+import { DimensionEventHandler } from "systems/events/dimension-events/DimensionEventHandler";
+import { DimensionEventProvider } from "systems/events/dimension-events/DimensionEventProvider";
 import { InputHandler } from "systems/events/input-events/InputHandler";
 import { ItemFactory } from "systems/items/ItemFactory";
 import { PathingType } from "systems/map-generation/builders/PathingBuilder";
@@ -41,7 +44,7 @@ export function Initialize() {
 
     // Set Player alliances
 
-    Log.Level = Level.All;
+    Log.Level = Level.Message;
 
     for (let p of config.players) {
         SetPlayerAllianceStateBJ(p.handle, sharedPlayer.handle, bj_ALLIANCE_ALLIED_UNITS);
@@ -80,6 +83,7 @@ export function Initialize() {
     const abilityEventProvider = new AbilityEventProvider(abilityEvent);
     const basicSlotManager = new AbilitySlotManager();
     const specialSlotManager = new AbilitySlotManager();
+    const dimensionEvent = new DimensionEventHandler();
     const errorService = new ErrorService();
 
     const pathingService = new PathingService('hval');
@@ -103,8 +107,27 @@ export function Initialize() {
         undergroundRect = Rectangle.fromHandle(gg_rct_TestUnderground);
     }
 
+    const dimensionEventProvider = new DimensionEventProvider(dimensionEvent, surfaceRect, undergroundRect);
     const craftingManager = new CraftingManager();
     const itemFactory = new ItemFactory(config.items, craftingManager);
+
+    dimensionEvent.OnSurfaceEvent((e) => {
+        print("on surface event");
+        if (e.unit.isHero() && e.unit.owner.handle == GetLocalPlayer()) {
+            SetCameraBoundsToRect(surfaceRect.handle);
+            PanCameraToTimed(e.unit.x, e.unit.y, 0);
+            SelectUnitSingle(e.unit.handle);
+        }
+    });
+
+    dimensionEvent.OnUndergroundEvent((e) => {
+        print("on underground event");
+        if (e.unit.isHero() && e.unit.owner.handle == GetLocalPlayer()) {
+            SetCameraBoundsToRect(undergroundRect.handle);
+            PanCameraToTimed(e.unit.x, e.unit.y, 0);
+            SelectUnitSingle(e.unit.handle);
+        }
+    });
 
     // Make players
     // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
@@ -226,7 +249,8 @@ export function Initialize() {
         Workstation: new Workstation(config.Workstation, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager),
         HellForge: new BasicAbility(config.HellForge),
         Transmuter: new BasicAbility(config.Transmuter),
-        Mineshaft: new Mineshaft(config.Mineshaft, artisanQ, surfaceRect, undergroundRect, abilityEvent, basicSlotManager, errorService, craftingManager),
+        Minecart: new Minecart(config.Minecart, artisanQ, abilityEvent, basicSlotManager, errorService, craftingManager, dimensionEvent),
+        Mineshaft: new Mineshaft(config.Mineshaft, artisanQ, surfaceRect, undergroundRect, abilityEvent, basicSlotManager, errorService, craftingManager, dimensionEvent),
 
         // Researcher
         ResearcherSpellbook: artisanQ,

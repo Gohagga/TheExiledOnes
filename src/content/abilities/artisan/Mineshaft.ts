@@ -4,8 +4,11 @@ import { BuildingAbilityBase, Wc3BuildingAbility } from "systems/abilities/Build
 import { IAbility } from "systems/abilities/IAbility";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
 import { CraftingManager } from "systems/crafting/CraftingManager";
+import { Material } from "systems/crafting/Material";
 import { AbilityEvent } from "systems/events/ability-events/event-models/AbilityEvent";
 import { IAbilityEventHandler } from "systems/events/ability-events/IAbilityEventHandler";
+import { DimensionType } from "systems/events/dimension-events/DimensionType";
+import { IDimensionEventHandler } from "systems/events/dimension-events/IDimensionEventHandler";
 import { ErrorService } from "systems/ui/ErrorService";
 import { OrderId } from "w3ts/globals/order";
 import { Destructable, onHostDetect, Rectangle, Region, Timer, Trigger, Unit } from "w3ts/index";
@@ -36,16 +39,18 @@ export class Mineshaft extends BuildingAbilityBase {
         abilityEvent: IAbilityEventHandler,
         slotManager: AbilitySlotManager,
         errorService: ErrorService,
-        craftingManager: CraftingManager
+        craftingManager: CraftingManager,
+        private dimensionEvent: IDimensionEventHandler,
     ) {
         super(data, spellbookAbility, abilityEvent, slotManager, errorService,
             craftingManager.CreateRecipe([
-
+                [2, Material.Frame | Material.TierI],
+                [2, Material.Stone | Material.TierII]
             ]));
         
         abilityEvent.OnAbilityEffect(this.buildId, (e: AbilityEvent) => this.Execute(e));
         
-        this.clearRubbleRect = new Rectangle(0, 0, 250, 250);
+        this.clearRubbleRect = new Rectangle(0, 0, 350, 350);
 
         this.surfaceWidth = (surfaceRect.maxX - surfaceRect.minX);
         this.surfaceHeight = (surfaceRect.maxY - surfaceRect.minY);
@@ -75,33 +80,6 @@ export class Mineshaft extends BuildingAbilityBase {
         onDeath.registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH);
         onDeath.registerAnyUnitEvent(EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL);
         onDeath.addAction(() => this.OnDeath());
-
-        
-        let onSurfaceEnter = new Trigger();
-        let surfaceRegion = new Region();
-        surfaceRegion.addRect(surfaceRect);
-        onSurfaceEnter.registerEnterRegion(surfaceRegion.handle, null);
-        onSurfaceEnter.addAction(() => {
-            let unit = Unit.fromEvent();
-            if (unit.isHero() && unit.owner.handle == GetLocalPlayer()) {
-                SetCameraBoundsToRect(this.surfaceRect.handle);
-                PanCameraToTimed(unit.x, unit.y, 0);
-                SelectUnitSingle(unit.handle);
-            }
-        });
-
-        let onUndergroundEnter = new Trigger();
-        let undergroundRegion = new Region();
-        undergroundRegion.addRect(undergroundRect);
-        onUndergroundEnter.registerEnterRegion(undergroundRegion.handle, null);
-        onUndergroundEnter.addAction(() => {
-            let unit = Unit.fromEvent();
-            if (unit.isHero() && unit.owner.handle == GetLocalPlayer()) {
-                SetCameraBoundsToRect(this.undergroundRect.handle);
-                PanCameraToTimed(unit.x, unit.y, 0);
-                SelectUnitSingle(unit.handle);
-            }
-        });
     }
 
     OnUnitStartBuild(): void {

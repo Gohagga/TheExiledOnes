@@ -35,6 +35,17 @@ export class AbilitySlotManager {
         }
     }
 
+    OnlyApplySlot(unit: Unit, slot: AbilitySlot, ability: IAbility) {
+        
+        let unitId = unit.id;
+        if (unitId in this.instances == false) {
+            Log.Error(AbilitySlotManager, "Unit has not been registered", unit.name);
+            return false;
+        } else {
+            this.instances[unitId][slot] = ability;
+        }
+    }
+
     ClearSlot(unit: Unit, slot: AbilitySlot): boolean {
 
         let unitId = unit.id;

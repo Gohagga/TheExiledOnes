@@ -182,6 +182,15 @@ export class Config {
         tooltip: 'Mineshaft allows players to go underground to mine ore.'
     }
 
+    Minecart: Wc3BuildingAbility = {
+        name: 'Prepare Minecart',
+        buildCodeId: 'ABAA',
+        prepareCodeId: 'A0AA',
+        builtUnitCodeId: 'o002',
+        extCodeId: 'ASAA',
+        tooltip: 'Minecart allows players to go carry objects as additional inventory.'
+    }
+
     ArtisanSpellbook: Wc3Ability = {
         name: 'Basic Abilities',
         codeId: 'A0AQ',
@@ -259,7 +268,7 @@ export class Config {
     // Tools
 
     Hand: Wc3Ability = {
-        name: 'Use Hand',
+        name: 'Use Your Hand',
         codeId: 'AT02'
     }
 

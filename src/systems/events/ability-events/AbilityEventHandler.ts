@@ -2,7 +2,7 @@ import { AbilityEventType } from "./AbilityEventType";
 import { AbilityEvent } from "./event-models/AbilityEvent";
 import { AbilityFinishEvent } from "./event-models/AbilityFinishEvent";
 import { IAbilityEventHandler } from "./IAbilityEventHandler";
-import { RecordEventHandler } from "./RecordEventHandler";
+import { RecordEventHandler } from "../generic/RecordEventHandler";
 
 export class AbilityEventHandler implements IAbilityEventHandler {
 
@@ -34,7 +34,7 @@ export class AbilityEventHandler implements IAbilityEventHandler {
         this.Subscribe(AbilityEventType.Finished, abilityId, callback);
     }
 
-    public Register(type: AbilityEventType, abilityId: number) {
+    public Raise(type: AbilityEventType, abilityId: number) {
         let event: any;
         if (type == AbilityEventType.Finished) event = new AbilityFinishEvent();
         else event = new AbilityEvent();

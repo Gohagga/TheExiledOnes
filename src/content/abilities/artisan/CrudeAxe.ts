@@ -31,7 +31,6 @@ export class CrudeAxe extends AbilityBase {
 
     Execute(e: AbilityEvent): void {
         
-        
         Log.Info("Cast Create Crude Axe");
         let caster = e.caster;
         let result = this.recipe.CraftTierInclusive(caster);

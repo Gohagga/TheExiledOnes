@@ -98,7 +98,8 @@ export class BuildingAbilityBase extends AbilityBase {
             //     existingSlot.RemoveFromUnit(caster, true);
             // }
             this.AddToUnit(caster);
-            this.slotManager.ApplySlot(caster, AbilitySlot.PreparedSlot, this);
+            if (existingSlot) existingSlot.RemoveFromUnit(caster, true);
+            this.slotManager.OnlyApplySlot(caster, AbilitySlot.PreparedSlot, this);
         }
 
         this.spellbookAbility.RemoveFromUnit(caster);

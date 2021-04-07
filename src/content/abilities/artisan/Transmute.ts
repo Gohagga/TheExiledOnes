@@ -17,6 +17,7 @@ export interface TransmuteAbility extends Wc3Ability {
 export class Transmute extends AbilityBase {
     
     private readonly recipe: CraftingRecipe;
+    private readonly tooltip: string;
     
     constructor(
         data: TransmuteAbility,
@@ -30,6 +31,8 @@ export class Transmute extends AbilityBase {
         this.recipe = craftingManager.CreateRecipe([
             [data.matAmount, data.material]
         ]);
+
+        this.tooltip = data.tooltip || '';
     }
 
     Execute(e: AbilityEvent): void {
@@ -48,6 +51,10 @@ export class Transmute extends AbilityBase {
         
     }
     
-    TooltipDescription = undefined;
+    TooltipDescription = (unit: Unit) =>
+`${this.tooltip}
+
+Materials
+${this.recipe.costStringFormatted}`;
 
 }

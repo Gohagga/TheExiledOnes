@@ -1,0 +1,1 @@
+export type ISlottable<Owner> = (owner: Owner) => boolean;
