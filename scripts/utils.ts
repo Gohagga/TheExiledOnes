@@ -20,7 +20,7 @@ export interface IProjectConfig {
   minifyScript: string;
   gameExecutable: string;
   outputFolder: string;
-  archiveOutputFolder: string;
+  archiveOutputFolders: string[];
   version: {
     major: number,
     minor: number,

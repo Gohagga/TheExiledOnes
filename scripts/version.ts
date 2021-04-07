@@ -1,62 +1,56 @@
 import * as fs from "fs-extra";
-import * as path from "path";
-import War3Map from "mdx-m3-viewer/src/parsers/w3x/map";
 import War3MapW3i from "mdx-m3-viewer/src/parsers/w3x/w3i/file";
-import { IProjectConfig, loadJsonFile } from "./utils";
 import War3MapWts from "mdx-m3-viewer/src/parsers/w3x/wts/file";
+import { IProjectConfig, loadJsonFile } from "./utils";
 
-const config: IProjectConfig = loadJsonFile("config.json");
-setVersionAuthor(config);
-
-
-export function setVersionAuthor(config: IProjectConfig) {
+export function setVersionAuthor(path: string, config: IProjectConfig) {
 
     let mapInfo = config.mapInfo;
-    let path = `./maps/${config.mapFolder}`;
+    let v = config.version;
+    const version = `v${v.major}.${v.minor}.${v.build}`;
 
-    let buffer = fs.readFileSync(`${path}/war3map.w3i`);
-    
     let w3i = new War3MapW3i();
-    w3i.load(buffer);
+    w3i.load(fs.readFileSync(`${path}/war3map.w3i`));
+    let wts = new War3MapWts();
+    wts.load(fs.readFileSync(`${path}/war3map.wts`).toString());
 
-    // let wts = new War3MapWts();
-    // wts.load(fs.readFileSync(`${path}/war3map.wts`).toString());
-
-    // let strings = wts.stringMap;
+    let w3iWriter = new W3iWriter(w3i, wts);
 
     // w3i.
-    // wts.stringMap.set(getStrIndex(w3i.name), mapInfo.name);
-    // wts.stringMap.set(getStrIndex(w3i.author), mapInfo.author);
-    // wts.stringMap.set(getStrIndex(w3i.description), mapInfo.description);
-    // wts.stringMap.set(getStrIndex(w3i.recommendedPlayers), mapInfo.recommendedPlayers);
+    w3iWriter.setString("name", mapInfo.name.replace('{version}', version));
+    w3iWriter.setString("author", mapInfo.author);
+    w3iWriter.setString("description", mapInfo.description);
+    w3iWriter.setString("recommendedPlayers", mapInfo.recommendedPlayers);
 
-    // w3i.loadingScreenTitle = mapInfo.loadingScreenTitle.replace('{version}', config.version);
-    // w3i.loadingScreenSubtitle = mapInfo.loadingScreenSubtitle;
-    // w3i.loadingScreenText = mapInfo.loadingScreenDescription;
-
-    let wts = fs.readFileSync(path + '/war3map.wts');
-    let stringsFileString = wts.toString();
-
-    // stringsFileString.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    // let match = stringsFileString.match(/STRING \d+\n{\n(\w*)\n}/);
-    // if (match.length)
-    // let originalString = match[0];
-    /(?<=name="\w+)\d+(?=\w+")/
-
-    // name: 'TRIGSTR_001',
-    // author: 'TRIGSTR_004',
-    // description: 'TRIGSTR_003',
+    w3iWriter.setString("loadingScreenTitle", mapInfo.loadingScreenTitle.replace('{version}', version));
+    w3iWriter.setString("loadingScreenSubtitle", mapInfo.loadingScreenSubtitle);
+    w3iWriter.setString("loadingScreenText", mapInfo.loadingScreenDescription);
 
     // console.log(wts.stringMap);
+    // console.log(w3i);
   
-    console.log(w3i);
-    // fs.writeFile(`${path}/war3map.w3i`, w3i.save(), (err) => console.log(err));
-    // fs.writeFile(`${path}/war3map.wts`, wts.save(), (err) => console.log(err));
+    fs.writeFile(`${path}/war3map.w3i`, w3i.save(), (err) => err ? console.log(err) : null);
+    fs.writeFile(`${path}/war3map.wts`, wts.save(), (err) => err ? console.log(err) : null);
 }
 
+class W3iWriter {
+    private w3i: any;
+    constructor(
+        w3i: War3MapW3i,
+        private wts: War3MapWts
+    ) {
+        this.w3i = w3i;
+    }
 
-function getStrIndex(name: string) {
-
-    let index = parseInt(name.slice(8));
-    return index;
+    setString(key: string, value: string) {
+        if (!this.w3i[key]) throw new Error('The key does not exist in the object.');
+        if (this.w3i[key].startsWith('TRIGSTR')) {
+            this.wts.setString(this.w3i[key], value);
+        } else {
+            this.w3i[key] = value;
+        }
+    }
 }
+
+const config: IProjectConfig = loadJsonFile("config.json");
+setVersionAuthor(`./maps/${config.mapFolder}`, config);
