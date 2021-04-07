@@ -1,3 +1,4 @@
 [Misc]
 DrainTransfersMana=1
+FollowRange=100.0
 

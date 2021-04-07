@@ -141,7 +141,7 @@ function CreateUnitsForPlayer0()
     UnitAddItemToSlotById(u, FourCC("IM00"), 4)
     UnitAddItemToSlotById(u, FourCC("IM00"), 5)
     u = BlzCreateUnitWithSkin(p, FourCC("o001"), -8091.8, -12739.2, 245.023, FourCC("o001"))
-    u = BlzCreateUnitWithSkin(p, FourCC("o002"), -8474.1, -12474.3, 294.685, FourCC("o002"))
+    u = BlzCreateUnitWithSkin(p, FourCC("o002"), -8463.8, -12662.5, -31.455, FourCC("o002"))
 end
 
 function CreateBuildingsForPlayer11()
