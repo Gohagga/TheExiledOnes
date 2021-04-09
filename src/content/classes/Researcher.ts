@@ -1,4 +1,3 @@
-import { Defile } from "content/abilities/prospector/Defile";
 import { Log } from "Log";
 import { IAbility } from "systems/abilities/IAbility";
 import { AbilitySlot } from "systems/ability-slots/AbilitySlot";

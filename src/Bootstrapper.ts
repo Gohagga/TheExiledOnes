@@ -2,10 +2,14 @@ import { InitCommands } from "commands/AllCommands";
 import { Config, Global, sharedPlayer } from "config/Config";
 import { CrudeAxe } from "content/abilities/artisan/CrudeAxe";
 import { CrudePickaxe } from "content/abilities/artisan/CrudePickaxe";
+import { HellForge } from "content/abilities/artisan/HellForge";
 import { Minecart } from "content/abilities/artisan/Minecart";
 import { Mineshaft } from "content/abilities/artisan/Mineshaft";
 import { Transmute } from "content/abilities/artisan/Transmute";
+import { Transmuter } from "content/abilities/artisan/Transmuter";
 import { Workstation } from "content/abilities/artisan/Workstation";
+import { ForgeFlames } from "content/abilities/machines/ForgeFlames";
+import { CrystalizeFel } from "content/abilities/prospector/CrystalizeFel";
 import { Defile } from "content/abilities/prospector/Defile";
 import { Axe } from "content/abilities/tools/Axe";
 import { Hand } from "content/abilities/tools/Hand";
@@ -36,7 +40,7 @@ import { CustomMinimap } from "systems/minimap/CustomMinimap";
 import { Random } from "systems/random/Random";
 import { ToolManager } from "systems/tools/ToolManager";
 import { ErrorService } from "systems/ui/ErrorService";
-import { MapPlayer, Rectangle, Timer, Trigger, Unit } from "w3ts/index";
+import { MapPlayer, Quest, Rectangle, Timer, Trigger, Unit } from "w3ts/index";
 
 export function Initialize() {
 
@@ -45,6 +49,7 @@ export function Initialize() {
     // Set Player alliances
 
     Log.Level = Level.Message;
+    let generateMap = true;
 
     for (let p of config.players) {
         SetPlayerAllianceStateBJ(p.handle, sharedPlayer.handle, bj_ALLIANCE_ALLIED_UNITS);
@@ -112,7 +117,6 @@ export function Initialize() {
     const itemFactory = new ItemFactory(config.items, craftingManager);
 
     dimensionEvent.OnSurfaceEvent((e) => {
-        print("on surface event");
         if (e.unit.isHero() && e.unit.owner.handle == GetLocalPlayer()) {
             SetCameraBoundsToRect(surfaceRect.handle);
             PanCameraToTimed(e.unit.x, e.unit.y, 0);
@@ -121,7 +125,6 @@ export function Initialize() {
     });
 
     dimensionEvent.OnUndergroundEvent((e) => {
-        print("on underground event");
         if (e.unit.isHero() && e.unit.owner.handle == GetLocalPlayer()) {
             SetCameraBoundsToRect(undergroundRect.handle);
             PanCameraToTimed(e.unit.x, e.unit.y, 0);
@@ -146,6 +149,13 @@ export function Initialize() {
     const tim = new Timer()
 
         tim.start(0, false, () => {
+
+            for (let q of config.quests) {
+                let quest = new Quest();
+                quest.setTitle(q.title);
+                quest.setIcon(q.icon);
+                quest.setDescription(q.description);
+            }
         
             const heightNoise = new HeightNoiseProvider(random);
             const surfaceMinimap = new CustomMinimap(surfaceRect);
@@ -171,6 +181,9 @@ export function Initialize() {
         
             let time = os.clock();
             mapGenerator.resume();
+            if (generateMap == false) {
+                mapGenerator.isDone = true;
+            }
 
             tim.pause();
             tim.start(0.02, true, () => {
@@ -226,17 +239,19 @@ export function Initialize() {
     let prospectorQ = new BasicAbility(config.ProspectorSpellbook);
     let artisanQ = new BasicAbility(config.ArtisanSpellbook);
     let researcherQ = new BasicAbility(config.ResearcherSpellbook);
+
+    // Order of abilities defined affects their order in the spellbooks!!!
     let abilities = {
 
         // Prospector
         ProspectorSpellbook: prospectorQ,
         Defile: new Defile(config.Defile, abilityEvent, errorService),
-        EyeOfKilrogg: new BasicAbility(config.EyeOfKilrogg),
         InfuseFelstone: new BasicAbility(config.InfuseFelstone),
-        CrystalizeFel: new BasicAbility(config.CrystalizeFel),
         Demonfruit: new BasicAbility(config.Demonfruit),
-        TransferFel: new BasicAbility(config.TransferFel),
         PrepareFelCollector: new BasicAbility(config.PrepareFelCollector),
+        CrystalizeFel: new CrystalizeFel(config.CrystalizeFel, abilityEvent, errorService, itemFactory),
+        EyeOfKilrogg: new BasicAbility(config.EyeOfKilrogg),
+        TransferFel: new BasicAbility(config.TransferFel),
 
         // Artisan
         ArtisanSpellbook: artisanQ,
@@ -246,9 +261,9 @@ export function Initialize() {
         TransmuteCopper: new Transmute(config.TransmuteCopper, abilityEvent, craftingManager, errorService, ResourceItem.Copper),
         CrudeAxe: new CrudeAxe(config.CrudeAxe, abilityEvent, craftingManager, errorService),
         CrudePickaxe: new CrudePickaxe(config.CrudePickaxe, abilityEvent, craftingManager, errorService),
+        HellForge: new HellForge(config.HellForge, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager),
         Workstation: new Workstation(config.Workstation, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager),
-        HellForge: new BasicAbility(config.HellForge),
-        Transmuter: new BasicAbility(config.Transmuter),
+        Transmuter: new Transmuter(config.Transmuter, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager),
         Minecart: new Minecart(config.Minecart, artisanQ, abilityEvent, basicSlotManager, errorService, craftingManager, dimensionEvent),
         Mineshaft: new Mineshaft(config.Mineshaft, artisanQ, surfaceRect, undergroundRect, abilityEvent, basicSlotManager, errorService, craftingManager, dimensionEvent),
 
@@ -268,6 +283,7 @@ export function Initialize() {
         Axe: new Axe(config.Axe, abilityEvent),
         Pickaxe: new Pickaxe(config.Pickaxe, abilityEvent),
         TransferItems: new TransferInventory(config.TransferInventory, abilityEvent),
+        ForgeFlames: new ForgeFlames(config.ForgeFlames, abilityEvent),
     }
 
     // Tools

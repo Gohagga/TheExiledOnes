@@ -1,5 +1,4 @@
 import { MachineFactory } from "content/machines/MachineFactory";
-import { WorkstationMachine } from "content/machines/WorkstationMachine";
 import { Log } from "Log";
 import { BuildingAbilityBase, Wc3BuildingAbility } from "systems/abilities/BuildingAbilityBase";
 import { IAbility } from "systems/abilities/IAbility";
@@ -26,10 +25,7 @@ export class Workstation extends BuildingAbilityBase {
         private machineManager: MachineManager,
     ) {
         super(data, spellbookAbility, abilityEvent, slotManager, errorService,
-            craftingManager.CreateRecipe([
-                [3, Material.Stone],
-                [3, Material.Wood]
-            ]));
+            craftingManager.CreateRecipe(data.materials));
 
         abilityEvent.OnAbilityEffect(this.buildId, (e: AbilityEvent) => this.Execute(e));
 

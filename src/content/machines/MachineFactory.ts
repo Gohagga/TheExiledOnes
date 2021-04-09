@@ -4,6 +4,7 @@ import { IMachine } from "systems/crafting/machine/IMachine";
 import { IItemFactory } from "systems/items/IItemFactory";
 import { ErrorService } from "systems/ui/ErrorService";
 import { Unit } from "w3ts/index";
+import { TransmuterMachine } from "./TransmuterMachine";
 import { WorkstationMachine } from "./WorkstationMachine";
 
 export class MachineFactory {
@@ -21,6 +22,15 @@ export class MachineFactory {
 
         let workstation = new WorkstationMachine(
             this.config.WorkstationMachine, unit, this.errorService,
+            this.craftingManager, this.itemFactory);
+        
+        return workstation;
+    }
+
+    CreateTransmuter(unit: Unit) {
+
+        let workstation = new TransmuterMachine(
+            this.config.TransmuterMachine, unit, this.errorService,
             this.craftingManager, this.itemFactory);
         
         return workstation;

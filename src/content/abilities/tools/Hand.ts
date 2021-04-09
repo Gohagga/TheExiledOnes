@@ -49,20 +49,20 @@ export class Hand extends ToolAbilityBase {
         let dmg = 2
         caster.damageTarget(target.handle, dmg, true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_AXE_MEDIUM_CHOP);
 
-        let rand = math.random();
+        let item = this.itemFactory.CreateItemByType(ResourceItem.Branch);
+        if (caster.addItem(item) == false)
+            item.setPosition(target.x, target.y);
 
-        // If widget has died, do drops
-        if (rand <= 0.60) {
+        // let rand = math.random();
+        // // If widget has died, do drops
+        // if (rand <= 0.60) {
             
-            // Log.Info("Dropping");
-            let item = this.itemFactory.CreateItemByType(ResourceItem.Branch);
-            if (caster.addItem(item) == false)
-                item.setPosition(target.x, target.y);
-        }
+        //     // Log.Info("Dropping");
+        // }
     }
     
     TooltipDescription = (unit: Unit) => 
 `Interacts with an object.
 
-Tree - has a chance to obtain a Branch.`;
+Tree - obtain a Branch (wood material).`;
 }

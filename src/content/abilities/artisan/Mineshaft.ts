@@ -43,10 +43,7 @@ export class Mineshaft extends BuildingAbilityBase {
         private dimensionEvent: IDimensionEventHandler,
     ) {
         super(data, spellbookAbility, abilityEvent, slotManager, errorService,
-            craftingManager.CreateRecipe([
-                [2, Material.Frame | Material.TierI],
-                [2, Material.Stone | Material.TierII]
-            ]));
+            craftingManager.CreateRecipe(data.materials || []));
         
         abilityEvent.OnAbilityEffect(this.buildId, (e: AbilityEvent) => this.Execute(e));
         
@@ -85,6 +82,7 @@ export class Mineshaft extends BuildingAbilityBase {
     OnUnitStartBuild(): void {
         
         let unit = Unit.fromEvent();
+        if (unit.typeId == this.builtUnitId)
         unit.setOwner(sharedPlayer, true);
     }
 

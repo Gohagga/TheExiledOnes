@@ -46,4 +46,33 @@ export function InitCommands(
             }
         }
     });
+
+    // Die
+    CreateChatCommand(players, ["-die"], true, () => {
+        let triggerPlayer = MapPlayer.fromEvent();
+        let triggerPlayerId = triggerPlayer.id;
+        let units = inputHandler.GetPlayerSelectedUnitIds(triggerPlayer);
+
+        if (units.length > 1) return;
+        let hero = units[0];
+
+        if (hero.owner != triggerPlayer || !hero.isHero) return;
+
+        for (let i = 0; i < 6; i++) {
+            RemoveItem(UnitItemInSlot(hero.handle, i));
+        }
+        hero.kill();
+    });
+}
+
+function CreateChatCommand(players: MapPlayer[], message: string[], exact: boolean, action: () => void): Trigger {
+
+    let t = new Trigger();
+    for (let p of players) {
+        for (let i = 0; i < message.length; i++) {
+            t.registerPlayerChatEvent(p, message[i], exact);
+        }
+    }
+    t.addAction(action);
+    return t;
 }

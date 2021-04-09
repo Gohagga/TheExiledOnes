@@ -35,26 +35,24 @@ export class InputHandler {
         t.addAction(() => {
 
             let player = MapPlayer.fromEvent();
-            print("player selected", player.name);
             let id = player.id;
             let unit = Unit.fromEvent();
             if (id in this.selectedUnits == false) this.selectedUnits[id] = new Map<number, Unit>();
             let selected = this.selectedUnits[id];
             selected.set(unit.id, unit);
-            print(this.selectedUnits[id].size);
         });
 
         t = new Trigger();
         t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_DESELECTED);
+        t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)
         t.addAction(() => {
 
             let player = MapPlayer.fromEvent();
-            print("player deselected", player.name);
             let unit = Unit.fromEvent();
             let id = player.id;
+            if (id in this.selectedUnits == false) return;
             let selected = this.selectedUnits[id];
             selected.delete(unit.id);
-            print(this.selectedUnits[id].size);
         });
     }
 

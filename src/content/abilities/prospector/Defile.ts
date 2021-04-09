@@ -18,13 +18,18 @@ export class Defile extends AbilityBase {
     }
 
     Execute(e: AbilityEvent) {
-        Log.Info("test to see if this works", this.name);
-
-        this.error.DisplayError(e.caster.owner, "This is an error.");
 
         let caster = e.caster;
+        let owner = caster.owner;
+        let point = e.targetPoint;
+
+        let blight = IsPointBlighted(point.x, point.y) == false;
+        let radius = 64 + 192 * math.random();
+        SetBlight(owner.handle, point.x, point.y, radius, true);
+
+        if (blight) caster.mana += 5;
     }
 
-    TooltipDescription = (unit: Unit) => "123";
+    TooltipDescription = undefined;
 
 }

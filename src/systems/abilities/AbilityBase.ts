@@ -40,6 +40,7 @@ export abstract class AbilityBase implements Wc3Ability, IAbility {
         }
 
         dummy.kill();
+        dummy.destroy();
     }
 
     AddToUnit(unit: Unit, extended?: boolean): boolean {

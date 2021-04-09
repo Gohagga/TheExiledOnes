@@ -2,6 +2,7 @@ import { Log } from "Log";
 import { AbilitySlot } from "systems/ability-slots/AbilitySlot";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
 import { CraftingRecipe } from "systems/crafting/CraftingRecipe";
+import { Material } from "systems/crafting/Material";
 import { AbilityEvent } from "systems/events/ability-events/event-models/AbilityEvent";
 import { IAbilityEventHandler } from "systems/events/ability-events/IAbilityEventHandler";
 import { ErrorService } from "systems/ui/ErrorService";
@@ -16,7 +17,8 @@ export interface Wc3BuildingAbility {
     builtUnitCodeId: string,
     extCodeId?: string,
     name: string,
-    tooltip?: string
+    tooltip?: string,
+    materials: [number, Material][],
 }
 
 export class BuildingAbilityBase extends AbilityBase {
@@ -109,10 +111,8 @@ export class BuildingAbilityBase extends AbilityBase {
     RemoveFromUnit(unit: Unit, onlyBuild?: boolean): boolean {
         
         if (onlyBuild) {
-            print("removing build ability", this.buildId);
             return unit.removeAbility(this.buildId);
         } else {
-            print("removing prepare ability", this.buildId);
             return unit.removeAbility(this.prepareId);
         }
     }

@@ -1,4 +1,3 @@
-import { Defile } from "content/abilities/prospector/Defile";
 import { Log } from "Log";
 import { IAbility } from "systems/abilities/IAbility";
 import { AbilitySlot } from "systems/ability-slots/AbilitySlot";
@@ -50,7 +49,7 @@ export class Prospector extends PlayerClass {
         this.Add(AbilitySlot.R, this.abilities.CrystalizeFel);
         this.Add(AbilitySlot.A, this.abilities.Demonfruit);
         this.Add(AbilitySlot.S, this.abilities.TransferFel);
-        this.Add(AbilitySlot.D, this.abilities.PrepareFelCollector);
+        // this.Add(AbilitySlot.D, this.abilities.PrepareFelCollector);
 
         // Remove and readd spells
         Log.Info("Updating spell list");

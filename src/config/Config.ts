@@ -8,7 +8,7 @@ import { Wc3Ability } from "systems/abilities/Wc3Ability"
 import { RecipeMachineConfig } from "systems/crafting/machine/MachineConfig"
 import { Material } from "systems/crafting/Material"
 import { ItemConfig } from "systems/items/ItemConfig"
-import { MapPlayer, Unit } from "w3ts/index"
+import { MapPlayer, Quest, Unit } from "w3ts/index"
 
 export const sharedPlayer = MapPlayer.fromIndex(15);
 
@@ -45,6 +45,39 @@ export class Config {
             unitId: HeroId.Researcher,
         }
     ]
+
+    quests: { title: string, icon: string, description: string }[] = [
+//         {
+//             title: 'Info',
+//             icon: 'ReplaceableTextures\\CommandButtons\\BTNSelectHeroOn.blp',
+//             description:
+// `Materials are divided into types and tiers. Type of materials are Wood, Stone, Metal and Fine Metal. There are others but these are most prevalent.
+// There are tiers 1-4. Examples:
+// 
+// Branch (Wood I), Rock (Stone I), Iron (Metal I), Copper (Fine Metal I)
+// Log (Wood II), Stone (Stone II), Steel (Metal II), Silver (Fine Metal II)
+// ...`
+//         },
+        {
+            title: 'Credits',
+            icon: 'ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp',
+            description:
+`First and foremost, Lahey (Terrania map) for primary inspiration and mechanics.
+ScrewTheTrees - terrain gen examples and machine ideas
+Tasyen, William, Rayman.90 for help with minimap
+Mayday, Ghostwolf and NemesisDSGB for support
+AvatarsLord for enthusiasm and testing
+
+Models & Lightnings
+GeneralFrank, RightField, Solu9, Ergius, KAIL333XZ, Blood Raven, Kalkhran, Kenathorn, Sunchips, Spellbound, Remixer, Carrington2k
+
+Icons
+Dristitia, GhostThruster
+
+Tools
+Retera for RMS
+`
+        }];
 
 //#region Abilities
     Defile: Wc3Ability = {
@@ -155,21 +188,38 @@ export class Config {
         prepareCodeId: 'A0A2',
         builtUnitCodeId: 'h000',
         extCodeId: 'ASA2',
-        tooltip: 'Building used for crafting components used in many other building recipes.'
+        tooltip: 'Building used for crafting components used in many other building recipes.',
+        materials: [
+            [3, Material.Stone],
+            [3, Material.Wood]
+        ]
     }
 
-    HellForge: Wc3Ability = {
+    HellForge: Wc3BuildingAbility = {
         name: 'Prepare Hell Forge',
-        codeId: 'A0A3',
+        buildCodeId: 'ABA3',
+        prepareCodeId: 'A0A3',
+        builtUnitCodeId: 'o004',
         extCodeId: 'ASA3',
-        tooltip: 'Necessary for Fel Smithing recipes.'
-    }
+        tooltip: 'Necessary for Fel Smithing recipes.',
+        materials: [
+            // [2, Material.Metal | Material.TierI],
+            // [2, Material.Wood | Material.TierII]
+        ]
+    }    
 
-    Transmuter: Wc3Ability = {
+    Transmuter: Wc3BuildingAbility = {
         name: 'Prepare Transmuter',
-        codeId: 'A0A4',
+        buildCodeId: 'ABA4',
+        prepareCodeId: 'A0A4',
+        builtUnitCodeId: 'o003',
         extCodeId: 'ASA4',
-        tooltip: 'Machine that allows allies to transmute materials.'
+        tooltip: 'Machine that allows allies to transmute materials.',
+        materials: [
+            [1, Material.Frame | Material.TierI],
+            [1, Material.Converter | Material.TierI],
+            [2, Material.Stone | Material.TierII],
+        ]
     }
 
     Mineshaft: MineshaftWc3Ability = {
@@ -179,7 +229,11 @@ export class Config {
         builtUnitCodeId: 'o000',
         undergroundExitUnitCode: 'o001',
         extCodeId: 'ASA9',
-        tooltip: 'Mineshaft allows players to go underground to mine ore.'
+        tooltip: 'Mineshaft allows players to go underground to mine ore.',
+        materials: [
+            [2, Material.Frame | Material.TierI],
+            [2, Material.Stone | Material.TierII]
+        ]
     }
 
     Minecart: Wc3BuildingAbility = {
@@ -188,7 +242,11 @@ export class Config {
         prepareCodeId: 'A0AA',
         builtUnitCodeId: 'o002',
         extCodeId: 'ASAA',
-        tooltip: 'Minecart allows players to go carry objects as additional inventory.'
+        tooltip: 'Minecart can carry 6 items. They cannot move themselves, and can only follow nearby units. Click away to unfollow.',
+        materials: [
+            [3, Material.Metal | Material.TierI],
+            [1, Material.Wood | Material.TierII]
+        ]
     }
 
     ArtisanSpellbook: Wc3Ability = {
@@ -417,6 +475,30 @@ Takes items from target unit if inventory is empty (only owned or shared units).
         }]
     }
 
+    TransmuterMachine: RecipeMachineConfig = {
+        workEffectPath: 'Effect_MechanicGears.mdx',
+        workEffectPosition: { x: 0, y: 0, z: 250 },
+        recipes: [{
+            trainId: 'oMS1',
+            resultId: ResourceItem.Rock,
+            materials: [[3, Material.Wood       | Material.TierI]]
+        }, {
+            trainId: 'oMM1',
+            resultId: ResourceItem.Iron,
+            materials: [[3, Material.Stone      | Material.TierI]]
+        }, {
+            trainId: 'oMF1',
+            resultId: ResourceItem.Copper,
+            materials: [[3, Material.Metal      | Material.TierI]]
+        }]
+    }
+
+    ForgeFlames: Wc3Ability = {
+        name: 'Flames Off',
+        codeId: 'A00D',
+        tooltip: 'Start the flames in the forge. This consumes Fel each second and raises its temperature. Hell forge recipes have a temperature requirement to meet.'
+    }
+
 //#endregion
 
     items: ItemConfig[] = [{
@@ -569,5 +651,11 @@ Takes items from target unit if inventory is empty (only owned or shared units).
             tooltip: 'Component part.',
             material: Material.Converter | Material.TierIV
         }, 
+
+        {
+            name: 'Crystallized Fel',
+            itemTypeId: FourCC('I003'),
+            tooltip: 'A chunk of fel, can be consumed for 100 fel.'
+        }
     ]
 }

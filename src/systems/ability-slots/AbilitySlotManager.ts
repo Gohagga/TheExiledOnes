@@ -97,7 +97,7 @@ export class AbilitySlotManager {
         
         let unitId = unit.id;
         if (unitId in this.instances == false) {
-            Log.Error(AbilitySlotManager, "Unit has not been registered", unit.name);
+            Log.Info(AbilitySlotManager, "Unit has not been registered", unit.name);
             return false;
         } else {
         
