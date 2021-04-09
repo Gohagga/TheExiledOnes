@@ -4,6 +4,8 @@ gg_rct_TestSurface = nil
 gg_rct_TestUnderground = nil
 gg_rct_Surface2 = nil
 gg_rct_Underground2 = nil
+gg_trg_Untitled_Trigger_001 = nil
+gg_unit_o002_0132 = nil
 function InitGlobals()
 end
 
@@ -120,8 +122,6 @@ function CreateBuildingsForPlayer0()
     local t
     local life
     u = BlzCreateUnitWithSkin(p, FourCC("o000"), -7648.0, -12768.0, 270.000, FourCC("o000"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h003"), -10880.0, -11712.0, 270.000, FourCC("h003"))
-    u = BlzCreateUnitWithSkin(p, FourCC("h004"), -10944.0, -11456.0, 270.000, FourCC("h004"))
     u = BlzCreateUnitWithSkin(p, FourCC("ntnt"), -7648.0, -10912.0, 270.000, FourCC("ntnt"))
     u = BlzCreateUnitWithSkin(p, FourCC("nfh0"), -8064.0, -11008.0, 270.000, FourCC("nfh0"))
     u = BlzCreateUnitWithSkin(p, FourCC("nfh1"), -7840.0, -10976.0, 270.000, FourCC("nfh1"))
@@ -133,15 +133,8 @@ function CreateUnitsForPlayer0()
     local unitID
     local t
     local life
-    u = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -11528.3, -11658.3, 3.210, FourCC("Hblm"))
-    UnitAddItemToSlotById(u, FourCC("IM01"), 0)
-    UnitAddItemToSlotById(u, FourCC("IM01"), 1)
-    UnitAddItemToSlotById(u, FourCC("IM01"), 2)
-    UnitAddItemToSlotById(u, FourCC("IM00"), 3)
-    UnitAddItemToSlotById(u, FourCC("IM00"), 4)
-    UnitAddItemToSlotById(u, FourCC("IM00"), 5)
     u = BlzCreateUnitWithSkin(p, FourCC("o001"), -8091.8, -12739.2, 245.023, FourCC("o001"))
-    u = BlzCreateUnitWithSkin(p, FourCC("o002"), -8463.8, -12662.5, -31.455, FourCC("o002"))
+    gg_unit_o002_0132 = BlzCreateUnitWithSkin(p, FourCC("o002"), -12027.4, -12135.8, 303.686, FourCC("o002"))
 end
 
 function CreateBuildingsForPlayer11()
@@ -159,9 +152,12 @@ function CreateBuildingsForPlayer15()
     local unitID
     local t
     local life
-    u = BlzCreateUnitWithSkin(p, FourCC("e000"), -7424.0, -11776.0, 270.000, FourCC("e000"))
+    u = BlzCreateUnitWithSkin(p, FourCC("e000"), -12288.0, -11840.0, 270.000, FourCC("e000"))
     IssueImmediateOrder(u, "root")
-    u = BlzCreateUnitWithSkin(p, FourCC("h000"), -11328.0, -11072.0, 270.000, FourCC("h000"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h000"), -10976.0, -11360.0, 270.000, FourCC("h000"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h003"), -10784.0, -11488.0, 270.000, FourCC("h003"))
+    u = BlzCreateUnitWithSkin(p, FourCC("h004"), -10976.0, -11552.0, 270.000, FourCC("h004"))
+    u = BlzCreateUnitWithSkin(p, FourCC("o004"), -10880.0, -11968.0, 270.000, FourCC("o004"))
 end
 
 function CreateUnitsForPlayer18()
@@ -171,6 +167,30 @@ function CreateUnitsForPlayer18()
     local t
     local life
     u = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -5856.5, -12656.5, 3.210, FourCC("Hblm"))
+    UnitAddItemToSlotById(u, FourCC("IM01"), 0)
+    UnitAddItemToSlotById(u, FourCC("IM01"), 1)
+    UnitAddItemToSlotById(u, FourCC("IM01"), 2)
+    UnitAddItemToSlotById(u, FourCC("IM00"), 3)
+    UnitAddItemToSlotById(u, FourCC("IM00"), 4)
+    UnitAddItemToSlotById(u, FourCC("IM00"), 5)
+end
+
+function CreateBuildingsForPlayer20()
+    local p = Player(20)
+    local u
+    local unitID
+    local t
+    local life
+    u = BlzCreateUnitWithSkin(p, FourCC("o003"), -11296.0, -11872.0, 270.000, FourCC("o003"))
+end
+
+function CreateUnitsForPlayer21()
+    local p = Player(21)
+    local u
+    local unitID
+    local t
+    local life
+    u = BlzCreateUnitWithSkin(p, FourCC("Hblm"), -5584.1, -10828.1, 3.210, FourCC("Hblm"))
     UnitAddItemToSlotById(u, FourCC("IM01"), 0)
     UnitAddItemToSlotById(u, FourCC("IM01"), 1)
     UnitAddItemToSlotById(u, FourCC("IM01"), 2)
@@ -193,11 +213,13 @@ function CreatePlayerBuildings()
     CreateBuildingsForPlayer0()
     CreateBuildingsForPlayer11()
     CreateBuildingsForPlayer15()
+    CreateBuildingsForPlayer20()
 end
 
 function CreatePlayerUnits()
     CreateUnitsForPlayer0()
     CreateUnitsForPlayer18()
+    CreateUnitsForPlayer21()
 end
 
 function CreateAllUnits()
@@ -217,6 +239,20 @@ function CreateRegions()
 end
 
 --
+function Trig_Untitled_Trigger_001_Actions()
+    AddSpecialEffectTargetUnitBJ("Slot1", gg_unit_o002_0132, "Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
+end
+
+function InitTrig_Untitled_Trigger_001()
+    gg_trg_Untitled_Trigger_001 = CreateTrigger()
+    TriggerRegisterPlayerChatEvent(gg_trg_Untitled_Trigger_001, Player(0), "-do", true)
+    TriggerAddAction(gg_trg_Untitled_Trigger_001, Trig_Untitled_Trigger_001_Actions)
+end
+
+function InitCustomTriggers()
+    InitTrig_Untitled_Trigger_001()
+end
+
 function InitCustomPlayerSlots()
     SetPlayerStartLocation(Player(0), 0)
     ForcePlayerStartLocation(Player(0), 0)
@@ -748,6 +784,7 @@ function main()
     CreateAllUnits()
     InitBlizzard()
     InitGlobals()
+    InitCustomTriggers()
 end
 
 function config()
@@ -768,7 +805,7 @@ function config()
     DefineStartLocation(9, -1408.0, 320.0)
     DefineStartLocation(10, -1408.0, 320.0)
     DefineStartLocation(11, -1408.0, 320.0)
-    DefineStartLocation(12, -10560.0, -11776.0)
+    DefineStartLocation(12, -10624.0, -11712.0)
     InitCustomPlayerSlots()
     InitCustomTeams()
     InitAllyPriorities()
