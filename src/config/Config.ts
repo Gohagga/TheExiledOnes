@@ -62,7 +62,7 @@ export class Config {
             title: 'Credits',
             icon: 'ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp',
             description:
-`First and foremost, Lahey (Terrania map) for primary inspiration and mechanics.
+`First and foremost, Lahey (Terrania) for primary inspiration and mechanics.
 ScrewTheTrees - terrain gen examples and machine ideas
 Tasyen, William, Rayman.90 for help with minimap
 Mayday, Ghostwolf and NemesisDSGB for support
