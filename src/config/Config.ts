@@ -69,7 +69,7 @@ Mayday, Ghostwolf and NemesisDSGB for support
 AvatarsLord for enthusiasm and testing
 
 Models & Lightnings
-GeneralFrank, RightField, Solu9, Ergius, KAIL333XZ, Blood Raven, Kalkhran, Kenathorn, Sunchips, Spellbound, Remixer, Carrington2k
+GeneralFrank, RightField, Solu9, Ergius, KAIL333XZ, Blood Raven, Kalkhran, Kenathorn, Sunchips, Spellbound, Remixer, Carrington2k, MasterHaosis, TheFallen
 
 Icons
 Dristitia, GhostThruster
