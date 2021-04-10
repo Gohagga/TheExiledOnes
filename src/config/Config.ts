@@ -93,10 +93,12 @@ Retera for RMS
         tooltip: 'Summons two eyes for 60 seconds that can scout nearby land.'
     }
 
-    InfuseFelstone: Wc3Ability = {
+    InfuseFelstone: TransmuteAbility = {
         name: 'Infuse Felstone',
         codeId: 'A0P2',
         extCodeId: 'ASP2',
+        matAmount: 3,
+        material: Material.Stone | Material.TierII,
         tooltip: 'Creates a felstone material using 3 stones and 50 fel.'
     }
 

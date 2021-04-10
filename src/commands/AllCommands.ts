@@ -59,7 +59,7 @@ export function InitCommands(
         if (hero.owner != triggerPlayer || !hero.isHero) return;
 
         for (let i = 0; i < 6; i++) {
-            RemoveItem(UnitItemInSlot(hero.handle, i));
+            UnitRemoveItemFromSlot(hero.handle, i);
         }
         hero.kill();
     });

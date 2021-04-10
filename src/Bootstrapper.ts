@@ -246,7 +246,7 @@ export function Initialize() {
         // Prospector
         ProspectorSpellbook: prospectorQ,
         Defile: new Defile(config.Defile, abilityEvent, errorService),
-        InfuseFelstone: new BasicAbility(config.InfuseFelstone),
+        InfuseFelstone: new Transmute(config.InfuseFelstone, abilityEvent, craftingManager, errorService, ResourceItem.Felstone),
         Demonfruit: new BasicAbility(config.Demonfruit),
         PrepareFelCollector: new BasicAbility(config.PrepareFelCollector),
         CrystalizeFel: new CrystalizeFel(config.CrystalizeFel, abilityEvent, errorService, itemFactory),

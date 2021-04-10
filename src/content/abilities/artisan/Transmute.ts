@@ -18,6 +18,7 @@ export class Transmute extends AbilityBase {
     
     private readonly recipe: CraftingRecipe;
     private readonly tooltip: string;
+    private manacost = 0;
     
     constructor(
         data: TransmuteAbility,
@@ -32,6 +33,8 @@ export class Transmute extends AbilityBase {
             [data.matAmount, data.material]
         ]);
 
+        this.manacost = BlzGetAbilityManaCost(this.id, 0);
+
         this.tooltip = data.tooltip || '';
     }
 
@@ -41,7 +44,8 @@ export class Transmute extends AbilityBase {
         let result = this.recipe.CraftTierInclusive(caster);
 
         if (result.successful == false) {
-            this.errorService.DisplayError(caster.owner, `Missing: ${result.errors.join(', ')}`)
+            this.errorService.DisplayError(caster.owner, `Missing: ${result.errors.join(', ')}`);
+            caster.mana += this.manacost;
             return;
         }
 

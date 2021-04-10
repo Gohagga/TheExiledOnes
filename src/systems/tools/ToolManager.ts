@@ -87,7 +87,9 @@ export class ToolManager {
             let current = this.instances[id];
             if (current.ability) current.ability.RemoveFromUnit(unit);
 
-            if (current.item) unit.addItem(current.item);
+            if (current.item && !unit.addItem(current.item))
+                current.item.setPoint(unit.point);
+                
             current.item = null;
 
             if (current.defaultAbility) {
