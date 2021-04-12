@@ -1,4 +1,5 @@
 import { Config, sharedPlayer } from "config/Config";
+import { HeroManager } from "content/gameplay/HeroManager";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
 import { InputHandler } from "systems/events/input-events/InputHandler";
 import { MapPlayer, Trigger } from "w3ts/index";
@@ -8,6 +9,7 @@ export function InitCommands(
     inputHandler: InputHandler,
     basicSlotManager: AbilitySlotManager,
     specialSlotManager: AbilitySlotManager,
+    heroManager: HeroManager,
 ) {
 
     let originalUnitOwner: Record<number, number> = {};
@@ -51,17 +53,15 @@ export function InitCommands(
     CreateChatCommand(players, ["-die"], true, () => {
         let triggerPlayer = MapPlayer.fromEvent();
         let triggerPlayerId = triggerPlayer.id;
-        let units = inputHandler.GetPlayerSelectedUnitIds(triggerPlayer);
-
-        if (units.length > 1) return;
-        let hero = units[0];
-
-        if (hero.owner != triggerPlayer || !hero.isHero) return;
+        
+        let hero = heroManager.playerHero.get(triggerPlayerId);
+        if (!hero) return;
 
         for (let i = 0; i < 6; i++) {
             UnitRemoveItemFromSlot(hero.handle, i);
         }
         hero.kill();
+        heroManager.playerHero.delete(triggerPlayerId);
     });
 }
 

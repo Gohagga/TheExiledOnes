@@ -4,6 +4,7 @@ import { Prospector, ProspectorAbilities } from "content/classes/Prospector";
 import { Researcher, ResearcherAbilities } from "content/classes/Researcher";
 import { Log } from "Log";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
+import { RecordEventHandler } from "systems/events/generic/RecordEventHandler";
 import { ToolManager } from "systems/tools/ToolManager";
 import { MapPlayer, Trigger, Unit } from "w3ts/index";
 
@@ -22,6 +23,7 @@ export type HeroConfig = {
 
 export class HeroManager {
 
+    public readonly playerHero: Map<number, Unit> = new Map<number, Unit>();
     private unitTypeDef: Record<number, HeroConfig> = {};
 
     constructor(
@@ -59,6 +61,7 @@ export class HeroManager {
         
         try {
             let sold = Unit.fromHandle(GetSoldUnit());
+            let playerId = sold.owner.id;
             let typeId = sold.typeId;
 
             if (typeId in this.unitTypeDef == false) return null;
@@ -74,6 +77,11 @@ export class HeroManager {
                     return playerClass = new Prospector(sold, this.abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
                 // case HeroType.Researcher:
                 //     return playerClass = new Researcher(sold, this.abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
+            }
+
+            if (this.playerHero.has(playerId)) {
+                this.playerHero.get(playerId)?.destroy();
+                this.playerHero.set(playerId, sold);
             }
         } catch (ex) {
             Log.Error(ex);

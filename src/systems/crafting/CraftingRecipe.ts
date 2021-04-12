@@ -2,7 +2,7 @@ import { Log } from "Log";
 import { Item, Unit } from "w3ts/index";
 import { CraftingResult } from "./CraftingResult";
 import { AllTiers, InvertTier, Material, TierEnd, TierStart } from "./Material";
-import { MaterialToString } from "./MaterialToString";
+import { MaterialToColoredString, MaterialToString } from "./MaterialToString";
 
 export class CraftingRecipe {
 
@@ -29,10 +29,15 @@ export class CraftingRecipe {
             if (matGroup.length < 2) Log.Error("Need to define at least one material type.");
             let matType = matGroup[1];
 
+            let nameFormatted = MaterialToColoredString(matType);
             let name = MaterialToString(matType);
-            if (neededAmount > 1) name = neededAmount + ' ' + name;
 
-            costStringFormatted += '\n' + name;
+            if (neededAmount > 1) {
+                nameFormatted = neededAmount + ' ' + nameFormatted;
+                name = neededAmount + ' ' + name;
+            }
+
+            costStringFormatted += '\n' + nameFormatted;
             costString += ' ' + name;
         }
         if (this.neededFel > 0) {

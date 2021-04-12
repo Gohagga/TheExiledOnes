@@ -1,10 +1,11 @@
 import { HeroId } from "config/HeroType"
+import { ForgeAbility } from "content/abilities/artisan/FelSmithing"
 import { MineshaftWc3Ability } from "content/abilities/artisan/Mineshaft"
 import { TransmuteAbility } from "content/abilities/artisan/Transmute"
 import { HeroConfig, HeroType } from "content/gameplay/HeroManager"
 import { ComponentItem, ResourceItem } from "content/items/ResourceItem"
 import { Wc3BuildingAbility } from "systems/abilities/BuildingAbilityBase"
-import { Wc3Ability } from "systems/abilities/Wc3Ability"
+import { Wc3Ability, Wc3ToggleAbility } from "systems/abilities/Wc3Ability"
 import { RecipeMachineConfig } from "systems/crafting/machine/MachineConfig"
 import { Material } from "systems/crafting/Material"
 import { ItemConfig } from "systems/items/ItemConfig"
@@ -120,14 +121,20 @@ Retera for RMS
         name: 'Transfer Fel',
         codeId: 'A0P5',
         extCodeId: 'ASP5',
-        tooltip: 'Transfers 20 fel per second to the target.'
+        tooltip: 'Transfers 5 fel per second to the target.'
     }
 
-    PrepareFelCollector: Wc3Ability = {
-        name: 'Prepare Fel Collector',
-        codeId: 'A0P6',
+    FelBasin: Wc3BuildingAbility = {
+        name: 'Prepare Fel Basin',
+        buildCodeId: 'ABP6',
+        prepareCodeId: 'A0P6',
+        builtUnitCodeId: 'n001',
         extCodeId: 'ASP6',
-        tooltip: 'A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.'
+        tooltip: 'Used to store Fel. Can transfer stored fel to nearby allies.',
+        materials: [
+            [1, Material.Tank],
+            [1, Material.Frame]
+        ]
     }
 
     ProspectorSpellbook: Wc3Ability = {
@@ -148,7 +155,7 @@ Retera for RMS
         name: 'Transmute Rock',
         codeId: 'A0A6',
         extCodeId: 'ASA6',
-        matAmount: 3,
+        matAmount: 2,
         material: Material.Wood | Material.TierI,
         tooltip: 'Transmutes 3 sticks into a rock.'
     }
@@ -157,7 +164,7 @@ Retera for RMS
         name: 'Transmute Iron',
         codeId: 'A0A7',
         extCodeId: 'ASA7',
-        matAmount: 3,
+        matAmount: 2,
         material: Material.Stone | Material.TierI,
         tooltip: 'Transmutes 3 rocks into an iron.'
     }
@@ -166,7 +173,7 @@ Retera for RMS
         name: 'Transmute Copper',
         codeId: 'A0A8',
         extCodeId: 'ASA8',
-        matAmount: 3,
+        matAmount: 2,
         material: Material.Metal | Material.TierI,
         tooltip: 'Transmutes 3 iron into a copper.'
     }
@@ -205,8 +212,11 @@ Retera for RMS
         extCodeId: 'ASA3',
         tooltip: 'Necessary for Fel Smithing recipes.',
         materials: [
-            // [2, Material.Metal | Material.TierI],
-            // [2, Material.Wood | Material.TierII]
+            [1, Material.Frame],
+            // [1, Material.Tank],
+            // [1, Material.Converter],
+            [1, Material.Mechanism],
+            [2, Material.Stone | Material.TierII]
         ]
     }    
 
@@ -255,6 +265,59 @@ Retera for RMS
         name: 'Basic Abilities',
         codeId: 'A0AQ',
         tooltip: 'Collection of main artisan abilities.'
+    }
+
+    ForgeSteel: ForgeAbility = {
+        name: 'Forge Steel',
+        codeId: 'A0AB',
+        extCodeId: 'ASAB',
+        materials: [
+            [3, Material.Metal | Material.TierI],
+        ],
+        temperature: 100,
+        tooltip: 'Create a steel ingot using Hell Forge.'
+    }
+
+    ForgeFelSteel: ForgeAbility = {
+        name: 'Forge Fel Steel',
+        codeId: 'A0AC',
+        extCodeId: 'ASAC',
+        materials: [
+            [3, Material.Metal | Material.TierII],
+        ],
+        temperature: 200,
+        tooltip: 'Infuse steel with fel to create Fel Steel.'
+    }
+
+    ForgeBuildingTools: ForgeAbility = {
+        name: 'Create Building Tools',
+        codeId: 'A0AE',
+        extCodeId: 'ASAE',
+        materials: [
+            [2, Material.Metal  | Material.TierII],
+            [2, Material.Wood   | Material.TierII]
+        ],
+        temperature: 100,
+        tooltip: 'Create a Building Tools. They allow to repair damaged buildings and to build walls.'
+    }
+
+    ForgeSoulGem: ForgeAbility = {
+        name: 'Create Soul Gem',
+        codeId: 'A0AD',
+        extCodeId: 'ASAD',
+        materials: [
+            [1, Material.FineMetal  | Material.TierIII],
+            [1, Material.Stone      | Material.TierIII],
+            [1, Material.Metal      | Material.TierI],
+        ],
+        temperature: 300,
+        tooltip: 'Create a Soul Gem. Soul Gems collect souls of fallen enemies and can be shattered. Soul Fragments are used as material for powerful machines and equipment.'
+    }
+
+    ArtisanFelsmithing: Wc3Ability = {
+        name: 'Felsmithing',
+        codeId: 'A0AW',
+        tooltip: 'Contains Hell Forge based recipes.'
     }
 
     // Researcher
@@ -483,22 +546,32 @@ Takes items from target unit if inventory is empty (only owned or shared units).
         recipes: [{
             trainId: 'oMS1',
             resultId: ResourceItem.Rock,
-            materials: [[3, Material.Wood       | Material.TierI]]
+            materials: [[2, Material.Wood       | Material.TierI]]
         }, {
             trainId: 'oMM1',
             resultId: ResourceItem.Iron,
-            materials: [[3, Material.Stone      | Material.TierI]]
+            materials: [[2, Material.Stone      | Material.TierI]]
         }, {
             trainId: 'oMF1',
             resultId: ResourceItem.Copper,
-            materials: [[3, Material.Metal      | Material.TierI]]
+            materials: [[2, Material.Metal      | Material.TierI]]
         }]
     }
 
-    ForgeFlames: Wc3Ability = {
-        name: 'Flames Off',
+    ForgeRaiseTemperature: Wc3ToggleAbility = {
+        name: 'Not Raising',
         codeId: 'A00D',
-        tooltip: 'Start the flames in the forge. This consumes Fel each second and raises its temperature. Hell forge recipes have a temperature requirement to meet.'
+        tooltip: 'Start the flames in the forge. This consumes Fel each second and raises its temperature. Hell forge recipes have a temperature requirement to meet.',
+        nameOn: 'Raising Temperature',
+        tooltipOn: 'Hell Forge is consuming fel rapidly to increase its temperature.'
+    }
+
+    ForgeMaintainTemperature: Wc3ToggleAbility = {
+        name: 'Not Maintaining',
+        codeId: 'A00H',
+        tooltip: 'Not maintaining the flames. The flames will grow weaker and temperature will drop until the fire dies down.',
+        nameOn: 'Maintaining Temperature',
+        tooltipOn: 'Maintaining the flames in the forge. Consuming only 1/3 of the fel cost, but the temperature will fluctuate.'
     }
 
 //#endregion

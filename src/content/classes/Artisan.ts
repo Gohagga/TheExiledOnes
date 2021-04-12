@@ -11,7 +11,7 @@ export type ArtisanAbilities = {
     ArtisanSpellbook: IAbility,
     TransferItems: IAbility,
     Hand: IToolAbility,
-    // Felsmithing: IAbility,
+    ArtisanFelsmithing: IAbility,
 
     Transmute: IAbility,
     TransmuteRock: IAbility,
@@ -24,6 +24,11 @@ export type ArtisanAbilities = {
     Transmuter: IAbility,
     Minecart: IAbility,
     Mineshaft: IAbility,
+
+    ForgeSteel: IAbility,
+    ForgeFelSteel: IAbility,
+    ForgeBuildingTools: IAbility,
+    ForgeSoulGem: IAbility,
 }
 
 export class Artisan extends PlayerClass {
@@ -42,15 +47,16 @@ export class Artisan extends PlayerClass {
     protected Progress(): void {
 
         // Register this unit or reset slots if it exists
-        this.basicSlotManager.RegisterUnit(this.unit)
-        // this.unit.disableAbility(FourCC('AHbu'), false, true);
-        //     this.slotManager.ResetSlots(this.unit);
+        this.basicSlotManager.RegisterUnit(this.unit);
+        this.specialSlotManager.RegisterUnit(this.unit);
 
         // Add Prospector spellbook for this unit
         this.abilities.ArtisanSpellbook.AddToUnit(this.unit);
+        this.abilities.ArtisanFelsmithing.AddToUnit(this.unit);
         this.abilities.TransferItems.AddToUnit(this.unit);
         this.toolManager.SetDefault(this.unit, this.abilities.Hand);
 
+        // Basic recipes
         this.AddBasic(AbilitySlot.Q, this.abilities.Transmute);
         this.AddBasic(AbilitySlot.W, this.abilities.CrudeAxe);
         this.AddBasic(AbilitySlot.E, this.abilities.CrudePickaxe);
@@ -59,11 +65,13 @@ export class Artisan extends PlayerClass {
         this.AddBasic(AbilitySlot.S, this.abilities.Transmuter);
         this.AddBasic(AbilitySlot.D, this.abilities.Minecart);
         this.AddBasic(AbilitySlot.F, this.abilities.Mineshaft);
-        
-        // this.AddBasic(AbilitySlot.X1, this.abilities.TransmuteRock);
-        // this.AddBasic(AbilitySlot.X2, this.abilities.TransmuteIron);
-        // this.AddBasic(AbilitySlot.X3, this.abilities.TransmuteCopper);
 
+        // Forge recipes
+        this.AddForge(AbilitySlot.Q, this.abilities.ForgeSteel);
+        this.AddForge(AbilitySlot.W, this.abilities.ForgeFelSteel);
+        this.AddForge(AbilitySlot.E, this.abilities.ForgeBuildingTools);
+        this.AddForge(AbilitySlot.R, this.abilities.ForgeSoulGem);
+        
         this.abilities.TransmuteRock.AddToUnit(this.unit, true);
         this.abilities.TransmuteIron.AddToUnit(this.unit, true);
         this.abilities.TransmuteCopper.AddToUnit(this.unit, true);
@@ -71,9 +79,10 @@ export class Artisan extends PlayerClass {
         if (this.abilities.TransmuteIron.extId) this.unit.owner.setAbilityAvailable(this.abilities.TransmuteIron.extId, false);
         if (this.abilities.TransmuteCopper.extId) this.unit.owner.setAbilityAvailable(this.abilities.TransmuteCopper.extId, false);
 
-        // Remove and readd spells
+        // Remove and readd spells, important to stay after xmute abilities
         Log.Info("Updating spell list");
         this.basicSlotManager.UpdateSpellList(this.unit);
+        this.specialSlotManager.UpdateSpellList(this.unit);
     }
 
     private AddBasic(slot: AbilitySlot, ability: IAbility) {

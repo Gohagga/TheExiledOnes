@@ -1,6 +1,6 @@
 ﻿STRING 1
 {
-The Exiled Ones v0.0.6
+The Exiled Ones v0.2.3
 }
 
 STRING 2
@@ -515,14 +515,8 @@ STRING 104
 Base Prospector Spellbook (Q)
 }
 
-STRING 105
-// Abilities: ASP6 (Addition Fel Collector), Name (Name)
-{
-Addition Fel Collector
-}
-
 STRING 106
-// Abilities: ASP6 (Addition Fel Collector), Tip (Tooltip - Normal)
+// Abilities: ASP6 (Addition Fel Basin), Tip (Tooltip - Normal)
 {
 Base Prospector Spellbook (Q)
 }
@@ -534,15 +528,9 @@ Q
 }
 
 STRING 108
-// Abilities: ASP6 (Addition Fel Collector), Tip (Tooltip - Normal)
+// Abilities: ASP6 (Addition Fel Basin), Tip (Tooltip - Normal)
 {
 Base Prospector Spellbook (Q)
-}
-
-STRING 109
-// Abilities: A0P6 (Prepare Fel Collector), Name (Name)
-{
-Prepare Fel Collector
 }
 
 STRING 110
@@ -552,13 +540,13 @@ R
 }
 
 STRING 111
-// Abilities: A0P6 (Prepare Fel Collector), Tip (Tooltip - Normal)
+// Abilities: A0P6 (Prepare Fel Basin), Tip (Tooltip - Normal)
 {
 Prepare Fel Collector (R)
 }
 
 STRING 112
-// Abilities: A0P6 (Prepare Fel Collector), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A0P6 (Prepare Fel Basin), Ubertip (Tooltip - Normal - Extended)
 {
 A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
 }
@@ -1116,7 +1104,7 @@ STRING 241
 }
 
 STRING 242
-// Abilities: A0P6 (Prepare Fel Collector), EditorSuffix (Editor Suffix)
+// Abilities: A0P6 (Prepare Fel Basin), EditorSuffix (Editor Suffix)
 {
 (R)
 }
@@ -1182,7 +1170,7 @@ R
 }
 
 STRING 253
-// Abilities: A0P6 (Prepare Fel Collector), Hotkey (Hotkey - Normal)
+// Abilities: A0P6 (Prepare Fel Basin), Hotkey (Hotkey - Normal)
 {
 R
 }
@@ -1476,7 +1464,7 @@ STRING 314
 }
 
 STRING 315
-// Abilities: ASP6 (Addition Fel Collector), Hotkey (Hotkey - Normal)
+// Abilities: ASP6 (Addition Fel Basin), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -3371,7 +3359,7 @@ Minecart
 
 STRING 679
 {
-v0.0.6
+v0.2.3
 }
 
 STRING 680
@@ -3714,58 +3702,40 @@ STRING 750
 Upgrade
 }
 
-STRING 751
-// Abilities: A00D (Forge Flames OnOff), Name (Name)
-{
-Forge Flames OnOff
-}
-
 STRING 752
-// Abilities: A00D (Forge Flames OnOff), Tip (Tooltip - Normal)
+// Abilities: A00D (Forge Flames RaiseTemperature), Tip (Tooltip - Normal)
 {
 Flames Off
 }
 
 STRING 753
-// Abilities: A00D (Forge Flames OnOff), Tip (Tooltip - Normal)
+// Abilities: A00D (Forge Flames RaiseTemperature), Tip (Tooltip - Normal)
 {
 Flames Off
 }
 
 STRING 754
-// Abilities: A00D (Forge Flames OnOff), Tip (Tooltip - Normal)
+// Abilities: A00D (Forge Flames RaiseTemperature), Tip (Tooltip - Normal)
 {
 Flames Off
 }
 
 STRING 755
-// Abilities: A00D (Forge Flames OnOff), Untip (Tooltip - Turn Off)
+// Abilities: A00D (Forge Flames RaiseTemperature), Untip (Tooltip - Turn Off)
 {
 Flames Burning
 }
 
 STRING 756
-// Abilities: A00D (Forge Flames OnOff), Untip (Tooltip - Turn Off)
+// Abilities: A00D (Forge Flames RaiseTemperature), Untip (Tooltip - Turn Off)
 {
 Flames Burning
 }
 
 STRING 757
-// Abilities: A00D (Forge Flames OnOff), Untip (Tooltip - Turn Off)
+// Abilities: A00D (Forge Flames RaiseTemperature), Untip (Tooltip - Turn Off)
 {
 Flames Burning
-}
-
-STRING 758
-// Buffs/Effects: B002 (Forge Flames), EditorName (Name (Editor Only))
-{
-Forge Flames
-}
-
-STRING 759
-// Buffs/Effects: B002 (Forge Flames), Bufftip (Tooltip)
-{
-Forge Flames
 }
 
 STRING 760
@@ -3804,12 +3774,6 @@ STRING 765
 S
 }
 
-STRING 766
-// Abilities: A00E (Inventory Hell Forge), Name (Name)
-{
-Inventory Hell Forge
-}
-
 STRING 767
 // Abilities: A00F (Fel 100), Name (Name)
 {
@@ -3838,5 +3802,515 @@ STRING 771
 // Abilities: ASAA (Addition Prepare Minecart), Hotkey (Hotkey - Normal)
 {
 Q
+}
+
+STRING 772
+// Abilities: A0AW (Base Felsmithing), Name (Name)
+{
+Base Felsmithing
+}
+
+STRING 773
+// Abilities: A0AW (Base Felsmithing), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 774
+// Abilities: A00D (Forge Flames RaiseTemperature), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 775
+// Abilities: A0AW (Base Felsmithing), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 776
+// Abilities: A0AW (Base Felsmithing), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main artisan abilities.
+}
+
+STRING 777
+// Abilities: A0AW (Base Felsmithing), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main artisan abilities.
+}
+
+STRING 778
+// Abilities: A0AW (Base Felsmithing), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main artisan abilities.
+}
+
+STRING 779
+// Abilities: A0AW (Base Felsmithing), EditorSuffix (Editor Suffix)
+{
+(special)
+}
+
+STRING 780
+// Abilities: ASAB (Addition Forge Steel), Name (Name)
+{
+Addition Forge Steel
+}
+
+STRING 781
+// Abilities: ASAB (Addition Forge Steel), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 782
+// Abilities: A00D (Forge Flames RaiseTemperature), Unhotkey (Hotkey - Turn Off)
+{
+Q
+}
+
+STRING 783
+// Abilities: ASAB (Addition Forge Steel), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 784
+// Abilities: ASAB (Addition Forge Steel), EditorSuffix (Editor Suffix)
+{
+(special)
+}
+
+STRING 785
+// Abilities: A0AB (Forge Steel), Name (Name)
+{
+Forge Steel
+}
+
+STRING 786
+// Abilities: A0AW (Base Felsmithing), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 787
+// Abilities: A0AB (Forge Steel), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 788
+// Abilities: A0AB (Forge Steel), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 789
+// Abilities: A0AB (Forge Steel), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 790
+// Abilities: A0AB (Forge Steel), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 791
+// Abilities: A0AB (Forge Steel), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 792
+// Abilities: A0AB (Forge Steel), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 793
+// Abilities: A0AC (Forge Fel Steel), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 794
+// Abilities: A0AB (Forge Steel), EditorSuffix (Editor Suffix)
+{
+(Q)
+}
+
+STRING 795
+// Abilities: A0AC (Forge Fel Steel), Name (Name)
+{
+Forge Fel Steel
+}
+
+STRING 796
+// Abilities: ASAB (Addition Forge Steel), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 797
+// Abilities: A0AC (Forge Fel Steel), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 798
+// Abilities: A0AC (Forge Fel Steel), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 799
+// Abilities: A0AC (Forge Fel Steel), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 800
+// Abilities: A0AC (Forge Fel Steel), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 801
+// Abilities: A0AC (Forge Fel Steel), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 802
+// Abilities: A0AC (Forge Fel Steel), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 804
+// Abilities: ASAC (Addition Forge Fel Steel), Name (Name)
+{
+Addition Forge Fel Steel
+}
+
+STRING 805
+// Abilities: ASAC (Addition Forge Fel Steel), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 806
+// Abilities: A0AB (Forge Steel), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 807
+// Abilities: ASAC (Addition Forge Fel Steel), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 808
+// Abilities: ASAC (Addition Forge Fel Steel), EditorSuffix (Editor Suffix)
+{
+(special)
+}
+
+STRING 809
+// Abilities: ASAD (Addition Create Soul Gem), Name (Name)
+{
+Addition Create Soul Gem
+}
+
+STRING 810
+// Abilities: ASAD (Addition Create Soul Gem), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 811
+// Abilities: ASAC (Addition Forge Fel Steel), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 812
+// Abilities: ASAD (Addition Create Soul Gem), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 813
+// Abilities: ASAD (Addition Create Soul Gem), EditorSuffix (Editor Suffix)
+{
+(special)
+}
+
+STRING 814
+// Abilities: A0AD (Create Soul Gem), Name (Name)
+{
+Create Soul Gem
+}
+
+STRING 815
+// Abilities: ASAD (Addition Create Soul Gem), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 816
+// Abilities: A0AD (Create Soul Gem), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 817
+// Abilities: A0AD (Create Soul Gem), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 818
+// Abilities: A0AD (Create Soul Gem), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 819
+// Abilities: A0AD (Create Soul Gem), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 820
+// Abilities: A0AD (Create Soul Gem), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 821
+// Abilities: A0AD (Create Soul Gem), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 823
+// Abilities: ASAE (Addition Create Building Tools), Name (Name)
+{
+Addition Create Building Tools
+}
+
+STRING 824
+// Abilities: ASAE (Addition Create Building Tools), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 825
+// Abilities: ASAE (Addition Create Building Tools), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 826
+// Abilities: ASAE (Addition Create Building Tools), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 827
+// Abilities: ASAE (Addition Create Building Tools), EditorSuffix (Editor Suffix)
+{
+(special)
+}
+
+STRING 828
+// Abilities: A0AE (Create Building Tools), Name (Name)
+{
+Create Building Tools
+}
+
+STRING 830
+// Abilities: A0AE (Create Building Tools), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 831
+// Abilities: A0AE (Create Building Tools), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 832
+// Abilities: A0AE (Create Building Tools), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 833
+// Abilities: A0AE (Create Building Tools), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 834
+// Abilities: A0AE (Create Building Tools), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 835
+// Abilities: A0AE (Create Building Tools), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 837
+// Abilities: A0AC (Forge Fel Steel), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 838
+// Abilities: A0AD (Create Soul Gem), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 839
+// Abilities: A0AD (Create Soul Gem), EditorSuffix (Editor Suffix)
+{
+(R)
+}
+
+STRING 840
+// Abilities: A0AE (Create Building Tools), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 841
+// Abilities: A0AE (Create Building Tools), EditorSuffix (Editor Suffix)
+{
+(E)
+}
+
+STRING 842
+// Items: IT06 (Building Tools), Name (Name)
+{
+Building Tools
+}
+
+STRING 843
+// Abilities: A00D (Forge Flames RaiseTemperature), Name (Name)
+{
+Forge Flames RaiseTemperature
+}
+
+STRING 844
+// Abilities: A00H (Forge Flames MaintainTemperature), Name (Name)
+{
+Forge Flames MaintainTemperature
+}
+
+STRING 851
+// Abilities: A00H (Forge Flames MaintainTemperature), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 852
+// Abilities: A00H (Forge Flames MaintainTemperature), Unhotkey (Hotkey - Turn Off)
+{
+W
+}
+
+STRING 853
+// Buffs/Effects: B002 (Raise Temperature), EditorName (Name (Editor Only))
+{
+Raise Temperature
+}
+
+STRING 854
+// Buffs/Effects: B002 (Raise Temperature), Bufftip (Tooltip)
+{
+Raise Temperature
+}
+
+STRING 855
+// Buffs/Effects: B002 (Raise Temperature), Buffubertip (Tooltip - Extended)
+{
+The Hell Forge is trying to raise its temperature.
+}
+
+STRING 856
+// Buffs/Effects: B003 (Maintain Temperature), EditorName (Name (Editor Only))
+{
+Maintain Temperature
+}
+
+STRING 857
+// Buffs/Effects: B003 (Maintain Temperature), Bufftip (Tooltip)
+{
+Maintain Temperature
+}
+
+STRING 858
+// Buffs/Effects: B003 (Maintain Temperature), Buffubertip (Tooltip - Extended)
+{
+The Hell Forge is trying to maintain its temperature.
+}
+
+STRING 859
+// Abilities: A00H (Forge Flames MaintainTemperature), Unubertip (Tooltip - Turn Off - Extended)
+{
+Maintaining the flames in the forge. Consuming only 1/3 of the fel cost, but the temperature will fluctuate.
+}
+
+STRING 860
+// Abilities: ASP6 (Addition Fel Basin), Name (Name)
+{
+Addition Fel Basin
+}
+
+STRING 861
+// Abilities: A0P6 (Prepare Fel Basin), Name (Name)
+{
+Prepare Fel Basin
+}
+
+STRING 862
+// Abilities: ABP6 (Build Fel Basin), Name (Name)
+{
+Build Fel Basin
+}
+
+STRING 863
+// Abilities: ABP6 (Build Fel Basin), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 864
+// Abilities: ABP6 (Build Fel Basin), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 865
+// Abilities: ABP6 (Build Fel Basin), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 866
+// Abilities: A00E (Inventory 0 Items), Name (Name)
+{
+Inventory 0 Items
 }
 

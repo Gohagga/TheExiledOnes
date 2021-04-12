@@ -6,6 +6,7 @@ import { CraftingRecipe } from "systems/crafting/CraftingRecipe";
 import { Material } from "systems/crafting/Material";
 import { AbilityEvent } from "systems/events/ability-events/event-models/AbilityEvent";
 import { IAbilityEventHandler } from "systems/events/ability-events/IAbilityEventHandler";
+import { IItemFactory } from "systems/items/IItemFactory";
 import { ErrorService } from "systems/ui/ErrorService";
 import { Item, Unit } from "w3ts/index";
 
@@ -24,6 +25,7 @@ export class Transmute extends AbilityBase {
         data: TransmuteAbility,
         abilityEvent: IAbilityEventHandler,
         craftingManager: CraftingManager,
+        private readonly itemFactory: IItemFactory,
         private readonly errorService: ErrorService,
         private readonly resultItemType: number
     ) {
@@ -51,7 +53,9 @@ export class Transmute extends AbilityBase {
 
         result.Consume();
         
-        caster.addItem(new Item(this.resultItemType, 0, 0));
+        let item = this.itemFactory.CreateItemByType(this.resultItemType);
+        if (!caster.addItem(item))
+            item.setPoint(caster.point);
         
     }
     

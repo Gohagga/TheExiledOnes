@@ -1,3 +1,4 @@
+import { HeroManager } from "content/gameplay/HeroManager";
 import { ResourceItem } from "content/items/ResourceItem";
 import { Log } from "Log";
 import { AbilityBase } from "systems/abilities/AbilityBase";
@@ -17,6 +18,7 @@ export class Hand extends ToolAbilityBase {
         private readonly inputHandler: InputHandler,
         private readonly toolManager: ToolManager,
         private readonly itemFactory: IItemFactory,
+        private readonly heroManager: HeroManager,
     ) {
         super(data);
         abilityEvent.OnAbilityEffect(this.id, (e: AbilityEvent) => this.Execute(e));
@@ -28,13 +30,13 @@ export class Hand extends ToolAbilityBase {
 
             let player = MapPlayer.fromEvent();
 
-            let units = this.inputHandler.GetPlayerSelectedUnitIds(player);
-            if (units.length > 1) return;
+            // let units = this.inputHandler.GetPlayerSelectedUnitIds(player);
+            // if (units.length > 1) return;
+            let hero = this.heroManager.playerHero.get(player.id);
 
-            let selected = units.pop();
-            if (!selected) return;
+            if (!(hero && hero.isSelected(player))) return;
 
-            toolManager.Unequip(selected);
+            toolManager.Unequip(hero);
         });
     }
 

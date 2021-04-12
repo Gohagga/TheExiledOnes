@@ -339,6 +339,7 @@ export class MachineBase implements IMachine {
                 t.start(0.1, false, () => {
                     machine.ClearQueue();
                     machine.ShowErrorSfx(false);
+                    machine.ShowRunningSfx(false);
                     t.destroy();
                 });
 

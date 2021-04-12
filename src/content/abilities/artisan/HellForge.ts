@@ -39,8 +39,8 @@ export class HellForge extends BuildingAbilityBase {
         Log.Info("Unit finished construction", unit.name);
         if (unit.typeId == this.builtUnitId) {
             Log.Info("Unit has entered this shit");
-            let machine = this.machineFactory.CreateTransmuter(unit);
-            this.machineManager.Register(machine);
+            // let machine = this.machineFactory.CreateTransmuter(unit);
+            // this.machineManager.Register(machine);
         }
     }
 

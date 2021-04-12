@@ -8,7 +8,7 @@ import { Mineshaft } from "content/abilities/artisan/Mineshaft";
 import { Transmute } from "content/abilities/artisan/Transmute";
 import { Transmuter } from "content/abilities/artisan/Transmuter";
 import { Workstation } from "content/abilities/artisan/Workstation";
-import { ForgeFlames } from "content/abilities/machines/ForgeFlames";
+import { ForgeRaiseTemperature } from "content/abilities/machines/ForgeRaiseTemperature";
 import { CrystalizeFel } from "content/abilities/prospector/CrystalizeFel";
 import { Defile } from "content/abilities/prospector/Defile";
 import { Axe } from "content/abilities/tools/Axe";
@@ -23,6 +23,7 @@ import { PathingService } from "services/PathingService";
 import { BasicAbility } from "systems/abilities/BasicAbility";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
 import { CraftingManager } from "systems/crafting/CraftingManager";
+import { ForgeManager } from "systems/crafting/ForgeManager";
 import { MachineManager } from "systems/crafting/machine/MachineManager";
 import { AbilityEventHandler } from "systems/events/ability-events/AbilityEventHandler";
 import { AbilityEventProvider } from "systems/events/ability-events/AbilityEventProvider";
@@ -38,9 +39,15 @@ import { MoistureNoiseProvider } from "systems/map-generation/providers/Moisture
 import { TreeNoiseProvider } from "systems/map-generation/providers/TreeNoise";
 import { CustomMinimap } from "systems/minimap/CustomMinimap";
 import { Random } from "systems/random/Random";
+import { EnumUnitService } from "services/enum-service/EnumUnitService";
 import { ToolManager } from "systems/tools/ToolManager";
 import { ErrorService } from "systems/ui/ErrorService";
 import { MapPlayer, Quest, Rectangle, Timer, Trigger, Unit } from "w3ts/index";
+import { FelSmithing } from "content/abilities/artisan/FelSmithing";
+import { Tools } from "content/items/Tools";
+import { Equipment } from "content/items/Equipment";
+import { ForgeMaintainTemperature } from "content/abilities/machines/ForgeMaintainTemperature";
+import { FelBasin } from "content/abilities/prospector/FelBasin";
 
 export function Initialize() {
 
@@ -50,6 +57,7 @@ export function Initialize() {
 
     Log.Level = Level.Message;
     let generateMap = true;
+    let lockToSurface = true;
 
     for (let p of config.players) {
         SetPlayerAllianceStateBJ(p.handle, sharedPlayer.handle, bj_ALLIANCE_ALLIED_UNITS);
@@ -90,6 +98,7 @@ export function Initialize() {
     const specialSlotManager = new AbilitySlotManager();
     const dimensionEvent = new DimensionEventHandler();
     const errorService = new ErrorService();
+    const enumService = new EnumUnitService();
 
     const pathingService = new PathingService('hval');
 
@@ -138,7 +147,7 @@ export function Initialize() {
     PanCameraToTimed(Global.soulAnchor.x, Global.soulAnchor.y, 0);
     SelectUnitSingle(Global.soulAnchor.handle);
     SetCameraField(CAMERA_FIELD_TARGET_DISTANCE, 150, 0);
-    SetCameraBoundsToRect(surfaceRect.handle);
+    if (lockToSurface) SetCameraBoundsToRect(surfaceRect.handle);
 
     // let startPoint = { x: 0, y: 0 };
 
@@ -223,6 +232,7 @@ export function Initialize() {
     const machineManager = new MachineManager(abilityEvent);
     const machineFactory = new MachineFactory(config, craftingManager, itemFactory, errorService);
     const inputHandler = new InputHandler(config.players);
+    const forgeManager = new ForgeManager(FourCC('A00D'), enumService);
 
     // Materials
     // Material parts
@@ -240,15 +250,17 @@ export function Initialize() {
     let artisanQ = new BasicAbility(config.ArtisanSpellbook);
     let researcherQ = new BasicAbility(config.ResearcherSpellbook);
 
+    let artisanW = new BasicAbility(config.ArtisanFelsmithing);
+
     // Order of abilities defined affects their order in the spellbooks!!!
     let abilities = {
 
         // Prospector
         ProspectorSpellbook: prospectorQ,
         Defile: new Defile(config.Defile, abilityEvent, errorService),
-        InfuseFelstone: new Transmute(config.InfuseFelstone, abilityEvent, craftingManager, errorService, ResourceItem.Felstone),
+        InfuseFelstone: new Transmute(config.InfuseFelstone, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Felstone),
         Demonfruit: new BasicAbility(config.Demonfruit),
-        PrepareFelCollector: new BasicAbility(config.PrepareFelCollector),
+        FelBasin: new FelBasin(config.FelBasin, prospectorQ, abilityEvent, basicSlotManager, craftingManager, errorService),
         CrystalizeFel: new CrystalizeFel(config.CrystalizeFel, abilityEvent, errorService, itemFactory),
         EyeOfKilrogg: new BasicAbility(config.EyeOfKilrogg),
         TransferFel: new BasicAbility(config.TransferFel),
@@ -256,9 +268,9 @@ export function Initialize() {
         // Artisan
         ArtisanSpellbook: artisanQ,
         Transmute: new BasicAbility(config.Transmute),
-        TransmuteRock: new Transmute(config.TransmuteRock, abilityEvent, craftingManager, errorService, ResourceItem.Rock),
-        TransmuteIron: new Transmute(config.TransmuteIron, abilityEvent, craftingManager, errorService, ResourceItem.Iron),
-        TransmuteCopper: new Transmute(config.TransmuteCopper, abilityEvent, craftingManager, errorService, ResourceItem.Copper),
+        TransmuteRock: new Transmute(config.TransmuteRock, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Rock),
+        TransmuteIron: new Transmute(config.TransmuteIron, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Iron),
+        TransmuteCopper: new Transmute(config.TransmuteCopper, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Copper),
         CrudeAxe: new CrudeAxe(config.CrudeAxe, abilityEvent, craftingManager, errorService),
         CrudePickaxe: new CrudePickaxe(config.CrudePickaxe, abilityEvent, craftingManager, errorService),
         HellForge: new HellForge(config.HellForge, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager),
@@ -266,6 +278,12 @@ export function Initialize() {
         Transmuter: new Transmuter(config.Transmuter, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager),
         Minecart: new Minecart(config.Minecart, artisanQ, abilityEvent, basicSlotManager, errorService, craftingManager, dimensionEvent),
         Mineshaft: new Mineshaft(config.Mineshaft, artisanQ, surfaceRect, undergroundRect, abilityEvent, basicSlotManager, errorService, craftingManager, dimensionEvent),
+
+        ArtisanFelsmithing: artisanW,
+        ForgeSteel: new FelSmithing(config.ForgeSteel, abilityEvent, craftingManager, itemFactory, forgeManager, errorService, ResourceItem.Steel),
+        ForgeFelSteel: new FelSmithing(config.ForgeFelSteel, abilityEvent, craftingManager, itemFactory, forgeManager, errorService, ResourceItem.FelSteel),
+        ForgeBuildingTools: new FelSmithing(config.ForgeBuildingTools, abilityEvent, craftingManager, itemFactory, forgeManager, errorService, Tools.BuildingTools),
+        ForgeSoulGem: new FelSmithing(config.ForgeSoulGem, abilityEvent, craftingManager, itemFactory, forgeManager, errorService, Equipment.SoulGem),
 
         // Researcher
         ResearcherSpellbook: artisanQ,
@@ -283,7 +301,8 @@ export function Initialize() {
         Axe: new Axe(config.Axe, abilityEvent),
         Pickaxe: new Pickaxe(config.Pickaxe, abilityEvent),
         TransferItems: new TransferInventory(config.TransferInventory, abilityEvent),
-        ForgeFlames: new ForgeFlames(config.ForgeFlames, abilityEvent),
+        ForgeRaiseTemperature: new ForgeRaiseTemperature(config.ForgeRaiseTemperature, abilityEvent, forgeManager),
+        ForgeMaintainTemperature: new ForgeMaintainTemperature(config.ForgeMaintainTemperature, abilityEvent, forgeManager),
     }
 
     // Tools
@@ -291,6 +310,7 @@ export function Initialize() {
     toolManager.RegisterTool('IT02', abilities.Axe, 2);
     toolManager.RegisterTool('IT01', abilities.Pickaxe, 1);
     toolManager.RegisterTool('IT03', abilities.Pickaxe, 2);
+    // toolManager.RegisterTool('IT06', )
 
     // Machines
     // const workstation = new WorkstationMachine(config.WorkstationMachine, Unit.fromHandle(gg_unit_h000_0016), errorService, craftingManager, itemFactory);

@@ -16,7 +16,7 @@ export type ProspectorAbilities = {
     CrystalizeFel: IAbility,
     Demonfruit: IAbility,
     TransferFel: IAbility,
-    PrepareFelCollector: IAbility
+    FelBasin: IAbility
 }
 
 export class Prospector extends PlayerClass {
@@ -44,12 +44,12 @@ export class Prospector extends PlayerClass {
         this.abilities.TransferItems.AddToUnit(this.unit);
 
         this.Add(AbilitySlot.Q, this.abilities.Defile);
-        this.Add(AbilitySlot.W, this.abilities.EyeOfKilrogg);
-        this.Add(AbilitySlot.E, this.abilities.InfuseFelstone);
-        this.Add(AbilitySlot.R, this.abilities.CrystalizeFel);
-        this.Add(AbilitySlot.A, this.abilities.Demonfruit);
-        this.Add(AbilitySlot.S, this.abilities.TransferFel);
-        // this.Add(AbilitySlot.D, this.abilities.PrepareFelCollector);
+        this.Add(AbilitySlot.W, this.abilities.InfuseFelstone);
+        this.Add(AbilitySlot.E, this.abilities.Demonfruit);
+        this.Add(AbilitySlot.R, this.abilities.FelBasin);
+        this.Add(AbilitySlot.A, this.abilities.CrystalizeFel);
+        this.Add(AbilitySlot.S, this.abilities.EyeOfKilrogg);
+        this.Add(AbilitySlot.D, this.abilities.TransferFel);
 
         // Remove and readd spells
         Log.Info("Updating spell list");
