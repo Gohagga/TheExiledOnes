@@ -54,7 +54,7 @@ Player 12
 }
 
 STRING 12
-// Units: e000 (Soul Anchor), Name (Name)
+// Units: E000 (Soul Anchor), Name (Name)
 {
 Soul Anchor
 }
@@ -3132,16 +3132,6 @@ Mana is refered to as Fel. It is used in many recipes and these are some general
 - Many buildings, machines and abilities require Fel
 }
 
-STRING 641
-// Abilities: A008 (Info General), Ubertip (Tooltip - Normal - Extended)
-{
-The game is heavy on crafting. It supports order queueing as much as possible (Hold Shift)
-
-- Queue orders as much as you can
-- Do not forget to use Transfer Inventory (D)
-- Many abilities do not interrupt current orders
-}
-
 STRING 642
 // Abilities: A0PQ (Base Prospector Spellbook), Ubertip (Tooltip - Normal - Extended)
 {
@@ -4312,5 +4302,106 @@ STRING 866
 // Abilities: A00E (Inventory 0 Items), Name (Name)
 {
 Inventory 0 Items
+}
+
+STRING 868
+// Abilities: A008 (Info General), Ubertip (Tooltip - Normal - Extended)
+{
+The game is heavy on crafting. It supports order queueing as much as possible (Hold Shift)
+
+- Four material types: Wood, Stone, Metal, Fine Metal
+- Materials have tiers: I, II, III, IV
+- Queue orders as much as you can (Shift)
+- Do not forget to use Transfer Inventory (D)
+}
+
+STRING 869
+// Units: u000 (Depot), Name (Name)
+{
+Depot
+}
+
+STRING 870
+// Abilities: A00G (Inventory Depot), Name (Name)
+{
+Inventory Depot
+}
+
+STRING 871
+// Abilities: ASR0 (Addition Depot), Name (Name)
+{
+Addition Depot
+}
+
+STRING 872
+// Abilities: ASR0 (Addition Depot), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 873
+// Abilities: ASR0 (Addition Depot), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 874
+// Abilities: ASR0 (Addition Depot), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 875
+// Abilities: A0R0 (Prepare Depot), Name (Name)
+{
+Prepare Depot
+}
+
+STRING 876
+// Abilities: A0R0 (Prepare Depot), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 877
+// Abilities: A0R0 (Prepare Depot), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 878
+// Abilities: A0R0 (Prepare Depot), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 879
+// Abilities: A0R0 (Prepare Depot), EditorSuffix (Editor Suffix)
+{
+(R)
+}
+
+STRING 880
+// Abilities: ABR0 (Build Depot), Name (Name)
+{
+Build Depot
+}
+
+STRING 881
+// Abilities: ABR0 (Build Depot), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 882
+// Abilities: ABR0 (Build Depot), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 883
+// Abilities: ABR0 (Build Depot), Tip (Tooltip - Normal)
+{
+Build Fel Basin
 }
 

@@ -28,10 +28,6 @@ export class HeroManager {
 
     constructor(
         config: HeroConfig[],
-        private abilities:
-            ProspectorAbilities &
-            ArtisanAbilities,
-            // ResearcherAbilities,
         private basicSlotManager: AbilitySlotManager,
         private specialSlotManager: AbilitySlotManager,
         private toolManager: ToolManager,
@@ -41,10 +37,16 @@ export class HeroManager {
 
             this.unitTypeDef[c.unitId] = c;
         }
+    }
 
+    public Initialize(abilities:
+        ProspectorAbilities &
+        ArtisanAbilities &
+        ResearcherAbilities
+    ) {
         let t = new Trigger();
         t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_SELL);
-        t.addAction(() => this.OnUnitSold());
+        t.addAction(() => this.OnUnitSold(abilities));
 
         t = new Trigger();
         t.registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH);
@@ -57,7 +59,11 @@ export class HeroManager {
         })
     }
 
-    private OnUnitSold() {
+    private OnUnitSold(abilities:
+        ProspectorAbilities &
+        ArtisanAbilities &
+        ResearcherAbilities
+    ) {
         
         try {
             let sold = Unit.fromHandle(GetSoldUnit());
@@ -68,25 +74,41 @@ export class HeroManager {
 
             let config = this.unitTypeDef[typeId];
 
-            let playerClass: PlayerClass;
+            let playerClass: PlayerClass | null = null;
 
             switch (config.type) {
                 case HeroType.Artisan:
-                    return playerClass = new Artisan(sold, this.abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
+                    playerClass = new Artisan(sold, abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
+                    break;
                 case HeroType.Prospector:
-                    return playerClass = new Prospector(sold, this.abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
-                // case HeroType.Researcher:
-                //     return playerClass = new Researcher(sold, this.abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
+                    playerClass = new Prospector(sold, abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
+                    break;
+                case HeroType.Researcher:
+                    return playerClass = new Researcher(sold, abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
             }
 
-            if (this.playerHero.has(playerId)) {
-                this.playerHero.get(playerId)?.destroy();
-                this.playerHero.set(playerId, sold);
-            }
+            this.playerHero.set(playerId, sold);
+            return playerClass;
+
         } catch (ex) {
             Log.Error(ex);
         }
 
         return null;
+    }
+
+    public RemoveHero(player: MapPlayer) {
+
+        let playerId = player.id;
+        if (this.playerHero.has(playerId)) {
+
+            let hero = this.playerHero.get(playerId) as Unit;
+            for (let i = 0; i < 6; i++) {
+                UnitRemoveItemFromSlot(hero.handle, i);
+            }
+            hero.kill();
+        }
+
+        this.playerHero.delete(playerId);
     }
 }

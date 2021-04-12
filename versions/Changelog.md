@@ -23,4 +23,8 @@
 - TODO: Ore gen
 - Improved player commands -die by looking at "player hero" instead of selection
 - Improved Hand ability to also check "player hero"
+- TODO: Make Underground buildable
+- Made Soul Anchor a hero so players can access it through hero button/F4
+- Add Depot as a mass storage
 
+- Add underground rubble falling

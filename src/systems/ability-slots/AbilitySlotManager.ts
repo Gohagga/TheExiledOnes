@@ -117,9 +117,10 @@ export class AbilitySlotManager {
 
             for (let slot of slots) {
                 let ability = unitSlots[slot];
-                Log.Info("adding slot", slot.toString(), (ability as any).name);
-                if (ability)
+                if (ability) {
+                    Log.Info("adding slot", slot.toString(), (ability as any).name);
                     ability.AddToUnit(unit, true)
+                }
             }
         }
         return true;

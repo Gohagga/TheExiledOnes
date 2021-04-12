@@ -54,6 +54,7 @@ export class Prospector extends PlayerClass {
         // Remove and readd spells
         Log.Info("Updating spell list");
         this.basicSlotManager.UpdateSpellList(this.unit);
+        Log.Info("returning");
     }
 
     private Add(slot: AbilitySlot, ability: IAbility) {

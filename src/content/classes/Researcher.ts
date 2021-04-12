@@ -8,16 +8,17 @@ import { PlayerClass } from "./PlayerClass";
 
 export type ResearcherAbilities = {
     ResearcherSpellbook: IAbility,
-    ResearchSpellbook: IAbility,
+    // ResearchSpellbook: IAbility,
     TransferItems: IAbility,
     
-    Study: IAbility,
-    OrganicMatter: IAbility,
-    Obliterum: IAbility,
-    ExperimentChamber: IAbility,
-    Bellows: IAbility,
-    Collector: IAbility,
-    FelInjector: IAbility,
+    // Study: IAbility,
+    // OrganicMatter: IAbility,
+    // Obliterum: IAbility,
+    // ExperimentChamber: IAbility,
+    // Bellows: IAbility,
+    // Collector: IAbility,
+    // FelInjector: IAbility,
+    Depot: IAbility,
 
     // Research
 
@@ -44,7 +45,7 @@ export class Researcher extends PlayerClass {
 
         // Add Prospector spellbook for this unit
         this.abilities.ResearcherSpellbook.AddToUnit(this.unit);
-        this.abilities.ResearchSpellbook.AddToUnit(this.unit);
+        // this.abilities.ResearchSpellbook.AddToUnit(this.unit);
 
         this.abilities.TransferItems.AddToUnit(this.unit);
 
@@ -55,6 +56,7 @@ export class Researcher extends PlayerClass {
         // this.Add(AbilitySlot.A, this.abilities.Demonfruit);
         // this.Add(AbilitySlot.S, this.abilities.TransferFel);
         // this.Add(AbilitySlot.D, this.abilities.PrepareFelCollector);
+        this.Add(AbilitySlot.F, this.abilities.Depot);
 
         // Remove and readd spells
         Log.Info("Updating spell list");

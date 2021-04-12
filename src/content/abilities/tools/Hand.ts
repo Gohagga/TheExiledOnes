@@ -29,14 +29,16 @@ export class Hand extends ToolAbilityBase {
         t.addAction(() => {
 
             let player = MapPlayer.fromEvent();
+            let playerId = player.id;
 
-            // let units = this.inputHandler.GetPlayerSelectedUnitIds(player);
-            // if (units.length > 1) return;
-            let hero = this.heroManager.playerHero.get(player.id);
+            let units = this.inputHandler.GetPlayerSelectedUnitIds(player);
+            if (units.length == 0) return;
 
-            if (!(hero && hero.isSelected(player))) return;
-
-            toolManager.Unequip(hero);
+            for (let u of units) {
+                if (u.owner.id == playerId) {
+                    toolManager.Unequip(u);
+                }
+            }
         });
     }
 

@@ -48,6 +48,7 @@ import { Tools } from "content/items/Tools";
 import { Equipment } from "content/items/Equipment";
 import { ForgeMaintainTemperature } from "content/abilities/machines/ForgeMaintainTemperature";
 import { FelBasin } from "content/abilities/prospector/FelBasin";
+import { Depot } from "content/abilities/researcher/Depot";
 
 export function Initialize() {
 
@@ -55,9 +56,9 @@ export function Initialize() {
 
     // Set Player alliances
 
-    Log.Level = Level.Message;
-    let generateMap = true;
-    let lockToSurface = true;
+    Log.Level = Level.All;
+    let generateMap = false;
+    let lockToSurface = false;
 
     for (let p of config.players) {
         SetPlayerAllianceStateBJ(p.handle, sharedPlayer.handle, bj_ALLIANCE_ALLIED_UNITS);
@@ -143,17 +144,24 @@ export function Initialize() {
 
     // Make players
     // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
-    Global.soulAnchor = new Unit(sharedPlayer, FourCC('e000'), surfaceRect.centerX, surfaceRect.centerY, 0);
+    Global.soulAnchor = new Unit(sharedPlayer, FourCC('E000'), surfaceRect.centerX, surfaceRect.centerY, 0);
     PanCameraToTimed(Global.soulAnchor.x, Global.soulAnchor.y, 0);
     SelectUnitSingle(Global.soulAnchor.handle);
     SetCameraField(CAMERA_FIELD_TARGET_DISTANCE, 150, 0);
     if (lockToSurface) SetCameraBoundsToRect(surfaceRect.handle);
 
-    // let startPoint = { x: 0, y: 0 };
-
-    // let p = MapPlayer.fromIndex(0);
-    // let u = Unit.fromHandle(gg_unit_Hblm_0003);
-    // let pc = new Artisan(u, abilities, basicSlotManager, specialSlotManager, toolManager);
+    // Create the trigger for selecting shared anchor
+    // let soulAnchorSelectTrg = new Trigger();
+    // for (let p of config.players) {
+    //     let u = new Unit(p, FourCC('e001'), 0, 0, 0);
+    //     soulAnchorSelectTrg.registerUnitEvent(u, EVENT_UNIT_SELECTED);
+    // }
+    // soulAnchorSelectTrg.addAction(() => {
+    //     let p = MapPlayer.fromEvent();
+    //     ClearSelectionForPlayer(p.handle);
+    //     SelectUnitForPlayerSingle(Global.soulAnchor.handle, p.handle);
+    //     PanCameraToTimedForPlayer(p.handle, Global.soulAnchor.x, Global.soulAnchor.y, 0);
+    // });
 
     const tim = new Timer()
 
@@ -228,11 +236,14 @@ export function Initialize() {
     // abilities.EyeOfKilrogg.AddToUnit(u, true);
     // abilities.InfuseFelstone.AddToUnit(u, true);
 
-    const toolManager = new ToolManager('AT0Z', { x: mapArea.maxX, y: mapArea.minY });
+    let hideItemPoint = { x: mapArea.maxX, y: mapArea.minY };
+
+    const toolManager = new ToolManager('AT0Z', hideItemPoint);
     const machineManager = new MachineManager(abilityEvent);
     const machineFactory = new MachineFactory(config, craftingManager, itemFactory, errorService);
     const inputHandler = new InputHandler(config.players);
     const forgeManager = new ForgeManager(FourCC('A00D'), enumService);
+    const heroManager = new HeroManager(config.heroes, basicSlotManager, specialSlotManager, toolManager);
 
     // Materials
     // Material parts
@@ -251,6 +262,8 @@ export function Initialize() {
     let researcherQ = new BasicAbility(config.ResearcherSpellbook);
 
     let artisanW = new BasicAbility(config.ArtisanFelsmithing);
+
+    let depot = new Depot(config.Depot, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager, hideItemPoint);
 
     // Order of abilities defined affects their order in the spellbooks!!!
     let abilities = {
@@ -286,7 +299,8 @@ export function Initialize() {
         ForgeSoulGem: new FelSmithing(config.ForgeSoulGem, abilityEvent, craftingManager, itemFactory, forgeManager, errorService, Equipment.SoulGem),
 
         // Researcher
-        ResearcherSpellbook: artisanQ,
+        ResearcherSpellbook: researcherQ,
+        Depot: depot,
         // Transmute: new BasicAbility(config.Transmute),
         // TransmuteRock: new Transmute(config.TransmuteRock, abilityEvent, craftingManager, errorService, ResourceItem.Rock),
         // TransmuteIron: new Transmute(config.TransmuteIron, abilityEvent, craftingManager, errorService, ResourceItem.Iron),
@@ -297,10 +311,10 @@ export function Initialize() {
         // Transmuter: new BasicAbility(config.Transmuter),
 
         // Tool Abilities
-        Hand: new Hand(config.Hand, abilityEvent, inputHandler, toolManager, itemFactory),
+        Hand: new Hand(config.Hand, abilityEvent, inputHandler, toolManager, itemFactory, heroManager),
         Axe: new Axe(config.Axe, abilityEvent),
         Pickaxe: new Pickaxe(config.Pickaxe, abilityEvent),
-        TransferItems: new TransferInventory(config.TransferInventory, abilityEvent),
+        TransferItems: new TransferInventory(config.TransferInventory, abilityEvent, depot),
         ForgeRaiseTemperature: new ForgeRaiseTemperature(config.ForgeRaiseTemperature, abilityEvent, forgeManager),
         ForgeMaintainTemperature: new ForgeMaintainTemperature(config.ForgeMaintainTemperature, abilityEvent, forgeManager),
     }
@@ -314,7 +328,8 @@ export function Initialize() {
 
     // Machines
     // const workstation = new WorkstationMachine(config.WorkstationMachine, Unit.fromHandle(gg_unit_h000_0016), errorService, craftingManager, itemFactory);
-    const heroManager = new HeroManager(config.heroes, abilities, basicSlotManager, specialSlotManager, toolManager);
+
+    heroManager.Initialize(abilities);
     
 
     let cam = new Trigger();
@@ -338,7 +353,7 @@ export function Initialize() {
         SetCameraFieldForPlayer(MapPlayer.fromEvent().handle, CAMERA_FIELD_FARZ, 100000, 0.5);
     });
     
-    InitCommands(config, inputHandler, basicSlotManager, specialSlotManager);
+    InitCommands(config, inputHandler, basicSlotManager, specialSlotManager, heroManager);
     
     // const tim1 = new Timer();
     // tim1.start(0, false, () => {

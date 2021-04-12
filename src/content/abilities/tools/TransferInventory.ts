@@ -5,6 +5,7 @@ import { Wc3Ability } from "systems/abilities/Wc3Ability";
 import { AbilityEvent } from "systems/events/ability-events/event-models/AbilityEvent";
 import { IAbilityEventHandler } from "systems/events/ability-events/IAbilityEventHandler";
 import { Item, Rectangle, Unit } from "w3ts/index";
+import { Depot } from "../researcher/Depot";
 export class TransferInventory extends AbilityBase {
 
     private rect: Rectangle;
@@ -12,6 +13,7 @@ export class TransferInventory extends AbilityBase {
     constructor(
         data: Wc3Ability,
         abilityEvent: IAbilityEventHandler,
+        private readonly depot: Depot
     ) {
         super(data);
         abilityEvent.OnAbilityEffect(this.id, (e: AbilityEvent) => this.Execute(e));
@@ -34,9 +36,25 @@ export class TransferInventory extends AbilityBase {
                 if (target) {
     
                     Log.Info("There is target");
-                    for (let it of casterItems) {
-                        if (!target.addItem(it))
-                            break;
+                    if (target.typeId == FourCC('u000')) {
+                        
+                        // Custom handling for Depot
+                        let storedItem = UnitItemInSlot(target.handle, 0);
+                        let storedItemType = -1;
+                        if (storedItem) storedItemType = GetItemTypeId(storedItem);
+                        else storedItemType = casterItems[0].typeId;
+
+                        for (let it of casterItems) {
+                            if (it.typeId == storedItemType && !target.addItem(it))
+                                break;
+                        }
+
+                    } else {
+
+                        for (let it of casterItems) {
+                            if (!target.addItem(it))
+                                break;
+                        }
                     }
                     return;
                 } else {
@@ -52,11 +70,24 @@ export class TransferInventory extends AbilityBase {
                     if (owner == caster.owner.id ||
                         owner == sharedPlayer.id
                     ) {
-                        let targetItems = this.GetUnitItems(target);
-                        for (let it of targetItems) {
-                            if (!caster.addItem(it))
-                                break;
+
+                        if (target.typeId == FourCC('u000')) {
+
+                            // Custom handling for Depot
+                            for (let i = 0; i < 6; i++) {
+                                let it = this.depot.RequestItem(target);
+                                if (it == null || !caster.addItem(it))
+                                    break;
+                            }
+                        } else {
+                            
+                            let targetItems = this.GetUnitItems(target);
+                            for (let it of targetItems) {
+                                if (!caster.addItem(it))
+                                    break;
+                            }
                         }
+
                         return;
                     }
                 } else {

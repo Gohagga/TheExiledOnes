@@ -321,12 +321,18 @@ Retera for RMS
     }
 
     // Researcher
-    // Transmute: Wc3Ability = {
-    //     name: 'Transmute',
-    //     codeId: 'A0A5',
-    //     extCodeId: 'ASA5',
-    //     tooltip: 'Transmutes materials'
-    // }
+    Depot: Wc3BuildingAbility = {
+        name: 'Prepare Depot',
+        buildCodeId: 'ABR0',
+        prepareCodeId: 'A0R0',
+        builtUnitCodeId: 'u000',
+        extCodeId: 'ASR0',
+        tooltip: 'A structure that can store a large number of one type of items.',
+        materials: [
+            // [3, Material.Metal | Material.TierI],
+            // [1, Material.Wood | Material.TierII]
+        ]
+    }
 
     // TransmuteRock: TransmuteAbility = {
     //     name: 'Transmute Rock',
@@ -384,7 +390,7 @@ Retera for RMS
 
     ResearcherSpellbook: Wc3Ability = {
         name: 'Basic Abilities',
-        codeId: 'A0AQ',
+        codeId: 'A0RQ',
         tooltip: 'Collection of main artisan abilities.'
     }
 
@@ -498,20 +504,24 @@ Takes items from target unit if inventory is empty (only owned or shared units).
         {
             trainId: 'oPT1',
             resultId: ComponentItem.TankI,
+            neededFel: 15,
             materials: [[1, Material.Frame      | Material.TierI],
                         [1, Material.Metal      | Material.TierI]],
         }, {
             trainId: 'oPT2',
+            neededFel: 20,
             resultId: ComponentItem.TankII,
             materials: [[1, Material.Frame      | Material.TierII],
                         [1, Material.Metal      | Material.TierII]]
         }, {
             trainId: 'oPT3',
+            neededFel: 25,
             resultId: ComponentItem.TankIII,
             materials: [[1, Material.Frame      | Material.TierIII],
                         [1, Material.Metal      | Material.TierIII]]
         }, {
             trainId: 'oPT4',
+            neededFel: 30,
             resultId: ComponentItem.TankIV,
             materials: [[1, Material.Frame      | Material.TierIV],
                         [1, Material.Metal      | Material.TierIV]]
