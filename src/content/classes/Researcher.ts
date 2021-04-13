@@ -2,6 +2,7 @@ import { Log } from "Log";
 import { IAbility } from "systems/abilities/IAbility";
 import { AbilitySlot } from "systems/ability-slots/AbilitySlot";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
+import { IToolAbility } from "systems/tools/IToolAbility";
 import { ToolManager } from "systems/tools/ToolManager";
 import { Unit } from "w3ts/index";
 import { PlayerClass } from "./PlayerClass";
@@ -19,6 +20,9 @@ export type ResearcherAbilities = {
     // Collector: IAbility,
     // FelInjector: IAbility,
     Depot: IAbility,
+    Automaton: IAbility,
+
+    Hand: IToolAbility,
 
     // Research
 
@@ -48,12 +52,13 @@ export class Researcher extends PlayerClass {
         // this.abilities.ResearchSpellbook.AddToUnit(this.unit);
 
         this.abilities.TransferItems.AddToUnit(this.unit);
+        this.toolManager.SetDefault(this.unit, this.abilities.Hand);
 
         // this.Add(AbilitySlot.Q, this.abilities.Defile);
         // this.Add(AbilitySlot.W, this.abilities.EyeOfKilrogg);
         // this.Add(AbilitySlot.E, this.abilities.InfuseFelstone);
         // this.Add(AbilitySlot.R, this.abilities.CrystalizeFel);
-        // this.Add(AbilitySlot.A, this.abilities.Demonfruit);
+        this.Add(AbilitySlot.A, this.abilities.Automaton);
         // this.Add(AbilitySlot.S, this.abilities.TransferFel);
         // this.Add(AbilitySlot.D, this.abilities.PrepareFelCollector);
         this.Add(AbilitySlot.F, this.abilities.Depot);

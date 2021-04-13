@@ -334,6 +334,19 @@ Retera for RMS
         ]
     }
 
+    
+    Automaton: Wc3BuildingAbility = {
+        name: 'Prepare Automaton',
+        buildCodeId: 'ABR1',
+        prepareCodeId: 'A0R1',
+        builtUnitCodeId: 'u001',
+        extCodeId: 'ASR1',
+        tooltip: 'Basic worker that runs on Fel. Can be given basic orders. Upgradable with Mechanism for speed and Tank for max Fel and inventory slots.',
+        materials: [
+            // [3, Material.Metal | Material.TierI],
+            // [1, Material.Wood | Material.TierII]
+        ]
+    }
     // TransmuteRock: TransmuteAbility = {
     //     name: 'Transmute Rock',
     //     codeId: 'A0A6',

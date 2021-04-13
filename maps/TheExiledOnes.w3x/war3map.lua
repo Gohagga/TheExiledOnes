@@ -11,7 +11,7 @@ end
 
 function CreateAllItems()
     local itemID
-    BlzCreateItemWithSkin(FourCC("I003"), -11304.3, -11923.1, FourCC("I003"))
+    BlzCreateItemWithSkin(FourCC("I003"), -11129.1, -11961.0, FourCC("I003"))
     BlzCreateItemWithSkin(FourCC("IMF1"), -12028.1, -12287.1, FourCC("IMF1"))
     BlzCreateItemWithSkin(FourCC("IMF1"), -11931.7, -12485.8, FourCC("IMF1"))
     BlzCreateItemWithSkin(FourCC("IMF1"), -11991.6, -12351.6, FourCC("IMF1"))
@@ -105,11 +105,11 @@ function CreateAllItems()
     BlzCreateItemWithSkin(FourCC("IPT3"), -11467.8, -11381.8, FourCC("IPT3"))
     BlzCreateItemWithSkin(FourCC("IPT3"), -11614.1, -12209.0, FourCC("IPT3"))
     BlzCreateItemWithSkin(FourCC("IPT4"), -11348.2, -11377.7, FourCC("IPT4"))
-    BlzCreateItemWithSkin(FourCC("IPT4"), -11367.3, -11535.2, FourCC("IPT4"))
+    BlzCreateItemWithSkin(FourCC("IPT4"), -11362.7, -11521.5, FourCC("IPT4"))
     BlzCreateItemWithSkin(FourCC("IPT4"), -11611.5, -12089.3, FourCC("IPT4"))
     BlzCreateItemWithSkin(FourCC("IT00"), -11185.3, -12839.9, FourCC("IT00"))
     BlzCreateItemWithSkin(FourCC("IT01"), -11149.5, -12968.9, FourCC("IT01"))
-    BlzCreateItemWithSkin(FourCC("IT01"), -11446.4, -12398.7, FourCC("IT01"))
+    BlzCreateItemWithSkin(FourCC("IT01"), -11471.6, -12379.3, FourCC("IT01"))
     BlzCreateItemWithSkin(FourCC("IT01"), -11275.6, -13069.0, FourCC("IT01"))
     BlzCreateItemWithSkin(FourCC("IT03"), -11447.3, -12282.6, FourCC("IT03"))
     BlzCreateItemWithSkin(FourCC("IT04"), -11442.9, -12172.8, FourCC("IT04"))
@@ -139,6 +139,7 @@ function CreateUnitsForPlayer0()
     local life
     u = BlzCreateUnitWithSkin(p, FourCC("o001"), -8091.8, -12739.2, 245.023, FourCC("o001"))
     gg_unit_o002_0132 = BlzCreateUnitWithSkin(p, FourCC("o002"), -12027.4, -12135.8, 303.686, FourCC("o002"))
+    u = BlzCreateUnitWithSkin(p, FourCC("u001"), -11123.2, -13172.9, 125.028, FourCC("u001"))
 end
 
 function CreateBuildingsForPlayer15()

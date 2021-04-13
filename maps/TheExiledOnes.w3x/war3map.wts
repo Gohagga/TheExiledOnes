@@ -4358,7 +4358,7 @@ Prepare Depot
 }
 
 STRING 876
-// Abilities: A0R0 (Prepare Depot), Hotkey (Hotkey - Normal)
+// Abilities: ABR0 (Build Depot), Hotkey (Hotkey - Normal)
 {
 R
 }
@@ -4375,12 +4375,6 @@ STRING 878
 A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
 }
 
-STRING 879
-// Abilities: A0R0 (Prepare Depot), EditorSuffix (Editor Suffix)
-{
-(R)
-}
-
 STRING 880
 // Abilities: ABR0 (Build Depot), Name (Name)
 {
@@ -4394,7 +4388,7 @@ Build Fel Basin
 }
 
 STRING 882
-// Abilities: ABR0 (Build Depot), Hotkey (Hotkey - Normal)
+// Abilities: ABR1 (Build Automaton), Hotkey (Hotkey - Normal)
 {
 R
 }
@@ -4403,5 +4397,101 @@ STRING 883
 // Abilities: ABR0 (Build Depot), Tip (Tooltip - Normal)
 {
 Build Fel Basin
+}
+
+STRING 884
+// Units: u001 (Automaton), Name (Name)
+{
+Automaton
+}
+
+STRING 885
+// Abilities: A00I (Inventory Automaton), Name (Name)
+{
+Inventory Automaton
+}
+
+STRING 886
+// Abilities: ASR1 (Addition Automaton), Name (Name)
+{
+Addition Automaton
+}
+
+STRING 887
+// Abilities: ASR1 (Addition Automaton), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 888
+// Abilities: ASR1 (Addition Automaton), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 889
+// Abilities: ASR1 (Addition Automaton), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 890
+// Abilities: A0R1 (Prepare Automaton), Name (Name)
+{
+Prepare Automaton
+}
+
+STRING 892
+// Abilities: A0R1 (Prepare Automaton), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 893
+// Abilities: A0R1 (Prepare Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 895
+// Abilities: ABR1 (Build Automaton), Name (Name)
+{
+Build Automaton
+}
+
+STRING 896
+// Abilities: ABR1 (Build Automaton), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 898
+// Abilities: ABR1 (Build Automaton), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 899
+// Abilities: A0R0 (Prepare Depot), Hotkey (Hotkey - Normal)
+{
+D
+}
+
+STRING 900
+// Abilities: A0R0 (Prepare Depot), EditorSuffix (Editor Suffix)
+{
+(D)
+}
+
+STRING 901
+// Abilities: A0R1 (Prepare Automaton), Hotkey (Hotkey - Normal)
+{
+A
+}
+
+STRING 902
+// Abilities: A0R1 (Prepare Automaton), EditorSuffix (Editor Suffix)
+{
+(A)
 }
 

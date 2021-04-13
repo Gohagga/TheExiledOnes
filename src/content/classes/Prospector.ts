@@ -2,6 +2,7 @@ import { Log } from "Log";
 import { IAbility } from "systems/abilities/IAbility";
 import { AbilitySlot } from "systems/ability-slots/AbilitySlot";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
+import { IToolAbility } from "systems/tools/IToolAbility";
 import { ToolManager } from "systems/tools/ToolManager";
 import { Unit } from "w3ts/index";
 import { PlayerClass } from "./PlayerClass";
@@ -16,7 +17,9 @@ export type ProspectorAbilities = {
     CrystalizeFel: IAbility,
     Demonfruit: IAbility,
     TransferFel: IAbility,
-    FelBasin: IAbility
+    FelBasin: IAbility,
+
+    Hand: IToolAbility,
 }
 
 export class Prospector extends PlayerClass {
@@ -42,6 +45,7 @@ export class Prospector extends PlayerClass {
         this.abilities.ProspectorSpellbook.AddToUnit(this.unit);
         // Add Transfer items
         this.abilities.TransferItems.AddToUnit(this.unit);
+        this.toolManager.SetDefault(this.unit, this.abilities.Hand);
 
         this.Add(AbilitySlot.Q, this.abilities.Defile);
         this.Add(AbilitySlot.W, this.abilities.InfuseFelstone);

@@ -84,9 +84,9 @@ export class Depot extends BuildingAbilityBase {
 
     OnUnitBuilt(): void {
         
-        Log.Info("on unit built");
         let unit = Unit.fromEvent();
-        Log.Info("on unit built", unit.name);
+        if (unit.typeId != this.builtUnitId) return;
+        
         unit.addAbility(FourCC('Amrf'));
         unit.removeAbility(FourCC('Amrf'));
         unit.setflyHeight(100, 0);
@@ -94,6 +94,17 @@ export class Depot extends BuildingAbilityBase {
         Log.Info("height has been set");
         unit.show = false;
         unit.show = true;
+
+        // Adjust stats etc
+        let unitId = unit.id;
+        if (unitId in this.instance == false) {
+            this.instance[unitId] = {
+                storedItems: [],
+                previewItem: null,
+                storedItem: null,
+                max: 12
+            }
+        }
     }
 
     Execute(e: AbilityEvent): void {
@@ -110,15 +121,8 @@ export class Depot extends BuildingAbilityBase {
 
         if (this.lock) return;
 
-        if (unitId in this.instance == false) {
-            this.instance[unitId] = {
-                storedItems: [],
-                previewItem: null,
-                storedItem: null,
-                max: 12
-            }
-        }
         let instance = this.instance[unitId];
+        if (instance == null) return unit.removeItem(loaded);
 
         if (instance.previewItem && loaded.id == instance.previewItem.id || instance.storedItems.length + 1 >= instance.max) {
             unit.removeItem(loaded);

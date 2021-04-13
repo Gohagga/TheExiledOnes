@@ -49,6 +49,7 @@ import { Equipment } from "content/items/Equipment";
 import { ForgeMaintainTemperature } from "content/abilities/machines/ForgeMaintainTemperature";
 import { FelBasin } from "content/abilities/prospector/FelBasin";
 import { Depot } from "content/abilities/researcher/Depot";
+import { Automaton } from "content/abilities/researcher/Automaton";
 
 export function Initialize() {
 
@@ -264,6 +265,7 @@ export function Initialize() {
     let artisanW = new BasicAbility(config.ArtisanFelsmithing);
 
     let depot = new Depot(config.Depot, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager, hideItemPoint);
+    let hand = new Hand(config.Hand, abilityEvent, inputHandler, toolManager, itemFactory, heroManager);
 
     // Order of abilities defined affects their order in the spellbooks!!!
     let abilities = {
@@ -301,6 +303,7 @@ export function Initialize() {
         // Researcher
         ResearcherSpellbook: researcherQ,
         Depot: depot,
+        Automaton: new Automaton(config.Automaton, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager, toolManager, hand),
         // Transmute: new BasicAbility(config.Transmute),
         // TransmuteRock: new Transmute(config.TransmuteRock, abilityEvent, craftingManager, errorService, ResourceItem.Rock),
         // TransmuteIron: new Transmute(config.TransmuteIron, abilityEvent, craftingManager, errorService, ResourceItem.Iron),
@@ -311,7 +314,7 @@ export function Initialize() {
         // Transmuter: new BasicAbility(config.Transmuter),
 
         // Tool Abilities
-        Hand: new Hand(config.Hand, abilityEvent, inputHandler, toolManager, itemFactory, heroManager),
+        Hand: hand,
         Axe: new Axe(config.Axe, abilityEvent),
         Pickaxe: new Pickaxe(config.Pickaxe, abilityEvent),
         TransferItems: new TransferInventory(config.TransferInventory, abilityEvent, depot),
