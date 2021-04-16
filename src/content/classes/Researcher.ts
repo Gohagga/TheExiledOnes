@@ -12,15 +12,15 @@ export type ResearcherAbilities = {
     // ResearchSpellbook: IAbility,
     TransferItems: IAbility,
     
-    // Study: IAbility,
-    // OrganicMatter: IAbility,
-    // Obliterum: IAbility,
-    // ExperimentChamber: IAbility,
-    // Bellows: IAbility,
-    // Collector: IAbility,
-    // FelInjector: IAbility,
-    Depot: IAbility,
+    Study: IAbility,
+    OrganicMatter: IAbility,
+    Net: IAbility,
+    ExperimentChamber: IAbility,
     Automaton: IAbility,
+    FelInjector: IAbility,
+    Depot: IAbility,
+    Obliterum: IAbility,
+    // Automaton: IAbility,
 
     Hand: IToolAbility,
 
@@ -54,14 +54,14 @@ export class Researcher extends PlayerClass {
         this.abilities.TransferItems.AddToUnit(this.unit);
         this.toolManager.SetDefault(this.unit, this.abilities.Hand);
 
-        // this.Add(AbilitySlot.Q, this.abilities.Defile);
-        // this.Add(AbilitySlot.W, this.abilities.EyeOfKilrogg);
-        // this.Add(AbilitySlot.E, this.abilities.InfuseFelstone);
-        // this.Add(AbilitySlot.R, this.abilities.CrystalizeFel);
+        this.Add(AbilitySlot.Q, this.abilities.Study);
+        this.Add(AbilitySlot.W, this.abilities.OrganicMatter);
+        this.Add(AbilitySlot.E, this.abilities.Net);
+        this.Add(AbilitySlot.R, this.abilities.ExperimentChamber);
         this.Add(AbilitySlot.A, this.abilities.Automaton);
-        // this.Add(AbilitySlot.S, this.abilities.TransferFel);
-        // this.Add(AbilitySlot.D, this.abilities.PrepareFelCollector);
-        this.Add(AbilitySlot.F, this.abilities.Depot);
+        this.Add(AbilitySlot.S, this.abilities.FelInjector);
+        this.Add(AbilitySlot.D, this.abilities.Depot);
+        this.Add(AbilitySlot.F, this.abilities.Obliterum);
 
         // Remove and readd spells
         Log.Info("Updating spell list");

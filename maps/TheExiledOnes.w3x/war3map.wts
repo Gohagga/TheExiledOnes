@@ -4495,3 +4495,813 @@ STRING 902
 (A)
 }
 
+STRING 904
+// Abilities: A00J (Order: Supply), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 911
+// Abilities: A00J (Order: Supply), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 912
+// Abilities: A00J (Order: Supply), EditorSuffix (Editor Suffix)
+{
+(Q)
+}
+
+STRING 913
+// Abilities: A00K (Order: Use Tool), Name (Name)
+{
+Order: Use Tool
+}
+
+STRING 914
+// Abilities: A00K (Order: Use Tool), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 921
+// Abilities: A00K (Order: Use Tool), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 922
+// Abilities: A00K (Order: Use Tool), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 925
+// Abilities: A00L (Item Filter), Name (Name)
+{
+Item Filter
+}
+
+STRING 927
+// Abilities: A00L (Item Filter), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 934
+// Abilities: A00L (Item Filter), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 935
+// Abilities: A00L (Item Filter), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 939
+// Abilities: A00L (Item Filter), Tip (Tooltip - Normal)
+{
+Filter Items
+}
+
+STRING 940
+// Abilities: A00L (Item Filter), Tip (Tooltip - Normal)
+{
+Filter Items
+}
+
+STRING 941
+// Abilities: A00L (Item Filter), Tip (Tooltip - Normal)
+{
+Filter Items
+}
+
+STRING 942
+// Abilities: A00L (Item Filter), Ubertip (Tooltip - Normal - Extended)
+{
+Click to configure item filter based on current inventory.
+}
+
+STRING 943
+// Abilities: A00L (Item Filter), Ubertip (Tooltip - Normal - Extended)
+{
+Click to configure item filter based on current inventory.
+}
+
+STRING 944
+// Abilities: A00L (Item Filter), Ubertip (Tooltip - Normal - Extended)
+{
+Click to configure item filter based on current inventory.
+}
+
+STRING 945
+// Abilities: A00J (Order: Supply), Name (Name)
+{
+Order: Supply
+}
+
+STRING 946
+// Abilities: A00J (Order: Supply), Tip (Tooltip - Normal)
+{
+Order: Supply
+}
+
+STRING 947
+// Abilities: A00J (Order: Supply), Tip (Tooltip - Normal)
+{
+Order: Supply
+}
+
+STRING 948
+// Abilities: A00J (Order: Supply), Tip (Tooltip - Normal)
+{
+Order: Supply
+}
+
+STRING 949
+// Abilities: A00K (Order: Use Tool), Tip (Tooltip - Normal)
+{
+Order: Use Tool
+}
+
+STRING 950
+// Abilities: A00K (Order: Use Tool), Tip (Tooltip - Normal)
+{
+Order: Use Tool
+}
+
+STRING 951
+// Abilities: A00K (Order: Use Tool), Tip (Tooltip - Normal)
+{
+Order: Use Tool
+}
+
+STRING 952
+// Abilities: A00J (Order: Supply), Ubertip (Tooltip - Normal - Extended)
+{
+Automaton will pick up items from targeted area and deposit them to its Rally point.
+
+With Item Filter, automaton will not deposit until it has all the items.
+}
+
+STRING 953
+// Abilities: A00J (Order: Supply), Ubertip (Tooltip - Normal - Extended)
+{
+Automaton will pick up items from targeted area and deposit them to its Rally point.
+
+With Item Filter, automaton will not deposit until it has all the items.
+}
+
+STRING 954
+// Abilities: A00J (Order: Supply), Ubertip (Tooltip - Normal - Extended)
+{
+Automaton will pick up items from targeted area and deposit them to its Rally point.
+
+With Item Filter, automaton will not deposit until it has all the items.
+}
+
+STRING 955
+// Abilities: A00K (Order: Use Tool), Ubertip (Tooltip - Normal - Extended)
+{
+Automaton will use its tool ability on destructables in target area. When its inventory is full, it will deposit items to the Rally Point.
+
+With Item Filter, automaton will not deposit until it has all the configured items.
+}
+
+STRING 956
+// Abilities: A00K (Order: Use Tool), Ubertip (Tooltip - Normal - Extended)
+{
+Automaton will use its tool ability on destructables in target area. When its inventory is full, it will deposit items to the Rally Point.
+
+With Item Filter, automaton will not deposit until it has all the configured items.
+}
+
+STRING 957
+// Abilities: A00K (Order: Use Tool), Ubertip (Tooltip - Normal - Extended)
+{
+Automaton will use its tool ability on destructables in target area. When its inventory is full, it will deposit items to the Rally Point.
+
+With Item Filter, automaton will not deposit until it has all the configured items.
+}
+
+STRING 958
+// Items: IA00 (Live Rabbit), Name (Name)
+{
+Live Rabbit
+}
+
+STRING 959
+// Items: IA00 (Live Rabbit), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 960
+// Items: IA00 (Live Rabbit), Description (Description)
+{
+A caught animal.
+}
+
+STRING 961
+// Items: IA00 (Live Rabbit), Tip (Tooltip - Basic)
+{
+Live Rabbit
+}
+
+STRING 962
+// Items: IA01 (Live Raccoon), Name (Name)
+{
+Live Raccoon
+}
+
+STRING 963
+// Items: IA01 (Live Raccoon), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 964
+// Items: IA01 (Live Raccoon), Description (Description)
+{
+A caught animal.
+}
+
+STRING 965
+// Items: IA01 (Live Raccoon), Tip (Tooltip - Basic)
+{
+Live Raccoon
+}
+
+STRING 966
+// Items: IA02 (Live Crab), Name (Name)
+{
+Live Crab
+}
+
+STRING 967
+// Items: IA02 (Live Crab), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 968
+// Items: IA02 (Live Crab), Description (Description)
+{
+A caught animal.
+}
+
+STRING 969
+// Items: IA02 (Live Crab), Tip (Tooltip - Basic)
+{
+Live Raccoon
+}
+
+STRING 970
+// Items: IA03 (Live Skink), Name (Name)
+{
+Live Skink
+}
+
+STRING 971
+// Items: IA03 (Live Skink), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 972
+// Items: IA03 (Live Skink), Description (Description)
+{
+A caught animal.
+}
+
+STRING 973
+// Items: IA03 (Live Skink), Tip (Tooltip - Basic)
+{
+Live Skink
+}
+
+STRING 974
+// Items: IA04 (Live Frog), Name (Name)
+{
+Live Frog
+}
+
+STRING 975
+// Items: IA04 (Live Frog), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 976
+// Items: IA04 (Live Frog), Description (Description)
+{
+A caught animal.
+}
+
+STRING 977
+// Items: IA04 (Live Frog), Tip (Tooltip - Basic)
+{
+Live Frog
+}
+
+STRING 978
+// Items: IA05 (Live Worm), Name (Name)
+{
+Live Worm
+}
+
+STRING 979
+// Items: IA05 (Live Worm), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 980
+// Items: IA05 (Live Worm), Description (Description)
+{
+A caught animal.
+}
+
+STRING 981
+// Items: IA05 (Live Worm), Tip (Tooltip - Basic)
+{
+Live Worm
+}
+
+STRING 982
+// Items: IA06 (Live Rat), Name (Name)
+{
+Live Rat
+}
+
+STRING 983
+// Items: IA06 (Live Rat), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 984
+// Items: IA06 (Live Rat), Description (Description)
+{
+A caught animal.
+}
+
+STRING 985
+// Items: IA06 (Live Rat), Tip (Tooltip - Basic)
+{
+Live Rat
+}
+
+STRING 986
+// Items: IA07 (Live Stag), Name (Name)
+{
+Live Stag
+}
+
+STRING 987
+// Items: IA07 (Live Stag), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 988
+// Items: IA07 (Live Stag), Description (Description)
+{
+A caught animal.
+}
+
+STRING 989
+// Items: IA07 (Live Stag), Tip (Tooltip - Basic)
+{
+Live Stag
+}
+
+STRING 1000
+// Abilities: ASR2 (Addition Organic Matter), Name (Name)
+{
+Addition Organic Matter
+}
+
+STRING 1001
+// Abilities: ASR2 (Addition Organic Matter), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1002
+// Abilities: ASR2 (Addition Organic Matter), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1003
+// Abilities: ASR2 (Addition Organic Matter), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1004
+// Abilities: ASR3 (Addition Net), Name (Name)
+{
+Addition Net
+}
+
+STRING 1005
+// Abilities: ASR3 (Addition Net), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1006
+// Abilities: ASR3 (Addition Net), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1007
+// Abilities: ASR3 (Addition Net), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1009
+// Abilities: ASR4 (Addition Study), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1010
+// Abilities: ASR4 (Addition Study), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1011
+// Abilities: ASR4 (Addition Study), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1012
+// Abilities: ASR5 (Addition Experiment Chamber), Name (Name)
+{
+Addition Experiment Chamber
+}
+
+STRING 1013
+// Abilities: ASR5 (Addition Experiment Chamber), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1014
+// Abilities: ASR5 (Addition Experiment Chamber), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1015
+// Abilities: ASR5 (Addition Experiment Chamber), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1016
+// Abilities: ASR6 (Addition Fel Injector), Name (Name)
+{
+Addition Fel Injector
+}
+
+STRING 1017
+// Abilities: ASR6 (Addition Fel Injector), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1018
+// Abilities: ASR6 (Addition Fel Injector), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1019
+// Abilities: ASR6 (Addition Fel Injector), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1020
+// Abilities: ASR7 (Addition Obliterum), Name (Name)
+{
+Addition Obliterum
+}
+
+STRING 1021
+// Abilities: ASR7 (Addition Obliterum), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1022
+// Abilities: ASR7 (Addition Obliterum), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1023
+// Abilities: ASR7 (Addition Obliterum), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1024
+// Abilities: A0R2 (Organic Matter), Name (Name)
+{
+Organic Matter
+}
+
+STRING 1026
+// Abilities: A0R2 (Organic Matter), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 1027
+// Abilities: A0R2 (Organic Matter), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 1029
+// Abilities: A0R3 (Create Net), Name (Name)
+{
+Create Net
+}
+
+STRING 1031
+// Abilities: A0R3 (Create Net), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 1032
+// Abilities: A0R3 (Create Net), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 1034
+// Abilities: A0R5 (Prepare Experiment Chamber), Name (Name)
+{
+Prepare Experiment Chamber
+}
+
+STRING 1036
+// Abilities: A0R5 (Prepare Experiment Chamber), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 1037
+// Abilities: A0R5 (Prepare Experiment Chamber), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 1039
+// Abilities: A0R6 (Prepare Fel Injector), Name (Name)
+{
+Prepare Fel Injector
+}
+
+STRING 1041
+// Abilities: A0R6 (Prepare Fel Injector), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 1042
+// Abilities: A0R6 (Prepare Fel Injector), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 1044
+// Abilities: A0R7 (Prepare Obliterum), Name (Name)
+{
+Prepare Obliterum
+}
+
+STRING 1046
+// Abilities: A0R7 (Prepare Obliterum), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 1047
+// Abilities: A0R7 (Prepare Obliterum), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 1049
+// Units: u002 (Experiment Chamber), Name (Name)
+{
+Experiment Chamber
+}
+
+STRING 1050
+// Units: u003 (Fel Injector), Name (Name)
+{
+Fel Injector
+}
+
+STRING 1051
+// Abilities: ASR4 (Addition Study), Name (Name)
+{
+Addition Study
+}
+
+STRING 1052
+// Abilities: A0R4 (Study), Name (Name)
+{
+Study
+}
+
+STRING 1053
+// Abilities: A0R2 (Organic Matter), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 1054
+// Abilities: A0R2 (Organic Matter), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 1055
+// Abilities: A0R3 (Create Net), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 1056
+// Abilities: A0R3 (Create Net), EditorSuffix (Editor Suffix)
+{
+(E)
+}
+
+STRING 1057
+// Abilities: A0R5 (Prepare Experiment Chamber), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 1058
+// Abilities: A0R5 (Prepare Experiment Chamber), EditorSuffix (Editor Suffix)
+{
+(R)
+}
+
+STRING 1059
+// Abilities: A0R6 (Prepare Fel Injector), Hotkey (Hotkey - Normal)
+{
+S
+}
+
+STRING 1060
+// Abilities: A0R6 (Prepare Fel Injector), EditorSuffix (Editor Suffix)
+{
+(S)
+}
+
+STRING 1061
+// Abilities: A0R7 (Prepare Obliterum), Hotkey (Hotkey - Normal)
+{
+F
+}
+
+STRING 1062
+// Abilities: A0R7 (Prepare Obliterum), EditorSuffix (Editor Suffix)
+{
+(F)
+}
+
+STRING 1063
+// Abilities: A0R4 (Study), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1064
+// Abilities: A0R4 (Study), EditorSuffix (Editor Suffix)
+{
+(Q)
+}
+
+STRING 1065
+// Items: I001 (Net), Name (Name)
+{
+Net
+}
+
+STRING 1066
+// Items: I001 (Net), Tip (Tooltip - Basic)
+{
+Net
+}
+
+STRING 1067
+// Items: I001 (Net), Ubertip (Tooltip - Extended)
+{
+Used for catching wild animals.
+}
+
+STRING 1068
+// Abilities: A00M (Release Animal), Name (Name)
+{
+Release Animal
+}
+
+STRING 1069
+// Abilities: ABR5 (Build Experiment Chamber), Name (Name)
+{
+Build Experiment Chamber
+}
+
+STRING 1070
+// Abilities: ABR5 (Build Experiment Chamber), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 1071
+// Abilities: ABR5 (Build Experiment Chamber), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 1072
+// Abilities: ABR5 (Build Experiment Chamber), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 1073
+// Abilities: ABR6 (Build Fel Injector), Name (Name)
+{
+Build Fel Injector
+}
+
+STRING 1074
+// Abilities: ABR6 (Build Fel Injector), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 1075
+// Abilities: ABR6 (Build Fel Injector), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 1076
+// Abilities: ABR6 (Build Fel Injector), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 1077
+// Units: u004 (Obliterum), Name (Name)
+{
+Obliterum
+}
+
+STRING 1078
+// Abilities: ABR7 (Build Obliterum), Name (Name)
+{
+Build Obliterum
+}
+
+STRING 1079
+// Abilities: ABR7 (Build Obliterum), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 1080
+// Abilities: ABR7 (Build Obliterum), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 1081
+// Abilities: ABR7 (Build Obliterum), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+

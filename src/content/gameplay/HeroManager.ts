@@ -84,7 +84,10 @@ export class HeroManager {
                     playerClass = new Prospector(sold, abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
                     break;
                 case HeroType.Researcher:
-                    return playerClass = new Researcher(sold, abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
+                    playerClass = new Researcher(sold, abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
+                    break;
+                default:
+                    throw null;
             }
 
             this.playerHero.set(playerId, sold);

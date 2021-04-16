@@ -50,6 +50,10 @@ import { ForgeMaintainTemperature } from "content/abilities/machines/ForgeMainta
 import { FelBasin } from "content/abilities/prospector/FelBasin";
 import { Depot } from "content/abilities/researcher/Depot";
 import { Automaton } from "content/abilities/researcher/Automaton";
+import { NetEnsnare } from "content/abilities/tools/NetEnsnare";
+import { FelInjector } from "content/abilities/researcher/FelInjector";
+import { Obliterum } from "content/abilities/researcher/Obliterum";
+import { ExperimentChamber } from "content/abilities/researcher/ExperimentChamber";
 
 export function Initialize() {
 
@@ -166,64 +170,63 @@ export function Initialize() {
 
     const tim = new Timer()
 
-        tim.start(0, false, () => {
+    tim.start(0, false, () => {
 
-            for (let q of config.quests) {
-                let quest = new Quest();
-                quest.setTitle(q.title);
-                quest.setIcon(q.icon);
-                quest.setDescription(q.description);
-            }
-        
-            const heightNoise = new HeightNoiseProvider(random);
-            const surfaceMinimap = new CustomMinimap(surfaceRect);
-            const treeNoise = new TreeNoiseProvider(random);
-            const moistureNoise = new MoistureNoiseProvider(random);
-            const cavernNoise = new CavernNoiseProvider(random);
-            const mapGenerator = new MapGenerator2(surfaceMinimap, heightNoise, treeNoise, moistureNoise, cavernNoise, surfaceRect, undergroundRect, itemFactory, random);
-            
-            abilityEvent.OnAbilityCast(FourCC('A000'), () => {
-                let x = GetSpellTargetX();
-                let y = GetSpellTargetY();
-                let pathingName = '';
-                switch (mapGenerator.pathingBuilder.getPathing(x, y)) {
-                    case PathingType.HillSteepUnwalkable: pathingName = 'HillSteepUnwalkable'; break;
-                    case PathingType.DeepWater: pathingName = 'DeepWater'; break;
-                    case PathingType.Hills: pathingName = 'Hills'; break;
-                    case PathingType.Plains: pathingName = 'Plains'; break;
-                    case PathingType.ShallowWater: pathingName = 'ShallowWater'; break;
-                    case PathingType.SteepShore: pathingName = 'SteepShore'; break;
-                }
-                Log.Info("Terrain height:", mapGenerator.heightBuilder.getHeight(x, y), pathingName);
-            });
-        
-            let time = os.clock();
-            mapGenerator.resume();
-            if (generateMap == false) {
-                mapGenerator.isDone = true;
-            }
-
-            tim.pause();
-            tim.start(0.02, true, () => {
-                if (mapGenerator.isDone) {
-                    tim.destroy();
-                    progressTim.destroy();
-                    time = os.clock() - time;
+        for (let q of config.quests) {
+            let quest = new Quest();
+            quest.setTitle(q.title);
+            quest.setIcon(q.icon);
+            quest.setDescription(q.description);
+        }
     
-                    Log.Message("Finished generating in ", time);
-                    SetCameraField(CAMERA_FIELD_TARGET_DISTANCE, 2000, 0.5);
-                    PanCameraToTimed(Global.soulAnchor.x, Global.soulAnchor.y, 0);
-                        
-                } else
-                    mapGenerator.resume();
-            });
-            const progressTim = new Timer();
-            progressTim.start(1, true, () => {
-                ClearTextMessages();
-                let passed = math.floor(os.clock() - time + 0.5);
-                let prediction = passed / mapGenerator.progress;
-                Log.Message("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%', "seconds passed: ", passed, "prediction: ", prediction);
-            });
+        const heightNoise = new HeightNoiseProvider(random);
+        const surfaceMinimap = new CustomMinimap(surfaceRect);
+        const treeNoise = new TreeNoiseProvider(random);
+        const moistureNoise = new MoistureNoiseProvider(random);
+        const cavernNoise = new CavernNoiseProvider(random);
+        const mapGenerator = new MapGenerator2(surfaceMinimap, heightNoise, treeNoise, moistureNoise, cavernNoise, surfaceRect, undergroundRect, itemFactory, random);
+        
+        abilityEvent.OnAbilityCast(FourCC('A000'), () => {
+            let x = GetSpellTargetX();
+            let y = GetSpellTargetY();
+            let pathingName = '';
+            switch (mapGenerator.pathingBuilder.getPathing(x, y)) {
+                case PathingType.HillSteepUnwalkable: pathingName = 'HillSteepUnwalkable'; break;
+                case PathingType.DeepWater: pathingName = 'DeepWater'; break;
+                case PathingType.Hills: pathingName = 'Hills'; break;
+                case PathingType.Plains: pathingName = 'Plains'; break;
+                case PathingType.ShallowWater: pathingName = 'ShallowWater'; break;
+                case PathingType.SteepShore: pathingName = 'SteepShore'; break;
+            }
+            Log.Info("Terrain height:", mapGenerator.heightBuilder.getHeight(x, y), pathingName);
+        });
+    
+        let time = os.clock();
+        mapGenerator.resume();
+        if (generateMap == false) {
+            mapGenerator.isDone = true;
+        }
+
+        tim.pause();
+        tim.start(0.02, true, () => {
+            if (mapGenerator.isDone) {
+                tim.destroy();
+                progressTim.destroy();
+                time = os.clock() - time;
+
+                Log.Message("Finished generating in ", time);
+                SetCameraField(CAMERA_FIELD_TARGET_DISTANCE, 2000, 0.5);
+                PanCameraToTimed(Global.soulAnchor.x, Global.soulAnchor.y, 0);
+                    
+            } else
+                mapGenerator.resume();
+        });
+        const progressTim = new Timer();
+        progressTim.start(1, true, () => {
+            ClearTextMessages();
+            let passed = math.floor(os.clock() - time + 0.5);
+            let prediction = passed / mapGenerator.progress;
+            Log.Message("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%', "seconds passed: ", passed, "prediction: ", prediction);
         });
 
     const mapArea = Rectangle.getWorldBounds();
@@ -268,44 +271,90 @@ export function Initialize() {
     let hand = new Hand(config.Hand, abilityEvent, inputHandler, toolManager, itemFactory, heroManager);
 
     // Order of abilities defined affects their order in the spellbooks!!!
+    
+    // Prospector
+    let aProspectorSpellbook = prospectorQ;
+    let aDefile = new Defile(config.Defile, abilityEvent, errorService);
+    let aInfuseFelstone = new Transmute(config.InfuseFelstone, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Felstone);
+    let aDemonfruit = new BasicAbility(config.Demonfruit);
+    let aFelBasin = new FelBasin(config.FelBasin, prospectorQ, abilityEvent, basicSlotManager, craftingManager, errorService);
+    let aCrystalizeFel = new CrystalizeFel(config.CrystalizeFel, abilityEvent, errorService, itemFactory);
+    let aEyeOfKilrogg = new BasicAbility(config.EyeOfKilrogg);
+    let aTransferFel = new BasicAbility(config.TransferFel);
+
+    // Artisan
+    let aArtisanSpellbook = artisanQ;
+    let aTransmute = new BasicAbility(config.Transmute);
+    let aTransmuteRock = new Transmute(config.TransmuteRock, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Rock);
+    let aTransmuteIron = new Transmute(config.TransmuteIron, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Iron);
+    let aTransmuteCopper = new Transmute(config.TransmuteCopper, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Copper);
+    let aCrudeAxe = new CrudeAxe(config.CrudeAxe, abilityEvent, craftingManager, errorService);
+    let aCrudePickaxe = new CrudePickaxe(config.CrudePickaxe, abilityEvent, craftingManager, errorService);
+    let aHellForge = new HellForge(config.HellForge, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager);
+    let aWorkstation = new Workstation(config.Workstation, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager);
+    let aTransmuter = new Transmuter(config.Transmuter, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager);
+    let aMinecart = new Minecart(config.Minecart, artisanQ, abilityEvent, basicSlotManager, errorService, craftingManager, dimensionEvent);
+    let aMineshaft = new Mineshaft(config.Mineshaft, artisanQ, surfaceRect, undergroundRect, abilityEvent, basicSlotManager, errorService, craftingManager, dimensionEvent, pathingService);
+
+    let aArtisanFelsmithing = artisanW;
+    let aForgeSteel = new FelSmithing(config.ForgeSteel, abilityEvent, craftingManager, itemFactory, forgeManager, errorService, ResourceItem.Steel);
+    let aForgeFelSteel = new FelSmithing(config.ForgeFelSteel, abilityEvent, craftingManager, itemFactory, forgeManager, errorService, ResourceItem.FelSteel);
+    let aForgeBuildingTools = new FelSmithing(config.ForgeBuildingTools, abilityEvent, craftingManager, itemFactory, forgeManager, errorService, Tools.BuildingTools);
+    let aForgeSoulGem = new FelSmithing(config.ForgeSoulGem, abilityEvent, craftingManager, itemFactory, forgeManager, errorService, Equipment.SoulGem);
+
+    // Researcher
+    let aResearcherSpellbook = researcherQ;
+    let aStudy = new BasicAbility(config.Study);
+    let aOrganicMatter = new Transmute(config.OrganicMatter, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.OrganicMatter);
+    let aNet = new Transmute(config.Net, abilityEvent, craftingManager, itemFactory, errorService, Tools.Net);
+    let aAutomaton = new Automaton(config.Automaton, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager, toolManager, hand);
+    let aExperimentChamber = new ExperimentChamber(config.ExperimentChamber, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager);
+    let aFelInjector = new FelInjector(config.FelInjector, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager);
+    let aDepot = depot;
+    let aObliterum = new Obliterum(config.Obliterum, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager);
+
     let abilities = {
 
         // Prospector
-        ProspectorSpellbook: prospectorQ,
-        Defile: new Defile(config.Defile, abilityEvent, errorService),
-        InfuseFelstone: new Transmute(config.InfuseFelstone, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Felstone),
-        Demonfruit: new BasicAbility(config.Demonfruit),
-        FelBasin: new FelBasin(config.FelBasin, prospectorQ, abilityEvent, basicSlotManager, craftingManager, errorService),
-        CrystalizeFel: new CrystalizeFel(config.CrystalizeFel, abilityEvent, errorService, itemFactory),
-        EyeOfKilrogg: new BasicAbility(config.EyeOfKilrogg),
-        TransferFel: new BasicAbility(config.TransferFel),
+        ProspectorSpellbook: aProspectorSpellbook,
+        Defile: aDefile,
+        InfuseFelstone: aInfuseFelstone,
+        Demonfruit: aDemonfruit,
+        FelBasin: aFelBasin,
+        CrystalizeFel: aCrystalizeFel,
+        EyeOfKilrogg: aEyeOfKilrogg,
+        TransferFel: aTransferFel,
 
         // Artisan
-        ArtisanSpellbook: artisanQ,
-        Transmute: new BasicAbility(config.Transmute),
-        TransmuteRock: new Transmute(config.TransmuteRock, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Rock),
-        TransmuteIron: new Transmute(config.TransmuteIron, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Iron),
-        TransmuteCopper: new Transmute(config.TransmuteCopper, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Copper),
-        CrudeAxe: new CrudeAxe(config.CrudeAxe, abilityEvent, craftingManager, errorService),
-        CrudePickaxe: new CrudePickaxe(config.CrudePickaxe, abilityEvent, craftingManager, errorService),
-        HellForge: new HellForge(config.HellForge, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager),
-        Workstation: new Workstation(config.Workstation, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager),
-        Transmuter: new Transmuter(config.Transmuter, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager),
-        Minecart: new Minecart(config.Minecart, artisanQ, abilityEvent, basicSlotManager, errorService, craftingManager, dimensionEvent),
-        Mineshaft: new Mineshaft(config.Mineshaft, artisanQ, surfaceRect, undergroundRect, abilityEvent, basicSlotManager, errorService, craftingManager, dimensionEvent),
+        ArtisanSpellbook: aArtisanSpellbook,
+        Transmute: aTransmute,
+        TransmuteRock: aTransmuteRock,
+        TransmuteIron: aTransmuteIron,
+        TransmuteCopper: aTransmuteCopper,
+        CrudeAxe: aCrudeAxe,
+        CrudePickaxe: aCrudePickaxe,
+        HellForge: aHellForge,
+        Workstation: aWorkstation,
+        Transmuter: aTransmuter,
+        Minecart: aMinecart,
+        Mineshaft: aMineshaft,
 
-        ArtisanFelsmithing: artisanW,
-        ForgeSteel: new FelSmithing(config.ForgeSteel, abilityEvent, craftingManager, itemFactory, forgeManager, errorService, ResourceItem.Steel),
-        ForgeFelSteel: new FelSmithing(config.ForgeFelSteel, abilityEvent, craftingManager, itemFactory, forgeManager, errorService, ResourceItem.FelSteel),
-        ForgeBuildingTools: new FelSmithing(config.ForgeBuildingTools, abilityEvent, craftingManager, itemFactory, forgeManager, errorService, Tools.BuildingTools),
-        ForgeSoulGem: new FelSmithing(config.ForgeSoulGem, abilityEvent, craftingManager, itemFactory, forgeManager, errorService, Equipment.SoulGem),
+        ArtisanFelsmithing: aArtisanFelsmithing,
+        ForgeSteel: aForgeSteel,
+        ForgeFelSteel: aForgeFelSteel,
+        ForgeBuildingTools: aForgeBuildingTools,
+        ForgeSoulGem: aForgeSoulGem,
 
         // Researcher
-        ResearcherSpellbook: researcherQ,
-        Depot: depot,
-        Automaton: new Automaton(config.Automaton, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager, toolManager, hand),
-        // Transmute: new BasicAbility(config.Transmute),
-        // TransmuteRock: new Transmute(config.TransmuteRock, abilityEvent, craftingManager, errorService, ResourceItem.Rock),
+        ResearcherSpellbook: aResearcherSpellbook,
+        Study: aStudy,
+        OrganicMatter: aOrganicMatter,
+        Net: aNet,
+        Automaton: aAutomaton,
+        ExperimentChamber: aExperimentChamber,
+        FelInjector: aFelInjector,
+        Depot: aDepot,
+        Obliterum: aObliterum,
         // TransmuteIron: new Transmute(config.TransmuteIron, abilityEvent, craftingManager, errorService, ResourceItem.Iron),
         // CrudeAxe: new CrudeAxe(config.CrudeAxe, abilityEvent, craftingManager, errorService),
         // CrudePickaxe: new CrudePickaxe(config.CrudePickaxe, abilityEvent, craftingManager, errorService),
@@ -320,7 +369,13 @@ export function Initialize() {
         TransferItems: new TransferInventory(config.TransferInventory, abilityEvent, depot),
         ForgeRaiseTemperature: new ForgeRaiseTemperature(config.ForgeRaiseTemperature, abilityEvent, forgeManager),
         ForgeMaintainTemperature: new ForgeMaintainTemperature(config.ForgeMaintainTemperature, abilityEvent, forgeManager),
+        NetEnsnare: new NetEnsnare(config.NetEnsnare, abilityEvent),
     }
+
+    PreloadAbilities([aProspectorSpellbook, aDefile, aInfuseFelstone, aDemonfruit, aFelBasin, aCrystalizeFel, aEyeOfKilrogg, aTransferFel]);
+    PreloadAbilities([aArtisanSpellbook, aTransmute, aTransmuteRock, aTransmuteIron, aTransmuteCopper, aCrudeAxe, aCrudePickaxe, aHellForge, aWorkstation, aTransmuter, aMinecart, aMineshaft]);
+    PreloadAbilities([aArtisanFelsmithing, aForgeSteel, aForgeFelSteel, aForgeBuildingTools, aForgeSoulGem]);
+    PreloadAbilities([aResearcherSpellbook, aStudy, aOrganicMatter, aNet, aAutomaton, aExperimentChamber, aFelInjector, aDepot, aObliterum]);
 
     // Tools
     toolManager.RegisterTool('IT00', abilities.Axe, 1);
@@ -374,4 +429,17 @@ export function Initialize() {
     //     print(string.format('%02.0f:%02.0f:%02.0f', hours, minutes, seconds)); // 02:05:01
     //     print(string.format('%2.0f:%02.0f:%02.0f', hours, minutes, seconds)); // 2:05:01
     // });
+});
+}
+
+function PreloadAbilities(abilities: { Preload: (dummy: Unit) => void }[]) {
+
+    let dummy = new Unit(21, FourCC('nDUM'), 0, 0, 0);
+
+    for (let a of abilities) {
+        a.Preload(dummy);
+    }
+
+    dummy.kill();
+    dummy.destroy();
 }

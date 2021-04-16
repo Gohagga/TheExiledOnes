@@ -78,7 +78,8 @@ export class Depot extends BuildingAbilityBase {
         } else if (nextPreview) {
 
             storedItem.charges = instance.storedItems.length + 1;
-            this.SetPreviewItem(unit, nextPreview);
+            this.SetPreviewItem(unit, item);
+            hero.addItem(nextPreview);
         }
     }
 

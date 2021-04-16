@@ -49,13 +49,16 @@ export class ToolManager {
 
     Equip(unit: Unit, item: Item) {
 
-        Log.Info("Equipped item", item.name);
         let id = unit.id;
         let itemType = item.typeId;
-
-        let def = this.toolDefinition[itemType];
-        if (!def) Log.Error("Missing tool definition for item type", GetObjectName(item.typeId));
         
+        let def = this.toolDefinition[itemType];
+        if (!def) {
+            // Log.Error("Missing tool definition for item type", GetObjectName(item.typeId));
+            return;
+        }
+        
+        Log.Info("Equipped item", item.name);
         SetItemPosition(item.handle, this.hideItemPosition.x, this.hideItemPosition.y);
         
         if (id in this.instances) {

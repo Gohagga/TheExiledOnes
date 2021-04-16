@@ -1,5 +1,6 @@
 import { sharedPlayer } from "config/Config";
 import { Log } from "Log";
+import { PathingService } from "services/PathingService";
 import { BuildingAbilityBase, Wc3BuildingAbility } from "systems/abilities/BuildingAbilityBase";
 import { IAbility } from "systems/abilities/IAbility";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
@@ -41,6 +42,7 @@ export class Mineshaft extends BuildingAbilityBase {
         errorService: ErrorService,
         craftingManager: CraftingManager,
         private dimensionEvent: IDimensionEventHandler,
+        private pathingService: PathingService,
     ) {
         super(data, spellbookAbility, abilityEvent, slotManager, errorService,
             craftingManager.CreateRecipe(data.materials || []));
@@ -178,6 +180,13 @@ export class Mineshaft extends BuildingAbilityBase {
             let exitUnit = new Unit(sharedPlayer, this.exitUnitId, targetX, targetY, 260);
             this.surfaceInstance[unit.id] = exitUnit;
             this.undergroundInstance[exitUnit.id] = unit;
+
+            let nearest = this.pathingService.GetNearestPoint(x-5, y-5);
+
+            WaygateSetDestination(unit.handle, targetX, targetY);
+            WaygateSetDestination(exitUnit.handle, nearest.x, nearest.y);
+            WaygateActivate(unit.handle, true);
+            WaygateActivate(exitUnit.handle, true);
         }
     }
 

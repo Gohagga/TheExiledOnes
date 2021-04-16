@@ -2,6 +2,8 @@ import { HeroId } from "config/HeroType"
 import { ForgeAbility } from "content/abilities/artisan/FelSmithing"
 import { MineshaftWc3Ability } from "content/abilities/artisan/Mineshaft"
 import { TransmuteAbility } from "content/abilities/artisan/Transmute"
+import { AutomatonAbility } from "content/abilities/researcher/Automaton"
+import { NetEnsnareAbility } from "content/abilities/tools/NetEnsnare"
 import { HeroConfig, HeroType } from "content/gameplay/HeroManager"
 import { ComponentItem, ResourceItem } from "content/items/ResourceItem"
 import { Wc3BuildingAbility } from "systems/abilities/BuildingAbilityBase"
@@ -243,8 +245,8 @@ Retera for RMS
         extCodeId: 'ASA9',
         tooltip: 'Mineshaft allows players to go underground to mine ore.',
         materials: [
-            [2, Material.Frame | Material.TierI],
-            [2, Material.Stone | Material.TierII]
+            // [2, Material.Frame | Material.TierI],
+            // [2, Material.Stone | Material.TierII]
         ]
     }
 
@@ -321,6 +323,61 @@ Retera for RMS
     }
 
     // Researcher
+    Study: Wc3Ability = {
+        name: 'Study',
+        codeId: 'A0R4',
+        extCodeId: 'ASR4',
+        tooltip: 'Reveals small animals and other useful things.'
+    }
+
+    OrganicMatter: TransmuteAbility = {
+        name: 'Create Organic Matter',
+        codeId: 'A0R2',
+        extCodeId: 'ASR2',
+        matAmount: 6,
+        material: Material.Wood | Material.TierII,
+        tooltip: 'Transmutes 6 Logs into Organic Matter'
+    }
+
+    Net: TransmuteAbility = {
+        name: 'Create Net',
+        codeId: 'A0R3',
+        extCodeId: 'ASR3',
+        matAmount: 4,
+        material: Material.Wood | Material.TierI,
+        tooltip: 'Transmutes 3 sticks into rock'
+    }
+
+    ExperimentChamber: Wc3BuildingAbility = {
+        name: 'Prepare Depot',
+        buildCodeId: 'ABR5',
+        prepareCodeId: 'A0R5',
+        builtUnitCodeId: 'u002',
+        extCodeId: 'ASR5',
+        tooltip: 'A structure used for Research, and that sells various evolution upgrades.',
+        materials: [
+            // [3, Material.Metal | Material.TierI],
+            // [1, Material.Wood | Material.TierII]
+        ]
+    }
+    
+    Automaton: AutomatonAbility = {
+        name: 'Prepare Automaton',
+        buildCodeId: 'ABR1',
+        prepareCodeId: 'A0R1',
+        builtUnitCodeId: 'u001',
+        extCodeId: 'ASR1',
+        tooltip: 'Basic worker that runs on Fel. Can be given basic orders. Upgradable with Mechanism for speed and Tank for max Fel and inventory slots.',
+        materials: [
+            // [3, Material.Metal | Material.TierI],
+            // [1, Material.Wood | Material.TierII]
+        ],
+        orderPickupCode: 'A00J',
+        orderToolCode: 'A00K',
+        filterCode: 'A00L',
+        workEffectPath: 'Effect_MechanicGearsSmallTall.mdx',
+    }
+
     Depot: Wc3BuildingAbility = {
         name: 'Prepare Depot',
         buildCodeId: 'ABR0',
@@ -334,27 +391,31 @@ Retera for RMS
         ]
     }
 
-    
-    Automaton: Wc3BuildingAbility = {
-        name: 'Prepare Automaton',
-        buildCodeId: 'ABR1',
-        prepareCodeId: 'A0R1',
-        builtUnitCodeId: 'u001',
-        extCodeId: 'ASR1',
-        tooltip: 'Basic worker that runs on Fel. Can be given basic orders. Upgradable with Mechanism for speed and Tank for max Fel and inventory slots.',
+    FelInjector: Wc3BuildingAbility = {
+        name: 'Prepare Fel Injector',
+        buildCodeId: 'ABR6',
+        prepareCodeId: 'A0R6',
+        builtUnitCodeId: 'u003',
+        extCodeId: 'ASR6',
+        tooltip: 'A device that latches onto a unit with Fel storage. It takes Fel out of  it, depositing it into its target units.',
         materials: [
             // [3, Material.Metal | Material.TierI],
             // [1, Material.Wood | Material.TierII]
         ]
     }
-    // TransmuteRock: TransmuteAbility = {
-    //     name: 'Transmute Rock',
-    //     codeId: 'A0A6',
-    //     extCodeId: 'ASA6',
-    //     matAmount: 3,
-    //     material: Material.Wood | Material.TierI,
-    //     tooltip: 'Transmutes 3 sticks into rock'
-    // }
+
+    Obliterum: Wc3BuildingAbility = {
+        name: 'Prepare Obliterum',
+        buildCodeId: 'ABR7',
+        prepareCodeId: 'A0R7',
+        builtUnitCodeId: 'u004',
+        extCodeId: 'ASR7',
+        tooltip: 'A machine that destroys materials to produce Fel.',
+        materials: [
+            // [3, Material.Metal | Material.TierI],
+            // [1, Material.Wood | Material.TierII]
+        ]
+    }
 
     // TransmuteIron: TransmuteAbility = {
     //     name: 'Transmute Iron',
@@ -442,6 +503,11 @@ Deposits existing items to target unit.
 Takes items from target unit if inventory is empty (only owned or shared units).`
     }
 
+    NetEnsnare: NetEnsnareAbility = {
+        name: 'Net Ensnare',
+        codeId: 'A00U',
+        itemAbilityCode: 'A00M'
+    }
     
 //#endregion
 
@@ -754,6 +820,12 @@ Takes items from target unit if inventory is empty (only owned or shared units).
             name: 'Crystallized Fel',
             itemTypeId: FourCC('I003'),
             tooltip: 'A chunk of fel, can be consumed for 100 fel.'
+        },
+
+        {
+            name: 'Net',
+            itemTypeId: FourCC('I001'),
+            tooltip: 'Used to catch animals alive.'
         }
     ]
 }

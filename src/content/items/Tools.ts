@@ -17,4 +17,5 @@ export enum Tools {
     // SteelPickaxeIV          = FourCC(''),
 
     BuildingTools           = FourCC('IT06'),
+    Net                     = FourCC('I001'),
 }

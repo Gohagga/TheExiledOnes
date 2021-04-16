@@ -20,6 +20,8 @@ export enum ResourceItem {
     Copper              = FourCC('IMF1'),
     Silver              = FourCC('IMF2'),
     Gold                = FourCC('IMF3'),
+
+    OrganicMatter       = FourCC('IM04'),
 }
 
 export enum ComponentItem {

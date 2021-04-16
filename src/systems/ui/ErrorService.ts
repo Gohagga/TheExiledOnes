@@ -26,4 +26,19 @@ export class ErrorService {
         //     call StartSound(udg_ErrorSound)
         // endif
     }
+
+    TextTagError(message: string, x: number, y: number, z = 100) {
+        let tt = CreateTextTag();
+
+        // let dx = 0.086203125 * math.cos(math.pi*0.5);
+        // let dy = 0.086203125 * math.sin(ang);
+
+        SetTextTagText(tt, message, TextTagSize2Height(10));
+        SetTextTagPos(tt, x, y, z);
+        SetTextTagColor(tt, 249, 206, 13, 255);
+        SetTextTagVelocity(tt, 0.0, 0.03);
+        SetTextTagPermanent(tt, false);
+        SetTextTagFadepoint(tt, 0.8);
+        SetTextTagLifespan(tt, 1);
+    }
 }
