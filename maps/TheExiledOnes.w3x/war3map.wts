@@ -5305,3 +5305,15 @@ STRING 1081
 Build Fel Basin
 }
 
+STRING 1082
+// Abilities: A00N (Rabbit Invisibility), Name (Name)
+{
+Rabbit Invisibility
+}
+
+STRING 1083
+// Abilities: A00O (Frog Invisibility), Name (Name)
+{
+Frog Invisibility
+}
+

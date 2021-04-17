@@ -54,6 +54,7 @@ import { NetEnsnare } from "content/abilities/tools/NetEnsnare";
 import { FelInjector } from "content/abilities/researcher/FelInjector";
 import { Obliterum } from "content/abilities/researcher/Obliterum";
 import { ExperimentChamber } from "content/abilities/researcher/ExperimentChamber";
+import { CustomMinimap2 } from "systems/minimap/CustomMinimap2";
 
 export function Initialize() {
 
@@ -62,8 +63,9 @@ export function Initialize() {
     // Set Player alliances
 
     Log.Level = Level.All;
-    let generateMap = false;
-    let lockToSurface = false;
+    let generateMap = true;
+    let lockToSurface = true;
+    FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
 
     for (let p of config.players) {
         SetPlayerAllianceStateBJ(p.handle, sharedPlayer.handle, bj_ALLIANCE_ALLIED_UNITS);
@@ -148,7 +150,6 @@ export function Initialize() {
     });
 
     // Make players
-    // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
     Global.soulAnchor = new Unit(sharedPlayer, FourCC('E000'), surfaceRect.centerX, surfaceRect.centerY, 0);
     PanCameraToTimed(Global.soulAnchor.x, Global.soulAnchor.y, 0);
     SelectUnitSingle(Global.soulAnchor.handle);
@@ -180,7 +181,8 @@ export function Initialize() {
         }
     
         const heightNoise = new HeightNoiseProvider(random);
-        const surfaceMinimap = new CustomMinimap(surfaceRect);
+        // const surfaceMinimap = new CustomMinimap(surfaceRect);
+        const surfaceMinimap = new CustomMinimap2(surfaceRect);
         const treeNoise = new TreeNoiseProvider(random);
         const moistureNoise = new MoistureNoiseProvider(random);
         const cavernNoise = new CavernNoiseProvider(random);
@@ -223,7 +225,7 @@ export function Initialize() {
         });
         const progressTim = new Timer();
         progressTim.start(1, true, () => {
-            ClearTextMessages();
+            if (Log.Level != Level.All) ClearTextMessages();
             let passed = math.floor(os.clock() - time + 0.5);
             let prediction = passed / mapGenerator.progress;
             Log.Message("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%', "seconds passed: ", passed, "prediction: ", prediction);
@@ -397,15 +399,17 @@ export function Initialize() {
         let number: number = 3000;
         let ind = 0;
         if (str.startsWith('-cam '))
-            ind = 4;
+            ind = 5;
         else if (str == '-cam') {
             number = 3000;
-        } else if (str.startsWith('-zoom ')) {
             ind = 5;
+        } else if (str.startsWith('-zoom ')) {
+            ind = 6;
         } else {
             return;
         }
-
+        let n = S2I(string.sub(str, ind));
+        if (n != 0) number = n;
         print("Camera distance set to ", number);
         SetCameraFieldForPlayer(MapPlayer.fromEvent().handle, CAMERA_FIELD_TARGET_DISTANCE, number, 0.5);
         SetCameraFieldForPlayer(MapPlayer.fromEvent().handle, CAMERA_FIELD_FARZ, 100000, 0.5);

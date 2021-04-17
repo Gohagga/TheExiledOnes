@@ -14,6 +14,8 @@ import { ICavernNoiseProvider } from "./interfaces/ICavernNoiseProvider";
 import { IHeightNoiseProvider } from "./interfaces/IHeightNoiseProvider";
 import { IMoistureNoiseProvider } from "./interfaces/IMoistureNoiseProvider";
 import { ITreeNoiseProvider } from "./interfaces/ITreeNoiseProvider";
+import { TerrainType } from "./MapGenerator";
+import { GridPointPlacer } from "./object-placers/GridPointPlacer";
 import { OrePlacer } from "./object-placers/OrePlacer";
 import { RandomObjectPlacer } from "./object-placers/RandomObjectPlacer";
 
@@ -84,6 +86,17 @@ export class MapGenerator2 {
             let caveHeightBuilder = new CaveHeightBuilder(this.cavernNoise, xDensUnder, yDensUnder, this.stepOffset, this.random); //1 / this.undergroundBounds.maxX
             let caveTileBuilder = new CaveTileBuilder(caveHeightBuilder);
             let minimapBuilder = new MinimapBuilder(this.minimap, heightBuilder, pathingBuilder, tileBuilder);
+            let animalPlacers = [
+                { type: FourCC('nfro'), placer: new GridPointPlacer(this.surfaceBounds, 6, 6, 1) },
+                { type: FourCC('nder'), placer: new GridPointPlacer(this.surfaceBounds, 2, 2, 3) },
+                { type: FourCC('necr'), placer: new GridPointPlacer(this.surfaceBounds, 4, 4, 1) },
+                { type: FourCC('nskk'), placer: new GridPointPlacer(this.surfaceBounds, 4, 4, 1) },
+                // { type: FourCC('nfro'), placer: new GridPointPlacer(this.surfaceBounds, 6, 6, 1) }
+            ]
+            let frog = animalPlacers[0];
+            let deer = animalPlacers[1];
+            let rabbit = animalPlacers[2];
+            let skink = animalPlacers[3];
 
             // Object Placers
             let orePlacer = new OrePlacer(this.random, this.surfaceBounds, heightBuilder, this.itemFactory);
@@ -109,6 +122,9 @@ export class MapGenerator2 {
                     let pathing = pathingBuilder.getPathing(x, y, height);
                     let tile = tileBuilder.getTileType(x, y, pathing, height);
 
+                    let underX = x - this.surfaceBounds.minX + this.undergroundBounds.minX;
+                    let underY = y - this.surfaceBounds.minY + this.undergroundBounds.minY;
+
                     // We update tile every 8 steps
                     if (x % this.stepOffset == 0 && 
                         y % this.stepOffset == 0
@@ -119,8 +135,6 @@ export class MapGenerator2 {
                         this.debt += tileBuilder.buildTerrainTile(x, y, tile);
                         this.debt += treeBuilder.buildTreeOrDont(x, y, pathing, height);
 
-                        let underX = x - this.surfaceBounds.minX + this.undergroundBounds.minX;
-                        let underY = y - this.surfaceBounds.minY + this.undergroundBounds.minY;
                         this.debt += caveHeightBuilder.buildCaveHeight(underX, underY);
                         this.debt += caveTileBuilder.buildCaveTile(underX, underY);
 
@@ -129,8 +143,23 @@ export class MapGenerator2 {
                         }
                         
                         if (tree) randomPlacer.AddTree(tree);
+                        try {
+                            if ((pathing == PathingType.DeepWater || pathing == PathingType.ShallowWater) && math.random() < 0.2 && frog.placer.placeObject(x, y))
+                                CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), frog.type, x, y, 0);
+                            if ((pathing == PathingType.Plains) && math.random() < 0.2 && deer.placer.placeObject(x, y))
+                                CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), deer.type, x, y, 0);
+                            if ((pathing == PathingType.Plains) && math.random() < 0.2 && rabbit.placer.placeObject(x, y))
+                                CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), rabbit.type, x, y, 0);
+                            if ((pathing == PathingType.Hills && tile == TerrainType.Rock) && math.random() < 0.5 && skink.placer.placeObject(x, y))
+                                CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), skink.type, x, y, 0);
+                        } catch (ex) {
+                            Log.Error(ex);
+                        }
                     }
                     this.debt += pathingBuilder.buildPathing(x, y, pathing);
+                    // this.debt += pathingBuilder.buildPathing(underX, underY, PathingType.Hills);
+                    SetTerrainPathable(underX, underY, PATHING_TYPE_BUILDABILITY, true);
+                    this.debt += 1;
 
                     let xPerc = (x - minX) * widthDiv;
                     let yPerc = (y - minY) * heightDiv;

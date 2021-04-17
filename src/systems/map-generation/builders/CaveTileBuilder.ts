@@ -28,7 +28,6 @@ export class CaveTileBuilder {
         let tileType = this.getCaveTile(x, y);
         
         SetTerrainType(x, y, tileType, 0, 1, 1);
-        SetTerrainPathable(x, y, PATHING_TYPE_BUILDABILITY, true);
         return 0;
     }
 }
