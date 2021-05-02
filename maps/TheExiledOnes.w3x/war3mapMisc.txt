@@ -4,4 +4,5 @@ FollowRange=100.0
 ItemStackingEnabled=0
 MaxUnitSpeed=522.0
 MinUnitSpeed=0.0
+NeedHeroXP=100
 

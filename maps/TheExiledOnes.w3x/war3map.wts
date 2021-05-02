@@ -1,6 +1,6 @@
 ﻿STRING 1
 {
-The Exiled Ones v0.2.3
+The Exiled Ones v0.2.6
 }
 
 STRING 2
@@ -438,7 +438,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 92
-// Abilities: A0P4 (Demonfruit), Name (Name)
+// Units: e001 (Demonfruit), Name (Name)
 {
 Demonfruit
 }
@@ -3349,7 +3349,7 @@ Minecart
 
 STRING 679
 {
-v0.2.3
+v0.2.6
 }
 
 STRING 680
@@ -5315,5 +5315,1358 @@ STRING 1083
 // Abilities: A00O (Frog Invisibility), Name (Name)
 {
 Frog Invisibility
+}
+
+STRING 1084
+// Upgrades: R0R1 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Automaton
+}
+
+STRING 1085
+// Upgrades: R0R2 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Depot
+}
+
+STRING 1086
+// Abilities: A0R8 (Research Automaton), Name (Name)
+{
+Research Automaton
+}
+
+STRING 1088
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1089
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1090
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1091
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1092
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1093
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1096
+// Abilities: ASR8 (Addition Research Automaton), Name (Name)
+{
+Addition Research Automaton
+}
+
+STRING 1097
+// Abilities: ASR8 (Addition Research Automaton), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1098
+// Abilities: ASR8 (Addition Research Automaton), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1099
+// Abilities: ASR8 (Addition Research Automaton), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1100
+// Abilities: A0RW (Research Spellbook), Name (Name)
+{
+Research Spellbook
+}
+
+STRING 1101
+// Abilities: A0RW (Research Spellbook), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1102
+// Abilities: A0RW (Research Spellbook), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 1103
+// Abilities: A0RW (Research Spellbook), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1104
+// Abilities: A0RW (Research Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main researcher abilities.
+}
+
+STRING 1105
+// Abilities: A0RW (Research Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main researcher abilities.
+}
+
+STRING 1106
+// Abilities: A0RW (Research Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main researcher abilities.
+}
+
+STRING 1107
+// Abilities: A0R9 (Research Tank), EditorSuffix (Editor Suffix)
+{
+(Q)
+}
+
+STRING 1108
+// Abilities: A0R9 (Research Tank), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1109
+// Abilities: A0R9 (Research Tank), Researchhotkey (Hotkey - Learn)
+{
+Q
+}
+
+STRING 1110
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 200 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1111
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 300 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1112
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1113
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1114
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1115
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1116
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1117
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1118
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1119
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 400 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1120
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 500 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1121
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 600 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1122
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 700 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1123
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 800 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1124
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 900 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1125
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 1000 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1126
+// Upgrades: R001 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Tank I
+}
+
+STRING 1127
+// Upgrades: R002 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Tank II
+}
+
+STRING 1128
+// Upgrades: R003 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Tank III
+}
+
+STRING 1129
+// Upgrades: R004 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Tank IV
+}
+
+STRING 1130
+// Abilities: A0RA (Research Converter), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 1131
+// Abilities: A0RA (Research Converter), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 1132
+// Abilities: A0RA (Research Converter), Researchhotkey (Hotkey - Learn)
+{
+W
+}
+
+STRING 1133
+// Abilities: A0R9 (Research Tank), Name (Name)
+{
+Research Tank
+}
+
+STRING 1134
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1135
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1136
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1137
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 200 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1138
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 300 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1139
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1140
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1141
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1142
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1143
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1144
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1145
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1146
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 400 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1147
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 500 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1148
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 600 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1149
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 700 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1150
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 800 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1151
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 900 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1152
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 1000 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1153
+// Abilities: ASR9 (Addition Research Tank), Name (Name)
+{
+Addition Research Tank
+}
+
+STRING 1154
+// Abilities: ASR9 (Addition Research Tank), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1155
+// Abilities: ASR9 (Addition Research Tank), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1156
+// Abilities: ASR9 (Addition Research Tank), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1157
+// Upgrades: R0C1 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Converter I
+}
+
+STRING 1158
+// Upgrades: R0C2 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Converter II
+}
+
+STRING 1159
+// Upgrades: R0C3 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Converter III
+}
+
+STRING 1160
+// Upgrades: R0C4 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Converter IV
+}
+
+STRING 1161
+// Abilities: ASRA (Addition Research Converter), Name (Name)
+{
+Addition Research Converter
+}
+
+STRING 1162
+// Abilities: ASRA (Addition Research Converter), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1163
+// Abilities: ASRA (Addition Research Converter), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1164
+// Abilities: ASRA (Addition Research Converter), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1165
+// Abilities: A0RA (Research Converter), Name (Name)
+{
+Research Converter
+}
+
+STRING 1167
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1168
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1169
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1170
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 200 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1171
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 300 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1174
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1175
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1176
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1177
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1178
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1179
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1180
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1181
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 400 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1182
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 500 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1183
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 600 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1184
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 700 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1185
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 800 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1186
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 900 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1187
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 1000 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1188
+// Abilities: A0R8 (Research Automaton), Hotkey (Hotkey - Normal)
+{
+A
+}
+
+STRING 1189
+// Abilities: A0R8 (Research Automaton), EditorSuffix (Editor Suffix)
+{
+(A)
+}
+
+STRING 1190
+// Abilities: A0R8 (Research Automaton), Researchhotkey (Hotkey - Learn)
+{
+A
+}
+
+STRING 1191
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 1
+}
+
+STRING 1192
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 1
+}
+
+STRING 1193
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 2
+}
+
+STRING 1194
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 3
+}
+
+STRING 1195
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 4
+}
+
+STRING 1196
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 5
+}
+
+STRING 1197
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 6
+}
+
+STRING 1198
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 7
+}
+
+STRING 1199
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 8
+}
+
+STRING 1200
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 9
+}
+
+STRING 1201
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 10
+}
+
+STRING 1202
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 11
+}
+
+STRING 1203
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 12
+}
+
+STRING 1204
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 13
+}
+
+STRING 1205
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 14
+}
+
+STRING 1206
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 15
+}
+
+STRING 1207
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 16
+}
+
+STRING 1208
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 17
+}
+
+STRING 1209
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 18
+}
+
+STRING 1210
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 19
+}
+
+STRING 1211
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 20
+}
+
+STRING 1212
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 21
+}
+
+STRING 1213
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 22
+}
+
+STRING 1214
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 23
+}
+
+STRING 1215
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 24
+}
+
+STRING 1216
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 25
+}
+
+STRING 1217
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 26
+}
+
+STRING 1218
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 27
+}
+
+STRING 1219
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 28
+}
+
+STRING 1220
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 29
+}
+
+STRING 1221
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 30
+}
+
+STRING 1222
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 2
+}
+
+STRING 1223
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 3
+}
+
+STRING 1224
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 4
+}
+
+STRING 1225
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 5
+}
+
+STRING 1226
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 6
+}
+
+STRING 1227
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 7
+}
+
+STRING 1228
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 8
+}
+
+STRING 1229
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 9
+}
+
+STRING 1230
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 10
+}
+
+STRING 1231
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 11
+}
+
+STRING 1232
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 12
+}
+
+STRING 1233
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 13
+}
+
+STRING 1234
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 14
+}
+
+STRING 1235
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 15
+}
+
+STRING 1236
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 16
+}
+
+STRING 1237
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 17
+}
+
+STRING 1238
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 18
+}
+
+STRING 1239
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 19
+}
+
+STRING 1240
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 20
+}
+
+STRING 1241
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 21
+}
+
+STRING 1242
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 22
+}
+
+STRING 1243
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 23
+}
+
+STRING 1244
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 24
+}
+
+STRING 1245
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 25
+}
+
+STRING 1246
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 26
+}
+
+STRING 1247
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 27
+}
+
+STRING 1248
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 28
+}
+
+STRING 1249
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 29
+}
+
+STRING 1250
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 30
+}
+
+STRING 1251
+// Abilities: A00P (Study Award Experience), Name (Name)
+{
+Study Award Experience
+}
+
+STRING 1252
+// Abilities: A00P (Study Award Experience), Tip (Tooltip - Normal)
+{
+Transfer Inventory
+}
+
+STRING 1253
+// Abilities: A00P (Study Award Experience), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1254
+// Abilities: A00P (Study Award Experience), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1255
+// Abilities: A00P (Study Award Experience), Ubertip (Tooltip - Normal - Extended)
+{
+If targeting the ground, will drop all items on that point.
+
+Deposits existing items to target unit.
+Takes items from target unit if inventory is empty.
+}
+
+STRING 1256
+// Abilities: A00P (Study Award Experience), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1257
+// Abilities: A00P (Study Award Experience), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1258
+// Abilities: A00P (Study Award Experience), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 1259
+// Abilities: A0RB (Research Depot), Name (Name)
+{
+Research Depot
+}
+
+STRING 1261
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1262
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1263
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1264
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1265
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 200 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1266
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 300 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1269
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1270
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1271
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1272
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1273
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1274
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1275
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1276
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 400 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1277
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 500 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1278
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 600 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1279
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 700 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1280
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 800 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1281
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 900 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1282
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 1000 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1283
+// Abilities: A0RB (Research Depot), Hotkey (Hotkey - Normal)
+{
+D
+}
+
+STRING 1284
+// Abilities: A0RB (Research Depot), EditorSuffix (Editor Suffix)
+{
+(D)
+}
+
+STRING 1285
+// Abilities: A0RB (Research Depot), Researchhotkey (Hotkey - Learn)
+{
+D
+}
+
+STRING 1286
+// Abilities: ASRB (Addition Research Depot), Name (Name)
+{
+Addition Research Depot
+}
+
+STRING 1287
+// Abilities: ASRB (Addition Research Depot), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1288
+// Abilities: ASRB (Addition Research Depot), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1289
+// Abilities: ASRB (Addition Research Depot), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1290
+// Units: n002 (Eye of Kilrogg), Name (Name)
+{
+Eye of Kilrogg
+}
+
+STRING 1291
+// Abilities: A00R (Magic Sentry Eye of Killrogg), Name (Name)
+{
+Magic Sentry Eye of Killrogg
+}
+
+STRING 1292
+// Abilities: A00R (Magic Sentry Eye of Killrogg), Tip (Tooltip - Normal)
+{
+Magic Sight
+}
+
+STRING 1293
+// Abilities: A00S (Mana 25 Fel Basin), Name (Name)
+{
+Mana 25 Fel Basin
+}
+
+STRING 1294
+// Abilities: A00S (Mana 25 Fel Basin), Tip (Tooltip - Normal)
+{
+Transfer Mana
+}
+
+STRING 1295
+// Abilities: A00S (Mana 25 Fel Basin), Tip (Tooltip - Normal)
+{
+Transfer Mana
+}
+
+STRING 1296
+// Abilities: A00S (Mana 25 Fel Basin), Tip (Tooltip - Normal)
+{
+Transfer Mana
+}
+
+STRING 1297
+// Abilities: A00S (Mana 25 Fel Basin), Ubertip (Tooltip - Normal - Extended)
+{
+Gives 25 mana to target unit.
+}
+
+STRING 1298
+// Abilities: A00S (Mana 25 Fel Basin), Ubertip (Tooltip - Normal - Extended)
+{
+Gives 25 mana to target unit.
+}
+
+STRING 1299
+// Abilities: A00S (Mana 25 Fel Basin), Ubertip (Tooltip - Normal - Extended)
+{
+Gives 25 mana to target unit.
+}
+
+STRING 1300
+// Abilities: A00T (Demonfruit Gather), Name (Name)
+{
+Demonfruit Gather
+}
+
+STRING 1301
+// Items: IM05 (Demonfruit), Description (Description)
+{
+Material.
+}
+
+STRING 1302
+// Items: IM05 (Demonfruit), Ubertip (Tooltip - Extended)
+{
+Material.
+}
+
+STRING 1303
+// Items: IM05 (Demonfruit), Name (Name)
+{
+Demonfruit
+}
+
+STRING 1304
+// Abilities: A0P4 (Demonfruit), Name (Name)
+{
+Demonfruit
+}
+
+STRING 1305
+// Abilities: A0P7 (Fel Extraction), Name (Name)
+{
+Fel Extraction
+}
+
+STRING 1306
+// Abilities: A0P7 (Fel Extraction), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 1307
+// Abilities: A0P7 (Fel Extraction), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 1308
+// Abilities: A0P7 (Fel Extraction), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 1309
+// Abilities: A0P7 (Fel Extraction), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 1310
+// Abilities: A0P7 (Fel Extraction), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 1311
+// Abilities: A0P7 (Fel Extraction), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 1312
+// Abilities: A0P7 (Fel Extraction), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 1313
+// Abilities: A0P7 (Fel Extraction), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 1314
+// Abilities: ASP7 (Addition Fel Extraction), Name (Name)
+{
+Addition Fel Extraction
+}
+
+STRING 1315
+// Abilities: ASP7 (Addition Fel Extraction), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1316
+// Abilities: ASP7 (Addition Fel Extraction), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1317
+// Abilities: ASP7 (Addition Fel Extraction), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
 }
 
