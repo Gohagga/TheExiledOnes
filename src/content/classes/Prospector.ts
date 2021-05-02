@@ -13,7 +13,7 @@ export type ProspectorAbilities = {
 
     Defile: IAbility,
     EyeOfKilrogg: IAbility,
-    InfuseFelstone: IAbility,
+    FelExtraction: IAbility,
     CrystalizeFel: IAbility,
     Demonfruit: IAbility,
     TransferFel: IAbility,
@@ -48,7 +48,7 @@ export class Prospector extends PlayerClass {
         this.toolManager.SetDefault(this.unit, this.abilities.Hand);
 
         this.Add(AbilitySlot.Q, this.abilities.Defile);
-        this.Add(AbilitySlot.W, this.abilities.InfuseFelstone);
+        this.Add(AbilitySlot.W, this.abilities.FelExtraction);
         this.Add(AbilitySlot.E, this.abilities.Demonfruit);
         this.Add(AbilitySlot.R, this.abilities.FelBasin);
         this.Add(AbilitySlot.A, this.abilities.CrystalizeFel);
@@ -59,9 +59,38 @@ export class Prospector extends PlayerClass {
         Log.Info("Updating spell list");
         this.basicSlotManager.UpdateSpellList(this.unit);
         Log.Info("returning");
+
+        // Leveling
+
+        this.basicSlotManager.DisableAbilities(this.unit);
+        // this.specialSlotManager.DisableAbilities(this.unit);
+        this.Enable(this.abilities.TransferItems, false);
+
+        this.WaitForUnitLevel(1);
+        this.Enable(this.abilities.Defile, true);
+        this.Enable(this.abilities.EyeOfKilrogg, true);
+
+        this.WaitForUnitLevel(2);
+        this.Enable(this.abilities.Demonfruit, true);
+        this.Enable(this.abilities.CrystalizeFel, true);
+        this.Enable(this.abilities.TransferItems, true);
+        
+        this.WaitForUnitLevel(3);
+        this.Enable(this.abilities.FelBasin, true);
+        this.Enable(this.abilities.FelExtraction, true);
+        
+        this.WaitForUnitLevel(4);
+        this.Enable(this.abilities.TransferFel, true);
+
+        this.WaitForUnitLevel(5);
+        // this.Enable(this.abilities.FelExtraction, true);
     }
 
     private Add(slot: AbilitySlot, ability: IAbility) {
         this.basicSlotManager.ApplySlot(this.unit, slot, ability);
+    }
+
+    private Enable(ability: IAbility, flag: boolean) {
+        ability.DisableForUnit(this.unit, !flag);
     }
 }

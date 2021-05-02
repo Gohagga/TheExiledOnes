@@ -11,5 +11,7 @@ export interface IAbility {
 
     RemoveFromUnit(unit: Unit, extended?: boolean): boolean;
 
+    DisableForUnit(unit: Unit, disable: boolean): void;
+
     Preload(dummy: Unit): void;
 }

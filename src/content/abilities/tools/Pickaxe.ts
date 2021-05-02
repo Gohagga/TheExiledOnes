@@ -4,6 +4,7 @@ import { Wc3Ability } from "systems/abilities/Wc3Ability";
 import { AbilityEvent } from "systems/events/ability-events/event-models/AbilityEvent";
 import { IAbilityEventHandler } from "systems/events/ability-events/IAbilityEventHandler";
 import { OreType } from "systems/map-generation/object-placers/OrePlacer";
+import { ErrorService } from "systems/ui/ErrorService";
 import { Item, Unit } from "w3ts/index";
 import { ToolAbilityBase } from "../../../systems/abilities/ToolAbilityBase";
 
@@ -12,6 +13,7 @@ export class Pickaxe extends ToolAbilityBase {
     constructor(
         data: Wc3Ability,
         abilityEvent: IAbilityEventHandler,
+        private readonly errorService: ErrorService,
     ) {
         super(data);
         abilityEvent.OnAbilityEffect(this.id, (e: AbilityEvent) => this.Execute(e));
@@ -30,11 +32,11 @@ export class Pickaxe extends ToolAbilityBase {
 
         // 15
         let dmg = 30 + (level - 1) * 15;
-        caster.damageTarget(target.handle, dmg, true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_AXE_MEDIUM_CHOP);
         
         switch (target.typeId) {
             case OreType.StonePile:
-
+                
+                caster.damageTarget(target.handle, dmg, true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_AXE_MEDIUM_CHOP);
                 let total = math.floor((target.maxLife - target.life) / intervalLife);
                 let alreadyDropped = math.floor((target.maxLife - life) / intervalLife);
                 let toDrop = total - alreadyDropped;
@@ -43,7 +45,11 @@ export class Pickaxe extends ToolAbilityBase {
                 for (let i = 0; i < toDrop; i++) {
                     let it = new Item(ResourceItem.StoneII, x, y);
                     caster.addItem(it);
+                    caster.addExperience(this.experience, true);
                 }
+                break;
+            default:
+                this.errorService.DisplayError(caster.owner, "Target must be debris.");
                 break;
         }
         // // If widget has died, do drops

@@ -56,6 +56,8 @@ export class Transmute extends AbilityBase {
         let item = this.itemFactory.CreateItemByType(this.resultItemType);
         if (!caster.addItem(item))
             item.setPoint(caster.point);
+
+        caster.addExperience(this.experience, true);
         
     }
     

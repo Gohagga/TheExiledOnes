@@ -78,7 +78,6 @@ export class Automaton extends BuildingAbilityBase {
                 orderId != OrderId.Smart &&
                 orderId != OrderId.Stop) {
 
-                    print("Stop order");
                     this.StopAutomationTask(unit);
                 }
         })
@@ -102,7 +101,6 @@ export class Automaton extends BuildingAbilityBase {
             let ability = caster.getAbility(this.invAutomatonId);
             let level = caster.getAbilityLevel(this.invAutomatonId) - 1;
             let count = BlzGetAbilityIntegerLevelField(ability, ABILITY_ILF_ITEM_CAPACITY, level);
-            print(level, count);
 
             tooltip = this.FilterItemsTooltip();
 
@@ -113,7 +111,6 @@ export class Automaton extends BuildingAbilityBase {
                 if (i % 2 == 0) tooltip += '\n';
             }
 
-            print(tooltip);
             name = 'Configured Item Filter';
 
         } else {
@@ -123,8 +120,8 @@ export class Automaton extends BuildingAbilityBase {
         }
         
         let a = caster.getAbility(this.filterId);
-        print(BlzSetAbilityStringLevelField(a, ABILITY_SLF_TOOLTIP_NORMAL, 0, name));
-        print(BlzSetAbilityStringLevelField(a, ABILITY_SLF_TOOLTIP_NORMAL_EXTENDED, 0, tooltip));
+        BlzSetAbilityStringLevelField(a, ABILITY_SLF_TOOLTIP_NORMAL, 0, name);
+        BlzSetAbilityStringLevelField(a, ABILITY_SLF_TOOLTIP_NORMAL_EXTENDED, 0, tooltip);
     }
 
     ExecuteToolOrder(e: AbilityEvent): void {
@@ -137,7 +134,6 @@ export class Automaton extends BuildingAbilityBase {
         
         Log.Info("Checking inventory");
         if (this.IsInventoryFull(caster)) {
-            print("Inventory is full")
             currentState = this.ReturnState;
         }
 
@@ -186,7 +182,6 @@ export class Automaton extends BuildingAbilityBase {
                 }
             }
             
-            print("Has Filter Items", hasItems);
             return hasItems;
         }
     }
@@ -196,11 +191,9 @@ export class Automaton extends BuildingAbilityBase {
         let unitId = unit.id;
         if (unitId in this.instance) this.instance[unitId].timer.pause();
 
-        print("Starting timer");
         let instance = this.instance[unitId];
         instance.timer.start(1, true, () => {
 
-            print("tick");
             let inst = this.instance[unitId];
             inst.currentState = inst.currentState.Update(unit, inst) || inst.order;
         });
@@ -229,7 +222,6 @@ export class Automaton extends BuildingAbilityBase {
         
         Log.Info("Checking inventory");
         if (this.HasFilterItems(caster)) {
-            print("Inventory is full")
             currentState = this.ReturnState;
         }
 
@@ -435,7 +427,6 @@ export class Automaton extends BuildingAbilityBase {
                     let dy = d.y;
     
                     let distanceSq = (x-dx)*(x-dx) + (y-dy)*(y-dy);
-                    print(distanceSq);
                     if (distanceSq < closestDist) {
                         closest = d;
                         closestDist = distanceSq;

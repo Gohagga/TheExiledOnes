@@ -27,6 +27,7 @@ export class CrystalizeFel extends AbilityBase {
         Log.Info("Has cast Crystalize fel");
 
         let item = this.itemFactory.CreateItemByType(FourCC('I003'), caster.x, caster.y);
+        caster.addExperience(this.experience, true);
     }
 
     TooltipDescription = undefined;

@@ -55,18 +55,24 @@ import { FelInjector } from "content/abilities/researcher/FelInjector";
 import { Obliterum } from "content/abilities/researcher/Obliterum";
 import { ExperimentChamber } from "content/abilities/researcher/ExperimentChamber";
 import { CustomMinimap2 } from "systems/minimap/CustomMinimap2";
+import { Research } from "content/abilities/researcher/ResearchAbility";
+import { Study } from "content/abilities/researcher/Study";
+import { Demonfruit } from "content/abilities/prospector/Demonfruit";
+import { FelExtraction } from "content/abilities/prospector/FelExtraction";
+import { OrganicMatter } from "content/abilities/researcher/OrganicMatter";
 
 export function Initialize() {
 
     const config = new Config();
 
-    // Set Player alliances
-
     Log.Level = Level.All;
-    let generateMap = true;
-    let lockToSurface = true;
-    FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
-
+    Log.Level = Level.Message;
+    let generateMap = false;
+    let lockToSurface = false;
+    // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
+    
+    // Set Player alliances
+    let alliedPlayers: MapPlayer[] = [...config.players, sharedPlayer];
     for (let p of config.players) {
         SetPlayerAllianceStateBJ(p.handle, sharedPlayer.handle, bj_ALLIANCE_ALLIED_UNITS);
         SetPlayerAllianceStateBJ(sharedPlayer.handle, p.handle, bj_ALLIANCE_ALLIED_ADVUNITS);
@@ -263,30 +269,30 @@ export function Initialize() {
     // craftingManager.RegisterItemMaterial(ComponentItem.FrameIII, Material.Frame | Material.TierIII);
     // craftingManager.RegisterItemMaterial(ComponentItem.FrameIV, Material.Frame | Material.TierIII);
 
-    let prospectorQ = new BasicAbility(config.ProspectorSpellbook);
-    let artisanQ = new BasicAbility(config.ArtisanSpellbook);
-    let researcherQ = new BasicAbility(config.ResearcherSpellbook);
+    let prospectorQ = new BasicAbility(config.ProspectorSpellbook, abilityEvent);
+    let artisanQ = new BasicAbility(config.ArtisanSpellbook, abilityEvent);
+    let researcherQ = new BasicAbility(config.ResearcherSpellbook, abilityEvent);
 
-    let artisanW = new BasicAbility(config.ArtisanFelsmithing);
+    let artisanW = new BasicAbility(config.ArtisanFelsmithing, abilityEvent);
+    let researcherW = new BasicAbility(config.ResearchSpellbook, abilityEvent);
 
     let depot = new Depot(config.Depot, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager, hideItemPoint);
-    let hand = new Hand(config.Hand, abilityEvent, inputHandler, toolManager, itemFactory, heroManager);
-
-    // Order of abilities defined affects their order in the spellbooks!!!
-    
+    let hand = new Hand(config.Hand, abilityEvent, inputHandler, toolManager, itemFactory, heroManager, errorService);
+   
     // Prospector
     let aProspectorSpellbook = prospectorQ;
     let aDefile = new Defile(config.Defile, abilityEvent, errorService);
-    let aInfuseFelstone = new Transmute(config.InfuseFelstone, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Felstone);
-    let aDemonfruit = new BasicAbility(config.Demonfruit);
+    // let aInfuseFelstone = new Transmute(config.InfuseFelstone, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Felstone);
+    let aFelExtraction = new FelExtraction(config.FelExtraction, abilityEvent, craftingManager, itemFactory, errorService);
+    let aDemonfruit = new Demonfruit(config.Demonfruit, abilityEvent, craftingManager, errorService, itemFactory);
     let aFelBasin = new FelBasin(config.FelBasin, prospectorQ, abilityEvent, basicSlotManager, craftingManager, errorService);
     let aCrystalizeFel = new CrystalizeFel(config.CrystalizeFel, abilityEvent, errorService, itemFactory);
-    let aEyeOfKilrogg = new BasicAbility(config.EyeOfKilrogg);
-    let aTransferFel = new BasicAbility(config.TransferFel);
+    let aEyeOfKilrogg = new BasicAbility(config.EyeOfKilrogg, abilityEvent);
+    let aTransferFel = new BasicAbility(config.TransferFel, abilityEvent);
 
     // Artisan
     let aArtisanSpellbook = artisanQ;
-    let aTransmute = new BasicAbility(config.Transmute);
+    let aTransmute = new BasicAbility(config.Transmute, abilityEvent);
     let aTransmuteRock = new Transmute(config.TransmuteRock, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Rock);
     let aTransmuteIron = new Transmute(config.TransmuteIron, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Iron);
     let aTransmuteCopper = new Transmute(config.TransmuteCopper, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Copper);
@@ -306,21 +312,28 @@ export function Initialize() {
 
     // Researcher
     let aResearcherSpellbook = researcherQ;
-    let aStudy = new BasicAbility(config.Study);
-    let aOrganicMatter = new Transmute(config.OrganicMatter, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.OrganicMatter);
+    let aStudy = new Study(config.Study, abilityEvent, errorService, enumService);
+    let aOrganicMatter = new OrganicMatter(config.OrganicMatter, abilityEvent, craftingManager, errorService, itemFactory);
     let aNet = new Transmute(config.Net, abilityEvent, craftingManager, itemFactory, errorService, Tools.Net);
-    let aAutomaton = new Automaton(config.Automaton, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager, toolManager, hand);
     let aExperimentChamber = new ExperimentChamber(config.ExperimentChamber, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager);
+    let aAutomaton = new Automaton(config.Automaton, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager, toolManager, hand);
     let aFelInjector = new FelInjector(config.FelInjector, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager);
     let aDepot = depot;
     let aObliterum = new Obliterum(config.Obliterum, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager);
+
+    let experimentChamberId = FourCC('u002');
+    let aResearchTank = new Research(config.ResearchTank, abilityEvent, craftingManager, enumService, experimentChamberId, errorService, alliedPlayers)
+    let aResearchConverter = new Research(config.ResearchConverter, abilityEvent, craftingManager, enumService, experimentChamberId, errorService, alliedPlayers);
+    let aResearchAutomaton = new Research(config.ResearchAutomaton, abilityEvent, craftingManager, enumService, experimentChamberId, errorService, alliedPlayers);
+    let aResearchDepot = new Research(config.ResearchDepot, abilityEvent, craftingManager, enumService, experimentChamberId, errorService, alliedPlayers);
 
     let abilities = {
 
         // Prospector
         ProspectorSpellbook: aProspectorSpellbook,
         Defile: aDefile,
-        InfuseFelstone: aInfuseFelstone,
+        // InfuseFelstone: aInfuseFelstone,
+        FelExtraction: aFelExtraction,
         Demonfruit: aDemonfruit,
         FelBasin: aFelBasin,
         CrystalizeFel: aCrystalizeFel,
@@ -352,11 +365,17 @@ export function Initialize() {
         Study: aStudy,
         OrganicMatter: aOrganicMatter,
         Net: aNet,
-        Automaton: aAutomaton,
         ExperimentChamber: aExperimentChamber,
+        Automaton: aAutomaton,
         FelInjector: aFelInjector,
         Depot: aDepot,
         Obliterum: aObliterum,
+
+        ResearchSpellbook: researcherW,
+        ResearchTank: aResearchTank,
+        ResearchConverter: aResearchConverter,
+        ResearchAutomaton: aResearchAutomaton,
+        ResearchDepot: aResearchDepot,
         // TransmuteIron: new Transmute(config.TransmuteIron, abilityEvent, craftingManager, errorService, ResourceItem.Iron),
         // CrudeAxe: new CrudeAxe(config.CrudeAxe, abilityEvent, craftingManager, errorService),
         // CrudePickaxe: new CrudePickaxe(config.CrudePickaxe, abilityEvent, craftingManager, errorService),
@@ -366,18 +385,20 @@ export function Initialize() {
 
         // Tool Abilities
         Hand: hand,
-        Axe: new Axe(config.Axe, abilityEvent),
-        Pickaxe: new Pickaxe(config.Pickaxe, abilityEvent),
+        Axe: new Axe(config.Axe, abilityEvent, errorService),
+        Pickaxe: new Pickaxe(config.Pickaxe, abilityEvent, errorService),
         TransferItems: new TransferInventory(config.TransferInventory, abilityEvent, depot),
         ForgeRaiseTemperature: new ForgeRaiseTemperature(config.ForgeRaiseTemperature, abilityEvent, forgeManager),
         ForgeMaintainTemperature: new ForgeMaintainTemperature(config.ForgeMaintainTemperature, abilityEvent, forgeManager),
-        NetEnsnare: new NetEnsnare(config.NetEnsnare, abilityEvent),
+        NetEnsnare: new NetEnsnare(config.NetEnsnare, abilityEvent, itemFactory),
     }
 
-    PreloadAbilities([aProspectorSpellbook, aDefile, aInfuseFelstone, aDemonfruit, aFelBasin, aCrystalizeFel, aEyeOfKilrogg, aTransferFel]);
+    // Order of abilities preloaded affects their order in the spellbooks!!!
+    PreloadAbilities([aProspectorSpellbook, aDefile, aFelExtraction, aDemonfruit, aFelBasin, aCrystalizeFel, aEyeOfKilrogg, aTransferFel]);
     PreloadAbilities([aArtisanSpellbook, aTransmute, aTransmuteRock, aTransmuteIron, aTransmuteCopper, aCrudeAxe, aCrudePickaxe, aHellForge, aWorkstation, aTransmuter, aMinecart, aMineshaft]);
     PreloadAbilities([aArtisanFelsmithing, aForgeSteel, aForgeFelSteel, aForgeBuildingTools, aForgeSoulGem]);
-    PreloadAbilities([aResearcherSpellbook, aStudy, aOrganicMatter, aNet, aAutomaton, aExperimentChamber, aFelInjector, aDepot, aObliterum]);
+    PreloadAbilities([aResearcherSpellbook, aStudy, aOrganicMatter, aNet, aExperimentChamber, aAutomaton, aFelInjector, aDepot, aObliterum]);
+    PreloadAbilities([researcherW, aResearchTank, aResearchConverter, aResearchAutomaton, aResearchDepot]);
 
     // Tools
     toolManager.RegisterTool('IT00', abilities.Axe, 1);
@@ -433,6 +454,30 @@ export function Initialize() {
     //     print(string.format('%02.0f:%02.0f:%02.0f', hours, minutes, seconds)); // 02:05:01
     //     print(string.format('%2.0f:%02.0f:%02.0f', hours, minutes, seconds)); // 2:05:01
     // });
+
+    // let playerAnchorOrder: Record<number, number> = {};
+
+    // let anchorOrder = new Trigger();
+    // anchorOrder.registerAnyUnitEvent(EVENT_PLAYER_UNIT_ISSUED_ORDER);
+    // anchorOrder.addAction(() => {
+    //     if (GetTriggerUnit() != Global.soulAnchor.handle) return;
+    //     let playerId = MapPlayer.fromEvent().id;
+    //     print(playerId);
+    //     let count = playerAnchorOrder[playerId] || 0;
+    //     playerAnchorOrder[playerId] = count + 1;
+    // });
+
+    // let anchorOrderTim = new Timer();
+    // anchorOrderTim.start(1, true, () => {
+    //     for (let p of config.players) {
+    //         if (playerAnchorOrder[p.id] >= 5) {
+    //             errorService.DisplayError(p, "You have issued too much orders. Removing control.");
+    //             SetPlayerAllianceStateBJ(sharedPlayer.handle, p.handle, bj_ALLIANCE_ALLIED_UNITS);
+    //         }
+    //         playerAnchorOrder[p.id] = 0;
+    //     }
+    // });
+
 });
 }
 

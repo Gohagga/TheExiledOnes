@@ -23,6 +23,10 @@ export const enum Material {
     Tank = 1 << 22,
     Converter = 1 << 23,
     Resonator = 1 << 24,
+
+    Animal = 1 << 25,
+    OrganicMatter = 1 << 26,
+    FelExtraction = 1 << 27,
 }
 
 

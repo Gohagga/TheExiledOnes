@@ -2,10 +2,15 @@ import { HeroId } from "config/HeroType"
 import { ForgeAbility } from "content/abilities/artisan/FelSmithing"
 import { MineshaftWc3Ability } from "content/abilities/artisan/Mineshaft"
 import { TransmuteAbility } from "content/abilities/artisan/Transmute"
+import { DemonfruitAbility } from "content/abilities/prospector/Demonfruit"
+import { FelExtractionAbility } from "content/abilities/prospector/FelExtraction"
 import { AutomatonAbility } from "content/abilities/researcher/Automaton"
+import { OrganicMatterAbility } from "content/abilities/researcher/OrganicMatter"
+import { ResearchAbility } from "content/abilities/researcher/ResearchAbility"
+import { StudyAbility } from "content/abilities/researcher/Study"
 import { NetEnsnareAbility } from "content/abilities/tools/NetEnsnare"
 import { HeroConfig, HeroType } from "content/gameplay/HeroManager"
-import { ComponentItem, ResourceItem } from "content/items/ResourceItem"
+import { Animal, ComponentItem, ResourceItem } from "content/items/ResourceItem"
 import { Wc3BuildingAbility } from "systems/abilities/BuildingAbilityBase"
 import { Wc3Ability, Wc3ToggleAbility } from "systems/abilities/Wc3Ability"
 import { RecipeMachineConfig } from "systems/crafting/machine/MachineConfig"
@@ -86,37 +91,63 @@ Retera for RMS
     Defile: Wc3Ability = {
         name: 'Defile',
         codeId: 'A0P0',
-        extCodeId: 'ASP0'
+        extCodeId: 'ASP0',
+        experience: 2,
     }
 
     EyeOfKilrogg: Wc3Ability = {
         name: 'Eye of Kilrogg',
         codeId: 'A0P1',
         extCodeId: 'ASP1',
+        experience: 10,
         tooltip: 'Summons two eyes for 60 seconds that can scout nearby land.'
     }
 
-    InfuseFelstone: TransmuteAbility = {
-        name: 'Infuse Felstone',
-        codeId: 'A0P2',
-        extCodeId: 'ASP2',
-        matAmount: 3,
-        material: Material.Stone | Material.TierII,
-        tooltip: 'Creates a felstone material using 3 stones and 50 fel.'
+    // InfuseFelstone: TransmuteAbility = {
+    //     name: 'Infuse Felstone',
+    //     codeId: 'A0P2',
+    //     extCodeId: 'ASP2',
+    //     matAmount: 3,
+    //     experience: 40,
+    //     material: Material.Stone | Material.TierII,
+    //     tooltip: 'Creates a felstone material using 3 stones and 50 fel.'
+    // }
+
+    FelExtraction: FelExtractionAbility = {
+        name: 'Fel Extraction',
+        codeId: 'A0P7',
+        extCodeId: 'ASP7',
+        experience: 1, // Per point of fel
+        tooltip: 'Consumes an item such as Demonfruit to gain Fel from it. Not all items can be extracted.',
+        materials: [
+            [[1, Material.FelExtraction]]
+        ],
+        itemFel: {
+            [ResourceItem.Demonfruit]: 5,
+        }
     }
 
     CrystalizeFel: Wc3Ability = {
         name: 'Crystalize Fel',
         codeId: 'A0P3',
         extCodeId: 'ASP3',
+        experience: 5,
         tooltip: 'Consume 100 fel to create a Crystallized Fel item which can be consumed for 100 fel.'
     }
 
-    Demonfruit: Wc3Ability = {
+    Demonfruit: DemonfruitAbility = {
         name: 'Demonfruit',
         codeId: 'A0P4',
         extCodeId: 'ASP4',
-        tooltip: 'Unleash parasites onto a tree. They will mutate the tree, changing its internal structure. When cut down, Demonfruit trees will drop cursewood and demonfruit.'
+        fruitItemId: ResourceItem.Demonfruit,
+        productionInterval: 20,
+        harvestOrder: 'harvest',
+        harvestUnitCode: 'e001',
+        recipe1: [
+            [1, Material.OrganicMatter]
+        ],
+        experience: 30,
+        tooltip: 'Unleash parasites onto a tree. They will mutate the tree, changing its internal structure. Demonfruit trees will produce demonfruit.'
     }
 
     TransferFel: Wc3Ability = {
@@ -132,6 +163,7 @@ Retera for RMS
         prepareCodeId: 'A0P6',
         builtUnitCodeId: 'n001',
         extCodeId: 'ASP6',
+        experience: 100,
         tooltip: 'Used to store Fel. Can transfer stored fel to nearby allies.',
         materials: [
             [1, Material.Tank],
@@ -159,7 +191,8 @@ Retera for RMS
         extCodeId: 'ASA6',
         matAmount: 2,
         material: Material.Wood | Material.TierI,
-        tooltip: 'Transmutes 3 sticks into a rock.'
+        tooltip: 'Transmutes 3 sticks into a rock.',
+        experience: 10,
     }
 
     TransmuteIron: TransmuteAbility = {
@@ -168,7 +201,8 @@ Retera for RMS
         extCodeId: 'ASA7',
         matAmount: 2,
         material: Material.Stone | Material.TierI,
-        tooltip: 'Transmutes 3 rocks into an iron.'
+        tooltip: 'Transmutes 3 rocks into an iron.',
+        experience: 10,
     }
 
     TransmuteCopper: TransmuteAbility = {
@@ -177,28 +211,32 @@ Retera for RMS
         extCodeId: 'ASA8',
         matAmount: 2,
         material: Material.Metal | Material.TierI,
-        tooltip: 'Transmutes 3 iron into a copper.'
+        tooltip: 'Transmutes 3 iron into a copper.',
+        experience: 10,
     }
 
     CrudeAxe: Wc3Ability = {
-        name: 'Craft Crude Axe',
+        name: '[L2] Craft Crude Axe',
         codeId: 'A0A0',
-        extCodeId: 'ASA0'
+        extCodeId: 'ASA0',
+        experience: 50,
     }
 
     CrudePickaxe: Wc3Ability = {
-        name: 'Craft Crude Pickaxe',
+        name: '[L2] Craft Crude Pickaxe',
         codeId: 'A0A1',
         extCodeId: 'ASA1',
-        tooltip: 'Summons two eyes for 60 seconds that can scout nearby land.'
+        tooltip: 'Summons two eyes for 60 seconds that can scout nearby land.',
+        experience: 50,
     }
 
     Workstation: Wc3BuildingAbility = {
-        name: 'Prepare Workstation',
+        name: '[L3] Prepare Workstation',
         buildCodeId: 'ABA2',
         prepareCodeId: 'A0A2',
         builtUnitCodeId: 'h000',
         extCodeId: 'ASA2',
+        experience: 75,
         tooltip: 'Building used for crafting components used in many other building recipes.',
         materials: [
             [3, Material.Stone],
@@ -207,11 +245,12 @@ Retera for RMS
     }
 
     HellForge: Wc3BuildingAbility = {
-        name: 'Prepare Hell Forge',
+        name: '[L4] Prepare Hell Forge',
         buildCodeId: 'ABA3',
         prepareCodeId: 'A0A3',
         builtUnitCodeId: 'o004',
         extCodeId: 'ASA3',
+        experience: 100,
         tooltip: 'Necessary for Fel Smithing recipes.',
         materials: [
             [1, Material.Frame],
@@ -223,12 +262,13 @@ Retera for RMS
     }    
 
     Transmuter: Wc3BuildingAbility = {
-        name: 'Prepare Transmuter',
+        name: '[L5] Prepare Transmuter',
         buildCodeId: 'ABA4',
         prepareCodeId: 'A0A4',
         builtUnitCodeId: 'o003',
         extCodeId: 'ASA4',
         tooltip: 'Machine that allows allies to transmute materials.',
+        experience: 100,
         materials: [
             [1, Material.Frame | Material.TierI],
             [1, Material.Converter | Material.TierI],
@@ -237,12 +277,13 @@ Retera for RMS
     }
 
     Mineshaft: MineshaftWc3Ability = {
-        name: 'Prepare Mineshaft',
+        name: '[L4] Prepare Mineshaft',
         buildCodeId: 'ABA9',
         prepareCodeId: 'A0A9',
         builtUnitCodeId: 'o000',
         undergroundExitUnitCode: 'o001',
         extCodeId: 'ASA9',
+        experience: 100,
         tooltip: 'Mineshaft allows players to go underground to mine ore.',
         materials: [
             // [2, Material.Frame | Material.TierI],
@@ -251,11 +292,12 @@ Retera for RMS
     }
 
     Minecart: Wc3BuildingAbility = {
-        name: 'Prepare Minecart',
+        name: '[L4] Prepare Minecart',
         buildCodeId: 'ABAA',
         prepareCodeId: 'A0AA',
         builtUnitCodeId: 'o002',
         extCodeId: 'ASAA',
+        experience: 100,
         tooltip: 'Minecart can carry 6 items. They cannot move themselves, and can only follow nearby units. Click away to unfollow.',
         materials: [
             [3, Material.Metal | Material.TierI],
@@ -317,26 +359,35 @@ Retera for RMS
     }
 
     ArtisanFelsmithing: Wc3Ability = {
-        name: 'Felsmithing',
+        name: '[L4] Felsmithing',
         codeId: 'A0AW',
         tooltip: 'Contains Hell Forge based recipes.'
     }
 
     // Researcher
-    Study: Wc3Ability = {
+    Study: StudyAbility = {
         name: 'Study',
         codeId: 'A0R4',
         extCodeId: 'ASR4',
+        studyExperienceGainCode: 'A00P',
+        experience: 5,
+        radius: 600,
         tooltip: 'Reveals small animals and other useful things.'
     }
 
-    OrganicMatter: TransmuteAbility = {
-        name: 'Create Organic Matter',
+    OrganicMatter: OrganicMatterAbility = {
+        name: '[L2] Create Organic Matter',
         codeId: 'A0R2',
         extCodeId: 'ASR2',
-        matAmount: 6,
-        material: Material.Wood | Material.TierII,
-        tooltip: 'Transmutes 6 Logs into Organic Matter'
+        experience: 40,
+        resultItemTypeId: ResourceItem.OrganicMatter,
+        tooltip: 'Creates Organic Matter from 4 live Animals.',
+        recipe1: [
+            [4, Material.Animal]
+        ],
+        recipe2: [
+            [6, Material.Unique, ResourceItem.Demonfruit]
+        ],
     }
 
     Net: TransmuteAbility = {
@@ -345,18 +396,22 @@ Retera for RMS
         extCodeId: 'ASR3',
         matAmount: 4,
         material: Material.Wood | Material.TierI,
-        tooltip: 'Transmutes 3 sticks into rock'
+        experience: 15,
+        tooltip: 'Used for catching wild animals.'
     }
 
     ExperimentChamber: Wc3BuildingAbility = {
-        name: 'Prepare Depot',
+        name: '[L3] Prepare Experiment Chamber',
         buildCodeId: 'ABR5',
         prepareCodeId: 'A0R5',
         builtUnitCodeId: 'u002',
         extCodeId: 'ASR5',
+        experience: 100,
         tooltip: 'A structure used for Research, and that sells various evolution upgrades.',
         materials: [
-            // [3, Material.Metal | Material.TierI],
+            [2, Material.Frame],
+            [1, Material.Tank],
+            [1, Material.OrganicMatter]
             // [1, Material.Wood | Material.TierII]
         ]
     }
@@ -367,10 +422,12 @@ Retera for RMS
         prepareCodeId: 'A0R1',
         builtUnitCodeId: 'u001',
         extCodeId: 'ASR1',
+        experience: 100,
         tooltip: 'Basic worker that runs on Fel. Can be given basic orders. Upgradable with Mechanism for speed and Tank for max Fel and inventory slots.',
         materials: [
-            // [3, Material.Metal | Material.TierI],
-            // [1, Material.Wood | Material.TierII]
+            [2, Material.Metal          | Material.TierI],
+            [1, Material.Mechanism      | Material.TierI],
+            [1, Material.OrganicMatter]
         ],
         orderPickupCode: 'A00J',
         orderToolCode: 'A00K',
@@ -384,10 +441,13 @@ Retera for RMS
         prepareCodeId: 'A0R0',
         builtUnitCodeId: 'u000',
         extCodeId: 'ASR0',
+        experience: 100,
         tooltip: 'A structure that can store a large number of one type of items.',
         materials: [
-            // [3, Material.Metal | Material.TierI],
-            // [1, Material.Wood | Material.TierII]
+            [1, Material.Frame  | Material.TierI],
+            [1, Material.Tank   | Material.TierI],
+            [1, Material.Stone   | Material.TierII],
+            [1, Material.Wood   | Material.TierII]
         ]
     }
 
@@ -397,6 +457,7 @@ Retera for RMS
         prepareCodeId: 'A0R6',
         builtUnitCodeId: 'u003',
         extCodeId: 'ASR6',
+        experience: 100,
         tooltip: 'A device that latches onto a unit with Fel storage. It takes Fel out of  it, depositing it into its target units.',
         materials: [
             // [3, Material.Metal | Material.TierI],
@@ -410,10 +471,180 @@ Retera for RMS
         prepareCodeId: 'A0R7',
         builtUnitCodeId: 'u004',
         extCodeId: 'ASR7',
+        experience: 100,
         tooltip: 'A machine that destroys materials to produce Fel.',
         materials: [
             // [3, Material.Metal | Material.TierI],
             // [1, Material.Wood | Material.TierII]
+        ]
+    }
+
+    ResearchTank: ResearchAbility = {
+        name: 'Research Tank',
+        codeId: 'A0R9',
+        upgradeCode: 'R004',
+        extCodeId: 'ASR9',
+        experience: 20,
+        tooltip: 'Advances production of tanks.',
+        stages: [{
+            name: 'Research Tank I 0/2',
+            felCost: 10,
+            doesNotRequireBuilding: true,
+            materials: [
+                [4, Material.Metal | Material.TierI],
+            ]}, {
+            name: 'Research Tank I 1/2',
+            felCost: 10,
+            doesNotRequireBuilding: true,
+            upgradeCode: 'R001',
+            materials: [
+                [4, Material.Metal  | Material.TierI],
+                [1, Material.Unique, Animal.Frog],
+            ]}, {
+
+            name: 'Research Tank II 0/2',
+            felCost: 20,
+            materials: [
+                [4, Material.Metal | Material.TierII],
+            ]}, {
+            name: 'Research Tank II 1/2',
+            felCost: 20,
+            upgradeCode: 'R002',
+            materials: [
+                [4, Material.Metal | Material.TierII],
+            ]}, {
+
+            name: 'Research Tank III 0/2',
+            felCost: 30,
+            materials: [
+                [4, Material.Metal | Material.TierIII],
+            ]}, {
+            name: 'Research Tank III 1/2',
+            felCost: 30,
+            upgradeCode: 'R003',
+            materials: [
+                [4, Material.Metal | Material.TierIII],
+            ]}, {
+
+            name: 'Research Tank IV 0/2',
+            felCost: 40,
+            materials: [
+                [4, Material.Metal | Material.TierIII],
+            ]}, {
+            name: 'Research Tank IV 1/2',
+            felCost: 40,
+            upgradeCode: 'R004',
+            materials: [
+                [4, Material.Metal | Material.TierIV],
+            ]}
+        ]
+    }
+
+    ResearchConverter: ResearchAbility = {
+        name: 'Research Converter',
+        codeId: 'A0RA',
+        upgradeCode: 'R0C4',
+        extCodeId: 'ASRA',
+        experience: 20,
+        tooltip: 'Advances production of converters.',
+        stages: [{
+            name: 'Research Converter I 0/2',
+            felCost: 10,
+            materials: [
+                [2, Material.FineMetal | Material.TierI],
+            ]}, {
+            name: 'Research Converter I 1/2',
+            felCost: 10,
+            upgradeCode: 'R0C1',
+            materials: [
+                [2, Material.FineMetal | Material.TierI],
+            ]}, {
+
+            name: 'Research Converter II 0/2',
+            felCost: 20,
+            materials: [
+                [2, Material.FineMetal | Material.TierII],
+            ]}, {
+            name: 'Research Converter II 1/2',
+            felCost: 20,
+            upgradeCode: 'R0C2',
+            materials: [
+                [2, Material.FineMetal | Material.TierII],
+            ]}, {
+
+            name: 'Research Converter III 0/2',
+            felCost: 30,
+            materials: [
+                [2, Material.FineMetal | Material.TierIII],
+            ]}, {
+            name: 'Research Converter III 1/2',
+            felCost: 30,
+            upgradeCode: 'R0C3',
+            materials: [
+                [2, Material.FineMetal | Material.TierIII],
+            ]}, {
+
+            name: 'Research Converter IV 0/2',
+            felCost: 40,
+            materials: [
+                [2, Material.FineMetal | Material.TierIII],
+            ]}, {
+            name: 'Research Converter IV 1/2',
+            felCost: 40,
+            upgradeCode: 'R0C4',
+            materials: [
+                [2, Material.FineMetal | Material.TierIV],
+            ]}
+        ]
+    }
+
+    ResearchAutomaton: ResearchAbility = {
+        name: 'Research Automaton',
+        codeId: 'A0R8',
+        upgradeCode: 'R0R1',
+        extCodeId: 'ASR8',
+        experience: 30,
+        tooltip: 'Allows production of automatons.',
+        stages: [{
+            felCost: 10,
+            materials: [
+                [2, Material.Metal | Material.TierI],
+            ]}, {
+            felCost: 15,
+            materials: [
+                [2, Material.Wood | Material.TierII],
+            ]}, {
+            felCost: 20,
+            materials: [
+                [1, Material.Unique, Animal.Rabbit],
+                [1, Material.Unique, Animal.Frog]
+            ]}
+        ]
+    }
+
+    ResearchDepot: ResearchAbility = {
+        name: 'Research Depot',
+        codeId: 'A0RB',
+        upgradeCode: 'R0R2',
+        extCodeId: 'ASRB',
+        experience: 30,
+        tooltip: 'Allows creation of Depot buildings.',
+        stages: [{
+            felCost: 20,
+            materials: [
+                [1, Material.Frame | Material.TierI],
+                [1, Material.Wood  | Material.TierII],
+            ]}, {
+            felCost: 20,
+            materials: [
+                [1, Material.Frame | Material.TierI],
+                [1, Material.Stone | Material.TierII],
+            ]}, {
+            felCost: 20,
+            materials: [
+                [1, Material.Frame | Material.TierI],
+                [1, Material.Metal | Material.TierII],
+            ]}
         ]
     }
 
@@ -468,16 +699,24 @@ Retera for RMS
         tooltip: 'Collection of main artisan abilities.'
     }
 
+    ResearchSpellbook: Wc3Ability = {
+        name: '[L2] Research',
+        codeId: 'A0RW',
+        tooltip: 'Contains research abilities.'
+    }
+
     // Tools
 
     Hand: Wc3Ability = {
         name: 'Use Your Hand',
-        codeId: 'AT02'
+        codeId: 'AT02',
+        experience: 2, // Awarded on item drop
     }
 
     Axe: Wc3Ability = {
         name: 'Use Axe',
         codeId: 'AT00',
+        experience: 25, // Awarded on item drop
         tooltip:
 `Can chop down trees to get Log.
 
@@ -487,6 +726,7 @@ Press U to unequip.`
     Pickaxe: Wc3Ability = {
         name: 'Use Pickaxe',
         codeId: 'AT01',
+        experience: 15, // Awarded on item drop
         tooltip:
 `Can mine Stone from Stone Piles and Ore from veins.
 
@@ -494,7 +734,7 @@ Press U to unequip.`
     }
 
     TransferInventory: Wc3Ability = {
-        name: 'Transfer Inventory',
+        name: '[L2] Transfer Inventory',
         codeId: 'AT0T',
         tooltip: 
 `If targeting the ground, will drop all items on that point.
@@ -506,7 +746,8 @@ Takes items from target unit if inventory is empty (only owned or shared units).
     NetEnsnare: NetEnsnareAbility = {
         name: 'Net Ensnare',
         codeId: 'A00U',
-        itemAbilityCode: 'A00M'
+        itemAbilityCode: 'A00M',
+        experience: 15,
     }
     
 //#endregion
@@ -727,6 +968,19 @@ Takes items from target unit if inventory is empty (only owned or shared units).
             tooltip: 'Precious.',
             material: Material.FineMetal | Material.TierIII
         },
+
+        {
+            name: 'Organic Matter',
+            itemTypeId: ResourceItem.OrganicMatter,
+            tooltip: 'A squirming mass of ... something. Looks alive.',
+            material: Material.OrganicMatter
+        },
+        {
+            name: 'Demonfruit',
+            itemTypeId: ResourceItem.Demonfruit,
+            tooltip: 'Twisted and corrupted.',
+            material: Material.FelExtraction
+        },
         
         {
             name: 'Mechanism I',
@@ -826,6 +1080,48 @@ Takes items from target unit if inventory is empty (only owned or shared units).
             name: 'Net',
             itemTypeId: FourCC('I001'),
             tooltip: 'Used to catch animals alive.'
+        },
+
+        {
+            name: 'Live Crab',
+            itemTypeId: Animal.Crab,
+            tooltip: 'A caught animal.',
+            material: Material.Animal,
+        }, {
+            name: 'Live Frog',
+            itemTypeId: Animal.Frog,
+            tooltip: 'A caught animal.',
+            material: Material.Animal,
+        }, {
+            name: 'Live Rabbit',
+            itemTypeId: Animal.Rabbit,
+            tooltip: 'A caught animal.',
+            material: Material.Animal,
+        }, {
+            name: 'Live Raccoon',
+            itemTypeId: Animal.Raccoon,
+            tooltip: 'A caught animal.',
+            material: Material.Animal,
+        }, {
+            name: 'Live Rat',
+            itemTypeId: Animal.Rat,
+            tooltip: 'A caught animal.',
+            material: Material.Animal,
+        }, {
+            name: 'Live Skink',
+            itemTypeId: Animal.Skink,
+            tooltip: 'A caught animal.',
+            material: Material.Animal,
+        }, {
+            name: 'Live Stag',
+            itemTypeId: Animal.Stag,
+            tooltip: 'A caught animal.',
+            material: Material.Animal,
+        }, {
+            name: 'Live Worm',
+            itemTypeId: Animal.Worm,
+            tooltip: 'A caught animal.',
+            material: Material.Animal,
         }
     ]
 }

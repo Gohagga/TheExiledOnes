@@ -125,4 +125,26 @@ export class AbilitySlotManager {
         }
         return true;
     }
+
+    DisableAbilities(unit: Unit): boolean {
+
+        let unitId = unit.id;
+        if (unitId in this.instances == false) {
+            Log.Info(AbilitySlotManager, "Unit has not been registered", unit.name);
+            return false;
+        } else {
+        
+            let unitSlots = this.instances[unitId];
+            let slots = Object.keys(unitSlots) as unknown as AbilitySlot[];
+            slots = slots.sort();
+
+            for (let slot of slots) {
+                let ability = unitSlots[slot];
+                if (ability) {
+                    unit.disableAbility(ability.id, true, false);
+                }
+            }
+        }
+        return true;
+    }
 }

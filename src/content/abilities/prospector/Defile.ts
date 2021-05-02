@@ -27,7 +27,10 @@ export class Defile extends AbilityBase {
         let radius = 64 + 192 * math.random();
         SetBlight(owner.handle, point.x, point.y, radius, true);
 
-        if (blight) caster.mana += 5;
+        if (blight) {
+            caster.mana += 5;
+            caster.addExperience(this.experience, true);
+        }
     }
 
     TooltipDescription = undefined;

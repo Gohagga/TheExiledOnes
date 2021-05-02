@@ -4,6 +4,7 @@ import { AbilityBase } from "systems/abilities/AbilityBase";
 import { Wc3Ability } from "systems/abilities/Wc3Ability";
 import { AbilityEvent } from "systems/events/ability-events/event-models/AbilityEvent";
 import { IAbilityEventHandler } from "systems/events/ability-events/IAbilityEventHandler";
+import { IItemFactory } from "systems/items/IItemFactory";
 import { Item, MapPlayer, Rectangle, Trigger, Unit } from "w3ts/index";
 
 export interface NetEnsnareAbility extends Wc3Ability {
@@ -17,6 +18,7 @@ export class NetEnsnare extends AbilityBase {
     constructor(
         data: NetEnsnareAbility,
         abilityEvent: IAbilityEventHandler,
+        private readonly itemFactory: IItemFactory,
     ) {
         super(data);
         abilityEvent.OnAbilityEffect(this.id, (e: AbilityEvent) => this.Execute(e));
@@ -32,13 +34,12 @@ export class NetEnsnare extends AbilityBase {
         let user = Unit.fromEvent();
         let item = Item.fromEvent();
         let typeId = this.itemTypeToUnit[item.typeId];
-        print(typeId);
 
         if (!typeId) return;
 
-        print(user.name);
         try {
             let unit = new Unit(MapPlayer.fromIndex(PLAYER_NEUTRAL_PASSIVE), typeId, user.x, user.y, 0);
+            user.addExperience(this.experience, true);
         } catch (ex) {
             Log.Error(ex);
         }
@@ -54,7 +55,8 @@ export class NetEnsnare extends AbilityBase {
 
         if (target && typeId) {
             let itemType = this.unitToItemType[typeId];
-            let item = new Item(itemType, target.x, target.y);
+            let item =  this.itemFactory.CreateItemByType(itemType, target.x, target.y);
+            caster.addExperience(this.experience, true);
 
             target.destroy();
         }

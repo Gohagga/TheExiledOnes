@@ -22,6 +22,7 @@ export enum ResourceItem {
     Gold                = FourCC('IMF3'),
 
     OrganicMatter       = FourCC('IM04'),
+    Demonfruit          = FourCC('IM05'),
 }
 
 export enum ComponentItem {
@@ -35,18 +36,31 @@ export enum ComponentItem {
     FrameIII            = FourCC('IPF3'),
     FrameIV             = FourCC('IPF4'),
 
-    TankI              = FourCC('IPT1'),
-    TankII             = FourCC('IPT2'),
-    TankIII            = FourCC('IPT3'),
-    TankIV             = FourCC('IPT4'),
+    TankI               = FourCC('IPT1'),
+    TankII              = FourCC('IPT2'),
+    TankIII             = FourCC('IPT3'),
+    TankIV              = FourCC('IPT4'),
 
-    ConverterI         = FourCC('IPC1'),
-    ConverterII        = FourCC('IPC2'),
-    ConverterIII       = FourCC('IPC3'),
-    ConverterIV        = FourCC('IPC4'),
+    ConverterI          = FourCC('IPC1'),
+    ConverterII         = FourCC('IPC2'),
+    ConverterIII        = FourCC('IPC3'),
+    ConverterIV         = FourCC('IPC4'),
 
-    ResonatorI         = FourCC('IPR1'),
-    ResonatorII        = FourCC('IPR2'),
-    ResonatorIII       = FourCC('IPR3'),
-    ResonatorIV        = FourCC('IPR4'),
+    ResonatorI          = FourCC('IPR1'),
+    ResonatorII         = FourCC('IPR2'),
+    ResonatorIII        = FourCC('IPR3'),
+    ResonatorIV         = FourCC('IPR4'),
+}
+
+export enum Animal {
+
+    Crab                = FourCC('IA02'),
+    Frog                = FourCC('IA04'),
+    Rabbit              = FourCC('IA00'),
+    Raccoon             = FourCC('IA01'),
+    Rat                 = FourCC('IA06'),
+    Skink               = FourCC('IA03'),
+    Stag                = FourCC('IA07'),
+    Worm                = FourCC('IA05'),
+
 }

@@ -1,8 +1,8 @@
 import { Rectangle } from "w3ts/index";
 
-export class GridPointPlacer {
+export class GridPointPlacer<T> {
 
-    private tiles: number[] = [];
+    private tiles: T[][] = [];
 
     private minX: number;
     private maxX: number;
@@ -29,7 +29,7 @@ export class GridPointPlacer {
         this.tileHeight = (this.maxY - this.minY) / gridHeight;
     }
 
-    placeObject(x: number, y: number): boolean {
+    placeObject(x: number, y: number, obj: T): boolean {
 
         let iX = math.floor(((x - this.minX) / this.width) * this.gridWidth);
         let iY = math.floor(((y - this.minY) / this.height) * this.gridHeight);
@@ -39,13 +39,13 @@ export class GridPointPlacer {
         // if (!this.tiles[index])
         //     // this.tiles[index] = [];
         if (!this.tiles[index]) {
-            this.tiles[index] = 0;
+            this.tiles[index] = [];
         }
-        if (this.tiles[index] >= this.maxPerTile) {
+        if (this.tiles[index].length >= this.maxPerTile) {
             return false;
         }
 
-        this.tiles[index]++
+        this.tiles[index].push(obj);
         return true;
     }
 }

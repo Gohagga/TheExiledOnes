@@ -10,6 +10,8 @@ export interface Wc3Ability {
 
     tooltip?: string,
 
+    experience?: number,
+
     // icon: string,
 
     // iconDisabled?: string,

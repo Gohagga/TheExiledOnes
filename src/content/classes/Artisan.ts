@@ -83,6 +83,39 @@ export class Artisan extends PlayerClass {
         Log.Info("Updating spell list");
         this.basicSlotManager.UpdateSpellList(this.unit);
         this.specialSlotManager.UpdateSpellList(this.unit);
+
+        // Leveling
+        // let level = 1;
+
+        // while (level < 10) {
+
+        //     this.WaitForUnitLevel(level++);
+        //     // this.unit.owner.setTechResearched(this.levelUpgrade, this.unit.level);
+        // }
+
+        this.basicSlotManager.DisableAbilities(this.unit);
+        this.specialSlotManager.DisableAbilities(this.unit);
+        this.Enable(this.abilities.TransferItems, false);
+        this.Enable(this.abilities.ArtisanFelsmithing, false);
+
+        this.WaitForUnitLevel(1);
+        this.Enable(this.abilities.Transmute, true);
+
+        this.WaitForUnitLevel(2);
+        this.Enable(this.abilities.CrudeAxe, true);
+        this.Enable(this.abilities.CrudePickaxe, true);
+        this.Enable(this.abilities.TransferItems, true);
+
+        this.WaitForUnitLevel(3);
+        this.Enable(this.abilities.Workstation, true);
+
+        this.WaitForUnitLevel(4);
+        this.Enable(this.abilities.HellForge, true);
+        this.Enable(this.abilities.ArtisanFelsmithing, true);
+
+        this.WaitForUnitLevel(5);
+        this.Enable(this.abilities.Minecart, true);
+        this.Enable(this.abilities.Mineshaft, true);
     }
 
     private AddBasic(slot: AbilitySlot, ability: IAbility) {
@@ -91,5 +124,9 @@ export class Artisan extends PlayerClass {
 
     private AddForge(slot: AbilitySlot, ability: IAbility) {
         this.specialSlotManager.ApplySlot(this.unit, slot, ability);
+    }
+
+    private Enable(ability: IAbility, flag: boolean) {
+        ability.DisableForUnit(this.unit, !flag);
     }
 }

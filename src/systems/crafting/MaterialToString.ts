@@ -1,7 +1,8 @@
+import { Log } from "Log";
 import { Color } from "w3ts/index";
 import { Material } from "./Material";
 
-export function MaterialToString(material: Material) {
+export function MaterialToString(material: Material, itemTypeId?: number) {
 
     let name = '';
     if (Material.Wood       == (Material.Wood & material))      name += ' Wood'
@@ -20,6 +21,11 @@ export function MaterialToString(material: Material) {
     if (Material.TierIII    == (Material.TierIII & material))   name += ' III'
     if (Material.TierIV     == (Material.TierIV & material))    name += ' IV'
 
+    if (Material.Animal     == (Material.Animal & material))    name += ' Animal';
+    if (Material.OrganicMatter == (Material.OrganicMatter & material))    name += ' Organic Matter';
+
+    if (material == Material.Unique && itemTypeId) name += ' ' + GetObjectName(itemTypeId);
+
     return name.trim();
 }
 
@@ -27,7 +33,9 @@ let woodString = new Color(183, 130, 81).code + 'Wood|r';
 let stoneString = new Color(200, 200, 200).code + 'Stone|r';
 let metalString = new Color(125, 125, 170).code + 'Metal|r';
 let fineMetalString = new Color(125, 202, 194).code + 'Fine Metal|r';
-export function MaterialToColoredString(material: Material) {
+let animalString = new Color(250, 177, 221).code + 'Animal|r';
+let organicMatterString = new Color(113, 82, 171).code + 'Organic Matter|r';
+export function MaterialToColoredString(material: Material, itemTypeId?: number) {
 
     let name = '';
     if (Material.Wood       == (Material.Wood & material))      name += ' ' + woodString;
@@ -45,6 +53,12 @@ export function MaterialToColoredString(material: Material) {
     if (Material.TierII     == (Material.TierII & material))    name += ' II'
     if (Material.TierIII    == (Material.TierIII & material))   name += ' III'
     if (Material.TierIV     == (Material.TierIV & material))    name += ' IV'
+
+    if (Material.Animal     == (Material.Animal & material))    name += ' ' + animalString;
+    if (Material.OrganicMatter == (Material.OrganicMatter & material))    name += ' ' + organicMatterString;
+
+    if (material == Material.Unique && itemTypeId) name += ' ' + GetObjectName(itemTypeId);
+    
 
     return name.trim();
 }

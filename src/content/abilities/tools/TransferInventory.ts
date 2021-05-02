@@ -93,7 +93,7 @@ export class TransferInventory extends AbilityBase {
                 } else {
                     this.rect.movePoint(point);
                     let taking = true;
-                    let items = EnumItemsInRect(this.rect.handle, null, () => {
+                    EnumItemsInRect(this.rect.handle, null, () => {
                         if (taking) taking = caster.addItem(Item.fromHandle(GetEnumItem()));
                     });
                 }

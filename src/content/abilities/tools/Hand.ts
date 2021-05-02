@@ -8,6 +8,7 @@ import { IAbilityEventHandler } from "systems/events/ability-events/IAbilityEven
 import { InputHandler, MetaKey } from "systems/events/input-events/InputHandler";
 import { IItemFactory } from "systems/items/IItemFactory";
 import { ToolManager } from "systems/tools/ToolManager";
+import { ErrorService } from "systems/ui/ErrorService";
 import { MapPlayer, Trigger, Unit } from "w3ts/index";
 import { ToolAbilityBase } from "../../../systems/abilities/ToolAbilityBase";
 export class Hand extends ToolAbilityBase {
@@ -19,6 +20,7 @@ export class Hand extends ToolAbilityBase {
         private readonly toolManager: ToolManager,
         private readonly itemFactory: IItemFactory,
         private readonly heroManager: HeroManager,
+        private readonly errorService: ErrorService,
     ) {
         super(data);
         abilityEvent.OnAbilityEffect(this.id, (e: AbilityEvent) => this.Execute(e));
@@ -51,11 +53,20 @@ export class Hand extends ToolAbilityBase {
         if (!target) return;
 
         let dmg = 2
-        caster.damageTarget(target.handle, dmg, true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_AXE_MEDIUM_CHOP);
-
-        let item = this.itemFactory.CreateItemByType(ResourceItem.Branch);
-        if (caster.addItem(item) == false)
-            item.setPosition(target.x, target.y);
+        switch (target.typeId) {
+            case FourCC('LTlt'):
+                caster.damageTarget(target.handle, dmg, true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_AXE_MEDIUM_CHOP);
+        
+                let item = this.itemFactory.CreateItemByType(ResourceItem.Branch);
+                if (caster.addItem(item) == false)
+                    item.setPosition(target.x, target.y);
+        
+                caster.addExperience(this.experience, true);
+                break;
+            
+            default:
+                this.errorService.DisplayError(caster.owner, "Invalid target.");
+        }
 
         // let rand = math.random();
         // // If widget has died, do drops

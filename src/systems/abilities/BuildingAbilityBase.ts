@@ -19,6 +19,7 @@ export interface Wc3BuildingAbility {
     name: string,
     tooltip?: string,
     materials: [number, Material][],
+    experience?: number
 }
 
 export class BuildingAbilityBase extends AbilityBase {
@@ -39,7 +40,8 @@ export class BuildingAbilityBase extends AbilityBase {
             codeId: data.prepareCodeId,
             extCodeId: data.extCodeId,
             name: data.name,
-            tooltip: `${data.tooltip}\n\nMaterials\n${recipe.costStringFormatted}`
+            tooltip: `${data.tooltip}\n\nMaterials\n${recipe.costStringFormatted}`,
+            experience: data.experience
         });
         this.prepareId = this.id;
         this.buildId = FourCC(data.buildCodeId);
@@ -78,6 +80,7 @@ export class BuildingAbilityBase extends AbilityBase {
         
         this.slotManager.ClearSlot(caster, AbilitySlot.PreparedSlot);
         this.RemoveFromUnit(caster, true);
+        caster.addExperience(this.experience, true);
     }
 
     OnPrepare(e: AbilityEvent): void {

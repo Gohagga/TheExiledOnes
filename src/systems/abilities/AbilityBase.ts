@@ -8,6 +8,7 @@ export abstract class AbilityBase implements Wc3Ability, IAbility {
     codeId: string;
     extCodeId?: string | undefined;
     name: string;
+    experience: number;
 
     // Properties of base ability
     public id: number;
@@ -18,6 +19,7 @@ export abstract class AbilityBase implements Wc3Ability, IAbility {
         this.codeId = data.codeId;
         this.extCodeId = data.extCodeId
         this.name = data.name;
+        this.experience = data.experience || 0;
 
         this.id = FourCC(data.codeId);
         if (!this.id) Log.Error(this.name, "Failed to translate Ability Id", data.codeId);
@@ -31,6 +33,10 @@ export abstract class AbilityBase implements Wc3Ability, IAbility {
             BlzSetAbilityTooltip(this.extId, data.name, 0);
             if (data.tooltip) BlzSetAbilityExtendedTooltip(this.extId, data.tooltip, 0);
         }
+    }
+
+    DisableForUnit(unit: Unit, disable: boolean): void {
+        unit.disableAbility(this.id, disable, false);
     }
 
     AddToUnit(unit: Unit, extended?: boolean): boolean {
