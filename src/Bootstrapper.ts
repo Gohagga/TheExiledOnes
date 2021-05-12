@@ -1,5 +1,5 @@
 import { InitCommands } from "commands/AllCommands";
-import { Config, Global, sharedPlayer } from "config/Config";
+import { Config, enemyPlayer, Global, sharedPlayer } from "config/Config";
 import { CrudeAxe } from "content/abilities/artisan/CrudeAxe";
 import { CrudePickaxe } from "content/abilities/artisan/CrudePickaxe";
 import { HellForge } from "content/abilities/artisan/HellForge";
@@ -67,10 +67,16 @@ export function Initialize() {
 
     Log.Level = Level.All;
     Log.Level = Level.Message;
-    let generateMap = false;
-    let lockToSurface = false;
+    let generateMap = true;
+    let lockToSurface = true;
     // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
     
+    MeleeStartingAI()
+    FogModifierStart(CreateFogModifierRect(enemyPlayer.handle, FOG_OF_WAR_VISIBLE, gg_rct_SurfaceMap, true, true));
+    SetPlayerAllianceStateBJ(enemyPlayer.handle, sharedPlayer.handle, bj_ALLIANCE_UNALLIED);
+    SetPlayerAllianceStateBJ(sharedPlayer.handle, enemyPlayer.handle, bj_ALLIANCE_UNALLIED);
+    // PickMeleeAI(enemyPlayer.handle, "human.ai", null, null);
+
     // Set Player alliances
     let alliedPlayers: MapPlayer[] = [...config.players, sharedPlayer];
     for (let p of config.players) {
@@ -139,21 +145,21 @@ export function Initialize() {
     const craftingManager = new CraftingManager();
     const itemFactory = new ItemFactory(config.items, craftingManager);
 
-    dimensionEvent.OnSurfaceEvent((e) => {
-        if (e.unit.isHero() && e.unit.owner.handle == GetLocalPlayer()) {
-            SetCameraBoundsToRect(surfaceRect.handle);
-            PanCameraToTimed(e.unit.x, e.unit.y, 0);
-            SelectUnitSingle(e.unit.handle);
-        }
-    });
+    // dimensionEvent.OnSurfaceEvent((e) => {
+    //     if (e.unit.isHero() && e.unit.owner.handle == GetLocalPlayer()) {
+    //         SetCameraBoundsToRect(surfaceRect.handle);
+    //         PanCameraToTimed(e.unit.x, e.unit.y, 0);
+    //         SelectUnitSingle(e.unit.handle);
+    //     }
+    // });
 
-    dimensionEvent.OnUndergroundEvent((e) => {
-        if (e.unit.isHero() && e.unit.owner.handle == GetLocalPlayer()) {
-            SetCameraBoundsToRect(undergroundRect.handle);
-            PanCameraToTimed(e.unit.x, e.unit.y, 0);
-            SelectUnitSingle(e.unit.handle);
-        }
-    });
+    // dimensionEvent.OnUndergroundEvent((e) => {
+    //     if (e.unit.isHero() && e.unit.owner.handle == GetLocalPlayer()) {
+    //         SetCameraBoundsToRect(undergroundRect.handle);
+    //         PanCameraToTimed(e.unit.x, e.unit.y, 0);
+    //         SelectUnitSingle(e.unit.handle);
+    //     }
+    // });
 
     // Make players
     Global.soulAnchor = new Unit(sharedPlayer, FourCC('E000'), surfaceRect.centerX, surfaceRect.centerY, 0);
@@ -436,7 +442,7 @@ export function Initialize() {
         SetCameraFieldForPlayer(MapPlayer.fromEvent().handle, CAMERA_FIELD_FARZ, 100000, 0.5);
     });
     
-    InitCommands(config, inputHandler, basicSlotManager, specialSlotManager, heroManager);
+    InitCommands(config, inputHandler, abilityEvent, basicSlotManager, specialSlotManager, heroManager);
     
     // const tim1 = new Timer();
     // tim1.start(0, false, () => {

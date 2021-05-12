@@ -12,6 +12,7 @@ import { NetEnsnareAbility } from "content/abilities/tools/NetEnsnare"
 import { HeroConfig, HeroType } from "content/gameplay/HeroManager"
 import { Animal, ComponentItem, ResourceItem } from "content/items/ResourceItem"
 import { Wc3BuildingAbility } from "systems/abilities/BuildingAbilityBase"
+import { ToolAbility } from "systems/abilities/ToolAbilityBase"
 import { Wc3Ability, Wc3ToggleAbility } from "systems/abilities/Wc3Ability"
 import { RecipeMachineConfig } from "systems/crafting/machine/MachineConfig"
 import { Material } from "systems/crafting/Material"
@@ -19,6 +20,7 @@ import { ItemConfig } from "systems/items/ItemConfig"
 import { MapPlayer, Quest, Unit } from "w3ts/index"
 
 export const sharedPlayer = MapPlayer.fromIndex(15);
+export const enemyPlayer = MapPlayer.fromIndex(11);
 
 export namespace Global {
     export let soulAnchor: Unit;
@@ -713,20 +715,24 @@ Retera for RMS
         experience: 2, // Awarded on item drop
     }
 
-    Axe: Wc3Ability = {
+    Axe: ToolAbility = {
         name: 'Use Axe',
         codeId: 'AT00',
         experience: 25, // Awarded on item drop
+        passiveAbilityCodes: ['A00V'],
+        levelPassives: true,
         tooltip:
 `Can chop down trees to get Log.
 
 Press U to unequip.`
     }
 
-    Pickaxe: Wc3Ability = {
+    Pickaxe: ToolAbility = {
         name: 'Use Pickaxe',
         codeId: 'AT01',
         experience: 15, // Awarded on item drop
+        passiveAbilityCodes: ['A00W'],
+        levelPassives: true,
         tooltip:
 `Can mine Stone from Stone Piles and Ore from veins.
 

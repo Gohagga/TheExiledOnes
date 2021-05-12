@@ -4,9 +4,17 @@ import { Wc3Ability } from "systems/abilities/Wc3Ability";
 import { IToolAbility } from "systems/tools/IToolAbility";
 import { Unit } from "w3ts/index";
 
+export interface ToolAbility extends Wc3Ability {
+    passiveAbilityCodes?: string[],
+    levelPassives?: boolean,
+}
+
 export class ToolAbilityBase extends AbilityBase implements IToolAbility {
+
+    private isLevelPassives: boolean;
+    private passiveAbilityIds: number[];
     
-    constructor(data: Wc3Ability) {
+    constructor(data: ToolAbility) {
         super(data);
         BlzSetAbilityTooltip(this.id, data.name + ' I', 0);
         BlzSetAbilityTooltip(this.id, data.name + ' II', 1);
@@ -17,6 +25,14 @@ export class ToolAbilityBase extends AbilityBase implements IToolAbility {
 
             for (let i = 0; i < 4; i++) {
                 BlzSetAbilityExtendedTooltip(this.id, data.tooltip, i);
+            }
+        }
+
+        this.isLevelPassives = <boolean>data.levelPassives;
+        this.passiveAbilityIds = [];
+        if (data.passiveAbilityCodes) {
+            for (let p of data.passiveAbilityCodes) {
+                this.passiveAbilityIds.push(FourCC(p));
             }
         }
     }
@@ -31,9 +47,13 @@ export class ToolAbilityBase extends AbilityBase implements IToolAbility {
             BlzSetAbilityStringLevelField(a, ABILITY_SLF_TOOLTIP_NORMAL_EXTENDED, 0, tooltip);
         }
 
+        if (this.isLevelPassives) {
+            for (let p of this.passiveAbilityIds) {
+                unit.setAbilityLevel(p, level);
+            }
+        }
         return true;
     }
-
     
     AddToUnit(unit: Unit, extended?: boolean): boolean {
         const res = this.AddToUnitBase(unit, extended);
@@ -46,8 +66,27 @@ export class ToolAbilityBase extends AbilityBase implements IToolAbility {
                 BlzSetAbilityStringLevelField(a, ABILITY_SLF_TOOLTIP_NORMAL_EXTENDED, 0, tooltip);
             }
             
+            for (let p of this.passiveAbilityIds) {
+                unit.addAbility(p);
+            }
             return true;
         }
+        return false;
+    }
+
+    RemoveFromUnit(unit: Unit): boolean {
+        
+        if (unit.getAbilityLevel(this.id) > 0 || (this.extId && unit.getAbilityLevel(this.extId as number) > 0)) {
+            let res = unit.removeAbility(this.id);
+            if (this.extId) res = unit.removeAbility(this.extId) || res;
+
+            for (let p of this.passiveAbilityIds) {
+                unit.removeAbility(p);
+            }
+            return res;
+        }
+        
+        Log.Info(this.name, "Failed to remove ability from unit", unit.name);
         return false;
     }
 

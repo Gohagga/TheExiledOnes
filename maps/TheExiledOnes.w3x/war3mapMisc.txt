@@ -1,4 +1,5 @@
 [Misc]
+DisplayBuildingStatus=1
 DrainTransfersMana=1
 FollowRange=100.0
 ItemStackingEnabled=0

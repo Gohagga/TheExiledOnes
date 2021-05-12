@@ -6670,3 +6670,201 @@ STRING 1317
 Base Prospector Spellbook (Q)
 }
 
+STRING 1318
+// Abilities: A00V (Item Axe Damage Bonus), Name (Name)
+{
+Item Axe Damage Bonus
+}
+
+STRING 1319
+// Abilities: A00W (Item Pickaxe Damage Bonus), Name (Name)
+{
+Item Pickaxe Damage Bonus
+}
+
+STRING 1320
+// Units: H001 (Cheatpack), Name (Name)
+{
+Cheatpack
+}
+
+STRING 1321
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 1
+}
+
+STRING 1322
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 2
+}
+
+STRING 1323
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 3
+}
+
+STRING 1324
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 4
+}
+
+STRING 1325
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 5
+}
+
+STRING 1326
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 6
+}
+
+STRING 1327
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 7
+}
+
+STRING 1328
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 8
+}
+
+STRING 1329
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 9
+}
+
+STRING 1330
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 10
+}
+
+STRING 1331
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 11
+}
+
+STRING 1332
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 12
+}
+
+STRING 1333
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 13
+}
+
+STRING 1334
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 14
+}
+
+STRING 1335
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 15
+}
+
+STRING 1336
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 16
+}
+
+STRING 1337
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 17
+}
+
+STRING 1338
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 18
+}
+
+STRING 1339
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 19
+}
+
+STRING 1340
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 20
+}
+
+STRING 1341
+// Abilities: A00X (Cheat Units Spawned Count), Name (Name)
+{
+Cheat Units Spawned Count
+}
+
+STRING 1342
+// Abilities: A00Y (Spawn Portal), Name (Name)
+{
+Spawn Portal
+}
+
+STRING 1343
+// Abilities: A00Y (Spawn Portal), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1344
+// Abilities: A00Y (Spawn Portal), Tip (Tooltip - Normal)
+{
+Create Portal
+}
+
+STRING 1345
+// Abilities: A00Y (Spawn Portal), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1346
+// Abilities: A00Y (Spawn Portal), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1347
+// Abilities: A00Y (Spawn Portal), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1348
+// Abilities: A00Y (Spawn Portal), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1349
+// Abilities: A00Y (Spawn Portal), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1350
+// Units: h006 (Portal), Name (Name)
+{
+Portal
+}
+

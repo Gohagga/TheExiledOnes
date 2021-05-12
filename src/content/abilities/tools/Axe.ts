@@ -5,11 +5,12 @@ import { AbilityEvent } from "systems/events/ability-events/event-models/Ability
 import { IAbilityEventHandler } from "systems/events/ability-events/IAbilityEventHandler";
 import { ErrorService } from "systems/ui/ErrorService";
 import { Unit } from "w3ts/index";
-import { ToolAbilityBase } from "../../../systems/abilities/ToolAbilityBase";
+import { ToolAbility, ToolAbilityBase } from "../../../systems/abilities/ToolAbilityBase";
+
 export class Axe extends ToolAbilityBase {
 
     constructor(
-        data: Wc3Ability,
+        data: ToolAbility,
         abilityEvent: IAbilityEventHandler,
         private readonly errorService: ErrorService,
     ) {

@@ -6,12 +6,12 @@ import { IAbilityEventHandler } from "systems/events/ability-events/IAbilityEven
 import { OreType } from "systems/map-generation/object-placers/OrePlacer";
 import { ErrorService } from "systems/ui/ErrorService";
 import { Item, Unit } from "w3ts/index";
-import { ToolAbilityBase } from "../../../systems/abilities/ToolAbilityBase";
+import { ToolAbility, ToolAbilityBase } from "../../../systems/abilities/ToolAbilityBase";
 
 export class Pickaxe extends ToolAbilityBase {
 
     constructor(
-        data: Wc3Ability,
+        data: ToolAbility,
         abilityEvent: IAbilityEventHandler,
         private readonly errorService: ErrorService,
     ) {
