@@ -12,7 +12,7 @@ import { ErrorService } from "systems/ui/ErrorService";
 import { Color, Item, Unit } from "w3ts/index";
 
 export interface ForgeAbility extends Wc3Ability {
-    materials: [number, Material][],
+    materials: [number, ...(Material | number)[]][],
     temperature: number,
 }
 
@@ -39,7 +39,6 @@ export class FelSmithing extends AbilityBase {
         this.recipe = craftingManager.CreateRecipe(data.materials);
 
         this.manacost = BlzGetAbilityManaCost(this.id, 0);
-
         this.tooltip = data.tooltip || '';
     }
 

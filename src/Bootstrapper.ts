@@ -16,7 +16,7 @@ import { Hand } from "content/abilities/tools/Hand";
 import { Pickaxe } from "content/abilities/tools/Pickaxe";
 import { TransferInventory } from "content/abilities/tools/TransferInventory";
 import { HeroManager } from "content/gameplay/HeroManager";
-import { ResourceItem } from "content/items/ResourceItem";
+import { ComponentItem, ResourceItem } from "content/items/ResourceItem";
 import { MachineFactory } from "content/machines/MachineFactory";
 import { Level, Log } from "Log";
 import { PathingService } from "services/PathingService";
@@ -42,7 +42,7 @@ import { Random } from "systems/random/Random";
 import { EnumUnitService } from "services/enum-service/EnumUnitService";
 import { ToolManager } from "systems/tools/ToolManager";
 import { ErrorService } from "systems/ui/ErrorService";
-import { MapPlayer, Quest, Rectangle, Timer, Trigger, Unit } from "w3ts/index";
+import { Color, Frame, MapPlayer, Quest as Wc3Quest, Rectangle, Timer, Trigger, Unit } from "w3ts/index";
 import { FelSmithing } from "content/abilities/artisan/FelSmithing";
 import { Tools } from "content/items/Tools";
 import { Equipment } from "content/items/Equipment";
@@ -60,6 +60,13 @@ import { Study } from "content/abilities/researcher/Study";
 import { Demonfruit } from "content/abilities/prospector/Demonfruit";
 import { FelExtraction } from "content/abilities/prospector/FelExtraction";
 import { OrganicMatter } from "content/abilities/researcher/OrganicMatter";
+import { EssenceOfBlight } from "content/abilities/sold-abilities/EssenceOfBlight";
+import { CreateQuestView } from "ui/quest-view/QuestView";
+import { QuestManager } from "systems/quests/QuestManager";
+import { QuestEventHandler } from "systems/events/quests/QuestEventHandler";
+import { Quest } from "systems/quests/Quest";
+import { QuestViewModel } from "ui/quest-view/QuestViewModel";
+import { ItemQuest } from "systems/quests/ItemQuest";
 
 export function Initialize() {
 
@@ -67,8 +74,8 @@ export function Initialize() {
 
     Log.Level = Level.All;
     Log.Level = Level.Message;
-    let generateMap = true;
-    let lockToSurface = true;
+    let generateMap = false;
+    let lockToSurface = false;
     // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
     
     MeleeStartingAI()
@@ -119,6 +126,7 @@ export function Initialize() {
     const dimensionEvent = new DimensionEventHandler();
     const errorService = new ErrorService();
     const enumService = new EnumUnitService();
+    const questEvent = new QuestEventHandler();
 
     const pathingService = new PathingService('hval');
 
@@ -186,7 +194,7 @@ export function Initialize() {
     tim.start(0, false, () => {
 
         for (let q of config.quests) {
-            let quest = new Quest();
+            let quest = new Wc3Quest();
             quest.setTitle(q.title);
             quest.setIcon(q.icon);
             quest.setDescription(q.description);
@@ -262,6 +270,7 @@ export function Initialize() {
     const inputHandler = new InputHandler(config.players);
     const forgeManager = new ForgeManager(FourCC('A00D'), enumService);
     const heroManager = new HeroManager(config.heroes, basicSlotManager, specialSlotManager, toolManager);
+    const questManager = new QuestManager(questEvent);
 
     // Materials
     // Material parts
@@ -332,6 +341,9 @@ export function Initialize() {
     let aResearchConverter = new Research(config.ResearchConverter, abilityEvent, craftingManager, enumService, experimentChamberId, errorService, alliedPlayers);
     let aResearchAutomaton = new Research(config.ResearchAutomaton, abilityEvent, craftingManager, enumService, experimentChamberId, errorService, alliedPlayers);
     let aResearchDepot = new Research(config.ResearchDepot, abilityEvent, craftingManager, enumService, experimentChamberId, errorService, alliedPlayers);
+
+    // Sold abilities
+    let essenceOfBlight = new EssenceOfBlight(config.EssenceOfBlight, craftingManager, errorService);
 
     let abilities = {
 
@@ -484,6 +496,56 @@ export function Initialize() {
     //     }
     // });
 
+    // Quests
+    // for (let i = 0; i < 10; i++) {
+    //     let quest = new Quest("quest" + i, "Text Quest " + i);
+    //     questManager.AddQuestToPool(quest);
+    // }
+
+    let codeArt = new Color(0, 0, 255).code + 'A|r';
+    let codePro = new Color(0, 255, 0).code + 'P|r';
+    let codeRes = new Color(255, 0, 255).code + 'R|r';
+
+    questManager.AddQuestToPool(
+        new ItemQuest("crudeAxes", codeArt + ': Make two Crude Axe', questManager,
+            Tools.CrudeAxeI, 2));
+
+    questManager.AddQuestToPool(
+        new ItemQuest("felCryst", codePro + ': Get Crystalized Fel', questManager,
+            ResourceItem.CrystalizedFel, 1));
+
+    questManager.AddQuestToPool(
+        new ItemQuest("sixNets", codeRes + ': Make six Nets', questManager,
+            Tools.Net, 6));
+
+    questManager.AddQuestToPool(
+        new ItemQuest("logs", 'Gather six Logs', questManager,
+            ResourceItem.Log, 6));
+
+    questManager.AddQuestToPool(
+        new ItemQuest("stones", 'Gather eight Stones', questManager,
+            ResourceItem.Stone, 8));
+
+    questManager.AddQuestToPool(
+        new ItemQuest("irons", codeArt + ': Transmute 10 Iron', questManager,
+            ResourceItem.Iron, 10));
+
+    questManager.AddQuestToPool(
+        new ItemQuest("organicMatter", codeRes + ': Make an Organic Matter', questManager,
+            ResourceItem.OrganicMatter, 1));
+
+    questManager.AddQuestToPool(
+        new ItemQuest("demonfruit", 'Gather 6 demonfruit', questManager,
+            ResourceItem.Demonfruit, 6));
+
+    questManager.AddQuestToPool(
+        new ItemQuest("frame1", 'Make four Frame I', questManager,
+            ComponentItem.FrameI, 4));
+
+    // UI
+    let questsView = CreateQuestView(Frame.fromOrigin(ORIGIN_FRAME_GAME_UI, 0));
+    let questsViewModel = new QuestViewModel(questsView, questEvent, questManager, heroManager);
+    
 });
 }
 

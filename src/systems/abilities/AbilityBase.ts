@@ -36,6 +36,7 @@ export abstract class AbilityBase implements Wc3Ability, IAbility {
     }
 
     DisableForUnit(unit: Unit, disable: boolean): void {
+        Log.Info("Disabling", unit.name, this.name, disable);
         unit.disableAbility(this.id, disable, false);
     }
 

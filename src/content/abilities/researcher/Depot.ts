@@ -103,7 +103,7 @@ export class Depot extends BuildingAbilityBase {
                 storedItems: [],
                 previewItem: null,
                 storedItem: null,
-                max: 12
+                max: 24
             }
         }
     }

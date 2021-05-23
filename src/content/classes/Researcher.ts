@@ -89,6 +89,10 @@ export class Researcher extends PlayerClass {
         this.Enable(this.abilities.Study, true);
         this.Enable(this.abilities.Net, true);
 
+        // Research enabled abilities
+        this.Enable(this.abilities.Automaton, true);
+        this.Enable(this.abilities.Depot, true);
+
         this.WaitForUnitLevel(2);
         this.Enable(this.abilities.OrganicMatter, true);
         this.Enable(this.abilities.ResearchSpellbook, true);

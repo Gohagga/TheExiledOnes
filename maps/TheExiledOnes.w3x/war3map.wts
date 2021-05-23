@@ -1,6 +1,6 @@
 ﻿STRING 1
 {
-The Exiled Ones v0.2.6
+The Exiled Ones v0.2.7
 }
 
 STRING 2
@@ -3349,7 +3349,7 @@ Minecart
 
 STRING 679
 {
-v0.2.6
+v0.2.7
 }
 
 STRING 680
@@ -6520,44 +6520,38 @@ STRING 1292
 Magic Sight
 }
 
-STRING 1293
-// Abilities: A00S (Mana 25 Fel Basin), Name (Name)
-{
-Mana 25 Fel Basin
-}
-
 STRING 1294
-// Abilities: A00S (Mana 25 Fel Basin), Tip (Tooltip - Normal)
+// Abilities: A00S (Transfer Mana 25 Fel Basin), Tip (Tooltip - Normal)
 {
 Transfer Mana
 }
 
 STRING 1295
-// Abilities: A00S (Mana 25 Fel Basin), Tip (Tooltip - Normal)
+// Abilities: A00S (Transfer Mana 25 Fel Basin), Tip (Tooltip - Normal)
 {
 Transfer Mana
 }
 
 STRING 1296
-// Abilities: A00S (Mana 25 Fel Basin), Tip (Tooltip - Normal)
+// Abilities: A00S (Transfer Mana 25 Fel Basin), Tip (Tooltip - Normal)
 {
 Transfer Mana
 }
 
 STRING 1297
-// Abilities: A00S (Mana 25 Fel Basin), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A00S (Transfer Mana 25 Fel Basin), Ubertip (Tooltip - Normal - Extended)
 {
 Gives 25 mana to target unit.
 }
 
 STRING 1298
-// Abilities: A00S (Mana 25 Fel Basin), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A00S (Transfer Mana 25 Fel Basin), Ubertip (Tooltip - Normal - Extended)
 {
 Gives 25 mana to target unit.
 }
 
 STRING 1299
-// Abilities: A00S (Mana 25 Fel Basin), Ubertip (Tooltip - Normal - Extended)
+// Abilities: A00S (Transfer Mana 25 Fel Basin), Ubertip (Tooltip - Normal - Extended)
 {
 Gives 25 mana to target unit.
 }
@@ -6866,5 +6860,142 @@ STRING 1350
 // Units: h006 (Portal), Name (Name)
 {
 Portal
+}
+
+STRING 1351
+// Abilities: A00S (Transfer Mana 25 Fel Basin), Name (Name)
+{
+Transfer Mana 25 Fel Basin
+}
+
+STRING 1352
+// Items: I004 (Essence of Blight), Name (Name)
+{
+Essence of Blight
+}
+
+STRING 1360
+// Abilities: A010 (Essence of Blight), Untip (Tooltip - Turn Off)
+{
+|cffc3dbff|cffc3dbffRight-click to activate auto-casting.|r|r
+}
+
+STRING 1361
+// Abilities: A010 (Essence of Blight), Untip (Tooltip - Turn Off)
+{
+|cffc3dbff|cffc3dbffRight-click to activate auto-casting.|r|r
+}
+
+STRING 1362
+// Abilities: A010 (Essence of Blight), Untip (Tooltip - Turn Off)
+{
+|cffc3dbff|cffc3dbffRight-click to activate auto-casting.|r|r
+}
+
+STRING 1363
+// Abilities: A010 (Essence of Blight), Untip (Tooltip - Turn Off)
+{
+|cffc3dbff|cffc3dbffRight-click to activate auto-casting.|r|r
+}
+
+STRING 1364
+// Abilities: A010 (Essence of Blight), Unubertip (Tooltip - Turn Off - Extended)
+{
+|cffc3dbffRight-click to deactivate auto-casting.|r
+}
+
+STRING 1365
+// Abilities: A010 (Essence of Blight), Unubertip (Tooltip - Turn Off - Extended)
+{
+|cffc3dbffRight-click to deactivate auto-casting.|r
+}
+
+STRING 1366
+// Abilities: A010 (Essence of Blight), Unubertip (Tooltip - Turn Off - Extended)
+{
+|cffc3dbffRight-click to deactivate auto-casting.|r
+}
+
+STRING 1367
+// Abilities: A010 (Essence of Blight), Unubertip (Tooltip - Turn Off - Extended)
+{
+|cffc3dbffRight-click to deactivate auto-casting.|r
+}
+
+STRING 1368
+// Items: I004 (Essence of Blight), Tip (Tooltip - Basic)
+{
+Learn Essence of Blight
+}
+
+STRING 1371
+// Items: I004 (Essence of Blight), Ubertip (Tooltip - Extended)
+{
+Restores hit points to nearby friendly units.
+
+Level 1 - 10 HP, costs 10 Fel.
+
+Cost
+OrganicMatter
+}
+
+STRING 1377
+// Abilities: A010 (Essence of Blight), Tip (Tooltip - Normal)
+{
+Essence of Blight [Level 2]
+}
+
+STRING 1378
+// Abilities: A010 (Essence of Blight), Tip (Tooltip - Normal)
+{
+Essence of Blight [Level 3]
+}
+
+STRING 1379
+// Abilities: A010 (Essence of Blight), Tip (Tooltip - Normal)
+{
+Essence of Blight [Level 4]
+}
+
+STRING 1380
+// Abilities: A010 (Essence of Blight), Tip (Tooltip - Normal)
+{
+Essence of Blight [Level 5]
+}
+
+STRING 1381
+// Abilities: A010 (Essence of Blight), Tip (Tooltip - Normal)
+{
+Essence of Blight [Level 1]
+}
+
+STRING 1382
+// Abilities: A010 (Essence of Blight), Ubertip (Tooltip - Normal - Extended)
+{
+Restores <A020,DataA2> hit points to up to 2 nearby friendly units.
+}
+
+STRING 1383
+// Abilities: A010 (Essence of Blight), Ubertip (Tooltip - Normal - Extended)
+{
+Restores <A030,DataA3> hit points to up to 2 nearby friendly units.
+}
+
+STRING 1384
+// Abilities: A010 (Essence of Blight), Ubertip (Tooltip - Normal - Extended)
+{
+Restores <A040,DataA4> hit points to up to 2 nearby friendly units.
+}
+
+STRING 1385
+// Abilities: A010 (Essence of Blight), Ubertip (Tooltip - Normal - Extended)
+{
+Restores <A050,DataA5> hit points to up to 2 nearby friendly units.
+}
+
+STRING 1386
+// Abilities: A010 (Essence of Blight), Ubertip (Tooltip - Normal - Extended)
+{
+Restores <A010,DataA1> hit points to up to 2 nearby friendly units.
 }
 

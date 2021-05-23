@@ -69,6 +69,7 @@ export class Prospector extends PlayerClass {
         this.WaitForUnitLevel(1);
         this.Enable(this.abilities.Defile, true);
         this.Enable(this.abilities.EyeOfKilrogg, true);
+        this.Enable(this.abilities.FelExtraction, true);
 
         this.WaitForUnitLevel(2);
         this.Enable(this.abilities.Demonfruit, true);
@@ -77,7 +78,6 @@ export class Prospector extends PlayerClass {
         
         this.WaitForUnitLevel(3);
         this.Enable(this.abilities.FelBasin, true);
-        this.Enable(this.abilities.FelExtraction, true);
         
         this.WaitForUnitLevel(4);
         this.Enable(this.abilities.TransferFel, true);

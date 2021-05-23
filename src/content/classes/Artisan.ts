@@ -94,7 +94,7 @@ export class Artisan extends PlayerClass {
         // }
 
         this.basicSlotManager.DisableAbilities(this.unit);
-        this.specialSlotManager.DisableAbilities(this.unit);
+        // this.specialSlotManager.DisableAbilities(this.unit);
         this.Enable(this.abilities.TransferItems, false);
         this.Enable(this.abilities.ArtisanFelsmithing, false);
 

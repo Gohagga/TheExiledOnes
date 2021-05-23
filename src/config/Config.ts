@@ -8,6 +8,7 @@ import { AutomatonAbility } from "content/abilities/researcher/Automaton"
 import { OrganicMatterAbility } from "content/abilities/researcher/OrganicMatter"
 import { ResearchAbility } from "content/abilities/researcher/ResearchAbility"
 import { StudyAbility } from "content/abilities/researcher/Study"
+import { SoldWc3Ability } from "content/abilities/sold-abilities/EssenceOfBlight"
 import { NetEnsnareAbility } from "content/abilities/tools/NetEnsnare"
 import { HeroConfig, HeroType } from "content/gameplay/HeroManager"
 import { Animal, ComponentItem, ResourceItem } from "content/items/ResourceItem"
@@ -116,10 +117,10 @@ Retera for RMS
     // }
 
     FelExtraction: FelExtractionAbility = {
-        name: 'Fel Extraction',
+        name: '[L3] Fel Extraction',
         codeId: 'A0P7',
         extCodeId: 'ASP7',
-        experience: 1, // Per point of fel
+        experience: 2, // Per point of fel
         tooltip: 'Consumes an item such as Demonfruit to gain Fel from it. Not all items can be extracted.',
         materials: [
             [[1, Material.FelExtraction]]
@@ -130,7 +131,7 @@ Retera for RMS
     }
 
     CrystalizeFel: Wc3Ability = {
-        name: 'Crystalize Fel',
+        name: '[L2] Crystalize Fel',
         codeId: 'A0P3',
         extCodeId: 'ASP3',
         experience: 5,
@@ -138,7 +139,7 @@ Retera for RMS
     }
 
     Demonfruit: DemonfruitAbility = {
-        name: 'Demonfruit',
+        name: '[L2] Demonfruit',
         codeId: 'A0P4',
         extCodeId: 'ASP4',
         fruitItemId: ResourceItem.Demonfruit,
@@ -153,14 +154,14 @@ Retera for RMS
     }
 
     TransferFel: Wc3Ability = {
-        name: 'Transfer Fel',
+        name: '[L4] Transfer Fel',
         codeId: 'A0P5',
         extCodeId: 'ASP5',
         tooltip: 'Transfers 5 fel per second to the target.'
     }
 
     FelBasin: Wc3BuildingAbility = {
-        name: 'Prepare Fel Basin',
+        name: '[L3] Prepare Fel Basin',
         buildCodeId: 'ABP6',
         prepareCodeId: 'A0P6',
         builtUnitCodeId: 'n001',
@@ -279,7 +280,7 @@ Retera for RMS
     }
 
     Mineshaft: MineshaftWc3Ability = {
-        name: '[L4] Prepare Mineshaft',
+        name: '[L5] Prepare Mineshaft',
         buildCodeId: 'ABA9',
         prepareCodeId: 'A0A9',
         builtUnitCodeId: 'o000',
@@ -294,7 +295,7 @@ Retera for RMS
     }
 
     Minecart: Wc3BuildingAbility = {
-        name: '[L4] Prepare Minecart',
+        name: '[L5] Prepare Minecart',
         buildCodeId: 'ABAA',
         prepareCodeId: 'A0AA',
         builtUnitCodeId: 'o002',
@@ -318,7 +319,7 @@ Retera for RMS
         codeId: 'A0AB',
         extCodeId: 'ASAB',
         materials: [
-            [3, Material.Metal | Material.TierI],
+            [3, Material.Unique, ResourceItem.Iron],
         ],
         temperature: 100,
         tooltip: 'Create a steel ingot using Hell Forge.'
@@ -329,7 +330,7 @@ Retera for RMS
         codeId: 'A0AC',
         extCodeId: 'ASAC',
         materials: [
-            [3, Material.Metal | Material.TierII],
+            [3, Material.Unique, ResourceItem.Steel],
         ],
         temperature: 200,
         tooltip: 'Infuse steel with fel to create Fel Steel.'
@@ -383,7 +384,7 @@ Retera for RMS
         extCodeId: 'ASR2',
         experience: 40,
         resultItemTypeId: ResourceItem.OrganicMatter,
-        tooltip: 'Creates Organic Matter from 4 live Animals.',
+        tooltip: "Creates Organic Matter. Can be used by Prospector to grow a demonfruit tree, or to buy and upgrade evolutions.",
         recipe1: [
             [4, Material.Animal]
         ],
@@ -756,6 +757,17 @@ Takes items from target unit if inventory is empty (only owned or shared units).
         experience: 15,
     }
     
+    // Sold abilities
+
+    EssenceOfBlight: SoldWc3Ability = {
+        name: 'Essence of Blight',
+        codeId: 'A010',
+        soldItemTypeId: FourCC('I004'),
+        cost: [
+            [1, Material.OrganicMatter]
+        ]
+    }
+
 //#endregion
 
 //#region Machines
