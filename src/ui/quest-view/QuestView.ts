@@ -11,7 +11,7 @@ export function CreateQuestView(parent: Frame): IQuestView {
     // const x = 0.05;
     const y = 0.32;
     // const y = 0.54;
-    const height = 0.14;
+    const height = 0.13;
     const width = 0.18;
 
     box
@@ -53,7 +53,7 @@ function CreateQuestSlotView(parent: Frame, i: number, height: number, boxX: num
     // y = 0;
     box
         .setAbsPoint(FRAMEPOINT_TOPLEFT, x, y)
-        .setSize(parent.width, height * 0.95);
+        .setSize(parent.width, height * 1.08);
 
     text
         .clearPoints()

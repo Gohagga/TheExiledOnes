@@ -57,9 +57,9 @@ export class Artisan extends PlayerClass {
         this.toolManager.SetDefault(this.unit, this.abilities.Hand);
 
         // Basic recipes
-        this.AddBasic(AbilitySlot.Q, this.abilities.Transmute);
-        this.AddBasic(AbilitySlot.W, this.abilities.CrudeAxe);
-        this.AddBasic(AbilitySlot.E, this.abilities.CrudePickaxe);
+        this.AddBasic(AbilitySlot.Q, this.abilities.CrudeAxe);
+        this.AddBasic(AbilitySlot.W, this.abilities.CrudePickaxe);
+        this.AddBasic(AbilitySlot.E, this.abilities.Transmute);
         this.AddBasic(AbilitySlot.R, this.abilities.HellForge);
         this.AddBasic(AbilitySlot.A, this.abilities.Workstation);
         this.AddBasic(AbilitySlot.S, this.abilities.Transmuter);
@@ -99,11 +99,11 @@ export class Artisan extends PlayerClass {
         this.Enable(this.abilities.ArtisanFelsmithing, false);
 
         this.WaitForUnitLevel(1);
-        this.Enable(this.abilities.Transmute, true);
-
-        this.WaitForUnitLevel(2);
         this.Enable(this.abilities.CrudeAxe, true);
         this.Enable(this.abilities.CrudePickaxe, true);
+        
+        this.WaitForUnitLevel(2);
+        this.Enable(this.abilities.Transmute, true);
         this.Enable(this.abilities.TransferItems, true);
 
         this.WaitForUnitLevel(3);

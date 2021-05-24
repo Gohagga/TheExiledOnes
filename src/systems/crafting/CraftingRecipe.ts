@@ -74,10 +74,10 @@ export class CraftingRecipe {
         return tierX;
     }
 
-    CraftTierInclusive(unit: Unit): CraftingResult {
+    CraftTierInclusive(unit: Unit, items?: Item[]): CraftingResult {
 
         Log.Debug("Getting highest materials")
-        let items = this.GetUnitItems(unit);
+        items = items || this.GetUnitItems(unit);
         let toConsume: Item[] = [];
         let lowestTier: Material = AllTiers;
 

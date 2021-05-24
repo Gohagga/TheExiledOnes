@@ -1134,7 +1134,7 @@ W
 }
 
 STRING 247
-// Abilities: A0A5 (Transmute), EditorSuffix (Editor Suffix)
+// Abilities: A0A0 (Craft Crude Axe), EditorSuffix (Editor Suffix)
 {
 (Q)
 }
@@ -1146,19 +1146,19 @@ W
 }
 
 STRING 249
-// Abilities: A0A0 (Craft Crude Axe), EditorSuffix (Editor Suffix)
+// Abilities: A0A1 (Craft Crude Pickaxe), EditorSuffix (Editor Suffix)
 {
 (W)
 }
 
 STRING 250
-// Abilities: A0A0 (Craft Crude Axe), Hotkey (Hotkey - Normal)
+// Abilities: A0A1 (Craft Crude Pickaxe), Hotkey (Hotkey - Normal)
 {
 W
 }
 
 STRING 251
-// Abilities: A0A1 (Craft Crude Pickaxe), EditorSuffix (Editor Suffix)
+// Abilities: A0A5 (Transmute), EditorSuffix (Editor Suffix)
 {
 (E)
 }
@@ -1290,7 +1290,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 284
-// Abilities: A0A1 (Craft Crude Pickaxe), Hotkey (Hotkey - Normal)
+// Abilities: A003 (Test Build), Hotkey (Hotkey - Normal)
 {
 E
 }
@@ -1536,7 +1536,7 @@ Iron
 }
 
 STRING 337
-// Abilities: A0A0 (Craft Crude Axe), Researchhotkey (Hotkey - Learn)
+// Abilities: A0A1 (Craft Crude Pickaxe), Researchhotkey (Hotkey - Learn)
 {
 W
 }
@@ -2094,7 +2094,7 @@ Crystalizes 100 fel into a powerup item that can be picked up by other units.
 }
 
 STRING 449
-// Abilities: A0A1 (Craft Crude Pickaxe), Researchhotkey (Hotkey - Learn)
+// Abilities: A0A5 (Transmute), Hotkey (Hotkey - Normal)
 {
 E
 }
@@ -2219,7 +2219,7 @@ Crafting component.|n|nMaterials|nFrame III|nWood IV|nStone IV|nMetal IV
 }
 
 STRING 473
-// Abilities: A003 (Test Build), Hotkey (Hotkey - Normal)
+// Abilities: AR02 (Machine Recipe E), Hotkey (Hotkey - Normal)
 {
 E
 }
@@ -2554,7 +2554,7 @@ Q
 }
 
 STRING 539
-// Abilities: AR02 (Machine Recipe E), Hotkey (Hotkey - Normal)
+// Abilities: AR02 (Machine Recipe E), Researchhotkey (Hotkey - Learn)
 {
 E
 }
@@ -2578,7 +2578,7 @@ D
 }
 
 STRING 543
-// Abilities: AR02 (Machine Recipe E), Researchhotkey (Hotkey - Learn)
+// Abilities: AT0T (Transfer Inventory), Researchhotkey (Hotkey - Learn)
 {
 E
 }
@@ -2832,13 +2832,13 @@ Q
 }
 
 STRING 587
-// Abilities: ASA5 (Addition Transmute), Hotkey (Hotkey - Normal)
+// Abilities: A0A0 (Craft Crude Axe), Hotkey (Hotkey - Normal)
 {
 Q
 }
 
 STRING 588
-// Abilities: A0A5 (Transmute), Hotkey (Hotkey - Normal)
+// Abilities: A0A0 (Craft Crude Axe), Researchhotkey (Hotkey - Learn)
 {
 Q
 }
@@ -2883,7 +2883,7 @@ Takes items from target unit if inventory is empty.
 }
 
 STRING 599
-// Abilities: AT0T (Transfer Inventory), Researchhotkey (Hotkey - Learn)
+// Abilities: AT0Z (Equip Tool), Researchhotkey (Hotkey - Learn)
 {
 E
 }
@@ -2961,7 +2961,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 613
-// Abilities: A0A6 (Transmute Rock), Hotkey (Hotkey - Normal)
+// Abilities: ASA5 (Addition Transmute), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -3003,7 +3003,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 621
-// Abilities: A0A6 (Transmute Rock), Researchhotkey (Hotkey - Learn)
+// Abilities: A0A6 (Transmute Rock), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -3021,7 +3021,7 @@ Transmute Copper
 }
 
 STRING 624
-// Abilities: AT0Z (Equip Tool), Researchhotkey (Hotkey - Learn)
+// Abilities: A0A8 (Transmute Copper), Hotkey (Hotkey - Normal)
 {
 E
 }
@@ -3045,7 +3045,7 @@ STRING 627
 }
 
 STRING 628
-// Abilities: A0A8 (Transmute Copper), Hotkey (Hotkey - Normal)
+// Abilities: A0A8 (Transmute Copper), Researchhotkey (Hotkey - Learn)
 {
 E
 }
@@ -3265,7 +3265,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 664
-// Abilities: ASA6 (Addition Transmute Rock), Hotkey (Hotkey - Normal)
+// Abilities: A0A6 (Transmute Rock), Researchhotkey (Hotkey - Learn)
 {
 Q
 }
@@ -3375,7 +3375,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 684
-// Abilities: ASA7 (Addition Transmute Iron), Hotkey (Hotkey - Normal)
+// Abilities: ASA6 (Addition Transmute Rock), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -3531,7 +3531,7 @@ Rock
 }
 
 STRING 722
-// Abilities: AR00 (Machine Recipe Q), Hotkey (Hotkey - Normal)
+// Abilities: ASA7 (Addition Transmute Iron), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -3579,13 +3579,13 @@ Copper
 }
 
 STRING 730
-// Abilities: AR00 (Machine Recipe Q), Researchhotkey (Hotkey - Learn)
+// Abilities: AR00 (Machine Recipe Q), Hotkey (Hotkey - Normal)
 {
 Q
 }
 
 STRING 731
-// Abilities: A0RQ (Base Researcher Spellbook), Hotkey (Hotkey - Normal)
+// Abilities: AR00 (Machine Recipe Q), Researchhotkey (Hotkey - Learn)
 {
 Q
 }
@@ -3612,7 +3612,7 @@ Stone
 }
 
 STRING 735
-// Abilities: ASA8 (Addition Transmute Copper), Hotkey (Hotkey - Normal)
+// Abilities: A0RQ (Base Researcher Spellbook), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -3735,7 +3735,7 @@ A
 }
 
 STRING 761
-// Abilities: ASA9 (Addition Prepare Mineshaft), Hotkey (Hotkey - Normal)
+// Abilities: ASA8 (Addition Transmute Copper), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -3783,13 +3783,13 @@ W
 }
 
 STRING 770
-// Abilities: A0A8 (Transmute Copper), Researchhotkey (Hotkey - Learn)
+// Abilities: A0AE (Create Building Tools), Hotkey (Hotkey - Normal)
 {
 E
 }
 
 STRING 771
-// Abilities: ASAA (Addition Prepare Minecart), Hotkey (Hotkey - Normal)
+// Abilities: ASA9 (Addition Prepare Mineshaft), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -3807,7 +3807,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 774
-// Abilities: A00D (Forge Flames RaiseTemperature), Hotkey (Hotkey - Normal)
+// Abilities: ASAA (Addition Prepare Minecart), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -3855,7 +3855,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 782
-// Abilities: A00D (Forge Flames RaiseTemperature), Unhotkey (Hotkey - Turn Off)
+// Abilities: A00D (Forge Flames RaiseTemperature), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -3939,7 +3939,7 @@ Forge Fel Steel
 }
 
 STRING 796
-// Abilities: ASAB (Addition Forge Steel), Hotkey (Hotkey - Normal)
+// Abilities: A00D (Forge Flames RaiseTemperature), Unhotkey (Hotkey - Turn Off)
 {
 Q
 }
@@ -3993,7 +3993,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 806
-// Abilities: A0AB (Forge Steel), Hotkey (Hotkey - Normal)
+// Abilities: ASAB (Addition Forge Steel), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -4023,7 +4023,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 811
-// Abilities: ASAC (Addition Forge Fel Steel), Hotkey (Hotkey - Normal)
+// Abilities: A0AB (Forge Steel), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -4047,7 +4047,7 @@ Create Soul Gem
 }
 
 STRING 815
-// Abilities: ASAD (Addition Create Soul Gem), Hotkey (Hotkey - Normal)
+// Abilities: ASAC (Addition Forge Fel Steel), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -4101,7 +4101,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 825
-// Abilities: ASAE (Addition Create Building Tools), Hotkey (Hotkey - Normal)
+// Abilities: ASAD (Addition Create Soul Gem), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -4179,7 +4179,7 @@ STRING 839
 }
 
 STRING 840
-// Abilities: A0AE (Create Building Tools), Hotkey (Hotkey - Normal)
+// Abilities: A0R3 (Create Net), Hotkey (Hotkey - Normal)
 {
 E
 }
@@ -4340,7 +4340,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 873
-// Abilities: ASR0 (Addition Depot), Hotkey (Hotkey - Normal)
+// Abilities: ASAE (Addition Create Building Tools), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -4424,7 +4424,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 888
-// Abilities: ASR1 (Addition Automaton), Hotkey (Hotkey - Normal)
+// Abilities: ASR0 (Addition Depot), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -4496,7 +4496,7 @@ STRING 902
 }
 
 STRING 904
-// Abilities: A00J (Order: Supply), Hotkey (Hotkey - Normal)
+// Abilities: ASR1 (Addition Automaton), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -4892,7 +4892,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 1002
-// Abilities: ASR2 (Addition Organic Matter), Hotkey (Hotkey - Normal)
+// Abilities: A00J (Order: Supply), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -4916,7 +4916,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 1006
-// Abilities: ASR3 (Addition Net), Hotkey (Hotkey - Normal)
+// Abilities: ASR2 (Addition Organic Matter), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -4934,7 +4934,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 1010
-// Abilities: ASR4 (Addition Study), Hotkey (Hotkey - Normal)
+// Abilities: ASR3 (Addition Net), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -4958,7 +4958,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 1014
-// Abilities: ASR5 (Addition Experiment Chamber), Hotkey (Hotkey - Normal)
+// Abilities: ASR4 (Addition Study), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -4982,7 +4982,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 1018
-// Abilities: ASR6 (Addition Fel Injector), Hotkey (Hotkey - Normal)
+// Abilities: ASR5 (Addition Experiment Chamber), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -5006,7 +5006,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 1022
-// Abilities: ASR7 (Addition Obliterum), Hotkey (Hotkey - Normal)
+// Abilities: ASR6 (Addition Fel Injector), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -5144,7 +5144,7 @@ STRING 1054
 }
 
 STRING 1055
-// Abilities: A0R3 (Create Net), Hotkey (Hotkey - Normal)
+// Abilities: A00P (Study Award Experience), Researchhotkey (Hotkey - Learn)
 {
 E
 }
@@ -5192,7 +5192,7 @@ STRING 1062
 }
 
 STRING 1063
-// Abilities: A0R4 (Study), Hotkey (Hotkey - Normal)
+// Abilities: ASR7 (Addition Obliterum), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -5384,7 +5384,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 1098
-// Abilities: ASR8 (Addition Research Automaton), Hotkey (Hotkey - Normal)
+// Abilities: A0R4 (Study), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -5444,13 +5444,13 @@ STRING 1107
 }
 
 STRING 1108
-// Abilities: A0R9 (Research Tank), Hotkey (Hotkey - Normal)
+// Abilities: ASR8 (Addition Research Automaton), Hotkey (Hotkey - Normal)
 {
 Q
 }
 
 STRING 1109
-// Abilities: A0R9 (Research Tank), Researchhotkey (Hotkey - Learn)
+// Abilities: A0R9 (Research Tank), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -5726,7 +5726,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 1155
-// Abilities: ASR9 (Addition Research Tank), Hotkey (Hotkey - Normal)
+// Abilities: A0R9 (Research Tank), Researchhotkey (Hotkey - Learn)
 {
 Q
 }
@@ -5774,7 +5774,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 1163
-// Abilities: ASRA (Addition Research Converter), Hotkey (Hotkey - Normal)
+// Abilities: ASR9 (Addition Research Tank), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -6328,12 +6328,6 @@ STRING 1257
 Crystalizes 100 fel into a powerup item that can be picked up by other units.
 }
 
-STRING 1258
-// Abilities: A00P (Study Award Experience), Researchhotkey (Hotkey - Learn)
-{
-E
-}
-
 STRING 1259
 // Abilities: A0RB (Research Depot), Name (Name)
 {
@@ -6491,7 +6485,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 1288
-// Abilities: ASRB (Addition Research Depot), Hotkey (Hotkey - Normal)
+// Abilities: ASRA (Addition Research Converter), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -6653,7 +6647,7 @@ Base Prospector Spellbook (Q)
 }
 
 STRING 1316
-// Abilities: ASP7 (Addition Fel Extraction), Hotkey (Hotkey - Normal)
+// Abilities: ASRB (Addition Research Depot), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -6815,7 +6809,7 @@ Spawn Portal
 }
 
 STRING 1343
-// Abilities: A00Y (Spawn Portal), Hotkey (Hotkey - Normal)
+// Abilities: ASP7 (Addition Fel Extraction), Hotkey (Hotkey - Normal)
 {
 Q
 }
@@ -6997,5 +6991,11 @@ STRING 1386
 // Abilities: A010 (Essence of Blight), Ubertip (Tooltip - Normal - Extended)
 {
 Restores <A010,DataA1> hit points to up to 2 nearby friendly units.
+}
+
+STRING 1387
+// Abilities: A00Y (Spawn Portal), Hotkey (Hotkey - Normal)
+{
+Q
 }
 
