@@ -4,6 +4,7 @@ import { Trigger, Unit } from "w3ts/handles/index";
 export abstract class PlayerClass {
         
     protected levelUpTrigger: Trigger;
+    protected levelUpgrade: number = FourCC('RL00');
     
     protected abstract unit: Unit;
     protected thread: LuaThread;

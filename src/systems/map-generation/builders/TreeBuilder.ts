@@ -65,7 +65,7 @@ export class TreeBuilder {
         let treeOrNot = this.getTree(x, y, pathing, height);
 
         if (treeOrNot) {
-            CreateDestructable(treeOrNot.type, treeOrNot.x, treeOrNot.y, treeOrNot.facing, treeOrNot.scale, treeOrNot.variation);
+            let tree = CreateDestructable(treeOrNot.type, treeOrNot.x, treeOrNot.y, treeOrNot.facing, treeOrNot.scale, treeOrNot.variation);
             return 0.6;
         }
 

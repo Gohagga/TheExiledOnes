@@ -1,8 +1,10 @@
 export const enum Level {
     All,
+    Debug,
     Info,
     Warning,
     Error,
+    Message,
     None
 }
 
@@ -13,11 +15,21 @@ export const enum LogColor {
 }
 
 export class Log {
-
+    
     public static Level = Level.Error;
+    
+    static Message(...msg: any[]) {
+        if (Number(this.Level) > Number(Level.Message)) return;
+        print(...msg);
+    }
 
     public static Info(...msg: any[]) {
         if (Number(this.Level) > Number(Level.Info)) return;
+        print(...msg);
+    }
+
+    public static Debug(...msg: any[]) {
+        if (Number(this.Level) > Number(Level.Debug)) return;
         print(...msg);
     }
 
@@ -29,7 +41,7 @@ export class Log {
         else prefix += msgOrType;
         
         // print("Type of first is ...", first.name, typeof(first));
-        msg[msg.length - 1] += "|r";
+        msg.push("|r");
         print(prefix, ...msg);
     }
 

@@ -200,14 +200,12 @@ export class Minimap {
             // SetCameraBoundsToRectForPlayerBJ
     
             Log.Step();
-            print(BlzLoadTOCFile('MapPixel.toc'))
+            BlzLoadTOCFile('MapPixel.toc')
             Log.Step();
             let customMinimap = BlzCreateSimpleFrame("CustomMinimap", BlzGetFrameByName("ConsoleUI", 0), 0);
             // let mini = BlzCreateSimpleFrame("CustomMinimap", BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0), 0);
             BlzFrameSetPoint(customMinimap, FRAMEPOINT_BOTTOMLEFT, minimap, FRAMEPOINT_BOTTOMLEFT, 0, 0);
             BlzFrameSetPoint(customMinimap, FRAMEPOINT_TOPRIGHT, minimap, FRAMEPOINT_TOPRIGHT, 0, 0);
-
-            print("height", height, "width", width);
 
             // BlzFrameSetPoint(mini, FRAMEPOINT_BOTTOMLEFT, minimap, FRAMEPOINT_BOTTOMLEFT, 0, 0);
     

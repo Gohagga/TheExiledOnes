@@ -1,18 +1,23 @@
 import { Log } from "Log";
-import { CustomMinimap } from "systems/minimap/CustomMinimap";
+import { IItemFactory } from "systems/items/IItemFactory";
+import { IMinimap } from "systems/minimap/IMinimap";
 import { Random } from "systems/random/Random";
 import { Rectangle } from "w3ts/index";
 import { CaveHeightBuilder } from "./builders/CaveHeightBuilder";
 import { CaveTileBuilder } from "./builders/CaveTileBuilder";
 import { HeightBuilder } from "./builders/HeightBuilder";
 import { MinimapBuilder } from "./builders/MinimapBuilder";
-import { PathingBuilder } from "./builders/PathingBuilder";
+import { PathingBuilder, PathingType } from "./builders/PathingBuilder";
 import { TileBuilder } from "./builders/TileBuilder";
 import { TreeBuilder } from "./builders/TreeBuilder";
 import { ICavernNoiseProvider } from "./interfaces/ICavernNoiseProvider";
 import { IHeightNoiseProvider } from "./interfaces/IHeightNoiseProvider";
 import { IMoistureNoiseProvider } from "./interfaces/IMoistureNoiseProvider";
 import { ITreeNoiseProvider } from "./interfaces/ITreeNoiseProvider";
+import { TerrainType } from "./MapGenerator";
+import { GridPointPlacer } from "./object-placers/GridPointPlacer";
+import { OrePlacer } from "./object-placers/OrePlacer";
+import { RandomObjectPlacer } from "./object-placers/RandomObjectPlacer";
 
 export class MapGenerator2 {
     private readonly generatorThread: LuaThread;
@@ -28,15 +33,17 @@ export class MapGenerator2 {
     public startPoint: { x: number, y: number } = { x: 0, y: 0 }
 
     public heightBuilder!: HeightBuilder;
+    public pathingBuilder!: PathingBuilder;
 
     constructor(
-        private readonly minimap: CustomMinimap,
+        private readonly minimap: IMinimap,
         private readonly heightNoise: IHeightNoiseProvider,
         private readonly treeNoise: ITreeNoiseProvider,
         private readonly moistureNoise: IMoistureNoiseProvider,
         private readonly cavernNoise: ICavernNoiseProvider,
         private readonly surfaceBounds: Rectangle,
         private readonly undergroundBounds: Rectangle,
+        private readonly itemFactory: IItemFactory,
         random: Random,
     ) {
         this.generatorThread = coroutine.create(() => this.generateMap());
@@ -58,7 +65,6 @@ export class MapGenerator2 {
     private generateMap() {{
 
         try {
-
             let xDensity = 1 / 2784;
             let yDensity = 1 / 3008;
 
@@ -68,15 +74,33 @@ export class MapGenerator2 {
             let rec = new Rectangle(-11424.0, -3520.0, -4896.0, 3008.0);
             Log.Info("Rect", rec.minX, rec.minY, rec.maxX, rec.maxY);
     
+            // Builders
             let neutralHeight = 74;
+            let waterHeight = 45;
             let heightBuilder = new HeightBuilder(this.heightNoise, neutralHeight, xDensity, yDensity, 128);
             this.heightBuilder = heightBuilder;
-            let pathingBuilder = new PathingBuilder(heightBuilder, 45);
+            let pathingBuilder = new PathingBuilder(heightBuilder, waterHeight);
+            this.pathingBuilder = pathingBuilder;
             let tileBuilder = new TileBuilder(heightBuilder, pathingBuilder, this.moistureNoise);
             let treeBuilder = new TreeBuilder(heightBuilder, pathingBuilder, this.treeNoise, xDensity, yDensity, this.random)
             let caveHeightBuilder = new CaveHeightBuilder(this.cavernNoise, xDensUnder, yDensUnder, this.stepOffset, this.random); //1 / this.undergroundBounds.maxX
             let caveTileBuilder = new CaveTileBuilder(caveHeightBuilder);
             let minimapBuilder = new MinimapBuilder(this.minimap, heightBuilder, pathingBuilder, tileBuilder);
+            let animalPlacers = [
+                { type: FourCC('nfro'), placer: new GridPointPlacer<number>(this.surfaceBounds, 6, 6, 1) },
+                { type: FourCC('nder'), placer: new GridPointPlacer<number>(this.surfaceBounds, 2, 2, 3) },
+                { type: FourCC('necr'), placer: new GridPointPlacer<number>(this.surfaceBounds, 4, 4, 1) },
+                { type: FourCC('nskk'), placer: new GridPointPlacer<number>(this.surfaceBounds, 4, 4, 1) },
+                // { type: FourCC('nfro'), placer: new GridPointPlacer(this.surfaceBounds, 6, 6, 1) }
+            ]
+            let frog = animalPlacers[0];
+            let deer = animalPlacers[1];
+            let rabbit = animalPlacers[2];
+            let skink = animalPlacers[3];
+
+            // Object Placers
+            let orePlacer = new OrePlacer(this.random, this.surfaceBounds, heightBuilder, this.itemFactory);
+            let randomPlacer = new RandomObjectPlacer(this.random, this.itemFactory);
             
             // Generate Surface
             const { maxX, maxY } = this.surfaceBounds;
@@ -98,6 +122,9 @@ export class MapGenerator2 {
                     let pathing = pathingBuilder.getPathing(x, y, height);
                     let tile = tileBuilder.getTileType(x, y, pathing, height);
 
+                    let underX = x - this.surfaceBounds.minX + this.undergroundBounds.minX;
+                    let underY = y - this.surfaceBounds.minY + this.undergroundBounds.minY;
+
                     // We update tile every 8 steps
                     if (x % this.stepOffset == 0 && 
                         y % this.stepOffset == 0
@@ -108,12 +135,31 @@ export class MapGenerator2 {
                         this.debt += tileBuilder.buildTerrainTile(x, y, tile);
                         this.debt += treeBuilder.buildTreeOrDont(x, y, pathing, height);
 
-                        let underX = x - this.surfaceBounds.minX + this.undergroundBounds.minX;
-                        let underY = y - this.surfaceBounds.minY + this.undergroundBounds.minY;
                         this.debt += caveHeightBuilder.buildCaveHeight(underX, underY);
                         this.debt += caveTileBuilder.buildCaveTile(underX, underY);
+
+                        if (height > 150 && height < 180 && pathing == PathingType.HillSteepUnwalkable) {
+                            orePlacer.AddPossibleStoneSpot({ x, y, z: height - waterHeight });
+                        }
+                        
+                        if (tree) randomPlacer.AddTree(tree);
+                        try {
+                            if ((pathing == PathingType.DeepWater || pathing == PathingType.ShallowWater) && math.random() < 0.2 && frog.placer.placeObject(x, y, 1))
+                                CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), frog.type, x, y, 0);
+                            if ((pathing == PathingType.Plains) && math.random() < 0.2 && deer.placer.placeObject(x, y, 1))
+                                CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), deer.type, x, y, 0);
+                            if ((pathing == PathingType.Plains) && math.random() < 0.2 && rabbit.placer.placeObject(x, y, 1))
+                                CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), rabbit.type, x, y, 0);
+                            if ((pathing == PathingType.Hills && tile == TerrainType.Rock) && math.random() < 0.5 && skink.placer.placeObject(x, y, 1))
+                                CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), skink.type, x, y, 0);
+                        } catch (ex) {
+                            Log.Error(ex);
+                        }
                     }
                     this.debt += pathingBuilder.buildPathing(x, y, pathing);
+                    // this.debt += pathingBuilder.buildPathing(underX, underY, PathingType.Hills);
+                    SetTerrainPathable(underX, underY, PATHING_TYPE_BUILDABILITY, true);
+                    this.debt += 0.5;
 
                     let xPerc = (x - minX) * widthDiv;
                     let yPerc = (y - minY) * heightDiv;
@@ -135,6 +181,12 @@ export class MapGenerator2 {
                 }
                 miniLine++;
             }
+
+            let stonePileCount = math.floor((maxX - minX) / 305);
+            let rocksCount = math.floor((maxX - minX) / 205);
+            let branchCount = math.floor((maxX - minX) / 153);
+            orePlacer.placeRocksAndStones(stonePileCount, rocksCount);
+            // randomPlacer.PlaceBranches(branchCount);
     
             this.isDone = true;
         } catch (err) {

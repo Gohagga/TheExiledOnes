@@ -1,0 +1,11 @@
+[Misc]
+DisplayBuildingStatus=1
+DrainTransfersMana=1
+FollowRange=100.0
+ItemStackingEnabled=0
+MaxUnitSpeed=522.0
+MinUnitSpeed=0.0
+NeedHeroXP=50
+NeedHeroXPFormulaB=0.0
+NeedHeroXPFormulaC=50.0
+

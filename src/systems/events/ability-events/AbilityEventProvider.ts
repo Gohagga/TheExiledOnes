@@ -15,22 +15,22 @@ export class AbilityEventProvider {
         this.spellCastTrigger = new Trigger();
         this.spellCastTrigger.registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST);
         this.spellCastTrigger.addAction(() => {
-            this.abilityEventHandler.Register(AbilityEventType.Cast, GetSpellAbilityId());
+            this.abilityEventHandler.Raise(AbilityEventType.Cast, GetSpellAbilityId());
         });
         this.spellEffectTrigger = new Trigger();
         this.spellEffectTrigger.registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_EFFECT);
         this.spellEffectTrigger.addAction(() => {
-            this.abilityEventHandler.Register(AbilityEventType.Effect, GetSpellAbilityId());
+            this.abilityEventHandler.Raise(AbilityEventType.Effect, GetSpellAbilityId());
         });
         this.spellEndTrigger = new Trigger();
         this.spellEndTrigger.registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_ENDCAST);
         this.spellEndTrigger.addAction(() => {
-            this.abilityEventHandler.Register(AbilityEventType.End, GetSpellAbilityId());
+            this.abilityEventHandler.Raise(AbilityEventType.End, GetSpellAbilityId());
         });
         this.spellFinishTrigger = new Trigger();
         this.spellFinishTrigger.registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_FINISH);
         this.spellFinishTrigger.addAction(() => {
-            this.abilityEventHandler.Register(AbilityEventType.Finished, GetSpellAbilityId());
+            this.abilityEventHandler.Raise(AbilityEventType.Finished, GetSpellAbilityId());
         });
     }
 }

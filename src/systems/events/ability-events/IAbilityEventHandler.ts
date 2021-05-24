@@ -12,5 +12,5 @@ export interface IAbilityEventHandler {
 
     OnAbilityFinished(abilityId: number, callback: (e: AbilityFinishEvent) => void): void;
 
-    Register(type: AbilityEventType, abilityId: number): void;
+    Raise(type: AbilityEventType, abilityId: number): void;
 }

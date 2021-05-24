@@ -10,7 +10,14 @@ export interface Wc3Ability {
 
     tooltip?: string,
 
+    experience?: number,
+
     // icon: string,
 
     // iconDisabled?: string,
+}
+
+export interface Wc3ToggleAbility extends Wc3Ability {
+    nameOn: string,
+    tooltipOn?: string
 }

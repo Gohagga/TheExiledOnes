@@ -1,5 +1,6 @@
 Fred for his awesome spark of proc gen, and some code
 Tasyen, William, Rayman.90, pr for helping me set up the minimap, Boar
+Fred for machine processing ideas and Ghostwolf and NemesisDSGB for support
 
 167.496 seconds start
 147 seconds non responsive

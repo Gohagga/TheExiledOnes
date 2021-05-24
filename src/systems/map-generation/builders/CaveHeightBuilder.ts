@@ -34,7 +34,7 @@ export class CaveHeightBuilder {
 
         let height = this.cavernNoise.getDepthValue(x*this.xDensity, y*this.yDensity);
         // let height = this.cavernNoise.getDepthValue(x*this.xDensity, y*this.yDensity);
-        height = 1000 * height + 44;
+        height = 1000 * height + 45;
 
         if (height > 0) {
             // height = 300;

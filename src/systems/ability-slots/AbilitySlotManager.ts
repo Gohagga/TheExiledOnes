@@ -7,6 +7,20 @@ export class AbilitySlotManager {
 
     protected instances: Record<number, Record<AbilitySlot, IAbility>> = {};
 
+    GetSlot(unit: Unit, slot: AbilitySlot): IAbility | null {
+        
+        let unitId = unit.id;
+        if (unitId in this.instances == false) {
+            Log.Error(AbilitySlotManager, "Unit has not been registered", unit.name);
+            return null;
+        } else {
+        
+            let unitSlots = this.instances[unitId];
+            if (slot in unitSlots) return unitSlots[slot];
+            return null;
+        }
+    }
+
     ApplySlot(unit: Unit, slot: AbilitySlot, ability: IAbility) {
         
         let unitId = unit.id;
@@ -18,6 +32,31 @@ export class AbilitySlotManager {
             let unitSlots = this.instances[unitId];
             if (slot in unitSlots) unitSlots[slot].RemoveFromUnit(unit);
             this.instances[unitId][slot] = ability;
+        }
+    }
+
+    OnlyApplySlot(unit: Unit, slot: AbilitySlot, ability: IAbility) {
+        
+        let unitId = unit.id;
+        if (unitId in this.instances == false) {
+            Log.Error(AbilitySlotManager, "Unit has not been registered", unit.name);
+            return false;
+        } else {
+            this.instances[unitId][slot] = ability;
+        }
+    }
+
+    ClearSlot(unit: Unit, slot: AbilitySlot): boolean {
+
+        let unitId = unit.id;
+        if (unitId in this.instances == false) {
+            Log.Error(AbilitySlotManager, "Unit has not been registered", unit.name);
+            return false;
+        } else {
+        
+            let unitSlots = this.instances[unitId];
+            if (slot in unitSlots) delete unitSlots[slot];
+            return true;
         }
     }
 
@@ -33,7 +72,7 @@ export class AbilitySlotManager {
         }
     }
 
-    ResetSlots(unit: Unit): boolean {
+    ResetAllSlots(unit: Unit): boolean {
 
         let unitId = unit.id;
         if (unitId in this.instances == false) {
@@ -58,7 +97,7 @@ export class AbilitySlotManager {
         
         let unitId = unit.id;
         if (unitId in this.instances == false) {
-            Log.Error(AbilitySlotManager, "Unit has not been registered", unit.name);
+            Log.Info(AbilitySlotManager, "Unit has not been registered", unit.name);
             return false;
         } else {
         
@@ -78,9 +117,32 @@ export class AbilitySlotManager {
 
             for (let slot of slots) {
                 let ability = unitSlots[slot];
-                Log.Info(slot.toString());
-                if (ability)
+                if (ability) {
+                    Log.Info("adding slot", slot.toString(), (ability as any).name);
                     ability.AddToUnit(unit, true)
+                }
+            }
+        }
+        return true;
+    }
+
+    DisableAbilities(unit: Unit): boolean {
+
+        let unitId = unit.id;
+        if (unitId in this.instances == false) {
+            Log.Info(AbilitySlotManager, "Unit has not been registered", unit.name);
+            return false;
+        } else {
+        
+            let unitSlots = this.instances[unitId];
+            let slots = Object.keys(unitSlots) as unknown as AbilitySlot[];
+            slots = slots.sort();
+
+            for (let slot of slots) {
+                let ability = unitSlots[slot];
+                if (ability) {
+                    unit.disableAbility(ability.id, true, false);
+                }
             }
         }
         return true;

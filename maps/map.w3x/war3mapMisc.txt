@@ -1,3 +1,0 @@
-[Misc]
-DrainTransfersMana=1
-

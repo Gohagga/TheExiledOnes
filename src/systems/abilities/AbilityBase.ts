@@ -8,6 +8,7 @@ export abstract class AbilityBase implements Wc3Ability, IAbility {
     codeId: string;
     extCodeId?: string | undefined;
     name: string;
+    experience: number;
 
     // Properties of base ability
     public id: number;
@@ -18,18 +19,25 @@ export abstract class AbilityBase implements Wc3Ability, IAbility {
         this.codeId = data.codeId;
         this.extCodeId = data.extCodeId
         this.name = data.name;
+        this.experience = data.experience || 0;
 
         this.id = FourCC(data.codeId);
-        Log.Info(this.id);
         if (!this.id) Log.Error(this.name, "Failed to translate Ability Id", data.codeId);
         BlzSetAbilityTooltip(this.id, data.name, 0);
+        if (data.tooltip) BlzSetAbilityExtendedTooltip(this.id, data.tooltip, 0);
 
         if (data.extCodeId) {
             this.extId = FourCC(data.extCodeId);
             Log.Info(this.extId);
             if (!this.extId) Log.Error(this.name, "Failed to translate Ability Id", data.extCodeId);
             BlzSetAbilityTooltip(this.extId, data.name, 0);
+            if (data.tooltip) BlzSetAbilityExtendedTooltip(this.extId, data.tooltip, 0);
         }
+    }
+
+    DisableForUnit(unit: Unit, disable: boolean): void {
+        Log.Info("Disabling", unit.name, this.name, disable);
+        unit.disableAbility(this.id, disable, false);
     }
 
     AddToUnit(unit: Unit, extended?: boolean): boolean {
@@ -85,5 +93,14 @@ export abstract class AbilityBase implements Wc3Ability, IAbility {
     abstract TooltipDescription?: (unit: Unit) => string;
 
     ApplyCost(unit: Unit, cost: number) {
+    }
+
+    Preload(dummy: Unit) {
+
+        dummy.addAbility(this.id)
+
+        if (this.extId) {
+            dummy.addAbility(this.extId);
+        }
     }
 }

@@ -44,7 +44,8 @@ export class PathingBuilder {
 
             if (height > neutralHeight + 500) {
                 return PathingType.HillSteepUnwalkable;
-            } else if (math.abs(nw - se) > slope ||
+            } else if (
+                math.abs(nw - se) > slope ||
                 math.abs(ne - sw) > slope
             ) {
                 if (height > neutralHeight + 50)
@@ -54,8 +55,11 @@ export class PathingBuilder {
                 else
                     return PathingType.Hills;
             }
+
         }
-        if (height > this.waterHeight) {
+        if (height > this.waterHeight + 155) {
+            return PathingType.Hills;
+        } else if (height > this.waterHeight) {
             return PathingType.Plains;
         } else if (height > this.waterHeight - 64) {
             return PathingType.ShallowWater;
@@ -80,6 +84,9 @@ export class PathingBuilder {
             case PathingType.HillSteepUnwalkable:
                 SetTerrainPathable(x, y, PATHING_TYPE_WALKABILITY, false);
                 SetTerrainPathable(x, y, PATHING_TYPE_BUILDABILITY, false);
+                SetTerrainPathable(x, y, PATHING_TYPE_FLOATABILITY, false);
+                SetTerrainPathable(x, y, PATHING_TYPE_AMPHIBIOUSPATHING, false);
+                // SetTerrainPathable(x, y, PATHING_TYPE_ANY, false);
                 return cost;
 
             case PathingType.Plains:

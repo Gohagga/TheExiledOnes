@@ -9,5 +9,9 @@ export interface IAbility {
 
     AddToUnit(unit: Unit, extended?: boolean): boolean;
 
-    RemoveFromUnit(unit: Unit): boolean;
+    RemoveFromUnit(unit: Unit, extended?: boolean): boolean;
+
+    DisableForUnit(unit: Unit, disable: boolean): void;
+
+    Preload(dummy: Unit): void;
 }

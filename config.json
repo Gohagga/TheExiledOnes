@@ -1,8 +1,26 @@
 {
-  "mapFolder": "map.w3x",
+  "mapFolder": "TheExiledOnes.w3x",
   "minifyScript": false,
   "gameExecutable": "C:\\Program Files (x86)\\Warcraft III\\_retail_\\x86_64\\Warcraft III.exe",
   "outputFolder": "./dist/bin",
+  "archiveOutputFolders": [
+    "./versions",
+    "C:\\Users\\Bartul\\Documents\\Warcraft III\\Maps\\TestPC 2"
+  ],
+  "version": {
+    "major": 0,
+    "minor": 2,
+    "build": 8
+  },
+  "mapInfo": {
+    "author": "The_Spellweaver",
+    "name": "The Exiled Ones {version}",
+    "description": "This is a description",
+    "recommendedPlayers": "nobody should play this map",
+    "loadingScreenTitle": "{version}",
+    "loadingScreenSubtitle": "The Exiled Ones",
+    "loadingScreenDescription": "THis is a yes map"
+  },
   "launchArgs": [
     "-launch",
     "-windowmode",
