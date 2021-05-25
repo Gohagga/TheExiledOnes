@@ -19,12 +19,12 @@ export class Pickaxe extends ToolAbilityBase {
         abilityEvent.OnAbilityEffect(this.id, (e: AbilityEvent) => this.Execute(e));
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
         let caster = e.caster;
         let level = e.abilityLevel;
         let target = e.targetDestructable;
-        if (!target) return;
+        if (!target) return false;
         
         let life = target.life;
         let totalDrops = 4;
@@ -56,6 +56,7 @@ export class Pickaxe extends ToolAbilityBase {
         // if (GetWidgetLife(target.handle) <= 0.405) {
             
         // }
+        return true;
     }
     
     TooltipDescription?: ((unit: Unit) => string) | undefined;

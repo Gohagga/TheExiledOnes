@@ -20,8 +20,9 @@ export class BasicAbility extends AbilityBase {
         abilityEvent.OnAbilityEffect(this.id, (e: AbilityEvent) => this.Execute(e));
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         e.caster.addExperience(this.experience, true);
+        return true;
     }
 
     TooltipDescription?: (unit: Unit) => string;

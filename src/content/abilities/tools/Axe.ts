@@ -18,13 +18,13 @@ export class Axe extends ToolAbilityBase {
         abilityEvent.OnAbilityEffect(this.id, (e: AbilityEvent) => this.Execute(e));
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
         let caster = e.caster;
         let level = e.abilityLevel;
         let target = e.targetDestructable;
 
-        if (!target) return;
+        if (!target) return false;
 
         // 15
         let dmg = 6.25 + (level - 1) * 2;
@@ -51,6 +51,7 @@ export class Axe extends ToolAbilityBase {
                 this.errorService.DisplayError(caster.owner, "Target must be a tree.");
                 break;
         }
+        return true;
     }
     
     TooltipDescription?: ((unit: Unit) => string) | undefined;

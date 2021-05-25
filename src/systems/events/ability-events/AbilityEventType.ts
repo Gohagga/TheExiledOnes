@@ -3,6 +3,7 @@ export const enum AbilityEventType {
     Effect,
     End,
     Finished,
+    Success,
 
-    Order
+    Order,
 }

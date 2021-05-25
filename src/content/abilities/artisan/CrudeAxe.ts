@@ -29,7 +29,7 @@ export class CrudeAxe extends AbilityBase {
         ]);
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
         Log.Info("Cast Create Crude Axe");
         let caster = e.caster;
@@ -37,7 +37,7 @@ export class CrudeAxe extends AbilityBase {
 
         if (result.successful == false) {
             this.errorService.DisplayError(caster.owner, `Missing materials: ${result.errors.join(', ')}`)
-            return;
+            return false;
         }
 
         try {
@@ -59,6 +59,7 @@ export class CrudeAxe extends AbilityBase {
             Log.Error(ex);
         }
 
+        return true;
     }
     
     TooltipDescription = (unit: Unit) =>

@@ -29,7 +29,7 @@ export class CrudePickaxe extends AbilityBase {
         ]);
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
         
         Log.Info("Cast Create Crude Pickaxe");
@@ -38,7 +38,7 @@ export class CrudePickaxe extends AbilityBase {
 
         if (result.successful == false) {
             this.errorService.DisplayError(caster.owner, `Missing: ${result.errors.join(', ')}`)
-            return;
+            return false;
         }
 
         try {
@@ -59,7 +59,8 @@ export class CrudePickaxe extends AbilityBase {
         } catch (ex) {
             Log.Error(ex);
         }
-
+        
+        return true;
     }
     
     TooltipDescription = (unit: Unit) =>

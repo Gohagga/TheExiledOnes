@@ -72,7 +72,7 @@ export function InitCommands(
     
     const unitCountAbilityId = FourCC('A00X');
     abilityEvent.OnAbilityEffect(unitCountAbilityId, (e: AbilityEvent) => {
-        e.caster.incAbilityLevel(unitCountAbilityId);
+        return e.caster.incAbilityLevel(unitCountAbilityId) > 0;
     });
 
     let reduceUnitCountTrg = new Trigger();
@@ -106,6 +106,7 @@ export function InitCommands(
                 }
             });
         });
+        return true;
     });
 }
 

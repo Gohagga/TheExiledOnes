@@ -44,7 +44,7 @@ export class FelExtraction extends AbilityBase {
         this.tooltip = data.tooltip || '';
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
         const caster = e.caster;
         
@@ -59,7 +59,7 @@ export class FelExtraction extends AbilityBase {
         if (!result || result.successful == false) {
             this.errorService.DisplayError(caster.owner, "No item valid for extraction.");
             caster.mana += this.manacost;
-            return;
+            return false;
         }
 
         let felAmount = 0;
@@ -70,6 +70,8 @@ export class FelExtraction extends AbilityBase {
         
         caster.mana += felAmount;
         caster.addExperience(felAmount * this.experience, true);
+
+        return true;
     }
     
     TooltipDescription = (unit: Unit) =>

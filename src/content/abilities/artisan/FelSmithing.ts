@@ -42,7 +42,7 @@ export class FelSmithing extends AbilityBase {
         this.tooltip = data.tooltip || '';
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
         const caster = e.caster;
 
@@ -50,21 +50,21 @@ export class FelSmithing extends AbilityBase {
         if (forges.length == 0) {
             this.errorService.DisplayError(caster.owner, `Must be near a Hell Forge.`);
             caster.mana += this.manacost;
-            return;
+            return false;
         }
 
         let highestTempForge = this.forgeManager.GetHighestTemperatureForge(forges, this.temperature);
         if (!highestTempForge) {
             this.errorService.DisplayError(caster.owner, `Temperature too low. Need at least ${this.temperature}.`);
             caster.mana += this.manacost;
-            return;
+            return false;
         }
 
         let result = this.recipe.CraftTierInclusive(caster);
         if (result.successful == false) {
             this.errorService.DisplayError(caster.owner, `Missing: ${result.errors.join(', ')}`);
             caster.mana += this.manacost;
-            return;
+            return false;
         }
 
         result.Consume();
@@ -73,6 +73,7 @@ export class FelSmithing extends AbilityBase {
         if (!caster.addItem(item))
             item.setPoint(caster.point);
         
+        return true;
     }
     
     TooltipDescription = (unit: Unit) =>

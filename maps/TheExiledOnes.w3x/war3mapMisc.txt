@@ -7,5 +7,5 @@ MaxUnitSpeed=522.0
 MinUnitSpeed=0.0
 NeedHeroXP=50
 NeedHeroXPFormulaB=0.0
-NeedHeroXPFormulaC=50.0
+NeedHeroXPFormulaC=100.0
 

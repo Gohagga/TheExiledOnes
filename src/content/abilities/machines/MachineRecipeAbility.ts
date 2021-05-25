@@ -24,9 +24,9 @@ export class MachineRecipeAbility extends AbilityBase {
         abilityEvent.OnAbilityEffect(this.id, (e: AbilityEvent) => this.Execute(e));
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         let caster = e.caster;
-        caster.issueImmediateOrder(this.trainId);
+        return caster.issueImmediateOrder(this.trainId);
     }
 
     TooltipDescription = (unit: Unit) => 

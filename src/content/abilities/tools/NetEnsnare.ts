@@ -46,7 +46,7 @@ export class NetEnsnare extends AbilityBase {
         item.destroy();
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
         let caster = e.caster;
         let target = e.targetUnit;
@@ -60,6 +60,7 @@ export class NetEnsnare extends AbilityBase {
 
             target.destroy();
         }
+        return true;
     }
 
     private unitToItemType: Record<number, number> = {

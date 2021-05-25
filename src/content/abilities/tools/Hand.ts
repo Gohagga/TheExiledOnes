@@ -44,13 +44,13 @@ export class Hand extends ToolAbilityBase {
         });
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
         let caster = e.caster;
         let level = e.abilityLevel;
         let target = e.targetDestructable;
 
-        if (!target) return;
+        if (!target) return false;
 
         let dmg = 2
         switch (target.typeId) {
@@ -74,6 +74,7 @@ export class Hand extends ToolAbilityBase {
             
         //     // Log.Info("Dropping");
         // }
+        return true;
     }
     
     TooltipDescription = (unit: Unit) => 

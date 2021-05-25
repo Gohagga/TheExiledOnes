@@ -190,10 +190,10 @@ export class Mineshaft extends BuildingAbilityBase {
         }
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         let caster = e.caster;
         Log.Info("executed");
-        this.OnBuild(caster);
+        return this.OnBuild(caster);
     }
 
     TooltipDescription?: ((unit: Unit) => string) | undefined;

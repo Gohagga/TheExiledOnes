@@ -28,16 +28,18 @@ export class ForgeMaintainTemperature extends AbilityBase {
         if (data.nameOn) BlzSetAbilityActivatedTooltip(this.id, data.nameOn, 0);
     }
     
-    ToggledOn(e: AbilityEvent): void {
+    ToggledOn(e: AbilityEvent): boolean {
         
         let caster = e.caster;
         this.forgeManager.TurnMaintainOn(caster);
+        return true;
     }
 
-    ToggledOff(): void {
+    ToggledOff(): boolean {
 
         let caster = Unit.fromEvent();
         this.forgeManager.TurnMaintainOff(caster);
+        return true;
     }
     
     TooltipDescription = undefined;

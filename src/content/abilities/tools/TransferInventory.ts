@@ -20,7 +20,7 @@ export class TransferInventory extends AbilityBase {
         this.rect = new Rectangle(0, 0, 220, 220);
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
         try {
             let caster = e.caster;
@@ -56,7 +56,7 @@ export class TransferInventory extends AbilityBase {
                                 break;
                         }
                     }
-                    return;
+                    return true;
                 } else {
                     for (let it of casterItems) {
                         it.setPoint(point);
@@ -88,7 +88,7 @@ export class TransferInventory extends AbilityBase {
                             }
                         }
 
-                        return;
+                        return true;
                     }
                 } else {
                     this.rect.movePoint(point);
@@ -102,6 +102,7 @@ export class TransferInventory extends AbilityBase {
         } catch (ex) {
             Log.Error(ex);
         }
+        return true;
     }
 
     GetUnitItems(unit: Unit) {

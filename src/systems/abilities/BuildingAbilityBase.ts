@@ -24,9 +24,9 @@ export interface Wc3BuildingAbility {
 
 export class BuildingAbilityBase extends AbilityBase {
 
-    protected buildId: number;
-    protected prepareId: number;
-    protected builtUnitId: number;
+    public readonly buildId: number;
+    public readonly prepareId: number;
+    public readonly builtUnitId: number;
     
     constructor(
         data: Wc3BuildingAbility,
@@ -76,14 +76,16 @@ export class BuildingAbilityBase extends AbilityBase {
         // });
     }
 
-    OnBuild(caster: Unit): void {
+    OnBuild(caster: Unit) {
         
         this.slotManager.ClearSlot(caster, AbilitySlot.PreparedSlot);
         this.RemoveFromUnit(caster, true);
         caster.addExperience(this.experience, true);
+
+        return true;
     }
 
-    OnPrepare(e: AbilityEvent): void {
+    OnPrepare(e: AbilityEvent) {
         
         let caster = e.caster;
         
@@ -93,7 +95,7 @@ export class BuildingAbilityBase extends AbilityBase {
             let result = this.recipe.GetHighestTierMaterials(caster);
             if (result.successful == false) {
                 this.errorService.DisplayError(caster.owner, `Missing materials: ${result.errors.join(', ')}`);
-                return;
+                return false;
             }
     
             result.Consume();
@@ -109,6 +111,8 @@ export class BuildingAbilityBase extends AbilityBase {
 
         this.spellbookAbility.RemoveFromUnit(caster);
         this.spellbookAbility.AddToUnit(caster);
+
+        return true;
     }
 
     RemoveFromUnit(unit: Unit, onlyBuild?: boolean): boolean {

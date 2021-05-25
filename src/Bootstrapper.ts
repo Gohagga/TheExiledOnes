@@ -16,7 +16,7 @@ import { Hand } from "content/abilities/tools/Hand";
 import { Pickaxe } from "content/abilities/tools/Pickaxe";
 import { TransferInventory } from "content/abilities/tools/TransferInventory";
 import { HeroManager } from "content/gameplay/HeroManager";
-import { ComponentItem, ResourceItem } from "content/items/ResourceItem";
+import { Animal, ComponentItem, ResourceItem } from "content/items/ResourceItem";
 import { MachineFactory } from "content/machines/MachineFactory";
 import { Level, Log } from "Log";
 import { PathingService } from "services/PathingService";
@@ -68,6 +68,8 @@ import { Quest } from "systems/quests/Quest";
 import { QuestViewModel } from "ui/quest-view/QuestViewModel";
 import { ItemQuest } from "systems/quests/ItemQuest";
 import { Material } from "systems/crafting/Material";
+import { AbilityUsedQuest } from "systems/quests/AbilityUsedQuest";
+import { BuildingQuest } from "systems/quests/BuildingQuest";
 
 export function Initialize() {
 
@@ -75,8 +77,8 @@ export function Initialize() {
 
     Log.Level = Level.All;
     Log.Level = Level.Message;
-    let generateMap = false;
-    let lockToSurface = false;
+    let generateMap = true;
+    let lockToSurface = true;
     // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
     
     MeleeStartingAI()
@@ -503,53 +505,62 @@ export function Initialize() {
     //     questManager.AddQuestToPool(quest);
     // }
 
-    let codeArt = new Color(0, 0, 255).code + 'A|r';
-    let codePro = new Color(0, 255, 0).code + 'P|r';
-    let codeRes = new Color(255, 0, 255).code + 'R|r';
+    let codeArt = new Color(0, 0, 255).code + 'A|r: ';
+    let codePro = new Color(0, 255, 0).code + 'P|r: ';
+    let codeRes = new Color(255, 0, 255).code + 'R|r: ';
 
     questManager.AddQuestToPool(
-        new ItemQuest("crudeAxes", codeArt + ': Make two Crude Axe', questManager, craftingManager,
-        [[1, Material.Unique, Tools.CrudeAxeI]], 2));
+        new ItemQuest("fourRocks", 'Find 4 Rocks', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, ResourceItem.Rock]], 4, [[2, ResourceItem.Rock]]));
+    questManager.AddQuestToPool(
+        new ItemQuest("sixSticks", 'Gather 6 Sticks', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, ResourceItem.WoodI]], 6, [[4, ResourceItem.WoodI]]));
 
     questManager.AddQuestToPool(
-        new ItemQuest("felCryst", codePro + ': Get Crystalized Fel', questManager, craftingManager,
-        [[1, Material.Unique, ResourceItem.CrystalizedFel]], 1));
+        new ItemQuest("crudeAxes", codeArt + 'Make two Crude Axe', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, Tools.CrudeAxeI]], 2, [[2, ResourceItem.Rock]]));
+    questManager.AddQuestToPool(
+        new AbilityUsedQuest("felCryst", codePro + 'Make Crystalized Fel', questManager, itemFactory, abilityEvent,
+        aCrystalizeFel.id, 1, [[1, ResourceItem.CrystalizedFel]], false));
+    questManager.AddQuestToPool(
+        new ItemQuest("sixNets", codeRes + 'Make six Nets', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, Tools.Net]], 6, [[2, Tools.Net]]));
 
     questManager.AddQuestToPool(
-        new ItemQuest("sixNets", codeRes + ': Make six Nets', questManager, craftingManager,
-        [[1, Material.Unique, Tools.Net]], 6));
+        new ItemQuest("crudePix", codeArt + 'Make a Crude Pickaxe', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, Tools.CrudePickaxeI]], 1, [[3, ResourceItem.Rock]]));
+    questManager.AddQuestToPool(
+        new ItemQuest("animals", 'Catch six animals', questManager, craftingManager, itemFactory,
+        [[1, Material.Animal]], 6, [[1, Animal.Frog]]));
+    questManager.AddQuestToPool(
+        new ItemQuest("logs", 'Gather six Logs', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, ResourceItem.Log]], 6, [[1, ResourceItem.Log]]));
+    questManager.AddQuestToPool(
+        new ItemQuest("stones", 'Gather eight Stones', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, ResourceItem.Stone]], 8, [[1, ResourceItem.Stone]]));
 
     questManager.AddQuestToPool(
-        new ItemQuest("crudePix", codeArt + ': Make a Crude Pickaxe', questManager, craftingManager,
-        [[1, Material.Unique, Tools.CrudePickaxeI]], 1));
+        new BuildingQuest("workstation", codeArt + 'Build a Workstation', questManager, itemFactory,
+        aWorkstation.builtUnitId, 1, [[1, ResourceItem.StoneII], [1, ResourceItem.WoodII]]));
+    questManager.AddQuestToPool(
+        new ItemQuest("organicMatter", codeRes + 'Make an Organic Matter', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, ResourceItem.OrganicMatter]], 1, [[1, Animal.Rabbit]]));
+    questManager.AddQuestToPool(
+        new AbilityUsedQuest("demonfruitTree", codePro + 'Grow a Demonfruit tree', questManager, itemFactory, abilityEvent,
+        aDemonfruit.id, 1, [[1, ResourceItem.OrganicMatter]]));
 
     questManager.AddQuestToPool(
-        new ItemQuest("irons", codeArt + ': Transmute 10 Iron', questManager, craftingManager,
-        [[1, Material.Unique, ResourceItem.Iron]], 10));
+        new ItemQuest("irons", codeArt + 'Transmute 10 Iron', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, ResourceItem.Iron]], 10, [[2, ResourceItem.Iron]]));
+    
 
     questManager.AddQuestToPool(
-        new ItemQuest("animals", 'Catch six animals', questManager, craftingManager,
-        [[1, Material.Animal]], 6));
-        
-    questManager.AddQuestToPool(
-        new ItemQuest("logs", 'Gather six Logs', questManager, craftingManager,
-        [[1, Material.Unique, ResourceItem.Log]], 6));
-        
-    questManager.AddQuestToPool(
-        new ItemQuest("stones", 'Gather eight Stones', questManager, craftingManager,
-        [[1, Material.Unique, ResourceItem.Stone]], 8));
-            
-    questManager.AddQuestToPool(
-        new ItemQuest("organicMatter", codeRes + ': Make an Organic Matter', questManager, craftingManager,
-        [[1, Material.Unique, ResourceItem.OrganicMatter]], 1));
+        new ItemQuest("demonfruit", 'Gather 6 demonfruit', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, ResourceItem.Demonfruit]], 6, [[4, ResourceItem.Demonfruit]]));
 
     questManager.AddQuestToPool(
-        new ItemQuest("demonfruit", 'Gather 6 demonfruit', questManager, craftingManager,
-        [[1, Material.Unique, ResourceItem.Demonfruit]], 6));
-
-    questManager.AddQuestToPool(
-        new ItemQuest("frame1", 'Make four Frame I', questManager, craftingManager,
-        [[1, Material.Unique, ComponentItem.FrameI]], 4));
+        new ItemQuest("frame1", 'Make four Frame I', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, ComponentItem.FrameI]], 4, [[1, ComponentItem.FrameI]]));
 
     // UI
     let questsView = CreateQuestView(Frame.fromOrigin(ORIGIN_FRAME_GAME_UI, 0));

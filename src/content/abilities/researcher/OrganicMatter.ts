@@ -40,7 +40,7 @@ export class OrganicMatter extends AbilityBase {
         this.tooltip = data.tooltip || '';
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
         Log.Info("Cast Organic Matter.");
         let caster = e.caster;
@@ -57,7 +57,7 @@ export class OrganicMatter extends AbilityBase {
 
                 // Both recipes were not successful.
                 this.errorService.DisplayError(caster.owner, `Missing: ${result1.errors.join(', ')} or ${result2.errors.join(', ')}`);
-                return;
+                return false;
             }
 
             // Second recipe is successful.
@@ -71,6 +71,7 @@ export class OrganicMatter extends AbilityBase {
             item.setPoint(caster.point);
 
         caster.addExperience(this.experience, true);
+        return true;
     }
 
     TooltipDescription = (unit: Unit) =>

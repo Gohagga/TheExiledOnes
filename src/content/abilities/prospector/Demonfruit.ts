@@ -89,7 +89,7 @@ export class Demonfruit extends AbilityBase {
         }
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
         Log.Info("Cast Demonfruit.");
         let caster = e.caster;
@@ -97,11 +97,14 @@ export class Demonfruit extends AbilityBase {
         let tree = e.targetDestructable;
         let result: CraftingResult;
         
-        if (!tree) return Log.Error("There is no target destructable.");
+        if (!tree) {
+            Log.Error("There is no target destructable.");
+            return false;
+        }
 
         if (tree.id in this.treeHarvestUnits) {
             this.errorService.DisplayError(owner, "Tree is already infected.");
-            return;
+            return false;
         }
 
         let point = { x: tree.x, y: tree.y }
@@ -110,7 +113,7 @@ export class Demonfruit extends AbilityBase {
         if (result.successful == false) {
 
             this.errorService.DisplayError(caster.owner, `Missing: ${result.errors.join(', ')}`);
-            return;
+            return false;
         }
 
         result.Consume();
@@ -157,6 +160,8 @@ export class Demonfruit extends AbilityBase {
             this.itemFactory.CreateItemByType(this.fruitItemId, x, y);
             owner.setState(PLAYER_STATE_RESOURCE_LUMBER, owner.getState(PLAYER_STATE_RESOURCE_LUMBER) - 1);
         });
+
+        return true;
     }
 
     TooltipDescription = (unit: Unit) =>

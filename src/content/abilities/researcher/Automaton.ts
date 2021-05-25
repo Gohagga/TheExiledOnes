@@ -35,7 +35,7 @@ export class Automaton extends BuildingAbilityBase {
     private invAutomatonId = FourCC('A00I');
     private filterId: number;
     private workEffectPath: string;
-    private operationFuelCost: number = 0.5;
+    private operationFuelCost: number = 0.2;
 
     private enumRect: Rectangle;
 
@@ -83,7 +83,7 @@ export class Automaton extends BuildingAbilityBase {
         })
     }
 
-    ExecuteItemFilter(e: AbilityEvent): void {
+    ExecuteItemFilter(e: AbilityEvent): boolean {
         
         let caster = e.caster;
         let unitId = caster.id;
@@ -122,9 +122,10 @@ export class Automaton extends BuildingAbilityBase {
         let a = caster.getAbility(this.filterId);
         BlzSetAbilityStringLevelField(a, ABILITY_SLF_TOOLTIP_NORMAL, 0, name);
         BlzSetAbilityStringLevelField(a, ABILITY_SLF_TOOLTIP_NORMAL_EXTENDED, 0, tooltip);
+        return true;
     }
 
-    ExecuteToolOrder(e: AbilityEvent): void {
+    ExecuteToolOrder(e: AbilityEvent): boolean {
         
         Log.Info("Tool order");
         let caster = e.caster;
@@ -148,6 +149,7 @@ export class Automaton extends BuildingAbilityBase {
         this.instance[caster.id] = instance;
 
         this.StartAutomatonTask(caster);
+        return true;
     }
 
     private IsInventoryFull(unit: Unit) {
@@ -212,7 +214,7 @@ export class Automaton extends BuildingAbilityBase {
         delete this.instance[unitId];
     }
 
-    ExecuteSupplyOrder(e: AbilityEvent): void {
+    ExecuteSupplyOrder(e: AbilityEvent) {
         
         Log.Info("Supply order");
         let caster = e.caster;
@@ -236,19 +238,21 @@ export class Automaton extends BuildingAbilityBase {
         this.instance[caster.id] = instance;
 
         this.StartAutomatonTask(caster);
+        return true;
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
-        this.OnBuild(e.caster);
+        return this.OnBuild(e.caster);
     }
 
-    OnUnitBuilt(): void {
+    OnUnitBuilt(): boolean {
         
         let unit = Unit.fromEvent();
-        if (unit.typeId != this.builtUnitId) return;
+        if (unit.typeId != this.builtUnitId) return false;
 
         this.toolManager.SetDefault(unit, this.hand);
+        return true;
     }
 
     private ReturnState: AutomatonState = {

@@ -40,7 +40,7 @@ export class Transmute extends AbilityBase {
         this.tooltip = data.tooltip || '';
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
         const caster = e.caster;
         let result = this.recipe.CraftTierInclusive(caster);
@@ -48,7 +48,7 @@ export class Transmute extends AbilityBase {
         if (result.successful == false) {
             this.errorService.DisplayError(caster.owner, `Missing: ${result.errors.join(', ')}`);
             caster.mana += this.manacost;
-            return;
+            return false;
         }
 
         result.Consume();
@@ -59,6 +59,7 @@ export class Transmute extends AbilityBase {
 
         caster.addExperience(this.experience, true);
         
+        return true;
     }
     
     TooltipDescription = (unit: Unit) =>

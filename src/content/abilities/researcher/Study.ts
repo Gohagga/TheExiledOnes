@@ -33,7 +33,7 @@ export class Study extends AbilityBase {
         abilityEvent.OnAbilityEffect(this.id, (e: AbilityEvent) => this.Execute(e));
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
         const caster = e.caster;
         const point = e.targetPoint;
@@ -42,6 +42,7 @@ export class Study extends AbilityBase {
             target.getAbilityLevel(this.studyExpAuraId) > 0);
 
         caster.addExperience(animals.length * this.experience, true);
+        return true;
     }
 
     AddToUnit(unit: Unit, extended?: boolean): boolean {

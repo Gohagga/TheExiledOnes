@@ -129,7 +129,7 @@ export class Research extends AbilityBase {
         this.unitsWithAbility = [];
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
 
         let caster = e.caster;
         let level = e.abilityLevel;
@@ -151,14 +151,14 @@ export class Research extends AbilityBase {
                 if (!chamber) {
                     this.errorService.DisplayError(caster.owner, 'Must be near an Experiment Chamber.');
                     caster.mana += cost;
-                    return;
+                    return false;
                 }
 
                 let felDiff = felCost - chamber.mana;
                 if (felDiff > 0) {
                     this.errorService.DisplayError(caster.owner, `${GetObjectName(this.requiredBuildingTypeId)} is missing ${felDiff} Fel.`);
                     caster.mana += cost;
-                    return;
+                    return false;
                 }
             }
     
@@ -173,7 +173,7 @@ export class Research extends AbilityBase {
             if (result.successful == false) {
                 this.errorService.DisplayError(caster.owner, `Missing: ${result.errors.join(', ')}`);
                 caster.mana += cost;
-                return;
+                return false;
             }
             
             // If stage is not last, advance
@@ -194,7 +194,6 @@ export class Research extends AbilityBase {
 
                 this.SetAbilityStage(caster, level);
             }
-            return;
         }
 
         this.SetAbilityStage(caster, level - 1);
@@ -220,6 +219,7 @@ export class Research extends AbilityBase {
         // BlzSetAbilityStringLevelField(a, ABILITY_SLF_TOOLTIP_NORMAL, level - 1, name);
         // BlzSetAbilityStringLevelField(a, ABILITY_SLF_TOOLTIP_NORMAL_EXTENDED, level - 1, tooltip);
         // BlzSetAbilityIntegerLevelField(a, ABILITY_ILF_MANA_COST, level - 1, manacost);
+        return true;
     }
 
     AddToUnit(unit: Unit, extended?: boolean): boolean {

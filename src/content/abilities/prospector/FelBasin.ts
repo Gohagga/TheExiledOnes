@@ -44,11 +44,11 @@ export class FelBasin extends BuildingAbilityBase {
         }
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
         let caster = e.caster;
         Log.Info(caster.name, "has cast", this.name);
 
-        this.OnBuild(caster);
+        return this.OnBuild(caster);
     }
 }

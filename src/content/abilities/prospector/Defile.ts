@@ -31,6 +31,8 @@ export class Defile extends AbilityBase {
             caster.mana += 5;
             caster.addExperience(this.experience, true);
         }
+        
+        return true;
     }
 
     TooltipDescription = undefined;

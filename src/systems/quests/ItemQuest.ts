@@ -2,6 +2,7 @@ import { Log } from "Log";
 import { CraftingManager } from "systems/crafting/CraftingManager";
 import { CraftingRecipe } from "systems/crafting/CraftingRecipe";
 import { Material } from "systems/crafting/Material";
+import { IItemFactory } from "systems/items/IItemFactory";
 import { Item, Trigger, Unit } from "w3ts/index";
 import { Quest } from "./Quest";
 import { QuestManager } from "./QuestManager";
@@ -16,10 +17,13 @@ export class ItemQuest extends Quest {
         text: string,
         private readonly questManager: QuestManager,
         private readonly craftingManager: CraftingManager,
+        itemFactory: IItemFactory,
         itemMaterial: [number, ...(Material | number)[]][],
         private readonly itemAmount: number,
+        rewards: [number, number][],
+        readonly giveToUnit: boolean = true,
     ) {
-        super(codeId, text);
+        super(codeId, text, itemFactory, rewards, giveToUnit);
 
         this.recipe = craftingManager.CreateRecipe(itemMaterial);
 
@@ -41,7 +45,7 @@ export class ItemQuest extends Quest {
         let caster = Unit.fromEvent();
         let result = this.recipe.CraftTierInclusive(caster, [item]);
         if (result.successful == false) return;
-        
+
         Log.Debug("has item", this.collectedItems.has(item.id));
 
         if (this.collectedItems.has(item.id))

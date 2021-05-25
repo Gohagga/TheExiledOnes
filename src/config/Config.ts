@@ -222,7 +222,7 @@ Retera for RMS
         name: '[L2] Craft Crude Axe',
         codeId: 'A0A0',
         extCodeId: 'ASA0',
-        experience: 50,
+        experience: 25,
     }
 
     CrudePickaxe: Wc3Ability = {
@@ -230,7 +230,7 @@ Retera for RMS
         codeId: 'A0A1',
         extCodeId: 'ASA1',
         tooltip: 'Summons two eyes for 60 seconds that can scout nearby land.',
-        experience: 50,
+        experience: 25,
     }
 
     Workstation: Wc3BuildingAbility = {
@@ -289,8 +289,8 @@ Retera for RMS
         experience: 100,
         tooltip: 'Mineshaft allows players to go underground to mine ore.',
         materials: [
-            // [2, Material.Frame | Material.TierI],
-            // [2, Material.Stone | Material.TierII]
+            [2, Material.Frame | Material.TierI],
+            [2, Material.Stone | Material.TierII]
         ]
     }
 

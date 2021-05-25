@@ -37,10 +37,9 @@ export class Obliterum extends BuildingAbilityBase {
         
     }
 
-    Execute(e: AbilityEvent): void {
+    Execute(e: AbilityEvent): boolean {
         
-        this.OnBuild(e.caster);
-
+        return this.OnBuild(e.caster);
     }
 
     TooltipDescription = undefined;
