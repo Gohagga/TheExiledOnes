@@ -2,6 +2,7 @@ import { HeroId } from "config/HeroType"
 import { ForgeAbility } from "content/abilities/artisan/FelSmithing"
 import { MineshaftWc3Ability } from "content/abilities/artisan/Mineshaft"
 import { TransmuteAbility } from "content/abilities/artisan/Transmute"
+import { DimensionalGateAbility } from "content/abilities/DimensionalGate"
 import { DemonfruitAbility } from "content/abilities/prospector/Demonfruit"
 import { FelExtractionAbility } from "content/abilities/prospector/FelExtraction"
 import { AutomatonAbility } from "content/abilities/researcher/Automaton"
@@ -182,7 +183,7 @@ Retera for RMS
 
     // Artisan
     Transmute: Wc3Ability = {
-        name: 'Transmute',
+        name: '[L2] Transmute',
         codeId: 'A0A5',
         extCodeId: 'ASA5',
         tooltip: 'Transmutes materials'
@@ -219,14 +220,14 @@ Retera for RMS
     }
 
     CrudeAxe: Wc3Ability = {
-        name: '[L2] Craft Crude Axe',
+        name: 'Craft Crude Axe',
         codeId: 'A0A0',
         extCodeId: 'ASA0',
         experience: 25,
     }
 
     CrudePickaxe: Wc3Ability = {
-        name: '[L2] Craft Crude Pickaxe',
+        name: 'Craft Crude Pickaxe',
         codeId: 'A0A1',
         extCodeId: 'ASA1',
         tooltip: 'Summons two eyes for 60 seconds that can scout nearby land.',
@@ -766,6 +767,55 @@ Takes items from target unit if inventory is empty (only owned or shared units).
         cost: [
             [1, Material.OrganicMatter]
         ]
+    }
+
+    // Other
+
+    DimensionalGate: DimensionalGateAbility = {
+        buildCodeId: 'A00Z',
+        builtUnitCodeId: 'n003',
+        name: 'Dimensional Gate',
+        tooltip: 'Allows return to the Twisting Nether. A fully working Dimensional Gate is the win condition.\n\n|cffff1212You can only use this once.|r',
+        materials: [
+        ],
+        prepareCodeId: '',
+        materialAbilities: [{
+            name: 'Foundation',
+            codeId: 'A011',
+            materials: [
+                [4, Material.Stone | Material.TierII],
+                [2, Material.Wood  | Material.TierII]
+            ]
+            // tooltip: 'Consume 100 fel to create a Crystallized Fel item which can be consumed for 100 fel.'
+        }, {
+            name: 'Infrastructure',
+            codeId: 'A012',
+            materials: [
+                [6, Material.Frame | Material.TierII]
+            ]
+            // tooltip: 'Consume 100 fel to create a Crystallized Fel item which can be consumed for 100 fel.'
+        }, {
+            name: 'Mechanics',
+            codeId: 'A013',
+            materials: [
+                [6, Material.Mechanism | Material.TierI],
+            ]
+            // tooltip: 'Consume 100 fel to create a Crystallized Fel item which can be consumed for 100 fel.'
+        }, {
+            name: 'Fel Storage',
+            codeId: 'A014',
+            materials: [
+                [6, Material.Tank | Material.TierII],
+            ]
+            // tooltip: 'Consume 100 fel to create a Crystallized Fel item which can be consumed for 100 fel.'
+        }, {
+            name: 'Fel Machinery',
+            codeId: 'A015',
+            materials: [
+                [6, Material.Converter | Material.TierI],
+            ]
+            // tooltip: 'Consume 100 fel to create a Crystallized Fel item which can be consumed for 100 fel.'
+        }]
     }
 
 //#endregion

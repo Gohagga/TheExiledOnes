@@ -21,7 +21,7 @@ export class ItemQuest extends Quest {
         itemMaterial: [number, ...(Material | number)[]][],
         private readonly itemAmount: number,
         rewards: [number, number][],
-        readonly giveToUnit: boolean = true,
+        giveToUnit: boolean = true,
     ) {
         super(codeId, text, itemFactory, rewards, giveToUnit);
 

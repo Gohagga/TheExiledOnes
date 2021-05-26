@@ -6999,3 +6999,297 @@ STRING 1387
 Q
 }
 
+STRING 1388
+// Abilities: A00Z (Build Dimensional Gate Foundation), Name (Name)
+{
+Build Dimensional Gate Foundation
+}
+
+STRING 1389
+// Abilities: A00Z (Build Dimensional Gate Foundation), Tip (Tooltip - Normal)
+{
+Build Dimensional Gate Foundation
+}
+
+STRING 1390
+// Abilities: A00Z (Build Dimensional Gate Foundation), Hotkey (Hotkey - Normal)
+{
+G
+}
+
+STRING 1391
+// Abilities: A00Z (Build Dimensional Gate Foundation), Tip (Tooltip - Normal)
+{
+Build Dimensional Gate Foundation
+}
+
+STRING 1392
+// Abilities: A011 (Materials1), Name (Name)
+{
+Materials1
+}
+
+STRING 1393
+// Abilities: A011 (Materials1), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1394
+// Abilities: A011 (Materials1), Tip (Tooltip - Normal)
+{
+Machine Recipe
+}
+
+STRING 1395
+// Abilities: A011 (Materials1), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1396
+// Abilities: A011 (Materials1), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1397
+// Abilities: A011 (Materials1), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1398
+// Abilities: A011 (Materials1), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1399
+// Abilities: A011 (Materials1), Researchhotkey (Hotkey - Learn)
+{
+Q
+}
+
+STRING 1400
+// Abilities: A011 (Materials1), EditorSuffix (Editor Suffix)
+{
+(Dimensional Gate)
+}
+
+STRING 1401
+// Abilities: A012 (Materials2), Name (Name)
+{
+Materials2
+}
+
+STRING 1403
+// Abilities: A012 (Materials2), Tip (Tooltip - Normal)
+{
+Machine Recipe
+}
+
+STRING 1404
+// Abilities: A012 (Materials2), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1405
+// Abilities: A012 (Materials2), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1406
+// Abilities: A012 (Materials2), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1407
+// Abilities: A012 (Materials2), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1409
+// Abilities: A012 (Materials2), EditorSuffix (Editor Suffix)
+{
+(Dimensional Gate)
+}
+
+STRING 1410
+// Abilities: A013 (Materials3), Name (Name)
+{
+Materials3
+}
+
+STRING 1412
+// Abilities: A013 (Materials3), Tip (Tooltip - Normal)
+{
+Machine Recipe
+}
+
+STRING 1413
+// Abilities: A013 (Materials3), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1414
+// Abilities: A013 (Materials3), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1415
+// Abilities: A013 (Materials3), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1416
+// Abilities: A013 (Materials3), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1418
+// Abilities: A013 (Materials3), EditorSuffix (Editor Suffix)
+{
+(Dimensional Gate)
+}
+
+STRING 1419
+// Abilities: A014 (Materials4), Name (Name)
+{
+Materials4
+}
+
+STRING 1421
+// Abilities: A014 (Materials4), Tip (Tooltip - Normal)
+{
+Machine Recipe
+}
+
+STRING 1422
+// Abilities: A014 (Materials4), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1423
+// Abilities: A014 (Materials4), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1424
+// Abilities: A014 (Materials4), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1425
+// Abilities: A014 (Materials4), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1427
+// Abilities: A014 (Materials4), EditorSuffix (Editor Suffix)
+{
+(Dimensional Gate)
+}
+
+STRING 1428
+// Abilities: A012 (Materials2), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 1429
+// Abilities: A012 (Materials2), Researchhotkey (Hotkey - Learn)
+{
+W
+}
+
+STRING 1430
+// Abilities: A013 (Materials3), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 1431
+// Abilities: A013 (Materials3), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 1432
+// Abilities: A014 (Materials4), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 1433
+// Abilities: A014 (Materials4), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 1434
+// Abilities: A015 (Materials5), Name (Name)
+{
+Materials5
+}
+
+STRING 1435
+// Abilities: A015 (Materials5), Hotkey (Hotkey - Normal)
+{
+A
+}
+
+STRING 1436
+// Abilities: A015 (Materials5), Tip (Tooltip - Normal)
+{
+Machine Recipe
+}
+
+STRING 1437
+// Abilities: A015 (Materials5), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1438
+// Abilities: A015 (Materials5), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1439
+// Abilities: A015 (Materials5), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1440
+// Abilities: A015 (Materials5), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1441
+// Abilities: A015 (Materials5), Researchhotkey (Hotkey - Learn)
+{
+A
+}
+
+STRING 1442
+// Abilities: A015 (Materials5), EditorSuffix (Editor Suffix)
+{
+(Dimensional Gate)
+}
+

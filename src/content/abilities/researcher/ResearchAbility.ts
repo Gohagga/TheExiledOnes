@@ -134,6 +134,7 @@ export class Research extends AbilityBase {
         let caster = e.caster;
         let level = e.abilityLevel;
         let requirement = caster.owner.getTechCount(this.upgradeId, true);
+        let researchUnlocked = false;
         if (requirement == 0) {
 
             let a = caster.getAbility(this.id);
@@ -190,10 +191,12 @@ export class Research extends AbilityBase {
                         p.setTechResearched(this.researchIds[level - 1], 1);
                     }
                     Log.Message("Completed", GetObjectName(this.researchIds[level - 1]));
+                    researchUnlocked = true;
                 }
 
                 this.SetAbilityStage(caster, level);
             }
+            return researchUnlocked;
         }
 
         this.SetAbilityStage(caster, level - 1);
@@ -219,7 +222,8 @@ export class Research extends AbilityBase {
         // BlzSetAbilityStringLevelField(a, ABILITY_SLF_TOOLTIP_NORMAL, level - 1, name);
         // BlzSetAbilityStringLevelField(a, ABILITY_SLF_TOOLTIP_NORMAL_EXTENDED, level - 1, tooltip);
         // BlzSetAbilityIntegerLevelField(a, ABILITY_ILF_MANA_COST, level - 1, manacost);
-        return true;
+        print("Returning unlocked", researchUnlocked);
+        return researchUnlocked;
     }
 
     AddToUnit(unit: Unit, extended?: boolean): boolean {
@@ -231,12 +235,17 @@ export class Research extends AbilityBase {
                 this.SetAbilityStage(unit, this.recipes.length);
             } else {
                 let stageAdvancements = Object.keys(this.researchIds);
+                let stage = 0;
                 for (let key of stageAdvancements) {
                     if (key in this.researchIds) {
-                        this.SetAbilityStage(unit, Number(key));
+                        let k = Number(key);
+                        print("Advancement stage key", k);
+                        if (unit.owner.getTechCount(this.researchIds[k], true) > 0)
+                            stage = k + 1;
+                            // this.SetAbilityStage(unit, k);
                     }
                 }
-                this.SetAbilityStage(unit, 0);
+                this.SetAbilityStage(unit, stage);
             }
 
             for (let i = 0; i < this.recipes.length + 2; i++) {

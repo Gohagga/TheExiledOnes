@@ -1,3 +1,4 @@
+import { sharedPlayer } from "config/Config";
 import { Log } from "Log";
 import { CraftingManager } from "systems/crafting/CraftingManager";
 import { CraftingRecipe } from "systems/crafting/CraftingRecipe";
@@ -9,9 +10,7 @@ import { Item, Trigger, Unit } from "w3ts/index";
 import { Quest } from "./Quest";
 import { QuestManager } from "./QuestManager";
 
-export class AbilityUsedQuest extends Quest {
-
-    private timesUsed = 0;
+export class ResearchQuest extends Quest {
 
     constructor(
         codeId: string,
@@ -19,30 +18,29 @@ export class AbilityUsedQuest extends Quest {
         private readonly questManager: QuestManager,
         itemFactory: IItemFactory,
         abilityEvent: IAbilityEventHandler,
-        private readonly abilityId: number,
-        private readonly usesNeeded: number,
+        researchAbilityId: number,
+        private readonly researchId: number,
         rewards: [number, number][],
         giveToUnit: boolean = true
     ) {
         super(codeId, text, itemFactory, rewards, giveToUnit);
 
-        abilityEvent.OnAbilitySuccess(abilityId, (e: AbilityEvent) => this.OnAbilityUsed(e));
+        abilityEvent.OnAbilitySuccess(researchAbilityId, (e: AbilityEvent) => this.OnAbilityUsed(e));
     }
 
     OnAbilityUsed(e: AbilityEvent): void {
         
-        Log.Debug("is active", this.isActive)
         if (this.isActive == false) return;
 
-        this.timesUsed++;
         this.questManager.UpdateQuest(this);
     }
 
     IsCompleted() {
-        return this.timesUsed >= this.usesNeeded;
+        return sharedPlayer.getTechCount(this.researchId, true) > 0;
     }
 
     ProgressDisplay(): string {
-        return this.timesUsed + '/' + this.usesNeeded;
+        return '';
+        // return this.timesUsed + '/' + this.usesNeeded;
     }
 }

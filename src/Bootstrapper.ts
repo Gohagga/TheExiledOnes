@@ -70,13 +70,15 @@ import { ItemQuest } from "systems/quests/ItemQuest";
 import { Material } from "systems/crafting/Material";
 import { AbilityUsedQuest } from "systems/quests/AbilityUsedQuest";
 import { BuildingQuest } from "systems/quests/BuildingQuest";
+import { ResearchQuest } from "systems/quests/ResearchQuest";
+import { DimensionalGate } from "content/abilities/DimensionalGate";
 
 export function Initialize() {
 
     const config = new Config();
 
     Log.Level = Level.All;
-    Log.Level = Level.Message;
+    // Log.Level = Level.Message;
     let generateMap = true;
     let lockToSurface = true;
     // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
@@ -346,7 +348,10 @@ export function Initialize() {
     let aResearchDepot = new Research(config.ResearchDepot, abilityEvent, craftingManager, enumService, experimentChamberId, errorService, alliedPlayers);
 
     // Sold abilities
-    let essenceOfBlight = new EssenceOfBlight(config.EssenceOfBlight, craftingManager, errorService);
+    let aEssenceOfBlight = new EssenceOfBlight(config.EssenceOfBlight, craftingManager, errorService);
+
+    // Other
+    let aDimensionalGate = new DimensionalGate(config.DimensionalGate, abilityEvent, craftingManager, errorService, alliedPlayers);
 
     let abilities = {
 
@@ -432,7 +437,8 @@ export function Initialize() {
     // const workstation = new WorkstationMachine(config.WorkstationMachine, Unit.fromHandle(gg_unit_h000_0016), errorService, craftingManager, itemFactory);
 
     heroManager.Initialize(abilities);
-    
+    Global.soulAnchor.removeAbility(aDimensionalGate.id);
+    Global.soulAnchor.addAbility(aDimensionalGate.id);
 
     let cam = new Trigger();
     cam.registerPlayerChatEvent(MapPlayer.fromLocal(), '-cam', false);
@@ -520,7 +526,7 @@ export function Initialize() {
         new ItemQuest("crudeAxes", codeArt + 'Make two Crude Axe', questManager, craftingManager, itemFactory,
         [[1, Material.Unique, Tools.CrudeAxeI]], 2, [[2, ResourceItem.Rock]]));
     questManager.AddQuestToPool(
-        new AbilityUsedQuest("felCryst", codePro + 'Make Crystalized Fel', questManager, itemFactory, abilityEvent,
+        new AbilityUsedQuest("felCrystal", codePro + 'Make Crystalized Fel', questManager, itemFactory, abilityEvent,
         aCrystalizeFel.id, 1, [[1, ResourceItem.CrystalizedFel]], false));
     questManager.AddQuestToPool(
         new ItemQuest("sixNets", codeRes + 'Make six Nets', questManager, craftingManager, itemFactory,
@@ -552,20 +558,41 @@ export function Initialize() {
     questManager.AddQuestToPool(
         new ItemQuest("irons", codeArt + 'Transmute 10 Iron', questManager, craftingManager, itemFactory,
         [[1, Material.Unique, ResourceItem.Iron]], 10, [[2, ResourceItem.Iron]]));
-    
-
     questManager.AddQuestToPool(
-        new ItemQuest("demonfruit", 'Gather 6 demonfruit', questManager, craftingManager, itemFactory,
-        [[1, Material.Unique, ResourceItem.Demonfruit]], 6, [[4, ResourceItem.Demonfruit]]));
-
+        new ResearchQuest("tankResearch", codeRes + "Research Tank I", questManager, itemFactory, abilityEvent,
+        aResearchTank.id, FourCC('R001'), [[2, ResourceItem.Iron]]));
+    
     questManager.AddQuestToPool(
         new ItemQuest("frame1", 'Make four Frame I', questManager, craftingManager, itemFactory,
         [[1, Material.Unique, ComponentItem.FrameI]], 4, [[1, ComponentItem.FrameI]]));
+    questManager.AddQuestToPool(
+        new ItemQuest("demonfruit", 'Gather 6 demonfruit', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, ResourceItem.Demonfruit]], 6, [[4, ResourceItem.Demonfruit]]));
+    questManager.AddQuestToPool(
+        new ItemQuest("tankComp", 'Craft Tank I in Workstation', questManager, craftingManager, itemFactory,
+        [[1, Material.Tank | Material.TierI]], 1, [[2, ResourceItem.Iron]]));
+
+    questManager.AddQuestToPool(
+        new BuildingQuest("expChamber", codeRes + 'Build an Experiment Chamber', questManager, itemFactory,
+        aExperimentChamber.builtUnitId, 1, [[1, ResourceItem.OrganicMatter]]));
+    questManager.AddQuestToPool(
+        new BuildingQuest("felBasin", codePro + 'Build a Fel Basin', questManager, itemFactory,
+        aFelBasin.builtUnitId, 1, [[1, ResourceItem.CrystalizedFel]], false));
+    questManager.AddQuestToPool(
+        new BuildingQuest("hellForge", codeArt + 'Build a Hell Forge', questManager, itemFactory,
+        aHellForge.builtUnitId, 1, [[3, ResourceItem.Iron]]));
+
+    questManager.AddQuestToPool(
+        new ItemQuest("tankComp", 'Make 2 Steel', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, ResourceItem.Steel]], 2, [[1, ResourceItem.Iron]]));
 
     // UI
     let questsView = CreateQuestView(Frame.fromOrigin(ORIGIN_FRAME_GAME_UI, 0));
     let questsViewModel = new QuestViewModel(questsView, questEvent, questManager, heroManager);
-    
+    let msgFrame = Frame.fromOrigin(ORIGIN_FRAME_UNIT_MSG, 0);
+    msgFrame.setAbsPoint(FRAMEPOINT_LEFT, 0.1, 0.35);
+    // msgFrame.width = 1;
+    // print(msgFrame.width, msgFrame.height);
 });
 }
 

@@ -37,7 +37,6 @@ export class QuestViewModel {
                 this.RenderQuestSlot(i);
             }
         } catch (e) {
-            print(e);
         }
     }
 
@@ -97,7 +96,6 @@ export class QuestViewModel {
 
     private RenderQuestSlot(index: number) {
 
-        print(index);
         if (index > this.view.questSlots.length) return;
         let quest = this.quests[index];
         

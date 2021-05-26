@@ -7,10 +7,10 @@ export function CreateQuestView(parent: Frame): IQuestView {
     const box = new Frame("ListBoxWar3", parent, 0, 0);
     const title = Frame.fromHandle(BlzCreateFrameByType("TEXT", "StandardInfoTextTemplate", parent.handle, "StandardInfoTextTemplate", 0));
 
-    const x = 0;
-    // const x = 0.05;
-    const y = 0.32;
-    // const y = 0.54;
+    // const x = 0;
+    const x = 0.61;
+    // const y = 0.32;
+    const y = 0.54;
     const height = 0.13;
     const width = 0.18;
 
@@ -23,7 +23,7 @@ export function CreateQuestView(parent: Frame): IQuestView {
         .clearPoints()
         .setPoint(FRAMEPOINT_TOPLEFT, box, FRAMEPOINT_TOPLEFT, 0, 0.01)
         .setScale(1.5)
-        .text = "Quests";
+        .setText("Quests");
 
     const view: IQuestView = {
         questSlots: []

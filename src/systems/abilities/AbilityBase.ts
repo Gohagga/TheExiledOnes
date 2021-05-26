@@ -64,15 +64,15 @@ export abstract class AbilityBase implements Wc3Ability, IAbility {
      */
     protected AddToUnitBase(unit: Unit, extended?: boolean): number {
         if (extended && !this.extId) {
-            let msg = `Extended ID not configured for '${this.name}', '${this.id}'`;
+        let msg = `Extended ID not configured for '${this.name}', '${this.id}'`;
             Log.Error(this.name, msg);
             throw new Error(msg);
         } else if (extended && this.extId) {
-            if (!unit.addAbility(this.extId))
+        if (!unit.addAbility(this.extId))
                 Log.Error(this.name, "Failed to add extended ability to unit", unit.name);
             return this.extId;
         } else {
-            if (!unit.addAbility(this.id))
+        if (!unit.addAbility(this.id))
                 Log.Error(this.name, "Failed to add ability to unit", unit.name);
             return this.id;
         }

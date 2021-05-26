@@ -41,4 +41,8 @@ export class ErrorService {
         SetTextTagFadepoint(tt, 0.8);
         SetTextTagLifespan(tt, 1);
     }
+
+    SoundError() {
+        this.errorSound.start();
+    }
 }

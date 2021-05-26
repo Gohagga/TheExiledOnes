@@ -1,4 +1,4 @@
-import { Config, enemyPlayer, sharedPlayer } from "config/Config";
+import { Config, enemyPlayer, Global, sharedPlayer } from "config/Config";
 import { HeroManager } from "content/gameplay/HeroManager";
 import { Log } from "Log";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
@@ -107,6 +107,10 @@ export function InitCommands(
             });
         });
         return true;
+    });
+
+    CreateChatCommand(players, ['-secondchance'], true, () => {
+        Global.soulAnchor.addAbility(FourCC('A00Z'));
     });
 }
 
