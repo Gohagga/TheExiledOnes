@@ -72,6 +72,7 @@ import { AbilityUsedQuest } from "systems/quests/AbilityUsedQuest";
 import { BuildingQuest } from "systems/quests/BuildingQuest";
 import { ResearchQuest } from "systems/quests/ResearchQuest";
 import { DimensionalGate } from "content/abilities/DimensionalGate";
+import { AiController } from "content/ai/AiController";
 
 export function Initialize() {
 
@@ -79,12 +80,13 @@ export function Initialize() {
 
     Log.Level = Level.All;
     // Log.Level = Level.Message;
+    // Log.Level = Level.Error;
     let generateMap = true;
     let lockToSurface = true;
     // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
     
-    MeleeStartingAI()
-    FogModifierStart(CreateFogModifierRect(enemyPlayer.handle, FOG_OF_WAR_VISIBLE, gg_rct_SurfaceMap, true, true));
+    // MeleeStartingAI()
+    // FogModifierStart(CreateFogModifierRect(enemyPlayer.handle, FOG_OF_WAR_VISIBLE, gg_rct_SurfaceMap, true, true));
     SetPlayerAllianceStateBJ(enemyPlayer.handle, sharedPlayer.handle, bj_ALLIANCE_UNALLIED);
     SetPlayerAllianceStateBJ(sharedPlayer.handle, enemyPlayer.handle, bj_ALLIANCE_UNALLIED);
     // PickMeleeAI(enemyPlayer.handle, "human.ai", null, null);
@@ -174,8 +176,10 @@ export function Initialize() {
     //     }
     // });
 
+    const mapArea = Rectangle.getWorldBounds();
+
     // Make players
-    Global.soulAnchor = new Unit(sharedPlayer, FourCC('E000'), surfaceRect.centerX, surfaceRect.centerY, 0);
+    Global.soulAnchor = new Unit(sharedPlayer, FourCC('E000'), mapArea.minY, mapArea.minY, 0);
     PanCameraToTimed(Global.soulAnchor.x, Global.soulAnchor.y, 0);
     SelectUnitSingle(Global.soulAnchor.handle);
     SetCameraField(CAMERA_FIELD_TARGET_DISTANCE, 150, 0);
@@ -240,8 +244,11 @@ export function Initialize() {
                 tim.destroy();
                 progressTim.destroy();
                 time = os.clock() - time;
-
                 Log.Message("Finished generating in ", time);
+
+                print("SETTING POSITION", mapGenerator.startPoint.x, mapGenerator.startPoint.y);
+                Global.soulAnchor.setPosition(mapGenerator.startPoint.x, mapGenerator.startPoint.y);
+
                 SetCameraField(CAMERA_FIELD_TARGET_DISTANCE, 2000, 0.5);
                 PanCameraToTimed(Global.soulAnchor.x, Global.soulAnchor.y, 0);
                     
@@ -255,8 +262,6 @@ export function Initialize() {
             let prediction = passed / mapGenerator.progress;
             Log.Message("Progress: ", math.floor(mapGenerator.progress * 100 + 0.5) + '%', "seconds passed: ", passed, "prediction: ", prediction);
         });
-
-    const mapArea = Rectangle.getWorldBounds();
     
     // abilities.ProspectorSpellbook.AddToUnit(u);
     // p.setAbilityAvailable(abilities.Defile.extId as number, false);
@@ -339,7 +344,7 @@ export function Initialize() {
     let aAutomaton = new Automaton(config.Automaton, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager, toolManager, hand);
     let aFelInjector = new FelInjector(config.FelInjector, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager);
     let aDepot = depot;
-    let aObliterum = new Obliterum(config.Obliterum, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager);
+    let aObliterum = new Obliterum(config.Obliterum, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager, machineFactory, machineManager);
 
     let experimentChamberId = FourCC('u002');
     let aResearchTank = new Research(config.ResearchTank, abilityEvent, craftingManager, enumService, experimentChamberId, errorService, alliedPlayers)
@@ -527,7 +532,7 @@ export function Initialize() {
         [[1, Material.Unique, Tools.CrudeAxeI]], 2, [[2, ResourceItem.Rock]]));
     questManager.AddQuestToPool(
         new AbilityUsedQuest("felCrystal", codePro + 'Make Crystalized Fel', questManager, itemFactory, abilityEvent,
-        aCrystalizeFel.id, 1, [[1, ResourceItem.CrystalizedFel]], false));
+        aCrystalizeFel.id, 1, [[1, ResourceItem.CrystalizedFel100]], false));
     questManager.AddQuestToPool(
         new ItemQuest("sixNets", codeRes + 'Make six Nets', questManager, craftingManager, itemFactory,
         [[1, Material.Unique, Tools.Net]], 6, [[2, Tools.Net]]));
@@ -577,7 +582,7 @@ export function Initialize() {
         aExperimentChamber.builtUnitId, 1, [[1, ResourceItem.OrganicMatter]]));
     questManager.AddQuestToPool(
         new BuildingQuest("felBasin", codePro + 'Build a Fel Basin', questManager, itemFactory,
-        aFelBasin.builtUnitId, 1, [[1, ResourceItem.CrystalizedFel]], false));
+        aFelBasin.builtUnitId, 1, [[1, ResourceItem.CrystalizedFel100]], false));
     questManager.AddQuestToPool(
         new BuildingQuest("hellForge", codeArt + 'Build a Hell Forge', questManager, itemFactory,
         aHellForge.builtUnitId, 1, [[3, ResourceItem.Iron]]));
@@ -589,10 +594,11 @@ export function Initialize() {
     // UI
     let questsView = CreateQuestView(Frame.fromOrigin(ORIGIN_FRAME_GAME_UI, 0));
     let questsViewModel = new QuestViewModel(questsView, questEvent, questManager, heroManager);
-    let msgFrame = Frame.fromOrigin(ORIGIN_FRAME_UNIT_MSG, 0);
-    msgFrame.setAbsPoint(FRAMEPOINT_LEFT, 0.1, 0.35);
     // msgFrame.width = 1;
     // print(msgFrame.width, msgFrame.height);
+
+    // AI
+    const aiController = new AiController(surfaceRect, enemyPlayer);
 });
 }
 

@@ -27,31 +27,43 @@ export function InitCommands(
     }
     t.addAction(() => {
 
+        try {
+            let triggerPlayer = MapPlayer.fromEvent();
+            let triggerPlayerId = triggerPlayer.id;
+            let units = inputHandler.GetPlayerSelectedUnitIds(triggerPlayer);
+    
+            if (GetEventPlayerChatString() == '-share') {
+    
+                for (let u of units) {
+    
+                    if (triggerPlayerId == u.owner.id && (!u.isHero() || u.id == Global.soulAnchor.id)) {
+    
+                        u.setOwner(sharedPlayer, true);
+                        basicSlotManager.UpdateSpellList(u);
+                        specialSlotManager.UpdateSpellList(u);
+                        originalUnitOwner[u.id] = triggerPlayerId;
+                    }
+                }
+                
+            } else if (GetEventPlayerChatString() == '-unshare') {
+    
+                for (let u of units) {
+                    if (triggerPlayer.id == originalUnitOwner[u.id] && (!u.isHero() || u.id == Global.soulAnchor.id)) {
+                        u.setOwner(triggerPlayer, true);
+                    }
+                }
+            }
+        } catch (ex) {
+            print(ex);
+        }
+    });
+
+    originalUnitOwner[Global.soulAnchor.id] = 0;
+
+    CreateChatCommand(players, ["-clear select"], true, () => {
         let triggerPlayer = MapPlayer.fromEvent();
         let triggerPlayerId = triggerPlayer.id;
-        let units = inputHandler.GetPlayerSelectedUnitIds(triggerPlayer);
-
-        if (GetEventPlayerChatString() == '-share') {
-
-            for (let u of units) {
-
-                if (triggerPlayerId == u.owner.id && !u.isHero()) {
-
-                    u.setOwner(sharedPlayer, true);
-                    basicSlotManager.UpdateSpellList(u);
-                    specialSlotManager.UpdateSpellList(u);
-                    originalUnitOwner[u.id] = triggerPlayerId;
-                }
-            }
-            
-        } else if (GetEventPlayerChatString() == '-unshare') {
-
-            for (let u of units) {
-                if (triggerPlayer.id == originalUnitOwner[u.id] && !u.isHero()) {
-                    u.setOwner(triggerPlayer, true);
-                }
-            }
-        }
+        let units = inputHandler.ClearPlayerSelection(triggerPlayer);
     });
 
     Log.Info("registered")
@@ -91,7 +103,7 @@ export function InitCommands(
         const caster = e.caster;
         let unitCount = caster.getAbilityLevel(unitCountAbilityId);
         let timer = new Timer();
-        let portal = new Unit(enemyPlayer, FourCC('h006'), e.targetPoint.x, e.targetPoint.y, 0);
+        let portal = new Unit(enemyPlayer, FourCC('h006'), e.targetPoint.x, e.targetPoint.y, 270);
         portal.setAnimation('birth');
         timer.start(5, false, () => {
 

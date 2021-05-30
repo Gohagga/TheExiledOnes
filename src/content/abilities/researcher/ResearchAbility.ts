@@ -222,7 +222,6 @@ export class Research extends AbilityBase {
         // BlzSetAbilityStringLevelField(a, ABILITY_SLF_TOOLTIP_NORMAL, level - 1, name);
         // BlzSetAbilityStringLevelField(a, ABILITY_SLF_TOOLTIP_NORMAL_EXTENDED, level - 1, tooltip);
         // BlzSetAbilityIntegerLevelField(a, ABILITY_ILF_MANA_COST, level - 1, manacost);
-        print("Returning unlocked", researchUnlocked);
         return researchUnlocked;
     }
 
@@ -239,7 +238,6 @@ export class Research extends AbilityBase {
                 for (let key of stageAdvancements) {
                     if (key in this.researchIds) {
                         let k = Number(key);
-                        print("Advancement stage key", k);
                         if (unit.owner.getTechCount(this.researchIds[k], true) > 0)
                             stage = k + 1;
                             // this.SetAbilityStage(unit, k);

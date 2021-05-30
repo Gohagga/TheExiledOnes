@@ -1,6 +1,6 @@
 import { Log } from "Log";
 import { ErrorService } from "systems/ui/ErrorService";
-import { Effect, Item, MapPlayer, Timer, Trigger, Unit } from "w3ts/index";
+import { Effect, Item, MapPlayer, Point, Timer, Trigger, Unit } from "w3ts/index";
 import { CraftingRecipe } from "../CraftingRecipe";
 import { CraftingResult } from "../CraftingResult";
 import { OrderId } from "w3ts/globals/order";
@@ -36,7 +36,7 @@ export class MachineBase implements IMachine {
     constructor(
         config: MachineConfig,
         public readonly unit: Unit,
-        private readonly errorService: ErrorService,
+        protected readonly errorService: ErrorService,
         protected readonly itemFactory: IItemFactory,
     ) {
         this.idleState = MachineBase.IdleState;
@@ -84,20 +84,25 @@ export class MachineBase implements IMachine {
 
     public RegisterSimpleItemMachineRecipe(trainId: number, resultItemType: number, recipe: CraftingRecipe) {
         this.RegisterMachineRecipe(trainId, (machine, recipeId, result) => {
-            result.destroy();
-            let item = this.itemFactory.CreateItemByType(resultItemType);
-            machine.unit.addItem(item);
+            try {
 
-            let rallyUnit = GetUnitRallyUnit(this.unit.handle);
-            if (rallyUnit && (rallyUnit == this.unit.handle || IsUnitInRangeLoc(this.unit.handle, GetUnitLoc(rallyUnit), 220))) {
-
-                UnitAddItem(rallyUnit, item.handle);
-                return;
-            }
-            
-            let rallyPoint = this.unit.rallyPoint;
-            if (IsUnitInRangeLoc(this.unit.handle, rallyPoint.handle, 150)) {
-                item.setPoint(rallyPoint);
+                result.destroy();
+                let item = this.itemFactory.CreateItemByType(resultItemType);
+                machine.unit.addItem(item);
+    
+                let rallyUnit = GetUnitRallyUnit(this.unit.handle);
+                if (rallyUnit && (rallyUnit == this.unit.handle || IsUnitInRangeLoc(this.unit.handle, GetUnitLoc(rallyUnit), 220))) {
+    
+                    UnitAddItem(rallyUnit, item.handle);
+                    return;
+                }
+                
+                let rallyPoint = GetUnitRallyPoint(this.unit.handle);
+                if (rallyPoint && IsUnitInRangeLoc(this.unit.handle, rallyPoint, 150)) {
+                    SetItemPositionLoc(item.handle, rallyPoint);
+                }
+            } catch(ex) {
+                Log.Error(ex);
             }
 
         }, recipe);
@@ -123,8 +128,7 @@ export class MachineBase implements IMachine {
         }
 
         if (result.successful == false) {
-            if (IsUnitSelected(this.unit.handle, GetLocalPlayer()))
-                this.errorService.DisplayError(MapPlayer.fromLocal(), `Missing: ${result.errors.join(', ')}`);
+            this.errorService.TextTagError(`Missing: ${result.errors.join(', ')}`, this.unit.x, this.unit.y);
         } else {
             Log.Info("Consuming items");
             result.Consume();
@@ -189,7 +193,7 @@ export class MachineBase implements IMachine {
             this.runningSfx.z = this.workSfxOffset.z;
             this.runningSfx.setTimeScale(1.5);
         } else if (!show) {
-            this.runningSfx?.destroy();
+            if (this.runningSfx) this.runningSfx?.destroy();
             this.runningSfx = null;
             // Log.Info("Hiding running sfx");
         }
@@ -315,7 +319,7 @@ export class MachineBase implements IMachine {
         OnFinish(machine: MachineBase, recipeId: number, resultUnit: Unit) {
             machine.orderCount--;
             machine.CraftSuccess(recipeId, resultUnit);
-            if (machine.orderCount == 0) {
+            if (machine.orderCount <= 0) {
                 machine.state = machine.idleState;
                 machine.ShowRunningSfx(false);
             }

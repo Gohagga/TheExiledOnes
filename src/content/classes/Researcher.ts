@@ -106,6 +106,7 @@ export class Researcher extends PlayerClass {
         // this.abilities.ResearchAutomaton.DisableForUnit(this.unit, false);
         
         this.WaitForUnitLevel(4);
+        this.Enable(this.abilities.Obliterum, true);
         // this.abilities..DisableForUnit(this.unit, false); Depot
 
 

@@ -116,6 +116,7 @@ export class Artisan extends PlayerClass {
         this.WaitForUnitLevel(5);
         this.Enable(this.abilities.Minecart, true);
         this.Enable(this.abilities.Mineshaft, true);
+        this.Enable(this.abilities.Transmuter, true);
     }
 
     private AddBasic(slot: AbilitySlot, ability: IAbility) {

@@ -11,8 +11,7 @@ import { ErrorService } from "systems/ui/ErrorService";
 import { Item, Unit } from "w3ts/index";
 
 export interface TransmuteAbility extends Wc3Ability {
-    matAmount: number,
-    material: Material,
+    materials: [number, ...(Material | number)[]],
 }
 
 export class Transmute extends AbilityBase {
@@ -32,7 +31,7 @@ export class Transmute extends AbilityBase {
         super(data);
         abilityEvent.OnAbilityEffect(this.id, (e: AbilityEvent) => this.Execute(e));
         this.recipe = craftingManager.CreateRecipe([
-            [data.matAmount, data.material]
+            data.materials
         ]);
 
         this.manacost = BlzGetAbilityManaCost(this.id, 0);

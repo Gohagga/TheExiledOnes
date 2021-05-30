@@ -193,8 +193,7 @@ Retera for RMS
         name: 'Transmute Rock',
         codeId: 'A0A6',
         extCodeId: 'ASA6',
-        matAmount: 2,
-        material: Material.Wood | Material.TierI,
+        materials: [2, Material.Unique, ResourceItem.Branch],
         tooltip: 'Transmutes 3 sticks into a rock.',
         experience: 10,
     }
@@ -203,8 +202,7 @@ Retera for RMS
         name: 'Transmute Iron',
         codeId: 'A0A7',
         extCodeId: 'ASA7',
-        matAmount: 2,
-        material: Material.Stone | Material.TierI,
+        materials: [2, Material.Unique, ResourceItem.Rock],
         tooltip: 'Transmutes 3 rocks into an iron.',
         experience: 10,
     }
@@ -213,8 +211,7 @@ Retera for RMS
         name: 'Transmute Copper',
         codeId: 'A0A8',
         extCodeId: 'ASA8',
-        matAmount: 2,
-        material: Material.Metal | Material.TierI,
+        materials: [2, Material.Unique, ResourceItem.Iron],
         tooltip: 'Transmutes 3 iron into a copper.',
         experience: 10,
     }
@@ -243,8 +240,8 @@ Retera for RMS
         experience: 75,
         tooltip: 'Building used for crafting components used in many other building recipes.',
         materials: [
-            [3, Material.Stone],
-            [3, Material.Wood]
+            [3, Material.Stone | Material.TierII],
+            [3, Material.Wood  | Material.TierII]
         ]
     }
 
@@ -398,8 +395,7 @@ Retera for RMS
         name: 'Create Net',
         codeId: 'A0R3',
         extCodeId: 'ASR3',
-        matAmount: 4,
-        material: Material.Wood | Material.TierI,
+        materials: [4, Material.Wood | Material.TierI],
         experience: 15,
         tooltip: 'Used for catching wild animals.'
     }
@@ -478,8 +474,9 @@ Retera for RMS
         experience: 100,
         tooltip: 'A machine that destroys materials to produce Fel.',
         materials: [
-            // [3, Material.Metal | Material.TierI],
-            // [1, Material.Wood | Material.TierII]
+            [2, Material.Metal | Material.TierII],
+            [1, Material.Tank | Material.TierI],
+            [1, Material.Converter | Material.TierI]
         ]
     }
 
@@ -648,6 +645,32 @@ Retera for RMS
             materials: [
                 [1, Material.Frame | Material.TierI],
                 [1, Material.Metal | Material.TierII],
+            ]}
+        ]
+    }
+
+    ResearchObliterum: ResearchAbility = {
+        name: 'Research Obliterum',
+        codeId: 'A0RC',
+        upgradeCode: 'R0R3',
+        extCodeId: 'ASRC',
+        experience: 30,
+        tooltip: 'Allows creation of Obliterum. It destroys materials to generate Fel.',
+        stages: [{
+            felCost: 10,
+            materials: [
+                [1, Material.Metal | Material.TierI],
+                [1, Material.FineMetal  | Material.TierI],
+            ]}, {
+            felCost: 10,
+            materials: [
+                [1, Material.Metal | Material.TierI],
+                [1, Material.FineMetal | Material.TierI],
+            ]}, {
+            felCost: 10,
+            materials: [
+                [1, Material.Frame | Material.TierI],
+                [1, Material.Converter | Material.TierI],
             ]}
         ]
     }
@@ -956,6 +979,16 @@ Takes items from target unit if inventory is empty (only owned or shared units).
         }]
     }
 
+    ObliterumMachine: RecipeMachineConfig = {
+        workEffectPath: 'Effect_MechanicGears.mdx',
+        workEffectPosition: { x: 0, y: 0, z: 250 },
+        recipes: [{
+            trainId: 'u0F1',
+            resultId: ResourceItem.CrystalizedFel5,
+            materials: [[1, Material.FelExtraction]]
+        }]
+    }
+
     ForgeRaiseTemperature: Wc3ToggleAbility = {
         name: 'Not Raising',
         codeId: 'A00D',
@@ -1001,7 +1034,7 @@ Takes items from target unit if inventory is empty (only owned or shared units).
             itemTypeId: ResourceItem.Felstone,
             tooltip: 'Fel infused piece of stone.',
             material: Material.Stone | Material.TierIII
-        }, 
+        },
 
         {
             name: 'Iron',
@@ -1142,6 +1175,14 @@ Takes items from target unit if inventory is empty (only owned or shared units).
             name: 'Crystallized Fel',
             itemTypeId: FourCC('I003'),
             tooltip: 'A chunk of fel, can be consumed for 100 fel.'
+        }, {
+            name: 'Crystallized Fel',
+            itemTypeId: ResourceItem.CrystalizedFel5,
+            tooltip: 'A chunk of fel, can be consumed for 5 fel.'
+        }, {
+            name: 'Crystallized Fel',
+            itemTypeId: ResourceItem.CrystalizedFel30,
+            tooltip: 'A chunk of fel, can be consumed for 30 fel.'
         },
 
         {
@@ -1154,42 +1195,42 @@ Takes items from target unit if inventory is empty (only owned or shared units).
             name: 'Live Crab',
             itemTypeId: Animal.Crab,
             tooltip: 'A caught animal.',
-            material: Material.Animal,
+            material: Material.Animal | Material.FelExtraction,
         }, {
             name: 'Live Frog',
             itemTypeId: Animal.Frog,
             tooltip: 'A caught animal.',
-            material: Material.Animal,
+            material: Material.Animal | Material.FelExtraction,
         }, {
             name: 'Live Rabbit',
             itemTypeId: Animal.Rabbit,
             tooltip: 'A caught animal.',
-            material: Material.Animal,
+            material: Material.Animal | Material.FelExtraction,
         }, {
             name: 'Live Raccoon',
             itemTypeId: Animal.Raccoon,
             tooltip: 'A caught animal.',
-            material: Material.Animal,
+            material: Material.Animal | Material.FelExtraction,
         }, {
             name: 'Live Rat',
             itemTypeId: Animal.Rat,
             tooltip: 'A caught animal.',
-            material: Material.Animal,
+            material: Material.Animal | Material.FelExtraction,
         }, {
             name: 'Live Skink',
             itemTypeId: Animal.Skink,
             tooltip: 'A caught animal.',
-            material: Material.Animal,
+            material: Material.Animal | Material.FelExtraction,
         }, {
             name: 'Live Stag',
             itemTypeId: Animal.Stag,
             tooltip: 'A caught animal.',
-            material: Material.Animal,
+            material: Material.Animal | Material.FelExtraction,
         }, {
             name: 'Live Worm',
             itemTypeId: Animal.Worm,
             tooltip: 'A caught animal.',
-            material: Material.Animal,
+            material: Material.Animal | Material.FelExtraction,
         }
     ]
 }

@@ -46,14 +46,21 @@ export class CrudeAxe extends AbilityBase {
             Log.Message("Lowest tier", result.lowestTier);
 
             let tiersExceptFirst = AllTiers & ~Material.TierI;
+            print(tiersExceptFirst, result.lowestTier);
             if ((tiersExceptFirst & result.lowestTier) > 0) {
                 Log.Message(`Crafted Tier 2 Axe.`);
-                caster.addItem(new Item(FourCC('IT02'), 0, 0))
+                let it = new Item(FourCC('IT02'), 0, 0);
+                if (!caster.addItem(it)) {
+                    it.setPoint(caster.point);
+                }
                 caster.addExperience(this.experience, true);
             } else if (Material.TierI == (Material.TierI & result.lowestTier)) {
                 Log.Message(`Crafted Tier 1 Axe.`);
-                caster.addItem(new Item(FourCC('IT00'), 0, 0))
+                let it = new Item(FourCC('IT00'), 0, 0);
                 caster.addExperience(this.experience, true);
+                if (!caster.addItem(it)) {
+                    it.setPoint(caster.point);
+                }
             }
         } catch (ex) {
             Log.Error(ex);

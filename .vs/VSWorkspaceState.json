@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\config",
+    "\\src\\content",
+    "\\src\\content\\abilities",
+    "\\src\\content\\abilities\\researcher",
+    "\\src\\systems",
+    "\\src\\systems\\abilities",
+    "\\src\\systems\\quests",
+    "\\src\\systems\\ui"
+  ],
+  "SelectedNode": "\\src\\Bootstrapper.ts",
+  "PreviewInSolutionExplorer": false
+}

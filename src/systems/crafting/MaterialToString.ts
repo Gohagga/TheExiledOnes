@@ -5,6 +5,8 @@ import { Material } from "./Material";
 export function MaterialToString(material: Material, itemTypeId?: number) {
 
     let name = '';
+    if (Material.FelExtraction == (Material.FelExtraction & material))    name += ' Extractable';
+    
     if (Material.Wood       == (Material.Wood & material))      name += ' Wood'
     if (Material.Stone      == (Material.Stone & material))     name += ' Stone'
     if (Material.Metal      == (Material.Metal & material))     name += ' Metal'

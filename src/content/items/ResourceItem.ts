@@ -24,7 +24,9 @@ export enum ResourceItem {
     OrganicMatter       = FourCC('IM04'),
     Demonfruit          = FourCC('IM05'),
 
-    CrystalizedFel      = FourCC('I003'),
+    CrystalizedFel5     = FourCC('I000'),
+    CrystalizedFel30    = FourCC('I002'),
+    CrystalizedFel100   = FourCC('I003'),
 }
 
 export enum ComponentItem {

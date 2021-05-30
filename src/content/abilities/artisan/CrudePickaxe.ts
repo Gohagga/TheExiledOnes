@@ -49,12 +49,18 @@ export class CrudePickaxe extends AbilityBase {
             let tiersExceptFirst = AllTiers & ~Material.TierI;
             if ((tiersExceptFirst & result.lowestTier) > 0) {
                 Log.Message(`Crafted Tier 2 Pickaxe.`);
-                caster.addItem(new Item(FourCC('IT03'), 0, 0));
+                let it = new Item(FourCC('IT03'), 0, 0);
                 caster.addExperience(this.experience, true);
+                if (!caster.addItem(it)) {
+                    it.setPoint(caster.point);
+                }
             } else if (Material.TierI == (Material.TierI & result.lowestTier)) {
                 Log.Message(`Crafted Tier 1 Pickaxe.`);
-                caster.addItem(new Item(FourCC('IT01'), 0, 0));
+                let it = new Item(FourCC('IT01'), 0, 0);
                 caster.addExperience(this.experience, true);
+                if (!caster.addItem(it)) {
+                    it.setPoint(caster.point);
+                }
             }
         } catch (ex) {
             Log.Error(ex);

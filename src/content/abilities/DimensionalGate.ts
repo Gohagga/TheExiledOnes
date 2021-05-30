@@ -117,6 +117,8 @@ export class DimensionalGate extends AbilityBase {
         let unit = Unit.fromEvent();
         if (unit.typeId != this.builtUnitId) return;
 
+        Global.soulAnchor.removeAbility(this.id);
+
         if (this.existingGate) {
 
             AddUnitAnimationProperties(this.existingGate.handle, 'alternate', false);
@@ -150,8 +152,6 @@ export class DimensionalGate extends AbilityBase {
         //     result.Consume();
         //     return;
         // }
-
-        if (caster.id == Global.soulAnchor.id) caster.removeAbility(this.id);
 
         // this.errorService.DisplayError(caster.owner, `Missing materials: ${result.errors.join(', ')}`);
         // caster.issueImmediateOrder(OrderId.Stop);

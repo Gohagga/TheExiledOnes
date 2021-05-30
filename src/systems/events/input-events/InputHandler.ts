@@ -9,6 +9,9 @@ export const enum MetaKey {
 }
 
 export class InputHandler {
+    // IsCtrlDown(player: MapPlayer) {
+    //     return this.isCtrlDown[player.id];
+    // }
 
     // private isCtrlDown: Record<number, boolean> = {};
     // private shiftTrigger: Trigger = new Trigger();
@@ -61,6 +64,13 @@ export class InputHandler {
         if (!this.selectedUnits[id]) return [];
         let values = this.selectedUnits[id].values();
         return [...values];
+    }
+
+    ClearPlayerSelection(player: MapPlayer) {
+        let id = player.id;
+        if (id in this.selectedUnits == false) return;
+        delete this.selectedUnits[id];
+        ClearSelectionForPlayer(player.handle);
     }
 
     public RegisterAllPlayerKeyEvent(trigger: Trigger, key: oskeytype, meta: MetaKey, keyDown: boolean) {

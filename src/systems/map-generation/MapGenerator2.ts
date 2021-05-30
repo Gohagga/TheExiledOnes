@@ -114,6 +114,8 @@ export class MapGenerator2 {
             let lastMiniX = -1;
             let lastMiniY = -1;
             let miniLine = 0;
+
+            let spawnPoints: { x: number, y: number }[] = [];
             
             for (let y = minY; y < maxY; y += 16) {
                 for (let x = minX; x < maxX; x += 16) {
@@ -178,6 +180,10 @@ export class MapGenerator2 {
                     this.progress = ((y - minY) * (maxX - minX) + x - minX) / maxProgress;
                     if (this.debt > this.maxDebt)
                         MapGenerator2.pause(this);
+
+                    if (math.abs(x) < 0.5 && math.abs(y) < 0.5 && pathing == PathingType.Plains) {
+                        spawnPoints.push({ x, y });
+                    }
                 }
                 miniLine++;
             }
@@ -187,6 +193,24 @@ export class MapGenerator2 {
             let branchCount = math.floor((maxX - minX) / 153);
             orePlacer.placeRocksAndStones(stonePileCount, rocksCount);
             // randomPlacer.PlaceBranches(branchCount);
+
+            let remainingPoints: { x: number, y: number }[] = [];
+            for (let p of spawnPoints) {
+                let nearDestruct = false;
+                print("checking point", p.x, p.y);
+                EnumDestructablesInRectAll(Rect(p.x-100, p.y-100, p.x+100, p.y+100), () => {
+                    if (GetEnumDestructable())
+                        nearDestruct = true;
+                });
+                if (nearDestruct == false) {
+                    remainingPoints.push(p);
+                }
+            }
+            if (remainingPoints.length > 0)
+                spawnPoints = remainingPoints;
+
+            let spawnIndex = math.floor(math.random() * (spawnPoints.length - 1));
+            this.startPoint = spawnPoints[spawnIndex];
     
             this.isDone = true;
         } catch (err) {
