@@ -80,7 +80,7 @@ export function Initialize() {
 
     Log.Level = Level.All;
     // Log.Level = Level.Message;
-    // Log.Level = Level.Error;
+    Log.Level = Level.Error;
     let generateMap = true;
     let lockToSurface = true;
     // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
@@ -238,6 +238,7 @@ export function Initialize() {
             mapGenerator.isDone = true;
         }
 
+        let soulAnchorPlaced = false;
         tim.pause();
         tim.start(0.02, true, () => {
             if (mapGenerator.isDone) {
@@ -245,15 +246,16 @@ export function Initialize() {
                 progressTim.destroy();
                 time = os.clock() - time;
                 Log.Message("Finished generating in ", time);
-
-                print("SETTING POSITION", mapGenerator.startPoint.x, mapGenerator.startPoint.y);
-                Global.soulAnchor.setPosition(mapGenerator.startPoint.x, mapGenerator.startPoint.y);
-
-                SetCameraField(CAMERA_FIELD_TARGET_DISTANCE, 2000, 0.5);
-                PanCameraToTimed(Global.soulAnchor.x, Global.soulAnchor.y, 0);
-                    
-            } else
+                
+            } else {
+                if (!soulAnchorPlaced && mapGenerator.progress > 0.75) {
+                    soulAnchorPlaced = true;
+                    Global.soulAnchor.setPosition(mapGenerator.startPoint.x, mapGenerator.startPoint.y);
+                    SetCameraField(CAMERA_FIELD_TARGET_DISTANCE, 2000, 0.5);
+                    PanCameraToTimed(Global.soulAnchor.x, Global.soulAnchor.y, 0);
+                }
                 mapGenerator.resume();
+            }
         });
         const progressTim = new Timer();
         progressTim.start(1, true, () => {
@@ -598,7 +600,7 @@ export function Initialize() {
     // print(msgFrame.width, msgFrame.height);
 
     // AI
-    const aiController = new AiController(surfaceRect, enemyPlayer);
+    const aiController = new AiController(surfaceRect, enemyPlayer, mapGenerator.enemySpawnPoints, config.players);
 });
 }
 
