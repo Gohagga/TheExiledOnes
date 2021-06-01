@@ -31,6 +31,7 @@ export class MapGenerator2 {
     public progress: number = 0;
     public isDone: boolean = false;
     public startPoint: { x: number, y: number } = { x: 0, y: 0 }
+    public enemySpawnPoints: { x: number, y: number }[] = [];
 
     public heightBuilder!: HeightBuilder;
     public pathingBuilder!: PathingBuilder;
@@ -181,8 +182,12 @@ export class MapGenerator2 {
                     if (this.debt > this.maxDebt)
                         MapGenerator2.pause(this);
 
-                    if (math.abs(x) < 0.5 && math.abs(y) < 0.5 && pathing == PathingType.Plains) {
-                        spawnPoints.push({ x, y });
+                    if (pathing == PathingType.Plains) {
+                        if (math.abs(x) < 0.5 && math.abs(y) < 0.5) {
+                            spawnPoints.push({ x, y });
+                        } else {
+                            this.enemySpawnPoints.push({ x, y });
+                        }
                     }
                 }
                 miniLine++;
@@ -197,7 +202,6 @@ export class MapGenerator2 {
             let remainingPoints: { x: number, y: number }[] = [];
             for (let p of spawnPoints) {
                 let nearDestruct = false;
-                print("checking point", p.x, p.y);
                 EnumDestructablesInRectAll(Rect(p.x-100, p.y-100, p.x+100, p.y+100), () => {
                     if (GetEnumDestructable())
                         nearDestruct = true;

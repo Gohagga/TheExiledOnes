@@ -121,6 +121,14 @@ export function InitCommands(
         return true;
     });
 
+    CreateChatCommand([MapPlayer.fromIndex(0)], ['-lvl'], true, () => {
+        let triggerPlayer = MapPlayer.fromEvent();
+        let triggerPlayerId = triggerPlayer.id;
+        let units = inputHandler.GetPlayerSelectedUnitIds(triggerPlayer);
+        if (units.length > 0)
+            units[0].setHeroLevel(units[0].level + 1, true);
+    });
+
     CreateChatCommand(players, ['-secondchance'], true, () => {
         Global.soulAnchor.addAbility(FourCC('A00Z'));
     });

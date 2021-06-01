@@ -65,7 +65,7 @@ export class Demonfruit extends AbilityBase {
 
     OnOrderIssued(): void {
         
-        Log.Info("Order issued", GetIssuedOrderId());
+        Log.Info("Order issued", Unit.fromEvent().name, GetIssuedOrderId());
 
         if (GetIssuedOrderId() != this.harvestOrder) return;
 
