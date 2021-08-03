@@ -14,7 +14,8 @@
         "../node_modules/*/lib/index",
         "../node_modules/*/index",
         "../node_modules/*/dist/index",
-        "../node_modules/*"
+        "../node_modules/*",
+        "*"
       ]
     },
     "plugins": [

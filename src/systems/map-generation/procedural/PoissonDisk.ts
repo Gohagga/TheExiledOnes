@@ -50,7 +50,7 @@ export class PoissonDisk {
         while (processList.length > 0) {
             let point = processList.pop();
 
-            Log.Info(point?.x, point?.y);
+            Log.Info(point && point.x, point && point.y);
             if (!point) continue;
 
             let minDistance = getMinDistance(point.x, point.y);

@@ -51,7 +51,7 @@ export class NetEnsnare extends AbilityBase {
         let caster = e.caster;
         let target = e.targetUnit;
         let point = e.targetPoint;
-        let typeId = target?.typeId;
+        let typeId = target && target.typeId;
 
         if (target && typeId) {
             let itemType = this.unitToItemType[typeId];
