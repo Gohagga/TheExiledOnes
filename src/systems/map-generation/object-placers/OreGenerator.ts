@@ -92,7 +92,8 @@ export class OreGenerator {
         try {
             const ironId = FourCC('B0R1');
             print("IRON ID ID ID", ironId);
-            CreateDestructableZ(ironId, newX, newY, 100, this.random.next(0, 360), 1.22, this.random.nextInt(0, 6));
+            let d = CreateDestructableZ(ironId, newX, newY, 100, this.random.next(0, 360), 1.22, this.random.nextInt(0, 6));
+            SetDestructableMaxLife(d, GetWidgetLife(d) * this.random.next(1, 1.5));
             // CreateUnit(Player(0), FourCC('hfoo'), dest.x, dest.y, 0);
             // PanCameraToTimedForPlayer(Player(0), dest.x, dest.y, 0);
             if (context.count >= 2) {
@@ -155,7 +156,8 @@ export class OreGenerator {
         try {
             const copperId = FourCC('B0R2');
             print("IRON ID ID ID", copperId);
-            CreateDestructableZ(copperId, newX, newY, 100, this.random.next(0, 360), 1.22, this.random.nextInt(0, 6));
+            let d = CreateDestructableZ(copperId, newX, newY, 100, this.random.next(0, 360), 1.22, this.random.nextInt(0, 6));
+            SetDestructableMaxLife(d, GetWidgetLife(d) * this.random.next(1, 1.5));
             // CreateUnit(Player(0), FourCC('hfoo'), dest.x, dest.y, 0);
             // PanCameraToTimedForPlayer(Player(0), dest.x, dest.y, 0);
             if (context.count >= 2) {
@@ -209,7 +211,8 @@ export class OreGenerator {
             dest.kill();
             const silverId = FourCC('B0R3');
             print("IRON ID ID ID", silverId);
-            CreateDestructableZ(silverId, dest.x, dest.y, 100, this.random.next(0, 360), 1.22, this.random.nextInt(0, 6));
+            let d = CreateDestructableZ(silverId, dest.x, dest.y, 100, this.random.next(0, 360), 1.22, this.random.nextInt(0, 6));
+            SetDestructableMaxLife(d, GetWidgetLife(d) * this.random.next(1, 1.5));
             // CreateUnit(Player(0), FourCC('hfoo'), dest.x, dest.y, 0);
             PanCameraToTimedForPlayer(Player(0), dest.x, dest.y, 0);
             if (context.count >= 2) {

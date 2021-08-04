@@ -1,3 +1,4 @@
+import { OreType } from "config/OreType";
 import { ResourceItem } from "content/items/ResourceItem";
 import { Log } from "Log";
 import { PathingService } from "services/PathingService";
@@ -5,11 +6,6 @@ import { IItemFactory } from "systems/items/IItemFactory";
 import { Random } from "systems/random/Random";
 import { Rectangle } from "w3ts/index";
 import { HeightBuilder } from "../builders/HeightBuilder";
-
-export enum OreType {
-
-    StonePile       = FourCC('B0R0'),
-}
 
 export class OrePlacer {
     

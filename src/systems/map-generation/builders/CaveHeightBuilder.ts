@@ -1,3 +1,4 @@
+import { OreType } from "config/OreType";
 import { Random } from "systems/random/Random";
 import { ICavernNoiseProvider } from "../interfaces/ICavernNoiseProvider";
 
@@ -44,7 +45,7 @@ export class CaveHeightBuilder {
 
         if (height > 0) {
             // height = 300;
-            CreateDestructableZ(FourCC('DTrc'), x + 32, y - 32, 100, this.random.next(0, 360), 1.22, this.random.nextInt(0, 6));
+            CreateDestructableZ(OreType.Rubble, x + 32, y - 32, 100, this.random.next(0, 360), 1.22, this.random.nextInt(0, 6));
         }
         // if (height < 64) {
         //     height = - math.abs(height ** 0.8);
