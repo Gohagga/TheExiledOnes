@@ -16,6 +16,7 @@ import { IMoistureNoiseProvider } from "./interfaces/IMoistureNoiseProvider";
 import { ITreeNoiseProvider } from "./interfaces/ITreeNoiseProvider";
 import { TerrainType } from "./MapGenerator";
 import { GridPointPlacer } from "./object-placers/GridPointPlacer";
+import { OreGenerator } from "./object-placers/OreGenerator";
 import { OrePlacer } from "./object-placers/OrePlacer";
 import { RandomObjectPlacer } from "./object-placers/RandomObjectPlacer";
 
@@ -102,6 +103,11 @@ export class MapGenerator2 {
             // Object Placers
             let orePlacer = new OrePlacer(this.random, this.surfaceBounds, heightBuilder, this.itemFactory);
             let randomPlacer = new RandomObjectPlacer(this.random, this.itemFactory);
+            let oreGen = new OreGenerator(this.random, caveHeightBuilder, FourCC('DTrc'));
+            let ironOrePlacer = new GridPointPlacer<number>(this.undergroundBounds, 12, 12, 2);
+            let copperOrePlacer = new GridPointPlacer<number>(this.undergroundBounds, 9, 9, 2);
+            let silverOrePlacer = new GridPointPlacer<number>(this.undergroundBounds, 7, 7, 1);
+            // let goldOrePlacer = new GridPointPlacer<number>(this.undergroundBounds, 7, 7, 1);
             
             // Generate Surface
             const { maxX, maxY } = this.surfaceBounds;
@@ -118,16 +124,18 @@ export class MapGenerator2 {
 
             let spawnPoints: { x: number, y: number }[] = [];
             
+            let oreSpawnPoints: { x: number, y: number }[] = [];
+            
             for (let y = minY; y < maxY; y += 16) {
                 for (let x = minX; x < maxX; x += 16) {
     
                     let height = heightBuilder.getHeight(x, y);
                     let pathing = pathingBuilder.getPathing(x, y, height);
                     let tile = tileBuilder.getTileType(x, y, pathing, height);
-
+                    
                     let underX = x - this.surfaceBounds.minX + this.undergroundBounds.minX;
                     let underY = y - this.surfaceBounds.minY + this.undergroundBounds.minY;
-
+                    
                     // We update tile every 8 steps
                     if (x % this.stepOffset == 0 && 
                         y % this.stepOffset == 0
@@ -143,6 +151,11 @@ export class MapGenerator2 {
 
                         if (height > 150 && height < 180 && pathing == PathingType.HillSteepUnwalkable) {
                             orePlacer.AddPossibleStoneSpot({ x, y, z: height - waterHeight });
+                        }
+
+                        let isCaveWall = caveHeightBuilder.isCaveWall(underX, underY);
+                        if (isCaveWall) {
+                            oreSpawnPoints.push({ x: underX, y: underY });
                         }
                         
                         if (tree) randomPlacer.AddTree(tree);
@@ -215,7 +228,32 @@ export class MapGenerator2 {
 
             let spawnIndex = math.floor(math.random() * (spawnPoints.length - 1));
             this.startPoint = spawnPoints[spawnIndex];
-    
+
+            // Ore veins gen
+            for (let i = 0; i < 50; i++) {
+                let index = this.random.nextInt(0, oreSpawnPoints.length - 1);
+                let p = oreSpawnPoints[index];
+                if (ironOrePlacer.placeObject(p.x, p.y, index)) {
+                    oreGen.generateIronVein(p.x, p.y);
+                }
+            }
+
+            for (let i = 0; i < 50; i++) {
+                let index = this.random.nextInt(0, oreSpawnPoints.length - 1);
+                let p = oreSpawnPoints[index];
+                if (copperOrePlacer.placeObject(p.x, p.y, index)) {
+                    oreGen.generateCopperVein(p.x, p.y);
+                }
+            }
+
+            for (let i = 0; i < 50; i++) {
+                let index = this.random.nextInt(0, oreSpawnPoints.length - 1);
+                let p = oreSpawnPoints[index];
+                if (silverOrePlacer.placeObject(p.x, p.y, index)) {
+                    oreGen.generateSilverVein(p.x, p.y);
+                }
+            }
+            
             this.isDone = true;
         } catch (err) {
             Log.Error(MapGenerator2, err);

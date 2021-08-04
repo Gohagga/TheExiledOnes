@@ -82,8 +82,8 @@ export function Initialize() {
     // Log.Level = Level.Message;
     Log.Level = Level.Error;
     let generateMap = true;
-    let lockToSurface = true;
-    // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
+    let lockToSurface = false;
+    FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
     
     // MeleeStartingAI()
     // FogModifierStart(CreateFogModifierRect(enemyPlayer.handle, FOG_OF_WAR_VISIBLE, gg_rct_SurfaceMap, true, true));
