@@ -12,9 +12,9 @@ export class CaveTileBuilder {
     ) {
     }
 
-    getCaveTile(x: number, y: number): number {
+    getCaveTile(x: number, y: number, caveHeight?: number): number {
 
-        let height = this.caveHeightBuilder.getCaveHeight(x, y);
+        let height = caveHeight || this.caveHeightBuilder.getCaveHeight(x, y);
         let value = height / 1100;
 
         if (value % 0.4 > 0.2 || value < 0.1) {
@@ -23,9 +23,9 @@ export class CaveTileBuilder {
             return TerrainType.Dirt;
     }
 
-    buildCaveTile(x: number, y: number): number {
+    buildCaveTile(x: number, y: number, caveHeight?: number): number {
 
-        let tileType = this.getCaveTile(x, y);
+        let tileType = this.getCaveTile(x, y, caveHeight);
         
         SetTerrainType(x, y, tileType, 0, 1, 1);
         return 0;

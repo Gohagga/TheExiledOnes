@@ -73,6 +73,7 @@ import { BuildingQuest } from "systems/quests/BuildingQuest";
 import { ResearchQuest } from "systems/quests/ResearchQuest";
 import { DimensionalGate } from "content/abilities/DimensionalGate";
 import { AiController } from "content/ai/AiController";
+import { EnemyGenerator } from "systems/map-generation/object-placers/EnemyGenerator";
 
 export function Initialize() {
 
@@ -160,21 +161,21 @@ export function Initialize() {
     const craftingManager = new CraftingManager();
     const itemFactory = new ItemFactory(config.items, craftingManager);
 
-    // dimensionEvent.OnSurfaceEvent((e) => {
-    //     if (e.unit.isHero() && e.unit.owner.handle == GetLocalPlayer()) {
-    //         SetCameraBoundsToRect(surfaceRect.handle);
-    //         PanCameraToTimed(e.unit.x, e.unit.y, 0);
-    //         SelectUnitSingle(e.unit.handle);
-    //     }
-    // });
+    dimensionEvent.OnSurfaceEvent((e) => {
+        if (e.unit.isHero() && e.unit.owner.handle == GetLocalPlayer()) {
+            SetCameraBoundsToRect(surfaceRect.handle);
+            PanCameraToTimed(e.unit.x, e.unit.y, 0);
+            SelectUnitSingle(e.unit.handle);
+        }
+    });
 
-    // dimensionEvent.OnUndergroundEvent((e) => {
-    //     if (e.unit.isHero() && e.unit.owner.handle == GetLocalPlayer()) {
-    //         SetCameraBoundsToRect(undergroundRect.handle);
-    //         PanCameraToTimed(e.unit.x, e.unit.y, 0);
-    //         SelectUnitSingle(e.unit.handle);
-    //     }
-    // });
+    dimensionEvent.OnUndergroundEvent((e) => {
+        if (e.unit.isHero() && e.unit.owner.handle == GetLocalPlayer()) {
+            SetCameraBoundsToRect(undergroundRect.handle);
+            PanCameraToTimed(e.unit.x, e.unit.y, 0);
+            SelectUnitSingle(e.unit.handle);
+        }
+    });
 
     const mapArea = Rectangle.getWorldBounds();
 
@@ -215,7 +216,20 @@ export function Initialize() {
         const treeNoise = new TreeNoiseProvider(random);
         const moistureNoise = new MoistureNoiseProvider(random);
         const cavernNoise = new CavernNoiseProvider(random);
-        const mapGenerator = new MapGenerator2(surfaceMinimap, heightNoise, treeNoise, moistureNoise, cavernNoise, surfaceRect, undergroundRect, itemFactory, random);
+
+        const enemyGen = new EnemyGenerator(enumService);
+        const mapGenerator = new MapGenerator2(
+            surfaceMinimap,
+            heightNoise,
+            treeNoise,
+            moistureNoise,
+            cavernNoise,
+            surfaceRect,
+            undergroundRect,
+            itemFactory,
+            enumService,
+            enemyGen,
+            random);
         
         abilityEvent.OnAbilityCast(FourCC('A000'), () => {
             let x = GetSpellTargetX();

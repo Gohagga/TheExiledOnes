@@ -1,8 +1,9 @@
 import { Log } from "Log";
+import { IEnumUnitService } from "services/enum-service/IEnumUnitService";
 import { IItemFactory } from "systems/items/IItemFactory";
 import { IMinimap } from "systems/minimap/IMinimap";
 import { Random } from "systems/random/Random";
-import { Rectangle } from "w3ts/index";
+import { Point, Rectangle } from "w3ts/index";
 import { CaveHeightBuilder } from "./builders/CaveHeightBuilder";
 import { CaveTileBuilder } from "./builders/CaveTileBuilder";
 import { HeightBuilder } from "./builders/HeightBuilder";
@@ -15,6 +16,7 @@ import { IHeightNoiseProvider } from "./interfaces/IHeightNoiseProvider";
 import { IMoistureNoiseProvider } from "./interfaces/IMoistureNoiseProvider";
 import { ITreeNoiseProvider } from "./interfaces/ITreeNoiseProvider";
 import { TerrainType } from "./MapGenerator";
+import { EnemyGenerator } from "./object-placers/EnemyGenerator";
 import { GridPointPlacer } from "./object-placers/GridPointPlacer";
 import { OreGenerator } from "./object-placers/OreGenerator";
 import { OrePlacer } from "./object-placers/OrePlacer";
@@ -46,6 +48,8 @@ export class MapGenerator2 {
         private readonly surfaceBounds: Rectangle,
         private readonly undergroundBounds: Rectangle,
         private readonly itemFactory: IItemFactory,
+        private readonly enumUnitService: IEnumUnitService,
+        private readonly enemyGenerator: EnemyGenerator,
         random: Random,
     ) {
         this.generatorThread = coroutine.create(() => this.generateMap());
@@ -125,6 +129,8 @@ export class MapGenerator2 {
             let spawnPoints: { x: number, y: number }[] = [];
             
             let oreSpawnPoints: { x: number, y: number }[] = [];
+
+            let undergroundCampsSpawnPoints: { x: number, y: number }[] = [];
             
             for (let y = minY; y < maxY; y += 16) {
                 for (let x = minX; x < maxX; x += 16) {
@@ -135,6 +141,7 @@ export class MapGenerator2 {
                     
                     let underX = x - this.surfaceBounds.minX + this.undergroundBounds.minX;
                     let underY = y - this.surfaceBounds.minY + this.undergroundBounds.minY;
+                    let caveHeight = caveHeightBuilder.getCaveHeight(underX, underY);
                     
                     // We update tile every 8 steps
                     if (x % this.stepOffset == 0 && 
@@ -147,7 +154,10 @@ export class MapGenerator2 {
                         this.debt += treeBuilder.buildTreeOrDont(x, y, pathing, height);
 
                         this.debt += caveHeightBuilder.buildCaveHeight(underX, underY);
-                        this.debt += caveTileBuilder.buildCaveTile(underX, underY);
+                        this.debt += caveTileBuilder.buildCaveTile(underX, underY, caveHeight);
+
+                        if (caveHeight > 250)
+                            undergroundCampsSpawnPoints.push({ x: underX, y: underY });
 
                         if (height > 150 && height < 180 && pathing == PathingType.HillSteepUnwalkable) {
                             orePlacer.AddPossibleStoneSpot({ x, y, z: height - waterHeight });
@@ -253,6 +263,9 @@ export class MapGenerator2 {
                     oreGen.generateSilverVein(p.x, p.y);
                 }
             }
+
+            // Enemy gen
+            this.enemyGenerator.generateUndergroundEnemies(undergroundCampsSpawnPoints);
             
             this.isDone = true;
         } catch (err) {

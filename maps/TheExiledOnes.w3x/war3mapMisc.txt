@@ -8,4 +8,5 @@ MinUnitSpeed=0.0
 NeedHeroXP=50
 NeedHeroXPFormulaB=0.0
 NeedHeroXPFormulaC=100.0
+StrHitPointBonus=10.0
 

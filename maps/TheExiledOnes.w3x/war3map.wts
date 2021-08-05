@@ -48,11 +48,6 @@ STRING 10
 Player 4
 }
 
-STRING 11
-{
-Player 12
-}
-
 STRING 12
 // Units: E000 (Soul Anchor), Name (Name)
 {
@@ -7525,5 +7520,10 @@ STRING 1488
 // Units: H00P (Prospector), Propernames (Proper Names)
 {
 Thanos
+}
+
+STRING 1489
+{
+Enemies
 }
 
