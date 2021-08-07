@@ -1,0 +1,7529 @@
+﻿STRING 1
+{
+The Exiled Ones v0.2.13
+}
+
+STRING 2
+{
+nobody should play this map
+}
+
+STRING 3
+{
+This is a description
+}
+
+STRING 4
+{
+The_Spellweaver
+}
+
+STRING 5
+{
+Player 1
+}
+
+STRING 6
+{
+Player 2
+}
+
+STRING 7
+{
+Player 3
+}
+
+STRING 8
+{
+Force 1
+}
+
+STRING 9
+{
+Force 2
+}
+
+STRING 10
+{
+Player 4
+}
+
+STRING 12
+// Units: E000 (Soul Anchor), Name (Name)
+{
+Soul Anchor
+}
+
+STRING 14
+// Units: oMS2 (Stone II), Tip (Tooltip - Basic)
+{
+Stone
+}
+
+STRING 15
+// Items: IM04 (Organic Matter), Description (Description)
+{
+Material.
+}
+
+STRING 16
+// Items: IM04 (Organic Matter), Ubertip (Tooltip - Extended)
+{
+Material.
+}
+
+STRING 17
+// Items: IMS1 (Rock), Tip (Tooltip - Basic)
+{
+Stone
+}
+
+STRING 21
+// Items: IMS3 (Felstone), Name (Name)
+{
+Felstone
+}
+
+STRING 24
+// Items: IMW4 (Cursewood), Name (Name)
+{
+Cursewood
+}
+
+STRING 27
+// Items: IM04 (Organic Matter), Name (Name)
+{
+Organic Matter
+}
+
+STRING 33
+// Items: I000 (Fel (5)), Tip (Tooltip - Basic)
+{
+5
+}
+
+STRING 34
+// Items: I000 (Fel (5)), Description (Description)
+{
+A crystalized fel, can be consumed for 5 fel.
+}
+
+STRING 35
+// Items: I000 (Fel (5)), Ubertip (Tooltip - Extended)
+{
+A crystalized fel, can be consumed for 5 fel.
+}
+
+STRING 36
+// Items: I000 (Fel (5)), Name (Name)
+{
+Fel (5)
+}
+
+STRING 37
+// Items: I002 (Fel (30)), Name (Name)
+{
+Fel (30)
+}
+
+STRING 38
+// Items: I002 (Fel (30)), Description (Description)
+{
+A crystalized fel, can be consumed for 30 fel.
+}
+
+STRING 39
+// Items: I002 (Fel (30)), Ubertip (Tooltip - Extended)
+{
+A crystalized fel, can be consumed for 30 fel.
+}
+
+STRING 40
+// Items: I002 (Fel (30)), Tip (Tooltip - Basic)
+{
+30
+}
+
+STRING 43
+// Items: I003 (Fel (100)), Tip (Tooltip - Basic)
+{
+100
+}
+
+STRING 44
+// Items: I003 (Fel (100)), Name (Name)
+{
+Fel (100)
+}
+
+STRING 45
+// Items: I003 (Fel (100)), Description (Description)
+{
+A crystalized fel, can be consumed for 100 fel.
+}
+
+STRING 46
+// Items: I003 (Fel (100)), Ubertip (Tooltip - Extended)
+{
+A crystalized fel, can be consumed for 100 fel.
+}
+
+STRING 47
+// Units: n000 (Hell Forge), Name (Name)
+{
+Hell Forge
+}
+
+STRING 48
+// Abilities: A0PQ (Base Prospector Spellbook), Name (Name)
+{
+Base Prospector Spellbook
+}
+
+STRING 49
+// Abilities: A0PQ (Base Prospector Spellbook), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 50
+// Units: oPF1 (Frame I), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 51
+// Abilities: A0PQ (Base Prospector Spellbook), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 52
+// Abilities: A0P0 (Defile), Name (Name)
+{
+Defile
+}
+
+STRING 53
+// Abilities: A0P0 (Defile), Tip (Tooltip - Normal)
+{
+Defile (Q)
+}
+
+STRING 54
+// Abilities: A0P0 (Defile), Tip (Tooltip - Normal)
+{
+Defile (Q)
+}
+
+STRING 55
+// Abilities: A0P0 (Defile), Tip (Tooltip - Normal)
+{
+Defile (Q)
+}
+
+STRING 56
+// Abilities: A0P0 (Defile), Ubertip (Tooltip - Normal - Extended)
+{
+Sprays <ANhs,DataF1> waves of filth, corrupting the land and gathering fel energy.
+}
+
+STRING 57
+// Abilities: A0P0 (Defile), Ubertip (Tooltip - Normal - Extended)
+{
+Sprays <ANhs,DataF2> waves of filth, corrupting the land and gathering fel energy.
+}
+
+STRING 58
+// Abilities: A0P0 (Defile), Ubertip (Tooltip - Normal - Extended)
+{
+Sprays <ANhs,DataF3> waves of filth, corrupting the land and gathering fel energy.
+}
+
+STRING 59
+// Units: oPT1 (Tank I), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 60
+// Abilities: ASP0 (Addition Defile), Name (Name)
+{
+Addition Defile
+}
+
+STRING 61
+// Abilities: ASP0 (Addition Defile), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 62
+// Units: oPC1 (Converter I), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 63
+// Abilities: ASP0 (Addition Defile), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 64
+// Abilities: ASP1 (Addition Eye of Kilrogg), Name (Name)
+{
+Addition Eye of Kilrogg
+}
+
+STRING 65
+// Abilities: ASP1 (Addition Eye of Kilrogg), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 66
+// Units: oPC2 (Converter II), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 67
+// Abilities: ASP1 (Addition Eye of Kilrogg), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 69
+// Units: oPF2 (Frame II), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 70
+// Abilities: A0P2 (Fel Infusion), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 71
+// Abilities: A0P2 (Fel Infusion), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 72
+// Abilities: A0P2 (Fel Infusion), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 73
+// Abilities: A0P2 (Fel Infusion), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 74
+// Abilities: A0P2 (Fel Infusion), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 75
+// Abilities: A0P2 (Fel Infusion), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 76
+// Abilities: ASP2 (Addition Create Felstone), Name (Name)
+{
+Addition Create Felstone
+}
+
+STRING 77
+// Abilities: ASP2 (Addition Create Felstone), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 78
+// Units: oPC3 (Converter III), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 79
+// Abilities: ASP2 (Addition Create Felstone), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 80
+// Abilities: A0P3 (Crystalize), Name (Name)
+{
+Crystalize
+}
+
+STRING 81
+// Units: oPF3 (Frame III), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 82
+// Abilities: A0P3 (Crystalize), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 83
+// Abilities: A0P3 (Crystalize), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 84
+// Abilities: A0P3 (Crystalize), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 85
+// Abilities: A0P3 (Crystalize), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 86
+// Abilities: A0P3 (Crystalize), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 87
+// Abilities: A0P3 (Crystalize), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 88
+// Abilities: ASP3 (Addition Crystalize), Name (Name)
+{
+Addition Crystalize
+}
+
+STRING 89
+// Abilities: ASP3 (Addition Crystalize), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 90
+// Units: oPC4 (Converter IV), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 91
+// Abilities: ASP3 (Addition Crystalize), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 92
+// Units: e001 (Demonfruit), Name (Name)
+{
+Demonfruit
+}
+
+STRING 93
+// Units: oPM1 (Mechanism I), Hotkey (Hotkey)
+{
+A
+}
+
+STRING 94
+// Abilities: A0P4 (Demonfruit), Tip (Tooltip - Normal)
+{
+Demonfruit (A)
+}
+
+STRING 95
+// Abilities: A0P4 (Demonfruit), Ubertip (Tooltip - Normal - Extended)
+{
+Plants a parasite on a tree, corrupting it and growing a fruit which generates fel.|n|nBoosts fel generation of a nearby Fel Collector.
+}
+
+STRING 96
+// Abilities: ASP4 (Addition Demonfruit), Name (Name)
+{
+Addition Demonfruit
+}
+
+STRING 97
+// Abilities: ASP4 (Addition Demonfruit), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 98
+// Units: H00P (Prospector), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 99
+// Abilities: ASP4 (Addition Demonfruit), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 100
+// Abilities: A0P5 (Transfer Fel), Name (Name)
+{
+Transfer Fel
+}
+
+STRING 101
+// Abilities: ASP5 (Addition Transfer Fel), Name (Name)
+{
+Addition Transfer Fel
+}
+
+STRING 102
+// Abilities: ASP5 (Addition Transfer Fel), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 103
+// Units: oMS1 (Stone I), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 104
+// Abilities: ASP5 (Addition Transfer Fel), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 106
+// Abilities: ASP6 (Addition Fel Basin), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 107
+// Units: oMM1 (Metal I), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 108
+// Abilities: ASP6 (Addition Fel Basin), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 110
+// Units: oPF4 (Frame IV), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 111
+// Abilities: A0P6 (Prepare Fel Basin), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 112
+// Abilities: A0P6 (Prepare Fel Basin), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 113
+// Abilities: A000 (DebugHeight), Name (Name)
+{
+DebugHeight
+}
+
+STRING 114
+// Units: oPT3 (Tank III), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 115
+// Abilities: A000 (DebugHeight), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 116
+// Abilities: A000 (DebugHeight), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 117
+// Abilities: A000 (DebugHeight), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 118
+// Abilities: A000 (DebugHeight), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 119
+// Abilities: A000 (DebugHeight), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 120
+// Abilities: A000 (DebugHeight), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 121
+// Units: oMS1 (Stone I), Tip (Tooltip - Basic)
+{
+Rock
+}
+
+STRING 122
+// Items: IMS2 (Stone), Name (Name)
+{
+Stone
+}
+
+STRING 126
+// Destructibles: B0R0 (Stone Pile), Name (Name)
+{
+Stone Pile
+}
+
+STRING 127
+// Abilities: A001 (TestQueue), Name (Name)
+{
+TestQueue
+}
+
+STRING 128
+// Units: oPT2 (Tank II), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 129
+// Abilities: A001 (TestQueue), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 130
+// Abilities: A001 (TestQueue), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 131
+// Abilities: A001 (TestQueue), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 132
+// Abilities: A001 (TestQueue), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 133
+// Abilities: A001 (TestQueue), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 134
+// Abilities: A001 (TestQueue), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 136
+// Abilities: AT00 (Axe), Name (Name)
+{
+Axe
+}
+
+STRING 137
+// Abilities: AT00 (Axe), EditorSuffix (Editor Suffix)
+{
+(Tool)
+}
+
+STRING 138
+// Abilities: AT01 (Pickaxe), Tip (Tooltip - Normal)
+{
+Axe
+}
+
+STRING 139
+// Abilities: AT01 (Pickaxe), Tip (Tooltip - Normal)
+{
+Axe
+}
+
+STRING 140
+// Abilities: AT01 (Pickaxe), Tip (Tooltip - Normal)
+{
+Axe
+}
+
+STRING 141
+// Abilities: AT01 (Pickaxe), Tip (Tooltip - Normal)
+{
+Axe
+}
+
+STRING 142
+// Abilities: AT01 (Pickaxe), Name (Name)
+{
+Pickaxe
+}
+
+STRING 143
+// Abilities: AT01 (Pickaxe), EditorSuffix (Editor Suffix)
+{
+(Tool)
+}
+
+STRING 149
+// Abilities: AT0Z (Equip Tool), Name (Name)
+{
+Equip Tool
+}
+
+STRING 150
+// Units: H00R (Researcher), Hotkey (Hotkey)
+{
+E
+}
+
+STRING 151
+// Abilities: A005 (TestPause), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 152
+// Abilities: A005 (TestPause), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 153
+// Abilities: A005 (TestPause), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 154
+// Abilities: A005 (TestPause), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 155
+// Abilities: A005 (TestPause), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 156
+// Abilities: A005 (TestPause), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 158
+// Units: h000 (Workstation), Name (Name)
+{
+Workstation
+}
+
+STRING 160
+// Abilities: A0P4 (Demonfruit), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 161
+// Abilities: AR00 (Machine Recipe Q), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 162
+// Abilities: AR00 (Machine Recipe Q), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 163
+// Abilities: AR01 (Machine Recipe W), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 164
+// Abilities: AR00 (Machine Recipe Q), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 165
+// Abilities: AR00 (Machine Recipe Q), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 166
+// Abilities: AR01 (Machine Recipe W), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 169
+// Abilities: AR01 (Machine Recipe W), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 170
+// Abilities: AR02 (Machine Recipe E), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 171
+// Abilities: AR02 (Machine Recipe E), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 172
+// Abilities: AR01 (Machine Recipe W), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 173
+// Abilities: AR02 (Machine Recipe E), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 174
+// Abilities: AR02 (Machine Recipe E), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 175
+// Abilities: A0A2 (Prepare Workstation), Name (Name)
+{
+Prepare Workstation
+}
+
+STRING 183
+// Abilities: A0A3 (Prepare Hell Forge), Name (Name)
+{
+Prepare Hell Forge
+}
+
+STRING 191
+// Abilities: ASA3 (Addition Prepare Hell Forge), Name (Name)
+{
+Addition Prepare Hell Forge
+}
+
+STRING 192
+// Abilities: ASA2 (Addition Prepare Workstation), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 193
+// Units: oMF1 (Fine Metal I), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 194
+// Abilities: ASA2 (Addition Prepare Workstation), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 195
+// Abilities: ASA0 (Addition Craft Crude Axe), Name (Name)
+{
+Addition Craft Crude Axe
+}
+
+STRING 196
+// Abilities: ASA0 (Addition Craft Crude Axe), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 197
+// Units: oMS2 (Stone II), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 198
+// Abilities: ASA0 (Addition Craft Crude Axe), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 199
+// Abilities: ASA1 (Addition Craft Crude Pickaxe), Name (Name)
+{
+Addition Craft Crude Pickaxe
+}
+
+STRING 200
+// Abilities: ASA1 (Addition Craft Crude Pickaxe), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 201
+// Units: u0F1 (Obliterate), Hotkey (Hotkey)
+{
+Q
+}
+
+STRING 202
+// Abilities: ASA1 (Addition Craft Crude Pickaxe), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 203
+// Abilities: ASA2 (Addition Prepare Workstation), Name (Name)
+{
+Addition Prepare Workstation
+}
+
+STRING 204
+// Abilities: ASA3 (Addition Prepare Hell Forge), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 205
+// Abilities: A0PQ (Base Prospector Spellbook), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 206
+// Abilities: ASA3 (Addition Prepare Hell Forge), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 207
+// Abilities: A0A4 (Prepare Transmuter), Name (Name)
+{
+Prepare Transmuter
+}
+
+STRING 215
+// Abilities: ASA4 (Addition Prepare Transmuter), Name (Name)
+{
+Addition Prepare Transmuter
+}
+
+STRING 216
+// Abilities: ASA4 (Addition Prepare Transmuter), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 217
+// Abilities: A0P0 (Defile), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 218
+// Abilities: ASA4 (Addition Prepare Transmuter), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 221
+// Abilities: A0A0 (Craft Crude Axe), Name (Name)
+{
+Craft Crude Axe
+}
+
+STRING 222
+// Abilities: A0A1 (Craft Crude Pickaxe), Name (Name)
+{
+Craft Crude Pickaxe
+}
+
+STRING 224
+// Abilities: A0AQ (Base Artisan Spellbook), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 225
+// Abilities: A0P0 (Defile), Researchhotkey (Hotkey - Learn)
+{
+Q
+}
+
+STRING 226
+// Abilities: A0AQ (Base Artisan Spellbook), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 227
+// Abilities: A0AQ (Base Artisan Spellbook), Name (Name)
+{
+Base Artisan Spellbook
+}
+
+STRING 228
+// Items: IT00 (Stone Axe I), Name (Name)
+{
+Stone Axe I
+}
+
+STRING 229
+// Items: IT01 (Stone Pickaxe I), Name (Name)
+{
+Stone Pickaxe I
+}
+
+STRING 230
+// Items: IT02 (Stone Axe II), Name (Name)
+{
+Stone Axe II
+}
+
+STRING 231
+// Items: IT03 (Stone Pickaxe II), Name (Name)
+{
+Stone Pickaxe II
+}
+
+STRING 232
+// Abilities: AT00 (Axe), Tip (Tooltip - Normal)
+{
+Axe 1
+}
+
+STRING 233
+// Abilities: AT00 (Axe), Tip (Tooltip - Normal)
+{
+Axe 2
+}
+
+STRING 234
+// Abilities: AT00 (Axe), Tip (Tooltip - Normal)
+{
+Axe 3
+}
+
+STRING 235
+// Abilities: AT00 (Axe), Tip (Tooltip - Normal)
+{
+Axe 4
+}
+
+STRING 236
+// Abilities: A0P0 (Defile), EditorSuffix (Editor Suffix)
+{
+(Q)
+}
+
+STRING 237
+// Abilities: A0P1 (Eye of Kilrog), Name (Name)
+{
+Eye of Kilrog
+}
+
+STRING 238
+// Abilities: A0P2 (Fel Infusion), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 239
+// Abilities: A0P2 (Fel Infusion), Name (Name)
+{
+Fel Infusion
+}
+
+STRING 240
+// Units: H00A (Artisan), Hotkey (Hotkey)
+{
+W
+}
+
+STRING 241
+// Abilities: A0P4 (Demonfruit), EditorSuffix (Editor Suffix)
+{
+(E)
+}
+
+STRING 242
+// Abilities: A0P6 (Prepare Fel Basin), EditorSuffix (Editor Suffix)
+{
+(R)
+}
+
+STRING 243
+// Abilities: A0P3 (Crystalize), EditorSuffix (Editor Suffix)
+{
+(A)
+}
+
+STRING 244
+// Abilities: A0P1 (Eye of Kilrog), EditorSuffix (Editor Suffix)
+{
+(S)
+}
+
+STRING 245
+// Abilities: A0P5 (Transfer Fel), EditorSuffix (Editor Suffix)
+{
+(D)
+}
+
+STRING 246
+// Abilities: A0P2 (Fel Infusion), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 247
+// Abilities: A0A0 (Craft Crude Axe), EditorSuffix (Editor Suffix)
+{
+(Q)
+}
+
+STRING 248
+// Abilities: A001 (TestQueue), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 249
+// Abilities: A0A1 (Craft Crude Pickaxe), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 250
+// Abilities: A0A1 (Craft Crude Pickaxe), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 251
+// Abilities: A0A5 (Transmute), EditorSuffix (Editor Suffix)
+{
+(E)
+}
+
+STRING 252
+// Units: oPT4 (Tank IV), Hotkey (Hotkey)
+{
+R
+}
+
+STRING 253
+// Abilities: A0P6 (Prepare Fel Basin), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 254
+// Abilities: A00A (Minecart ability), EditorSuffix (Editor Suffix)
+{
+(R)
+}
+
+STRING 255
+// Abilities: A0P3 (Crystalize), Hotkey (Hotkey - Normal)
+{
+A
+}
+
+STRING 256
+// Abilities: A0A2 (Prepare Workstation), EditorSuffix (Editor Suffix)
+{
+(A)
+}
+
+STRING 257
+// Abilities: A0P3 (Crystalize), Researchhotkey (Hotkey - Learn)
+{
+A
+}
+
+STRING 258
+// Abilities: ASP0 (Addition Defile), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 259
+// Abilities: ASP1 (Addition Eye of Kilrogg), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 263
+// Abilities: ABA2 (Build Workstation), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 264
+// Abilities: A0A0 (Craft Crude Axe), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 265
+// Abilities: A0A0 (Craft Crude Axe), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 269
+// Abilities: A0A1 (Craft Crude Pickaxe), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 270
+// Abilities: A0A1 (Craft Crude Pickaxe), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 273
+// Abilities: ABA2 (Build Workstation), Tip (Tooltip - Normal)
+{
+Build Fel Collector (Q)
+}
+
+STRING 275
+// Abilities: A0A2 (Prepare Workstation), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 276
+// Abilities: A0A2 (Prepare Workstation), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 278
+// Units: oPM3 (Mechanism III), Hotkey (Hotkey)
+{
+D
+}
+
+STRING 279
+// Abilities: ABA2 (Build Workstation), Name (Name)
+{
+Build Workstation
+}
+
+STRING 280
+// Units: nDUM (DUMMY), Name (Name)
+{
+DUMMY
+}
+
+STRING 282
+// Abilities: A003 (Test Build), Name (Name)
+{
+Test Build
+}
+
+STRING 283
+// Abilities: A003 (Test Build), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 284
+// Abilities: A003 (Test Build), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 285
+// Abilities: A003 (Test Build), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 286
+// Items: IMW1 (Branch), Name (Name)
+{
+Branch
+}
+
+STRING 289
+// Items: IMS1 (Rock), Description (Description)
+{
+Material |cff808080Stone I|r
+}
+
+STRING 290
+// Items: IMS2 (Stone), Description (Description)
+{
+Material |cff808080Stone II|r
+}
+
+STRING 291
+// Items: IMW1 (Branch), Ubertip (Tooltip - Extended)
+{
+Material |cff808080Wood I|r
+}
+
+STRING 292
+// Items: IMW2 (Log), Ubertip (Tooltip - Extended)
+{
+Material |cff808080Wood II|r
+}
+
+STRING 293
+// Items: IMS3 (Felstone), Description (Description)
+{
+Material |cff808080Stone III|r
+}
+
+STRING 294
+// Items: IMW4 (Cursewood), Description (Description)
+{
+Material |cff808080Wood III|r
+}
+
+STRING 295
+// Items: IMS1 (Rock), Ubertip (Tooltip - Extended)
+{
+Material |cff808080Stone I|r
+}
+
+STRING 296
+// Items: IMS2 (Stone), Ubertip (Tooltip - Extended)
+{
+Material |cff808080Stone II|r
+}
+
+STRING 297
+// Items: IMW1 (Branch), Description (Description)
+{
+Material |cff808080Wood I|r
+}
+
+STRING 298
+// Items: IMW2 (Log), Description (Description)
+{
+Material |cff808080Wood II|r
+}
+
+STRING 299
+// Items: IMS3 (Felstone), Ubertip (Tooltip - Extended)
+{
+Material |cff808080Stone III|r
+}
+
+STRING 300
+// Items: IMW4 (Cursewood), Ubertip (Tooltip - Extended)
+{
+Material |cff808080Wood III|r
+}
+
+STRING 301
+// Items: IMW2 (Log), Name (Name)
+{
+Log
+}
+
+STRING 302
+// Abilities: ASA5 (Addition Transmute), Name (Name)
+{
+Addition Transmute
+}
+
+STRING 303
+// Abilities: ASA5 (Addition Transmute), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 304
+// Abilities: ASP2 (Addition Create Felstone), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 305
+// Abilities: ASA5 (Addition Transmute), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 306
+// Abilities: A0A5 (Transmute), Name (Name)
+{
+Transmute
+}
+
+STRING 307
+// Abilities: A0A5 (Transmute), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 308
+// Abilities: ASP3 (Addition Crystalize), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 309
+// Abilities: A0A5 (Transmute), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 310
+// Abilities: A0A6 (Transmute Rock), Name (Name)
+{
+Transmute Rock
+}
+
+STRING 311
+// Abilities: ASP4 (Addition Demonfruit), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 312
+// Abilities: A0A6 (Transmute Rock), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 313
+// Abilities: A0A6 (Transmute Rock), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 314
+// Abilities: A0A6 (Transmute Rock), EditorSuffix (Editor Suffix)
+{
+(Q)
+}
+
+STRING 315
+// Abilities: ASP5 (Addition Transfer Fel), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 316
+// Abilities: A0A7 (Transmute Iron), Name (Name)
+{
+Transmute Iron
+}
+
+STRING 318
+// Abilities: A0A7 (Transmute Iron), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 319
+// Abilities: A0A7 (Transmute Iron), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 322
+// Abilities: ASA6 (Addition Transmute Rock), Name (Name)
+{
+Addition Transmute Rock
+}
+
+STRING 323
+// Abilities: A0A5 (Transmute), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 325
+// Abilities: ASA6 (Addition Transmute Rock), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 326
+// Abilities: ASA7 (Addition Transmute Iron), Name (Name)
+{
+Addition Transmute Iron
+}
+
+STRING 327
+// Abilities: ASA6 (Addition Transmute Rock), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 329
+// Abilities: ASA7 (Addition Transmute Iron), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 330
+// Units: oMM1 (Metal I), Tip (Tooltip - Basic)
+{
+Iron
+}
+
+STRING 333
+// Items: IMM1 (Iron), Name (Name)
+{
+Iron
+}
+
+STRING 337
+// Abilities: A0A1 (Craft Crude Pickaxe), Researchhotkey (Hotkey - Learn)
+{
+W
+}
+
+STRING 338
+// Abilities: A0A7 (Transmute Iron), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 339
+// Abilities: A0A7 (Transmute Iron), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 340
+// Units: oPM2 (Mechanism II), Hotkey (Hotkey)
+{
+S
+}
+
+STRING 341
+// Abilities: A0A4 (Prepare Transmuter), EditorSuffix (Editor Suffix)
+{
+(S)
+}
+
+STRING 342
+// Abilities: A0P1 (Eye of Kilrog), Researchhotkey (Hotkey - Learn)
+{
+S
+}
+
+STRING 348
+// Units: oPM1 (Mechanism I), Name (Name)
+{
+Mechanism I
+}
+
+STRING 349
+// Units: oPM2 (Mechanism II), Name (Name)
+{
+Mechanism II
+}
+
+STRING 352
+// Units: oPM3 (Mechanism III), Name (Name)
+{
+Mechanism III
+}
+
+STRING 355
+// Units: oPM4 (Mechanism IV), Name (Name)
+{
+Mechanism IV
+}
+
+STRING 358
+// Items: IPM1 (Mechanism I), Description (Description)
+{
+Part
+}
+
+STRING 359
+// Items: IPM2 (Mechanism II), Ubertip (Tooltip - Extended)
+{
+Part
+}
+
+STRING 360
+// Items: IPM2 (Mechanism II), Description (Description)
+{
+Part
+}
+
+STRING 361
+// Items: IPM3 (Mechanism III), Ubertip (Tooltip - Extended)
+{
+Part
+}
+
+STRING 362
+// Items: IPM3 (Mechanism III), Description (Description)
+{
+Part
+}
+
+STRING 363
+// Items: IPM4 (Mechanism IV), Ubertip (Tooltip - Extended)
+{
+Part
+}
+
+STRING 364
+// Items: IPM4 (Mechanism IV), Description (Description)
+{
+Part
+}
+
+STRING 365
+// Items: IPF1 (Frame I), Ubertip (Tooltip - Extended)
+{
+Part
+}
+
+STRING 366
+// Units: oPF1 (Frame I), Name (Name)
+{
+Frame I
+}
+
+STRING 367
+// Items: IPF1 (Frame I), Description (Description)
+{
+Part
+}
+
+STRING 368
+// Items: IPF2 (Frame II), Ubertip (Tooltip - Extended)
+{
+Part
+}
+
+STRING 369
+// Units: oPF2 (Frame II), Name (Name)
+{
+Frame II
+}
+
+STRING 370
+// Items: IPF2 (Frame II), Description (Description)
+{
+Part
+}
+
+STRING 371
+// Items: IPF3 (Frame III), Ubertip (Tooltip - Extended)
+{
+Part
+}
+
+STRING 372
+// Units: oPF3 (Frame III), Name (Name)
+{
+Frame III
+}
+
+STRING 373
+// Items: IPF3 (Frame III), Description (Description)
+{
+Part
+}
+
+STRING 374
+// Items: IPF4 (Frame IV), Ubertip (Tooltip - Extended)
+{
+Part
+}
+
+STRING 375
+// Units: oPF4 (Frame IV), Name (Name)
+{
+Frame IV
+}
+
+STRING 376
+// Items: IPF4 (Frame IV), Description (Description)
+{
+Part
+}
+
+STRING 379
+// Units: oPM1 (Mechanism I), Tip (Tooltip - Basic)
+{
+Mechanism I
+}
+
+STRING 380
+// Units: oPM2 (Mechanism II), Tip (Tooltip - Basic)
+{
+Mechanism II
+}
+
+STRING 381
+// Units: oPM3 (Mechanism III), Tip (Tooltip - Basic)
+{
+Mechanism III
+}
+
+STRING 382
+// Units: oPM4 (Mechanism IV), Tip (Tooltip - Basic)
+{
+Mechanism IV
+}
+
+STRING 383
+// Units: oPF1 (Frame I), Tip (Tooltip - Basic)
+{
+Frame I
+}
+
+STRING 384
+// Units: oPF2 (Frame II), Tip (Tooltip - Basic)
+{
+Frame II
+}
+
+STRING 385
+// Units: oPF3 (Frame III), Tip (Tooltip - Basic)
+{
+Frame III
+}
+
+STRING 386
+// Units: oPF4 (Frame IV), Tip (Tooltip - Basic)
+{
+Frame IV
+}
+
+STRING 387
+// Units: oPC1 (Converter I), Tip (Tooltip - Basic)
+{
+Mechanism I
+}
+
+STRING 388
+// Items: IPM2 (Mechanism II), Name (Name)
+{
+Mechanism II
+}
+
+STRING 389
+// Items: IPM3 (Mechanism III), Name (Name)
+{
+Mechanism III
+}
+
+STRING 390
+// Items: IPM4 (Mechanism IV), Name (Name)
+{
+Mechanism IV
+}
+
+STRING 391
+// Items: IPF1 (Frame I), Name (Name)
+{
+Frame I
+}
+
+STRING 392
+// Items: IPF2 (Frame II), Name (Name)
+{
+Frame II
+}
+
+STRING 393
+// Items: IPF3 (Frame III), Name (Name)
+{
+Frame III
+}
+
+STRING 394
+// Items: IPF4 (Frame IV), Name (Name)
+{
+Frame IV
+}
+
+STRING 395
+// Abilities: A005 (TestPause), Name (Name)
+{
+TestPause
+}
+
+STRING 396
+// Abilities: A0P5 (Transfer Fel), Researchhotkey (Hotkey - Learn)
+{
+D
+}
+
+STRING 397
+// Abilities: AR03 (Machine Recipe R), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 398
+// Abilities: AR03 (Machine Recipe R), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 399
+// Abilities: AT0T (Transfer Inventory), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 400
+// Abilities: AR03 (Machine Recipe R), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 401
+// Abilities: AR03 (Machine Recipe R), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 402
+// Abilities: AT0T (Transfer Inventory), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 403
+// Abilities: A004 (Machine Stuck), Name (Name)
+{
+Machine Stuck
+}
+
+STRING 404
+// Buffs/Effects: Bfrz (Stuck), Bufftip (Tooltip)
+{
+Stuck
+}
+
+STRING 405
+// Buffs/Effects: Bfrz (Stuck), EditorName (Name (Editor Only))
+{
+Stuck
+}
+
+STRING 406
+// Buffs/Effects: Bfrz (Stuck), Buffubertip (Tooltip - Extended)
+{
+Machine is stuck. To continue, slap it hard.
+}
+
+STRING 408
+// Units: h002 (Attack Dummy), Name (Name)
+{
+Attack Dummy
+}
+
+STRING 409
+// Buffs/Effects: B000 (Stuck), EditorName (Name (Editor Only))
+{
+Stuck
+}
+
+STRING 410
+// Buffs/Effects: B000 (Stuck), Bufftip (Tooltip)
+{
+Stuck
+}
+
+STRING 411
+// Buffs/Effects: B000 (Stuck), Buffubertip (Tooltip - Extended)
+{
+Machine is stuck. To continue, slap it hard.
+}
+
+STRING 413
+// Units: h003 (Workstation: Tanks), Name (Name)
+{
+Workstation: Tanks
+}
+
+STRING 414
+// Units: h004 (Workstation: Converters), Name (Name)
+{
+Workstation: Converters
+}
+
+STRING 415
+// Items: IMM1 (Iron), Description (Description)
+{
+Material |cff808080Metal I|r
+}
+
+STRING 416
+// Items: IMM1 (Iron), Ubertip (Tooltip - Extended)
+{
+Material |cff808080Metal I|r
+}
+
+STRING 417
+// Units: oMF1 (Fine Metal I), Tip (Tooltip - Basic)
+{
+Copper
+}
+
+STRING 418
+// Items: IMF1 (Copper), Description (Description)
+{
+Material |cff808080Fine Metal I|r
+}
+
+STRING 419
+// Items: IMF1 (Copper), Ubertip (Tooltip - Extended)
+{
+Material |cff808080Fine Metal I|r
+}
+
+STRING 420
+// Items: IMF1 (Copper), Name (Name)
+{
+Copper
+}
+
+STRING 421
+// Items: IMF2 (Silver), Name (Name)
+{
+Silver
+}
+
+STRING 422
+// Items: IMF2 (Silver), Description (Description)
+{
+Material |cff808080Fine Metal II|r
+}
+
+STRING 423
+// Items: IMF2 (Silver), Ubertip (Tooltip - Extended)
+{
+Material |cff808080Fine Metal II|r
+}
+
+STRING 424
+// Items: IMF2 (Silver), Tip (Tooltip - Basic)
+{
+Silver
+}
+
+STRING 425
+// Items: IMF3 (Gold), Name (Name)
+{
+Gold
+}
+
+STRING 426
+// Items: IMF3 (Gold), Description (Description)
+{
+Material |cff808080Fine Metal III|r
+}
+
+STRING 427
+// Items: IMF3 (Gold), Ubertip (Tooltip - Extended)
+{
+Material |cff808080Fine Metal III|r
+}
+
+STRING 428
+// Items: IMF3 (Gold), Tip (Tooltip - Basic)
+{
+Gold
+}
+
+STRING 429
+// Abilities: A0A7 (Transmute Iron), Researchhotkey (Hotkey - Learn)
+{
+W
+}
+
+STRING 433
+// Abilities: AR01 (Machine Recipe W), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 434
+// Abilities: AR00 (Machine Recipe Q), Name (Name)
+{
+Machine Recipe Q
+}
+
+STRING 435
+// Abilities: ASP6 (Addition Fel Basin), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 436
+// Abilities: AR00 (Machine Recipe Q), Tip (Tooltip - Normal)
+{
+Machine Recipe
+}
+
+STRING 437
+// Abilities: ASA2 (Addition Prepare Workstation), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 438
+// Abilities: AR01 (Machine Recipe W), Name (Name)
+{
+Machine Recipe W
+}
+
+STRING 439
+// Abilities: AR01 (Machine Recipe W), Tip (Tooltip - Normal)
+{
+Machine Recipe
+}
+
+STRING 440
+// Abilities: AT0T (Transfer Inventory), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 441
+// Abilities: AT0T (Transfer Inventory), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 443
+// Abilities: AR02 (Machine Recipe E), Name (Name)
+{
+Machine Recipe E
+}
+
+STRING 444
+// Abilities: AR02 (Machine Recipe E), Tip (Tooltip - Normal)
+{
+Machine Recipe
+}
+
+STRING 445
+// Abilities: AT0Z (Equip Tool), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 446
+// Abilities: AT0Z (Equip Tool), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 447
+// Abilities: AT0Z (Equip Tool), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 448
+// Abilities: AT0Z (Equip Tool), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 449
+// Abilities: A0A5 (Transmute), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 450
+// Abilities: AR03 (Machine Recipe R), Name (Name)
+{
+Machine Recipe R
+}
+
+STRING 451
+// Abilities: AR03 (Machine Recipe R), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 452
+// Abilities: AR03 (Machine Recipe R), Tip (Tooltip - Normal)
+{
+Machine Recipe
+}
+
+STRING 453
+// Abilities: A00A (Minecart ability), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 454
+// Abilities: A00A (Minecart ability), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 455
+// Abilities: A00A (Minecart ability), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 456
+// Abilities: A00A (Minecart ability), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 457
+// Abilities: AR03 (Machine Recipe R), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 458
+{
+Player 21
+}
+
+STRING 459
+// Items: IPM1 (Mechanism I), Ubertip (Tooltip - Extended)
+{
+Crafting component.|n|nMaterials|nMetal I|nFine Metal I
+}
+
+STRING 460
+// Units: oPC2 (Converter II), Tip (Tooltip - Basic)
+{
+Mechanism I
+}
+
+STRING 463
+// Abilities: A006 (Inventory Machine), Name (Name)
+{
+Inventory Machine
+}
+
+STRING 464
+// Units: oPM2 (Mechanism II), Ubertip (Tooltip - Extended)
+{
+Crafting component|n|nMaterials|nMechanism I|nMetal II|nFine Metal II
+}
+
+STRING 465
+// Units: oPM1 (Mechanism I), Ubertip (Tooltip - Extended)
+{
+Crafting component|n|nMaterials|nMetal I|nFine Metal I
+}
+
+STRING 466
+// Units: oPM3 (Mechanism III), Ubertip (Tooltip - Extended)
+{
+Crafting component|n|nMaterials|nMechanism II|nMetal III|nFine Metal III
+}
+
+STRING 467
+// Units: oPM4 (Mechanism IV), Ubertip (Tooltip - Extended)
+{
+Crafting component|n|nMaterials|nMechanism III|nMetal IV|nFine Metal IV
+}
+
+STRING 468
+// Units: oPF1 (Frame I), Ubertip (Tooltip - Extended)
+{
+Crafting component.|n|nMaterials|nWood I|nStone I|nMetal I
+}
+
+STRING 469
+// Units: oPF2 (Frame II), Ubertip (Tooltip - Extended)
+{
+Crafting component.|n|nMaterials|nFrame I|nWood II|nStone II|nMetal II
+}
+
+STRING 470
+// Units: oPF3 (Frame III), Ubertip (Tooltip - Extended)
+{
+Crafting component.|n|nMaterials|nFrame II|nWood III|nStone III|nMetal III
+}
+
+STRING 471
+// Units: oPF4 (Frame IV), Ubertip (Tooltip - Extended)
+{
+Crafting component.|n|nMaterials|nFrame III|nWood IV|nStone IV|nMetal IV
+}
+
+STRING 473
+// Abilities: AR02 (Machine Recipe E), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 474
+// Abilities: AT0T (Transfer Inventory), Name (Name)
+{
+Transfer Inventory
+}
+
+STRING 475
+// Abilities: A00A (Minecart ability), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 477
+// Abilities: AT0T (Transfer Inventory), Ubertip (Tooltip - Normal - Extended)
+{
+If targeting the ground, will drop all items on that point.
+
+Deposits existing items to target unit.
+Takes items from target unit if inventory is empty.
+}
+
+STRING 478
+// Abilities: A00A (Minecart ability), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 482
+// Abilities: AT0T (Transfer Inventory), Tip (Tooltip - Normal)
+{
+Transfer Inventory
+}
+
+STRING 483
+// Abilities: A000 (DebugHeight), Hotkey (Hotkey - Normal)
+{
+G
+}
+
+STRING 484
+// Units: oPT1 (Tank I), Name (Name)
+{
+Tank I
+}
+
+STRING 486
+// Items: IPT1 (Tank I), Description (Description)
+{
+Part
+}
+
+STRING 487
+// Units: oPT1 (Tank I), Tip (Tooltip - Basic)
+{
+Tank I
+}
+
+STRING 488
+// Units: oPT2 (Tank II), Name (Name)
+{
+Tank II
+}
+
+STRING 490
+// Items: IPT2 (Tank II), Description (Description)
+{
+Part
+}
+
+STRING 491
+// Items: IPT1 (Tank I), Name (Name)
+{
+Tank I
+}
+
+STRING 492
+// Units: oPT3 (Tank III), Name (Name)
+{
+Tank III
+}
+
+STRING 494
+// Items: IPT3 (Tank III), Description (Description)
+{
+Part
+}
+
+STRING 496
+// Units: oPT4 (Tank IV), Name (Name)
+{
+Tank IV
+}
+
+STRING 498
+// Items: IPT4 (Tank IV), Description (Description)
+{
+Part
+}
+
+STRING 500
+// Items: IPT1 (Tank I), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Frame I
+Metal I
+}
+
+STRING 501
+// Items: IPT2 (Tank II), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Frame II
+Metal II
+}
+
+STRING 502
+// Items: IPT3 (Tank III), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Frame III
+Metal III
+}
+
+STRING 503
+// Items: IPT4 (Tank IV), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Frame IV
+Metal IV
+}
+
+STRING 504
+// Units: oPT2 (Tank II), Tip (Tooltip - Basic)
+{
+Tank II
+}
+
+STRING 505
+// Units: oPT3 (Tank III), Tip (Tooltip - Basic)
+{
+Tank III
+}
+
+STRING 506
+// Units: oPT4 (Tank IV), Tip (Tooltip - Basic)
+{
+Tank IV
+}
+
+STRING 507
+// Units: oPT1 (Tank I), Ubertip (Tooltip - Extended)
+{
+Crafting component.
+
+Materials
+Frame I
+Metal I
+}
+
+STRING 508
+// Units: oPT2 (Tank II), Ubertip (Tooltip - Extended)
+{
+Crafting component.
+
+Materials
+Frame II
+Metal II
+}
+
+STRING 509
+// Units: oPC3 (Converter III), Tip (Tooltip - Basic)
+{
+Mechanism I
+}
+
+STRING 510
+// Units: oPT3 (Tank III), Ubertip (Tooltip - Extended)
+{
+Crafting component.
+
+Materials
+Frame III
+Metal III
+}
+
+STRING 511
+// Units: oPC4 (Converter IV), Tip (Tooltip - Basic)
+{
+Mechanism I
+}
+
+STRING 512
+// Units: oPT4 (Tank IV), Ubertip (Tooltip - Extended)
+{
+Crafting component.
+
+Materials
+Frame IV
+Metal IV
+}
+
+STRING 513
+// Items: IPM1 (Mechanism I), Name (Name)
+{
+Mechanism I
+}
+
+STRING 514
+// Items: IPM1 (Mechanism I), Tip (Tooltip - Basic)
+{
+Mechanism I
+}
+
+STRING 515
+// Items: IPT2 (Tank II), Name (Name)
+{
+Tank II
+}
+
+STRING 516
+// Items: IPT3 (Tank III), Name (Name)
+{
+Tank III
+}
+
+STRING 517
+// Items: IPT4 (Tank IV), Name (Name)
+{
+Tank IV
+}
+
+STRING 522
+// Items: IMM2 (Steel), Name (Name)
+{
+Steel
+}
+
+STRING 523
+// Items: IMM2 (Steel), Tip (Tooltip - Basic)
+{
+Steel
+}
+
+STRING 524
+// Items: IMM2 (Steel), Description (Description)
+{
+Material |cff808080Metal II|r
+}
+
+STRING 525
+// Items: IMM2 (Steel), Ubertip (Tooltip - Extended)
+{
+Material |cff808080Metal II|r
+}
+
+STRING 526
+// Items: IMM3 (Fel Steel), Name (Name)
+{
+Fel Steel
+}
+
+STRING 527
+// Items: IMM3 (Fel Steel), Description (Description)
+{
+Material |cff808080Metal III|r
+}
+
+STRING 528
+// Items: IMM3 (Fel Steel), Ubertip (Tooltip - Extended)
+{
+Material |cff808080Metal III|r
+}
+
+STRING 529
+// Items: IMM3 (Fel Steel), Tip (Tooltip - Basic)
+{
+Fel Steel
+}
+
+STRING 530
+// Units: oPM4 (Mechanism IV), Hotkey (Hotkey)
+{
+F
+}
+
+STRING 531
+// Units: h003 (Workstation: Tanks), Hotkey (Hotkey)
+{
+Z
+}
+
+STRING 532
+// Units: h004 (Workstation: Converters), Hotkey (Hotkey)
+{
+X
+}
+
+STRING 533
+// Abilities: A0P1 (Eye of Kilrog), Hotkey (Hotkey - Normal)
+{
+S
+}
+
+STRING 534
+// Abilities: A0A2 (Prepare Workstation), Hotkey (Hotkey - Normal)
+{
+A
+}
+
+STRING 535
+// Abilities: ASA0 (Addition Craft Crude Axe), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 536
+// Abilities: ASA1 (Addition Craft Crude Pickaxe), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 539
+// Abilities: AR02 (Machine Recipe E), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 540
+// Abilities: ABA9 (Build Mineshaft), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 541
+// Abilities: ABAA (Build Minecart), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 542
+// Abilities: A0P5 (Transfer Fel), Hotkey (Hotkey - Normal)
+{
+D
+}
+
+STRING 543
+// Abilities: AT0T (Transfer Inventory), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 544
+// Units: h003 (Workstation: Tanks), Tip (Tooltip - Basic)
+{
+Upgrade to Workstation: Tanks
+}
+
+STRING 548
+// Units: h003 (Workstation: Tanks), Ubertip (Tooltip - Extended)
+{
+Specializes in production of Tank components that are required for buildings that consume fel.
+
+Materials
+Frame I
+Metal I
+}
+
+STRING 549
+// Units: h004 (Workstation: Converters), Ubertip (Tooltip - Extended)
+{
+Specializes in production of Converter components that are required for buildings that manipulate fel.
+
+Materials
+Frame I
+Fine Metal I
+}
+
+STRING 550
+// Items: IT04 (Steel Pickaxe III), Name (Name)
+{
+Steel Pickaxe III
+}
+
+STRING 551
+// Items: IT05 (Soulsteel Pickaxe IV), Name (Name)
+{
+Soulsteel Pickaxe IV
+}
+
+STRING 552
+// Units: oPC1 (Converter I), Name (Name)
+{
+Converter I
+}
+
+STRING 553
+// Units: oPC1 (Converter I), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism I
+Tank I
+}
+
+STRING 554
+// Items: IPC1 (Converter I), Description (Description)
+{
+Part
+}
+
+STRING 555
+// Items: IPT1 (Tank I), Tip (Tooltip - Basic)
+{
+Tank I
+}
+
+STRING 556
+// Units: oPC2 (Converter II), Name (Name)
+{
+Converter II
+}
+
+STRING 557
+// Items: IPC1 (Converter I), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism I
+Tank I
+}
+
+STRING 558
+// Items: IPC2 (Converter II), Description (Description)
+{
+Part
+}
+
+STRING 559
+// Items: IPC1 (Converter I), Tip (Tooltip - Basic)
+{
+Tank I
+}
+
+STRING 560
+// Units: oPC3 (Converter III), Name (Name)
+{
+Converter III
+}
+
+STRING 561
+// Items: IPR1 (Resonator I), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism I
+Tank I
+}
+
+STRING 562
+// Items: IPC3 (Converter III), Description (Description)
+{
+Part
+}
+
+STRING 563
+// Items: IPR1 (Resonator I), Tip (Tooltip - Basic)
+{
+Tank I
+}
+
+STRING 564
+// Units: oPC4 (Converter IV), Name (Name)
+{
+Converter IV
+}
+
+STRING 566
+// Items: IPC4 (Converter IV), Description (Description)
+{
+Part
+}
+
+STRING 568
+// Units: oPC2 (Converter II), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism II
+Tank II
+}
+
+STRING 570
+// Units: oPC3 (Converter III), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism III
+Tank III
+}
+
+STRING 572
+// Units: oPC4 (Converter IV), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism IV
+Tank IV
+}
+
+STRING 575
+// Items: IPC1 (Converter I), Name (Name)
+{
+Converter I
+}
+
+STRING 576
+// Items: IPC2 (Converter II), Name (Name)
+{
+Converter II
+}
+
+STRING 577
+// Items: IPC2 (Converter II), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism II
+Tank II
+}
+
+STRING 578
+// Items: IPC2 (Converter II), Tip (Tooltip - Basic)
+{
+Converter II
+}
+
+STRING 579
+// Items: IPC3 (Converter III), Name (Name)
+{
+Converter III
+}
+
+STRING 580
+// Items: IPC3 (Converter III), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism III
+Tank III
+}
+
+STRING 581
+// Items: IPC3 (Converter III), Tip (Tooltip - Basic)
+{
+Converter III
+}
+
+STRING 582
+// Items: IPC4 (Converter IV), Name (Name)
+{
+Converter IV
+}
+
+STRING 583
+// Items: IPC4 (Converter IV), Ubertip (Tooltip - Extended)
+{
+Component part.
+
+Materials
+Mechanism IV
+Tank IV
+}
+
+STRING 584
+// Items: IPC4 (Converter IV), Tip (Tooltip - Basic)
+{
+Converter IV
+}
+
+STRING 585
+// Abilities: ASA3 (Addition Prepare Hell Forge), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 586
+// Abilities: ASA4 (Addition Prepare Transmuter), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 587
+// Abilities: A0AQ (Base Artisan Spellbook), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 588
+// Abilities: A0A0 (Craft Crude Axe), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 589
+// Items: IPT2 (Tank II), Tip (Tooltip - Basic)
+{
+Tank II
+}
+
+STRING 590
+// Items: IPT3 (Tank III), Tip (Tooltip - Basic)
+{
+Tank III
+}
+
+STRING 591
+// Items: IPT4 (Tank IV), Tip (Tooltip - Basic)
+{
+Tank IV
+}
+
+STRING 592
+// Abilities: A005 (TestPause), Hotkey (Hotkey - Normal)
+{
+D
+}
+
+STRING 593
+// Abilities: AT0Z (Equip Tool), Tip (Tooltip - Normal)
+{
+Transfer Inventory
+}
+
+STRING 596
+// Abilities: AT0Z (Equip Tool), Ubertip (Tooltip - Normal - Extended)
+{
+If targeting the ground, will drop all items on that point.
+
+Deposits existing items to target unit.
+Takes items from target unit if inventory is empty.
+}
+
+STRING 599
+// Abilities: AT0Z (Equip Tool), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 600
+// Items: IPR1 (Resonator I), Name (Name)
+{
+Resonator I
+}
+
+STRING 601
+// Items: IPR1 (Resonator I), Description (Description)
+{
+Part
+}
+
+STRING 602
+// Abilities: AT02 (Use Your Hand), Tip (Tooltip - Normal)
+{
+Use Hand
+}
+
+STRING 603
+// Abilities: AT02 (Use Your Hand), EditorSuffix (Editor Suffix)
+{
+(Tool)
+}
+
+STRING 604
+// Abilities: AT02 (Use Your Hand), Tip (Tooltip - Normal)
+{
+Use Hand
+}
+
+STRING 605
+// Abilities: AT02 (Use Your Hand), Tip (Tooltip - Normal)
+{
+Use Hand
+}
+
+STRING 606
+// Abilities: AT02 (Use Your Hand), Tip (Tooltip - Normal)
+{
+Use Hand
+}
+
+STRING 608
+// Units: H00P (Prospector), Name (Name)
+{
+Prospector
+}
+
+STRING 609
+// Units: H00R (Researcher), Name (Name)
+{
+Researcher
+}
+
+STRING 610
+// Units: H00A (Artisan), Name (Name)
+{
+Artisan
+}
+
+STRING 611
+// Abilities: A0RQ (Base Researcher Spellbook), Name (Name)
+{
+Base Researcher Spellbook
+}
+
+STRING 612
+// Abilities: ASA7 (Addition Transmute Iron), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 613
+// Abilities: A0A0 (Craft Crude Axe), Researchhotkey (Hotkey - Learn)
+{
+Q
+}
+
+STRING 614
+// Abilities: A0RQ (Base Researcher Spellbook), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 616
+// Abilities: AT00 (Axe), Hotkey (Hotkey - Normal)
+{
+T
+}
+
+STRING 617
+// Abilities: AT01 (Pickaxe), Hotkey (Hotkey - Normal)
+{
+T
+}
+
+STRING 618
+// Abilities: AT02 (Use Your Hand), Hotkey (Hotkey - Normal)
+{
+T
+}
+
+STRING 619
+// Abilities: ASA8 (Addition Transmute Copper), Name (Name)
+{
+Addition Transmute Copper
+}
+
+STRING 620
+// Abilities: A0RQ (Base Researcher Spellbook), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 621
+// Abilities: ASA5 (Addition Transmute), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 622
+// Abilities: ASA8 (Addition Transmute Copper), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 623
+// Abilities: A0A8 (Transmute Copper), Name (Name)
+{
+Transmute Copper
+}
+
+STRING 624
+// Abilities: A0A8 (Transmute Copper), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 625
+// Abilities: A0A8 (Transmute Copper), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 626
+// Abilities: A0A8 (Transmute Copper), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 627
+// Abilities: A0A8 (Transmute Copper), EditorSuffix (Editor Suffix)
+{
+(E)
+}
+
+STRING 628
+// Abilities: A0A8 (Transmute Copper), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 629
+// Units: H00P (Prospector), Tip (Tooltip - Basic)
+{
+Become Prospector
+}
+
+STRING 630
+// Units: H00P (Prospector), Ubertip (Tooltip - Extended)
+{
+Crafting
+
+Prospector is key for gathering and manipulating Fel. Creates buildable land. Has summons for scouting.
+}
+
+STRING 631
+// Units: H00A (Artisan), Tip (Tooltip - Basic)
+{
+Become Artisan
+}
+
+STRING 632
+// Units: H00A (Artisan), Ubertip (Tooltip - Extended)
+{
+Crafting
+
+Builds machines and items necessary to advance. Crafts gear that powers up Combat classes.
+}
+
+STRING 633
+// Units: H00R (Researcher), Tip (Tooltip - Basic)
+{
+Become Researcher
+}
+
+STRING 634
+// Units: H00R (Researcher), Ubertip (Tooltip - Extended)
+{
+Crafting
+
+Researches to unlock recipes for the team. Can build machines useful for automation and various unique powerful buildings.
+}
+
+STRING 635
+// Units: h004 (Workstation: Converters), Tip (Tooltip - Basic)
+{
+Upgrade to Workstation: Converters
+}
+
+STRING 636
+// Abilities: A007 (Info Fel), Name (Name)
+{
+Info Fel
+}
+
+STRING 637
+// Abilities: A007 (Info Fel), Tip (Tooltip - Normal)
+{
+Info - Fel
+}
+
+STRING 638
+// Abilities: A008 (Info General), Name (Name)
+{
+Info General
+}
+
+STRING 639
+// Abilities: A008 (Info General), Tip (Tooltip - Normal)
+{
+Info - General
+}
+
+STRING 640
+// Abilities: A007 (Info Fel), Ubertip (Tooltip - Normal - Extended)
+{
+Mana is refered to as Fel. It is used in many recipes and these are some general facts.
+
+- Units do not regenerate Fel
+- Fel is produced and exchanged in specific ways
+- Many buildings, machines and abilities require Fel
+}
+
+STRING 642
+// Abilities: A0PQ (Base Prospector Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main prospector abilities.
+}
+
+STRING 643
+// Abilities: A0PQ (Base Prospector Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main prospector abilities.
+}
+
+STRING 644
+// Abilities: A0PQ (Base Prospector Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main prospector abilities.
+}
+
+STRING 645
+// Abilities: A0AQ (Base Artisan Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main artisan abilities.
+}
+
+STRING 646
+// Abilities: A0AQ (Base Artisan Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main artisan abilities.
+}
+
+STRING 647
+// Abilities: A0AQ (Base Artisan Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main artisan abilities.
+}
+
+STRING 648
+// Abilities: A0A5 (Transmute), Ubertip (Tooltip - Normal - Extended)
+{
+Transmutation recipes.
+}
+
+STRING 649
+// Abilities: A0A5 (Transmute), Ubertip (Tooltip - Normal - Extended)
+{
+Transmutation recipes.
+}
+
+STRING 650
+// Abilities: A0A5 (Transmute), Ubertip (Tooltip - Normal - Extended)
+{
+Transmutation recipes.
+}
+
+STRING 651
+// Abilities: A0RQ (Base Researcher Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main researcher abilities.
+}
+
+STRING 652
+// Abilities: A0RQ (Base Researcher Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main researcher abilities.
+}
+
+STRING 653
+// Abilities: A0RQ (Base Researcher Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main researcher abilities.
+}
+
+STRING 654
+// Abilities: ASA8 (Addition Transmute Copper), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 655
+// Units: o000 (Mineshaft), Name (Name)
+{
+Mineshaft
+}
+
+STRING 656
+// Abilities: A0A9 (Prepare Mineshaft), Name (Name)
+{
+Prepare Mineshaft
+}
+
+STRING 657
+// Abilities: A0A9 (Prepare Mineshaft), Hotkey (Hotkey - Normal)
+{
+F
+}
+
+STRING 658
+// Abilities: A0A9 (Prepare Mineshaft), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 659
+// Abilities: A0A9 (Prepare Mineshaft), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 660
+// Abilities: A0A9 (Prepare Mineshaft), EditorSuffix (Editor Suffix)
+{
+(F)
+}
+
+STRING 661
+// Abilities: A0A9 (Prepare Mineshaft), Researchhotkey (Hotkey - Learn)
+{
+F
+}
+
+STRING 662
+// Abilities: ASA9 (Addition Prepare Mineshaft), Name (Name)
+{
+Addition Prepare Mineshaft
+}
+
+STRING 663
+// Abilities: ASA9 (Addition Prepare Mineshaft), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 664
+// Abilities: A0A6 (Transmute Rock), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 665
+// Abilities: ASA9 (Addition Prepare Mineshaft), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 666
+// Abilities: ABA9 (Build Mineshaft), Name (Name)
+{
+Build Mineshaft
+}
+
+STRING 667
+// Abilities: ABA9 (Build Mineshaft), Tip (Tooltip - Normal)
+{
+Build Fel Collector (Q)
+}
+
+STRING 668
+// Abilities: A00A (Minecart ability), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 669
+// Units: o001 (Underground Exit), Name (Name)
+{
+Underground Exit
+}
+
+STRING 670
+// Upgrades: R000 (Barrage), Name (Name)
+{
+Not Implemented
+}
+
+STRING 671
+{
+Player 5
+}
+
+STRING 672
+{
+Player 6
+}
+
+STRING 673
+{
+Player 7
+}
+
+STRING 674
+{
+Player 8
+}
+
+STRING 675
+{
+Player 9
+}
+
+STRING 676
+{
+Player 10
+}
+
+STRING 677
+{
+Demons
+}
+
+STRING 678
+// Units: o002 (Minecart), Name (Name)
+{
+Minecart
+}
+
+STRING 679
+{
+v0.2.13
+}
+
+STRING 680
+{
+The Exiled Ones
+}
+
+STRING 681
+{
+THis is a yes map
+}
+
+STRING 682
+// Abilities: ASAA (Addition Prepare Minecart), Name (Name)
+{
+Addition Prepare Minecart
+}
+
+STRING 683
+// Abilities: ASAA (Addition Prepare Minecart), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 684
+// Abilities: A0A6 (Transmute Rock), Researchhotkey (Hotkey - Learn)
+{
+Q
+}
+
+STRING 685
+// Abilities: ASAA (Addition Prepare Minecart), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 686
+// Abilities: A0AA (Prepare Minecart), Name (Name)
+{
+Prepare Minecart
+}
+
+STRING 687
+// Abilities: AT0T (Transfer Inventory), Hotkey (Hotkey - Normal)
+{
+D
+}
+
+STRING 688
+// Abilities: A0AA (Prepare Minecart), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 689
+// Abilities: A0AA (Prepare Minecart), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 690
+// Abilities: A0AA (Prepare Minecart), EditorSuffix (Editor Suffix)
+{
+(D)
+}
+
+STRING 691
+// Abilities: AT0Z (Equip Tool), Hotkey (Hotkey - Normal)
+{
+D
+}
+
+STRING 692
+// Abilities: ABAA (Build Minecart), Name (Name)
+{
+Build Minecart
+}
+
+STRING 693
+// Abilities: ABAA (Build Minecart), Tip (Tooltip - Normal)
+{
+Build Fel Collector (Q)
+}
+
+STRING 694
+// Abilities: A00A (Minecart ability), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 695
+// Abilities: A00A (Minecart ability), Name (Name)
+{
+Minecart ability
+}
+
+STRING 696
+// Abilities: ABA4 (Build Transmuter), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 705
+// Abilities: AT02 (Use Your Hand), Name (Name)
+{
+Use Your Hand
+}
+
+STRING 706
+// Abilities: A00B (Inventory Minecart), Name (Name)
+{
+Inventory Minecart
+}
+
+STRING 708
+// Abilities: A00C (Minecart stay still), Name (Name)
+{
+Minecart stay still
+}
+
+STRING 709
+// Buffs/Effects: B001 (Inanimate), EditorName (Name (Editor Only))
+{
+Inanimate
+}
+
+STRING 710
+// Buffs/Effects: B001 (Inanimate), Bufftip (Tooltip)
+{
+Inanimate
+}
+
+STRING 712
+// Buffs/Effects: B001 (Inanimate), Buffubertip (Tooltip - Extended)
+{
+This unit cannot move on its own.
+}
+
+STRING 713
+// Units: o003 (Transmuter), Name (Name)
+{
+Transmuter
+}
+
+STRING 714
+// Abilities: A0A4 (Prepare Transmuter), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 715
+// Abilities: A0A4 (Prepare Transmuter), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 716
+// Abilities: ABA4 (Build Transmuter), Name (Name)
+{
+Build Transmuter
+}
+
+STRING 717
+// Abilities: ABA4 (Build Transmuter), Tip (Tooltip - Normal)
+{
+Build Fel Collector (Q)
+}
+
+STRING 719
+// Units: oMS1 (Stone I), Name (Name)
+{
+Stone I
+}
+
+STRING 720
+// Items: IMS1 (Rock), Name (Name)
+{
+Rock
+}
+
+STRING 722
+// Abilities: ASA6 (Addition Transmute Rock), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 724
+// Units: oMM1 (Metal I), Name (Name)
+{
+Metal I
+}
+
+STRING 725
+// Units: oMM1 (Metal I), Ubertip (Tooltip - Extended)
+{
+Transmutes an Iron ore.
+
+Materials
+3 Stone I
+}
+
+STRING 726
+// Units: oMF1 (Fine Metal I), Name (Name)
+{
+Fine Metal I
+}
+
+STRING 728
+// Items: IMM1 (Iron), Tip (Tooltip - Basic)
+{
+Iron
+}
+
+STRING 729
+// Items: IMF1 (Copper), Tip (Tooltip - Basic)
+{
+Copper
+}
+
+STRING 730
+// Abilities: ASA7 (Addition Transmute Iron), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 731
+// Abilities: AR00 (Machine Recipe Q), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 732
+// Units: oMS2 (Stone II), Name (Name)
+{
+Stone II
+}
+
+STRING 733
+// Units: oMS2 (Stone II), Ubertip (Tooltip - Extended)
+{
+Transmutes a Stone.
+
+Materials
+3 Wood II
+}
+
+STRING 734
+// Items: IMS2 (Stone), Tip (Tooltip - Basic)
+{
+Stone
+}
+
+STRING 735
+// Abilities: AR00 (Machine Recipe Q), Researchhotkey (Hotkey - Learn)
+{
+Q
+}
+
+STRING 738
+// Abilities: A0A3 (Prepare Hell Forge), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 739
+// Abilities: A0A3 (Prepare Hell Forge), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 742
+// Abilities: A0A3 (Prepare Hell Forge), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 743
+// Abilities: A0A3 (Prepare Hell Forge), EditorSuffix (Editor Suffix)
+{
+(R)
+}
+
+STRING 744
+// Abilities: A0A3 (Prepare Hell Forge), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 745
+// Units: o004 (Hell Forge), Name (Name)
+{
+Hell Forge
+}
+
+STRING 746
+// Abilities: ABA3 (Build Hell Forge), Name (Name)
+{
+Build Hell Forge
+}
+
+STRING 747
+// Abilities: ABA3 (Build Hell Forge), Tip (Tooltip - Normal)
+{
+Build Fel Collector (Q)
+}
+
+STRING 748
+// Abilities: ABA3 (Build Hell Forge), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 749
+// Units: o004 (Hell Forge), Hotkey (Hotkey)
+{
+Z
+}
+
+STRING 750
+// Units: o004 (Hell Forge), Tip (Tooltip - Basic)
+{
+Upgrade
+}
+
+STRING 752
+// Abilities: A00D (Forge Flames RaiseTemperature), Tip (Tooltip - Normal)
+{
+Flames Off
+}
+
+STRING 753
+// Abilities: A00D (Forge Flames RaiseTemperature), Tip (Tooltip - Normal)
+{
+Flames Off
+}
+
+STRING 754
+// Abilities: A00D (Forge Flames RaiseTemperature), Tip (Tooltip - Normal)
+{
+Flames Off
+}
+
+STRING 755
+// Abilities: A00D (Forge Flames RaiseTemperature), Untip (Tooltip - Turn Off)
+{
+Flames Burning
+}
+
+STRING 756
+// Abilities: A00D (Forge Flames RaiseTemperature), Untip (Tooltip - Turn Off)
+{
+Flames Burning
+}
+
+STRING 757
+// Abilities: A00D (Forge Flames RaiseTemperature), Untip (Tooltip - Turn Off)
+{
+Flames Burning
+}
+
+STRING 760
+// Abilities: A0A2 (Prepare Workstation), Researchhotkey (Hotkey - Learn)
+{
+A
+}
+
+STRING 761
+// Abilities: A0RQ (Base Researcher Spellbook), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 762
+// Abilities: A0AA (Prepare Minecart), Hotkey (Hotkey - Normal)
+{
+D
+}
+
+STRING 763
+// Abilities: A0AA (Prepare Minecart), Researchhotkey (Hotkey - Learn)
+{
+D
+}
+
+STRING 764
+// Abilities: A0A4 (Prepare Transmuter), Hotkey (Hotkey - Normal)
+{
+S
+}
+
+STRING 765
+// Abilities: A0A4 (Prepare Transmuter), Researchhotkey (Hotkey - Learn)
+{
+S
+}
+
+STRING 767
+// Abilities: A00F (Fel 100), Name (Name)
+{
+Fel 100
+}
+
+STRING 768
+// Units: o004 (Hell Forge), Ubertip (Tooltip - Extended)
+{
+Upgrade the building with higher tier components (like Frame, Tank, Mechanism) to increase its performance.
+}
+
+STRING 769
+// Abilities: AR01 (Machine Recipe W), Researchhotkey (Hotkey - Learn)
+{
+W
+}
+
+STRING 770
+// Abilities: A0AE (Create Building Tools), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 771
+// Abilities: ASA8 (Addition Transmute Copper), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 772
+// Abilities: A0AW (Base Felsmithing), Name (Name)
+{
+Base Felsmithing
+}
+
+STRING 773
+// Abilities: A0AW (Base Felsmithing), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 774
+// Abilities: ASA9 (Addition Prepare Mineshaft), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 775
+// Abilities: A0AW (Base Felsmithing), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 776
+// Abilities: A0AW (Base Felsmithing), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main artisan abilities.
+}
+
+STRING 777
+// Abilities: A0AW (Base Felsmithing), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main artisan abilities.
+}
+
+STRING 778
+// Abilities: A0AW (Base Felsmithing), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main artisan abilities.
+}
+
+STRING 779
+// Abilities: A0AW (Base Felsmithing), EditorSuffix (Editor Suffix)
+{
+(special)
+}
+
+STRING 780
+// Abilities: ASAB (Addition Forge Steel), Name (Name)
+{
+Addition Forge Steel
+}
+
+STRING 781
+// Abilities: ASAB (Addition Forge Steel), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 782
+// Abilities: ASAA (Addition Prepare Minecart), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 783
+// Abilities: ASAB (Addition Forge Steel), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 784
+// Abilities: ASAB (Addition Forge Steel), EditorSuffix (Editor Suffix)
+{
+(special)
+}
+
+STRING 785
+// Abilities: A0AB (Forge Steel), Name (Name)
+{
+Forge Steel
+}
+
+STRING 786
+// Abilities: A0AW (Base Felsmithing), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 787
+// Abilities: A0AB (Forge Steel), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 788
+// Abilities: A0AB (Forge Steel), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 789
+// Abilities: A0AB (Forge Steel), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 790
+// Abilities: A0AB (Forge Steel), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 791
+// Abilities: A0AB (Forge Steel), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 792
+// Abilities: A0AB (Forge Steel), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 793
+// Abilities: A0AC (Forge Fel Steel), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 794
+// Abilities: A0AB (Forge Steel), EditorSuffix (Editor Suffix)
+{
+(Q)
+}
+
+STRING 795
+// Abilities: A0AC (Forge Fel Steel), Name (Name)
+{
+Forge Fel Steel
+}
+
+STRING 796
+// Abilities: A00D (Forge Flames RaiseTemperature), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 797
+// Abilities: A0AC (Forge Fel Steel), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 798
+// Abilities: A0AC (Forge Fel Steel), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 799
+// Abilities: A0AC (Forge Fel Steel), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 800
+// Abilities: A0AC (Forge Fel Steel), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 801
+// Abilities: A0AC (Forge Fel Steel), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 802
+// Abilities: A0AC (Forge Fel Steel), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 804
+// Abilities: ASAC (Addition Forge Fel Steel), Name (Name)
+{
+Addition Forge Fel Steel
+}
+
+STRING 805
+// Abilities: ASAC (Addition Forge Fel Steel), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 806
+// Abilities: A00D (Forge Flames RaiseTemperature), Unhotkey (Hotkey - Turn Off)
+{
+Q
+}
+
+STRING 807
+// Abilities: ASAC (Addition Forge Fel Steel), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 808
+// Abilities: ASAC (Addition Forge Fel Steel), EditorSuffix (Editor Suffix)
+{
+(special)
+}
+
+STRING 809
+// Abilities: ASAD (Addition Create Soul Gem), Name (Name)
+{
+Addition Create Soul Gem
+}
+
+STRING 810
+// Abilities: ASAD (Addition Create Soul Gem), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 811
+// Abilities: ASAB (Addition Forge Steel), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 812
+// Abilities: ASAD (Addition Create Soul Gem), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 813
+// Abilities: ASAD (Addition Create Soul Gem), EditorSuffix (Editor Suffix)
+{
+(special)
+}
+
+STRING 814
+// Abilities: A0AD (Create Soul Gem), Name (Name)
+{
+Create Soul Gem
+}
+
+STRING 815
+// Abilities: A0AB (Forge Steel), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 816
+// Abilities: A0AD (Create Soul Gem), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 817
+// Abilities: A0AD (Create Soul Gem), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 818
+// Abilities: A0AD (Create Soul Gem), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 819
+// Abilities: A0AD (Create Soul Gem), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 820
+// Abilities: A0AD (Create Soul Gem), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 821
+// Abilities: A0AD (Create Soul Gem), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 823
+// Abilities: ASAE (Addition Create Building Tools), Name (Name)
+{
+Addition Create Building Tools
+}
+
+STRING 824
+// Abilities: ASAE (Addition Create Building Tools), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 825
+// Abilities: ASAC (Addition Forge Fel Steel), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 826
+// Abilities: ASAE (Addition Create Building Tools), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 827
+// Abilities: ASAE (Addition Create Building Tools), EditorSuffix (Editor Suffix)
+{
+(special)
+}
+
+STRING 828
+// Abilities: A0AE (Create Building Tools), Name (Name)
+{
+Create Building Tools
+}
+
+STRING 830
+// Abilities: A0AE (Create Building Tools), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 831
+// Abilities: A0AE (Create Building Tools), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 832
+// Abilities: A0AE (Create Building Tools), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 833
+// Abilities: A0AE (Create Building Tools), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 834
+// Abilities: A0AE (Create Building Tools), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 835
+// Abilities: A0AE (Create Building Tools), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 837
+// Abilities: A0AC (Forge Fel Steel), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 838
+// Abilities: A0AD (Create Soul Gem), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 839
+// Abilities: A0AD (Create Soul Gem), EditorSuffix (Editor Suffix)
+{
+(R)
+}
+
+STRING 840
+// Abilities: A0R3 (Create Net), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 841
+// Abilities: A0AE (Create Building Tools), EditorSuffix (Editor Suffix)
+{
+(E)
+}
+
+STRING 842
+// Items: IT06 (Building Tools), Name (Name)
+{
+Building Tools
+}
+
+STRING 843
+// Abilities: A00D (Forge Flames RaiseTemperature), Name (Name)
+{
+Forge Flames RaiseTemperature
+}
+
+STRING 844
+// Abilities: A00H (Forge Flames MaintainTemperature), Name (Name)
+{
+Forge Flames MaintainTemperature
+}
+
+STRING 851
+// Abilities: A00H (Forge Flames MaintainTemperature), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 852
+// Abilities: A00H (Forge Flames MaintainTemperature), Unhotkey (Hotkey - Turn Off)
+{
+W
+}
+
+STRING 853
+// Buffs/Effects: B002 (Raise Temperature), EditorName (Name (Editor Only))
+{
+Raise Temperature
+}
+
+STRING 854
+// Buffs/Effects: B002 (Raise Temperature), Bufftip (Tooltip)
+{
+Raise Temperature
+}
+
+STRING 855
+// Buffs/Effects: B002 (Raise Temperature), Buffubertip (Tooltip - Extended)
+{
+The Hell Forge is trying to raise its temperature.
+}
+
+STRING 856
+// Buffs/Effects: B003 (Maintain Temperature), EditorName (Name (Editor Only))
+{
+Maintain Temperature
+}
+
+STRING 857
+// Buffs/Effects: B003 (Maintain Temperature), Bufftip (Tooltip)
+{
+Maintain Temperature
+}
+
+STRING 858
+// Buffs/Effects: B003 (Maintain Temperature), Buffubertip (Tooltip - Extended)
+{
+The Hell Forge is trying to maintain its temperature.
+}
+
+STRING 859
+// Abilities: A00H (Forge Flames MaintainTemperature), Unubertip (Tooltip - Turn Off - Extended)
+{
+Maintaining the flames in the forge. Consuming only 1/3 of the fel cost, but the temperature will fluctuate.
+}
+
+STRING 860
+// Abilities: ASP6 (Addition Fel Basin), Name (Name)
+{
+Addition Fel Basin
+}
+
+STRING 861
+// Abilities: A0P6 (Prepare Fel Basin), Name (Name)
+{
+Prepare Fel Basin
+}
+
+STRING 862
+// Abilities: ABP6 (Build Fel Basin), Name (Name)
+{
+Build Fel Basin
+}
+
+STRING 863
+// Abilities: ABP6 (Build Fel Basin), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 864
+// Abilities: ABP6 (Build Fel Basin), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 865
+// Abilities: ABP6 (Build Fel Basin), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 866
+// Abilities: A00E (Inventory 0 Items), Name (Name)
+{
+Inventory 0 Items
+}
+
+STRING 868
+// Abilities: A008 (Info General), Ubertip (Tooltip - Normal - Extended)
+{
+The game is heavy on crafting. It supports order queueing as much as possible (Hold Shift)
+
+- Four material types: Wood, Stone, Metal, Fine Metal
+- Materials have tiers: I, II, III, IV
+- Queue orders as much as you can (Shift)
+- Do not forget to use Transfer Inventory (D)
+}
+
+STRING 869
+// Units: u000 (Depot), Name (Name)
+{
+Depot
+}
+
+STRING 870
+// Abilities: A00G (Inventory Depot), Name (Name)
+{
+Inventory Depot
+}
+
+STRING 871
+// Abilities: ASR0 (Addition Depot), Name (Name)
+{
+Addition Depot
+}
+
+STRING 872
+// Abilities: ASR0 (Addition Depot), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 873
+// Abilities: ASAD (Addition Create Soul Gem), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 874
+// Abilities: ASR0 (Addition Depot), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 875
+// Abilities: A0R0 (Prepare Depot), Name (Name)
+{
+Prepare Depot
+}
+
+STRING 876
+// Abilities: ABR0 (Build Depot), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 877
+// Abilities: A0R0 (Prepare Depot), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 878
+// Abilities: A0R0 (Prepare Depot), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 880
+// Abilities: ABR0 (Build Depot), Name (Name)
+{
+Build Depot
+}
+
+STRING 881
+// Abilities: ABR0 (Build Depot), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 882
+// Abilities: ABR1 (Build Automaton), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 883
+// Abilities: ABR0 (Build Depot), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 884
+// Units: u001 (Automaton), Name (Name)
+{
+Automaton
+}
+
+STRING 885
+// Abilities: A00I (Inventory Automaton), Name (Name)
+{
+Inventory Automaton
+}
+
+STRING 886
+// Abilities: ASR1 (Addition Automaton), Name (Name)
+{
+Addition Automaton
+}
+
+STRING 887
+// Abilities: ASR1 (Addition Automaton), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 888
+// Abilities: ASAE (Addition Create Building Tools), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 889
+// Abilities: ASR1 (Addition Automaton), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 890
+// Abilities: A0R1 (Prepare Automaton), Name (Name)
+{
+Prepare Automaton
+}
+
+STRING 892
+// Abilities: A0R1 (Prepare Automaton), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 893
+// Abilities: A0R1 (Prepare Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 895
+// Abilities: ABR1 (Build Automaton), Name (Name)
+{
+Build Automaton
+}
+
+STRING 896
+// Abilities: ABR1 (Build Automaton), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 898
+// Abilities: ABR1 (Build Automaton), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 899
+// Abilities: A0R0 (Prepare Depot), Hotkey (Hotkey - Normal)
+{
+D
+}
+
+STRING 900
+// Abilities: A0R0 (Prepare Depot), EditorSuffix (Editor Suffix)
+{
+(D)
+}
+
+STRING 901
+// Abilities: A0R1 (Prepare Automaton), Hotkey (Hotkey - Normal)
+{
+A
+}
+
+STRING 902
+// Abilities: A0R1 (Prepare Automaton), EditorSuffix (Editor Suffix)
+{
+(A)
+}
+
+STRING 904
+// Abilities: ASR0 (Addition Depot), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 911
+// Abilities: A00J (Order: Supply), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 912
+// Abilities: A00J (Order: Supply), EditorSuffix (Editor Suffix)
+{
+(Q)
+}
+
+STRING 913
+// Abilities: A00K (Order: Use Tool), Name (Name)
+{
+Order: Use Tool
+}
+
+STRING 914
+// Abilities: A00K (Order: Use Tool), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 921
+// Abilities: A00K (Order: Use Tool), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 922
+// Abilities: A00K (Order: Use Tool), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 925
+// Abilities: A00L (Item Filter), Name (Name)
+{
+Item Filter
+}
+
+STRING 927
+// Abilities: A0R2 (Organic Matter), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 934
+// Abilities: A00L (Item Filter), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 935
+// Abilities: A0R2 (Organic Matter), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 939
+// Abilities: A00L (Item Filter), Tip (Tooltip - Normal)
+{
+Filter Items
+}
+
+STRING 940
+// Abilities: A00L (Item Filter), Tip (Tooltip - Normal)
+{
+Filter Items
+}
+
+STRING 941
+// Abilities: A00L (Item Filter), Tip (Tooltip - Normal)
+{
+Filter Items
+}
+
+STRING 942
+// Abilities: A00L (Item Filter), Ubertip (Tooltip - Normal - Extended)
+{
+Click to configure item filter based on current inventory.
+}
+
+STRING 943
+// Abilities: A00L (Item Filter), Ubertip (Tooltip - Normal - Extended)
+{
+Click to configure item filter based on current inventory.
+}
+
+STRING 944
+// Abilities: A00L (Item Filter), Ubertip (Tooltip - Normal - Extended)
+{
+Click to configure item filter based on current inventory.
+}
+
+STRING 945
+// Abilities: A00J (Order: Supply), Name (Name)
+{
+Order: Supply
+}
+
+STRING 946
+// Abilities: A00J (Order: Supply), Tip (Tooltip - Normal)
+{
+Order: Supply
+}
+
+STRING 947
+// Abilities: A00J (Order: Supply), Tip (Tooltip - Normal)
+{
+Order: Supply
+}
+
+STRING 948
+// Abilities: A00J (Order: Supply), Tip (Tooltip - Normal)
+{
+Order: Supply
+}
+
+STRING 949
+// Abilities: A00K (Order: Use Tool), Tip (Tooltip - Normal)
+{
+Order: Use Tool
+}
+
+STRING 950
+// Abilities: A00K (Order: Use Tool), Tip (Tooltip - Normal)
+{
+Order: Use Tool
+}
+
+STRING 951
+// Abilities: A00K (Order: Use Tool), Tip (Tooltip - Normal)
+{
+Order: Use Tool
+}
+
+STRING 952
+// Abilities: A00J (Order: Supply), Ubertip (Tooltip - Normal - Extended)
+{
+Automaton will pick up items from targeted area and deposit them to its Rally point.
+
+With Item Filter, automaton will not deposit until it has all the items.
+}
+
+STRING 953
+// Abilities: A00J (Order: Supply), Ubertip (Tooltip - Normal - Extended)
+{
+Automaton will pick up items from targeted area and deposit them to its Rally point.
+
+With Item Filter, automaton will not deposit until it has all the items.
+}
+
+STRING 954
+// Abilities: A00J (Order: Supply), Ubertip (Tooltip - Normal - Extended)
+{
+Automaton will pick up items from targeted area and deposit them to its Rally point.
+
+With Item Filter, automaton will not deposit until it has all the items.
+}
+
+STRING 955
+// Abilities: A00K (Order: Use Tool), Ubertip (Tooltip - Normal - Extended)
+{
+Automaton will use its tool ability on destructables in target area. When its inventory is full, it will deposit items to the Rally Point.
+
+With Item Filter, automaton will not deposit until it has all the configured items.
+}
+
+STRING 956
+// Abilities: A00K (Order: Use Tool), Ubertip (Tooltip - Normal - Extended)
+{
+Automaton will use its tool ability on destructables in target area. When its inventory is full, it will deposit items to the Rally Point.
+
+With Item Filter, automaton will not deposit until it has all the configured items.
+}
+
+STRING 957
+// Abilities: A00K (Order: Use Tool), Ubertip (Tooltip - Normal - Extended)
+{
+Automaton will use its tool ability on destructables in target area. When its inventory is full, it will deposit items to the Rally Point.
+
+With Item Filter, automaton will not deposit until it has all the configured items.
+}
+
+STRING 958
+// Items: IA00 (Live Rabbit), Name (Name)
+{
+Live Rabbit
+}
+
+STRING 959
+// Items: IA00 (Live Rabbit), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 960
+// Items: IA00 (Live Rabbit), Description (Description)
+{
+A caught animal.
+}
+
+STRING 961
+// Items: IA00 (Live Rabbit), Tip (Tooltip - Basic)
+{
+Live Rabbit
+}
+
+STRING 962
+// Items: IA01 (Live Raccoon), Name (Name)
+{
+Live Raccoon
+}
+
+STRING 963
+// Items: IA01 (Live Raccoon), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 964
+// Items: IA01 (Live Raccoon), Description (Description)
+{
+A caught animal.
+}
+
+STRING 965
+// Items: IA01 (Live Raccoon), Tip (Tooltip - Basic)
+{
+Live Raccoon
+}
+
+STRING 966
+// Items: IA02 (Live Crab), Name (Name)
+{
+Live Crab
+}
+
+STRING 967
+// Items: IA02 (Live Crab), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 968
+// Items: IA02 (Live Crab), Description (Description)
+{
+A caught animal.
+}
+
+STRING 969
+// Items: IA02 (Live Crab), Tip (Tooltip - Basic)
+{
+Live Raccoon
+}
+
+STRING 970
+// Items: IA03 (Live Skink), Name (Name)
+{
+Live Skink
+}
+
+STRING 971
+// Items: IA03 (Live Skink), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 972
+// Items: IA03 (Live Skink), Description (Description)
+{
+A caught animal.
+}
+
+STRING 973
+// Items: IA03 (Live Skink), Tip (Tooltip - Basic)
+{
+Live Skink
+}
+
+STRING 974
+// Items: IA04 (Live Frog), Name (Name)
+{
+Live Frog
+}
+
+STRING 975
+// Items: IA04 (Live Frog), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 976
+// Items: IA04 (Live Frog), Description (Description)
+{
+A caught animal.
+}
+
+STRING 977
+// Items: IA04 (Live Frog), Tip (Tooltip - Basic)
+{
+Live Frog
+}
+
+STRING 978
+// Items: IA05 (Live Worm), Name (Name)
+{
+Live Worm
+}
+
+STRING 979
+// Items: IA05 (Live Worm), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 980
+// Items: IA05 (Live Worm), Description (Description)
+{
+A caught animal.
+}
+
+STRING 981
+// Items: IA05 (Live Worm), Tip (Tooltip - Basic)
+{
+Live Worm
+}
+
+STRING 982
+// Items: IA06 (Live Rat), Name (Name)
+{
+Live Rat
+}
+
+STRING 983
+// Items: IA06 (Live Rat), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 984
+// Items: IA06 (Live Rat), Description (Description)
+{
+A caught animal.
+}
+
+STRING 985
+// Items: IA06 (Live Rat), Tip (Tooltip - Basic)
+{
+Live Rat
+}
+
+STRING 986
+// Items: IA07 (Live Stag), Name (Name)
+{
+Live Stag
+}
+
+STRING 987
+// Items: IA07 (Live Stag), Ubertip (Tooltip - Extended)
+{
+A caught animal.
+}
+
+STRING 988
+// Items: IA07 (Live Stag), Description (Description)
+{
+A caught animal.
+}
+
+STRING 989
+// Items: IA07 (Live Stag), Tip (Tooltip - Basic)
+{
+Live Stag
+}
+
+STRING 1000
+// Abilities: ASR2 (Addition Organic Matter), Name (Name)
+{
+Addition Organic Matter
+}
+
+STRING 1001
+// Abilities: ASR2 (Addition Organic Matter), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1002
+// Abilities: ASR1 (Addition Automaton), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1003
+// Abilities: ASR2 (Addition Organic Matter), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1004
+// Abilities: ASR3 (Addition Net), Name (Name)
+{
+Addition Net
+}
+
+STRING 1005
+// Abilities: ASR3 (Addition Net), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1006
+// Abilities: A00J (Order: Supply), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1007
+// Abilities: ASR3 (Addition Net), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1009
+// Abilities: ASR4 (Addition Study), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1010
+// Abilities: ASR2 (Addition Organic Matter), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1011
+// Abilities: ASR4 (Addition Study), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1012
+// Abilities: ASR5 (Addition Experiment Chamber), Name (Name)
+{
+Addition Experiment Chamber
+}
+
+STRING 1013
+// Abilities: ASR5 (Addition Experiment Chamber), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1014
+// Abilities: ASR3 (Addition Net), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1015
+// Abilities: ASR5 (Addition Experiment Chamber), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1016
+// Abilities: ASR6 (Addition Fel Injector), Name (Name)
+{
+Addition Fel Injector
+}
+
+STRING 1017
+// Abilities: ASR6 (Addition Fel Injector), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1018
+// Abilities: ASR4 (Addition Study), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1019
+// Abilities: ASR6 (Addition Fel Injector), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1020
+// Abilities: ASR7 (Addition Obliterum), Name (Name)
+{
+Addition Obliterum
+}
+
+STRING 1021
+// Abilities: ASR7 (Addition Obliterum), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1022
+// Abilities: ASR5 (Addition Experiment Chamber), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1023
+// Abilities: ASR7 (Addition Obliterum), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1024
+// Abilities: A0R2 (Organic Matter), Name (Name)
+{
+Organic Matter
+}
+
+STRING 1026
+// Abilities: A0R2 (Organic Matter), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 1027
+// Abilities: A0R2 (Organic Matter), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 1029
+// Abilities: A0R3 (Create Net), Name (Name)
+{
+Create Net
+}
+
+STRING 1031
+// Abilities: A0R3 (Create Net), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 1032
+// Abilities: A0R3 (Create Net), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 1034
+// Abilities: A0R5 (Prepare Experiment Chamber), Name (Name)
+{
+Prepare Experiment Chamber
+}
+
+STRING 1036
+// Abilities: A0R5 (Prepare Experiment Chamber), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 1037
+// Abilities: A0R5 (Prepare Experiment Chamber), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 1039
+// Abilities: A0R6 (Prepare Fel Injector), Name (Name)
+{
+Prepare Fel Injector
+}
+
+STRING 1041
+// Abilities: A0R6 (Prepare Fel Injector), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 1042
+// Abilities: A0R6 (Prepare Fel Injector), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 1044
+// Abilities: A0R7 (Prepare Obliterum), Name (Name)
+{
+Prepare Obliterum
+}
+
+STRING 1046
+// Abilities: A0R7 (Prepare Obliterum), Tip (Tooltip - Normal)
+{
+Prepare Fel Collector (R)
+}
+
+STRING 1047
+// Abilities: A0R7 (Prepare Obliterum), Ubertip (Tooltip - Normal - Extended)
+{
+A building that slowly gathers fel emitted by nearby Demonfruits. Can transfer its fel to a nearby ally.|n|nMaterials:|n2 wood|n2 stone
+}
+
+STRING 1049
+// Units: u002 (Experiment Chamber), Name (Name)
+{
+Experiment Chamber
+}
+
+STRING 1050
+// Units: u003 (Fel Injector), Name (Name)
+{
+Fel Injector
+}
+
+STRING 1051
+// Abilities: ASR4 (Addition Study), Name (Name)
+{
+Addition Study
+}
+
+STRING 1052
+// Abilities: A0R4 (Study), Name (Name)
+{
+Study
+}
+
+STRING 1053
+// Abilities: A0RW (Research Spellbook), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 1054
+// Abilities: A0RA (Research Converter), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 1055
+// Abilities: A00P (Study Award Experience), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 1056
+// Abilities: A0R3 (Create Net), EditorSuffix (Editor Suffix)
+{
+(E)
+}
+
+STRING 1057
+// Abilities: A0R5 (Prepare Experiment Chamber), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 1058
+// Abilities: A0R5 (Prepare Experiment Chamber), EditorSuffix (Editor Suffix)
+{
+(R)
+}
+
+STRING 1059
+// Abilities: A0R6 (Prepare Fel Injector), Hotkey (Hotkey - Normal)
+{
+S
+}
+
+STRING 1060
+// Abilities: A0R6 (Prepare Fel Injector), EditorSuffix (Editor Suffix)
+{
+(S)
+}
+
+STRING 1061
+// Abilities: A00L (Item Filter), Hotkey (Hotkey - Normal)
+{
+F
+}
+
+STRING 1062
+// Abilities: A00L (Item Filter), EditorSuffix (Editor Suffix)
+{
+(F)
+}
+
+STRING 1063
+// Abilities: ASR6 (Addition Fel Injector), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1064
+// Abilities: A0R4 (Study), EditorSuffix (Editor Suffix)
+{
+(Q)
+}
+
+STRING 1065
+// Items: I001 (Net), Name (Name)
+{
+Net
+}
+
+STRING 1066
+// Items: I001 (Net), Tip (Tooltip - Basic)
+{
+Net
+}
+
+STRING 1067
+// Items: I001 (Net), Ubertip (Tooltip - Extended)
+{
+Used for catching wild animals.
+}
+
+STRING 1068
+// Abilities: A00M (Release Animal), Name (Name)
+{
+Release Animal
+}
+
+STRING 1069
+// Abilities: ABR5 (Build Experiment Chamber), Name (Name)
+{
+Build Experiment Chamber
+}
+
+STRING 1070
+// Abilities: ABR5 (Build Experiment Chamber), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 1071
+// Abilities: ABR5 (Build Experiment Chamber), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 1072
+// Abilities: ABR5 (Build Experiment Chamber), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 1073
+// Abilities: ABR6 (Build Fel Injector), Name (Name)
+{
+Build Fel Injector
+}
+
+STRING 1074
+// Abilities: ABR6 (Build Fel Injector), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 1075
+// Abilities: ABR6 (Build Fel Injector), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 1076
+// Abilities: ABR6 (Build Fel Injector), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 1077
+// Units: u004 (Obliterum), Name (Name)
+{
+Obliterum
+}
+
+STRING 1078
+// Abilities: ABR7 (Build Obliterum), Name (Name)
+{
+Build Obliterum
+}
+
+STRING 1079
+// Abilities: ABR7 (Build Obliterum), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 1080
+// Abilities: ABR7 (Build Obliterum), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 1081
+// Abilities: ABR7 (Build Obliterum), Tip (Tooltip - Normal)
+{
+Build Fel Basin
+}
+
+STRING 1082
+// Abilities: A00N (Rabbit Invisibility), Name (Name)
+{
+Rabbit Invisibility
+}
+
+STRING 1083
+// Abilities: A00O (Frog Invisibility), Name (Name)
+{
+Frog Invisibility
+}
+
+STRING 1084
+// Upgrades: R0R1 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Automaton
+}
+
+STRING 1085
+// Upgrades: R0R2 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Depot
+}
+
+STRING 1086
+// Abilities: A0R8 (Research Automaton), Name (Name)
+{
+Research Automaton
+}
+
+STRING 1088
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1089
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1090
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1091
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1092
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1093
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1096
+// Abilities: ASR8 (Addition Research Automaton), Name (Name)
+{
+Addition Research Automaton
+}
+
+STRING 1097
+// Abilities: ASR8 (Addition Research Automaton), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1098
+// Abilities: ASR7 (Addition Obliterum), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1099
+// Abilities: ASR8 (Addition Research Automaton), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1100
+// Abilities: A0RW (Research Spellbook), Name (Name)
+{
+Research Spellbook
+}
+
+STRING 1101
+// Abilities: A0RW (Research Spellbook), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1102
+// Abilities: A0RA (Research Converter), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 1103
+// Abilities: A0RW (Research Spellbook), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1104
+// Abilities: A0RW (Research Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main researcher abilities.
+}
+
+STRING 1105
+// Abilities: A0RW (Research Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main researcher abilities.
+}
+
+STRING 1106
+// Abilities: A0RW (Research Spellbook), Ubertip (Tooltip - Normal - Extended)
+{
+Collection of main researcher abilities.
+}
+
+STRING 1107
+// Abilities: A0R9 (Research Tank), EditorSuffix (Editor Suffix)
+{
+(Q)
+}
+
+STRING 1108
+// Abilities: A0R4 (Study), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1109
+// Abilities: ASR8 (Addition Research Automaton), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1110
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 200 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1111
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 300 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1112
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1113
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1114
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1115
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1116
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1117
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1118
+// Abilities: A0R8 (Research Automaton), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1119
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 400 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1120
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 500 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1121
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 600 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1122
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 700 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1123
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 800 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1124
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 900 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1125
+// Abilities: A0R8 (Research Automaton), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 1000 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1126
+// Upgrades: R001 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Tank I
+}
+
+STRING 1127
+// Upgrades: R002 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Tank II
+}
+
+STRING 1128
+// Upgrades: R003 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Tank III
+}
+
+STRING 1129
+// Upgrades: R004 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Tank IV
+}
+
+STRING 1130
+// Abilities: A0P7 (Fel Extraction), EditorSuffix (Editor Suffix)
+{
+(W)
+}
+
+STRING 1131
+// Abilities: A0RA (Research Converter), Researchhotkey (Hotkey - Learn)
+{
+W
+}
+
+STRING 1132
+// Abilities: A0P7 (Fel Extraction), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 1133
+// Abilities: A0R9 (Research Tank), Name (Name)
+{
+Research Tank
+}
+
+STRING 1134
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1135
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1136
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1137
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 200 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1138
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 300 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1139
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1140
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1141
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1142
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1143
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1144
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1145
+// Abilities: A0R9 (Research Tank), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1146
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 400 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1147
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 500 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1148
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 600 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1149
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 700 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1150
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 800 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1151
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 900 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1152
+// Abilities: A0R9 (Research Tank), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 1000 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1153
+// Abilities: ASR9 (Addition Research Tank), Name (Name)
+{
+Addition Research Tank
+}
+
+STRING 1154
+// Abilities: ASR9 (Addition Research Tank), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1155
+// Abilities: A0R9 (Research Tank), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1156
+// Abilities: ASR9 (Addition Research Tank), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1157
+// Upgrades: R0C1 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Converter I
+}
+
+STRING 1158
+// Upgrades: R0C2 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Converter II
+}
+
+STRING 1159
+// Upgrades: R0C3 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Converter III
+}
+
+STRING 1160
+// Upgrades: R0C4 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Converter IV
+}
+
+STRING 1161
+// Abilities: ASRA (Addition Research Converter), Name (Name)
+{
+Addition Research Converter
+}
+
+STRING 1162
+// Abilities: ASRA (Addition Research Converter), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1163
+// Abilities: A0R9 (Research Tank), Researchhotkey (Hotkey - Learn)
+{
+Q
+}
+
+STRING 1164
+// Abilities: ASRA (Addition Research Converter), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1165
+// Abilities: A0RA (Research Converter), Name (Name)
+{
+Research Converter
+}
+
+STRING 1167
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1168
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1169
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1170
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 200 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1171
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 300 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1174
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1175
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1176
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1177
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1178
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1179
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1180
+// Abilities: A0RA (Research Converter), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1181
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 400 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1182
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 500 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1183
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 600 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1184
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 700 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1185
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 800 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1186
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 900 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1187
+// Abilities: A0RA (Research Converter), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 1000 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1188
+// Abilities: A0R8 (Research Automaton), Hotkey (Hotkey - Normal)
+{
+A
+}
+
+STRING 1189
+// Abilities: A0R8 (Research Automaton), EditorSuffix (Editor Suffix)
+{
+(A)
+}
+
+STRING 1190
+// Abilities: A0R8 (Research Automaton), Researchhotkey (Hotkey - Learn)
+{
+A
+}
+
+STRING 1191
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 1
+}
+
+STRING 1192
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 1
+}
+
+STRING 1193
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 2
+}
+
+STRING 1194
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 3
+}
+
+STRING 1195
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 4
+}
+
+STRING 1196
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 5
+}
+
+STRING 1197
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 6
+}
+
+STRING 1198
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 7
+}
+
+STRING 1199
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 8
+}
+
+STRING 1200
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 9
+}
+
+STRING 1201
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 10
+}
+
+STRING 1202
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 11
+}
+
+STRING 1203
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 12
+}
+
+STRING 1204
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 13
+}
+
+STRING 1205
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 14
+}
+
+STRING 1206
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 15
+}
+
+STRING 1207
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 16
+}
+
+STRING 1208
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 17
+}
+
+STRING 1209
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 18
+}
+
+STRING 1210
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 19
+}
+
+STRING 1211
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 20
+}
+
+STRING 1212
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 21
+}
+
+STRING 1213
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 22
+}
+
+STRING 1214
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 23
+}
+
+STRING 1215
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 24
+}
+
+STRING 1216
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 25
+}
+
+STRING 1217
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 26
+}
+
+STRING 1218
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 27
+}
+
+STRING 1219
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 28
+}
+
+STRING 1220
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 29
+}
+
+STRING 1221
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Tip (Tooltip)
+{
+Level 30
+}
+
+STRING 1222
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 2
+}
+
+STRING 1223
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 3
+}
+
+STRING 1224
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 4
+}
+
+STRING 1225
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 5
+}
+
+STRING 1226
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 6
+}
+
+STRING 1227
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 7
+}
+
+STRING 1228
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 8
+}
+
+STRING 1229
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 9
+}
+
+STRING 1230
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 10
+}
+
+STRING 1231
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 11
+}
+
+STRING 1232
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 12
+}
+
+STRING 1233
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 13
+}
+
+STRING 1234
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 14
+}
+
+STRING 1235
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 15
+}
+
+STRING 1236
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 16
+}
+
+STRING 1237
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 17
+}
+
+STRING 1238
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 18
+}
+
+STRING 1239
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 19
+}
+
+STRING 1240
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 20
+}
+
+STRING 1241
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 21
+}
+
+STRING 1242
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 22
+}
+
+STRING 1243
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 23
+}
+
+STRING 1244
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 24
+}
+
+STRING 1245
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 25
+}
+
+STRING 1246
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 26
+}
+
+STRING 1247
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 27
+}
+
+STRING 1248
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 28
+}
+
+STRING 1249
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 29
+}
+
+STRING 1250
+// Upgrades: RL00 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Level 30
+}
+
+STRING 1251
+// Abilities: A00P (Study Award Experience), Name (Name)
+{
+Study Award Experience
+}
+
+STRING 1252
+// Abilities: A00P (Study Award Experience), Tip (Tooltip - Normal)
+{
+Transfer Inventory
+}
+
+STRING 1253
+// Abilities: A00P (Study Award Experience), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1254
+// Abilities: A00P (Study Award Experience), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1255
+// Abilities: A00P (Study Award Experience), Ubertip (Tooltip - Normal - Extended)
+{
+If targeting the ground, will drop all items on that point.
+
+Deposits existing items to target unit.
+Takes items from target unit if inventory is empty.
+}
+
+STRING 1256
+// Abilities: A00P (Study Award Experience), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1257
+// Abilities: A00P (Study Award Experience), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1259
+// Abilities: A0RB (Research Depot), Name (Name)
+{
+Research Depot
+}
+
+STRING 1261
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1262
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1263
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1264
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1265
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 200 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1266
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 300 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1269
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1270
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1271
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1272
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1273
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1274
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1275
+// Abilities: A0RB (Research Depot), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1276
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 400 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1277
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 500 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1278
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 600 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1279
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 700 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1280
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 800 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1281
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 900 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1282
+// Abilities: A0RB (Research Depot), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 1000 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1283
+// Abilities: A0RB (Research Depot), Hotkey (Hotkey - Normal)
+{
+D
+}
+
+STRING 1284
+// Abilities: A0RB (Research Depot), EditorSuffix (Editor Suffix)
+{
+(D)
+}
+
+STRING 1285
+// Abilities: A0RB (Research Depot), Researchhotkey (Hotkey - Learn)
+{
+D
+}
+
+STRING 1286
+// Abilities: ASRB (Addition Research Depot), Name (Name)
+{
+Addition Research Depot
+}
+
+STRING 1287
+// Abilities: ASRB (Addition Research Depot), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1288
+// Abilities: ASR9 (Addition Research Tank), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1289
+// Abilities: ASRB (Addition Research Depot), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1290
+// Units: n002 (Eye of Kilrogg), Name (Name)
+{
+Eye of Kilrogg
+}
+
+STRING 1291
+// Abilities: A00R (Magic Sentry Eye of Killrogg), Name (Name)
+{
+Magic Sentry Eye of Killrogg
+}
+
+STRING 1292
+// Abilities: A00R (Magic Sentry Eye of Killrogg), Tip (Tooltip - Normal)
+{
+Magic Sight
+}
+
+STRING 1294
+// Abilities: A00S (Transfer Mana 25 Fel Basin), Tip (Tooltip - Normal)
+{
+Transfer Mana
+}
+
+STRING 1295
+// Abilities: A00S (Transfer Mana 25 Fel Basin), Tip (Tooltip - Normal)
+{
+Transfer Mana
+}
+
+STRING 1296
+// Abilities: A00S (Transfer Mana 25 Fel Basin), Tip (Tooltip - Normal)
+{
+Transfer Mana
+}
+
+STRING 1297
+// Abilities: A00S (Transfer Mana 25 Fel Basin), Ubertip (Tooltip - Normal - Extended)
+{
+Gives 25 mana to target unit.
+}
+
+STRING 1298
+// Abilities: A00S (Transfer Mana 25 Fel Basin), Ubertip (Tooltip - Normal - Extended)
+{
+Gives 25 mana to target unit.
+}
+
+STRING 1299
+// Abilities: A00S (Transfer Mana 25 Fel Basin), Ubertip (Tooltip - Normal - Extended)
+{
+Gives 25 mana to target unit.
+}
+
+STRING 1300
+// Abilities: A00T (Demonfruit Gather), Name (Name)
+{
+Demonfruit Gather
+}
+
+STRING 1301
+// Items: IM05 (Demonfruit), Description (Description)
+{
+Material.
+}
+
+STRING 1302
+// Items: IM05 (Demonfruit), Ubertip (Tooltip - Extended)
+{
+Material.
+}
+
+STRING 1303
+// Items: IM05 (Demonfruit), Name (Name)
+{
+Demonfruit
+}
+
+STRING 1304
+// Abilities: A0P4 (Demonfruit), Name (Name)
+{
+Demonfruit
+}
+
+STRING 1305
+// Abilities: A0P7 (Fel Extraction), Name (Name)
+{
+Fel Extraction
+}
+
+STRING 1306
+// Abilities: A012 (Materials2), Hotkey (Hotkey - Normal)
+{
+W
+}
+
+STRING 1307
+// Abilities: A0P7 (Fel Extraction), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 1308
+// Abilities: A0P7 (Fel Extraction), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 1309
+// Abilities: A0P7 (Fel Extraction), Tip (Tooltip - Normal)
+{
+Create Felstone (W)
+}
+
+STRING 1310
+// Abilities: A0P7 (Fel Extraction), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 1311
+// Abilities: A0P7 (Fel Extraction), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 1312
+// Abilities: A0P7 (Fel Extraction), Ubertip (Tooltip - Normal - Extended)
+{
+Creates a felstone using 3 stones and 50 fel.|n|nMaterials:|n3 stone
+}
+
+STRING 1314
+// Abilities: ASP7 (Addition Fel Extraction), Name (Name)
+{
+Addition Fel Extraction
+}
+
+STRING 1315
+// Abilities: ASP7 (Addition Fel Extraction), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1316
+// Abilities: ASRA (Addition Research Converter), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1317
+// Abilities: ASP7 (Addition Fel Extraction), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1318
+// Abilities: A00V (Item Axe Damage Bonus), Name (Name)
+{
+Item Axe Damage Bonus
+}
+
+STRING 1319
+// Abilities: A00W (Item Pickaxe Damage Bonus), Name (Name)
+{
+Item Pickaxe Damage Bonus
+}
+
+STRING 1320
+// Units: H001 (Cheatpack), Name (Name)
+{
+Cheatpack
+}
+
+STRING 1321
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 1
+}
+
+STRING 1322
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 2
+}
+
+STRING 1323
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 3
+}
+
+STRING 1324
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 4
+}
+
+STRING 1325
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 5
+}
+
+STRING 1326
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 6
+}
+
+STRING 1327
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 7
+}
+
+STRING 1328
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 8
+}
+
+STRING 1329
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 9
+}
+
+STRING 1330
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 10
+}
+
+STRING 1331
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 11
+}
+
+STRING 1332
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 12
+}
+
+STRING 1333
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 13
+}
+
+STRING 1334
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 14
+}
+
+STRING 1335
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 15
+}
+
+STRING 1336
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 16
+}
+
+STRING 1337
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 17
+}
+
+STRING 1338
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 18
+}
+
+STRING 1339
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 19
+}
+
+STRING 1340
+// Abilities: A00X (Cheat Units Spawned Count), Tip (Tooltip - Normal)
+{
+Units spawned: 20
+}
+
+STRING 1341
+// Abilities: A00X (Cheat Units Spawned Count), Name (Name)
+{
+Cheat Units Spawned Count
+}
+
+STRING 1342
+// Abilities: A00Y (Spawn Portal), Name (Name)
+{
+Spawn Portal
+}
+
+STRING 1343
+// Abilities: ASRB (Addition Research Depot), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1344
+// Abilities: A00Y (Spawn Portal), Tip (Tooltip - Normal)
+{
+Create Portal
+}
+
+STRING 1345
+// Abilities: A00Y (Spawn Portal), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1346
+// Abilities: A00Y (Spawn Portal), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1347
+// Abilities: A00Y (Spawn Portal), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1348
+// Abilities: A00Y (Spawn Portal), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1349
+// Abilities: A00Y (Spawn Portal), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1350
+// Units: h006 (Portal), Name (Name)
+{
+Portal
+}
+
+STRING 1351
+// Abilities: A00S (Transfer Mana 25 Fel Basin), Name (Name)
+{
+Transfer Mana 25 Fel Basin
+}
+
+STRING 1352
+// Items: I004 (Essence of Blight), Name (Name)
+{
+Essence of Blight
+}
+
+STRING 1360
+// Abilities: A010 (Essence of Blight), Untip (Tooltip - Turn Off)
+{
+|cffc3dbff|cffc3dbffRight-click to activate auto-casting.|r|r
+}
+
+STRING 1361
+// Abilities: A010 (Essence of Blight), Untip (Tooltip - Turn Off)
+{
+|cffc3dbff|cffc3dbffRight-click to activate auto-casting.|r|r
+}
+
+STRING 1362
+// Abilities: A010 (Essence of Blight), Untip (Tooltip - Turn Off)
+{
+|cffc3dbff|cffc3dbffRight-click to activate auto-casting.|r|r
+}
+
+STRING 1363
+// Abilities: A010 (Essence of Blight), Untip (Tooltip - Turn Off)
+{
+|cffc3dbff|cffc3dbffRight-click to activate auto-casting.|r|r
+}
+
+STRING 1364
+// Abilities: A010 (Essence of Blight), Unubertip (Tooltip - Turn Off - Extended)
+{
+|cffc3dbffRight-click to deactivate auto-casting.|r
+}
+
+STRING 1365
+// Abilities: A010 (Essence of Blight), Unubertip (Tooltip - Turn Off - Extended)
+{
+|cffc3dbffRight-click to deactivate auto-casting.|r
+}
+
+STRING 1366
+// Abilities: A010 (Essence of Blight), Unubertip (Tooltip - Turn Off - Extended)
+{
+|cffc3dbffRight-click to deactivate auto-casting.|r
+}
+
+STRING 1367
+// Abilities: A010 (Essence of Blight), Unubertip (Tooltip - Turn Off - Extended)
+{
+|cffc3dbffRight-click to deactivate auto-casting.|r
+}
+
+STRING 1368
+// Items: I004 (Essence of Blight), Tip (Tooltip - Basic)
+{
+Learn Essence of Blight
+}
+
+STRING 1371
+// Items: I004 (Essence of Blight), Ubertip (Tooltip - Extended)
+{
+Restores hit points to nearby friendly units.
+
+Level 1 - 10 HP, costs 10 Fel.
+
+Cost
+OrganicMatter
+}
+
+STRING 1377
+// Abilities: A010 (Essence of Blight), Tip (Tooltip - Normal)
+{
+Essence of Blight [Level 2]
+}
+
+STRING 1378
+// Abilities: A010 (Essence of Blight), Tip (Tooltip - Normal)
+{
+Essence of Blight [Level 3]
+}
+
+STRING 1379
+// Abilities: A010 (Essence of Blight), Tip (Tooltip - Normal)
+{
+Essence of Blight [Level 4]
+}
+
+STRING 1380
+// Abilities: A010 (Essence of Blight), Tip (Tooltip - Normal)
+{
+Essence of Blight [Level 5]
+}
+
+STRING 1381
+// Abilities: A010 (Essence of Blight), Tip (Tooltip - Normal)
+{
+Essence of Blight [Level 1]
+}
+
+STRING 1382
+// Abilities: A010 (Essence of Blight), Ubertip (Tooltip - Normal - Extended)
+{
+Restores <A020,DataA2> hit points to up to 2 nearby friendly units.
+}
+
+STRING 1383
+// Abilities: A010 (Essence of Blight), Ubertip (Tooltip - Normal - Extended)
+{
+Restores <A030,DataA3> hit points to up to 2 nearby friendly units.
+}
+
+STRING 1384
+// Abilities: A010 (Essence of Blight), Ubertip (Tooltip - Normal - Extended)
+{
+Restores <A040,DataA4> hit points to up to 2 nearby friendly units.
+}
+
+STRING 1385
+// Abilities: A010 (Essence of Blight), Ubertip (Tooltip - Normal - Extended)
+{
+Restores <A050,DataA5> hit points to up to 2 nearby friendly units.
+}
+
+STRING 1386
+// Abilities: A010 (Essence of Blight), Ubertip (Tooltip - Normal - Extended)
+{
+Restores <A010,DataA1> hit points to up to 2 nearby friendly units.
+}
+
+STRING 1387
+// Abilities: ASP7 (Addition Fel Extraction), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1388
+// Abilities: A00Z (Build Dimensional Gate Foundation), Name (Name)
+{
+Build Dimensional Gate Foundation
+}
+
+STRING 1389
+// Abilities: A00Z (Build Dimensional Gate Foundation), Tip (Tooltip - Normal)
+{
+Build Dimensional Gate Foundation
+}
+
+STRING 1390
+// Abilities: A00Z (Build Dimensional Gate Foundation), Hotkey (Hotkey - Normal)
+{
+G
+}
+
+STRING 1391
+// Abilities: A00Z (Build Dimensional Gate Foundation), Tip (Tooltip - Normal)
+{
+Build Dimensional Gate Foundation
+}
+
+STRING 1392
+// Abilities: A011 (Materials1), Name (Name)
+{
+Materials1
+}
+
+STRING 1393
+// Abilities: A00Y (Spawn Portal), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1394
+// Abilities: A011 (Materials1), Tip (Tooltip - Normal)
+{
+Machine Recipe
+}
+
+STRING 1395
+// Abilities: A011 (Materials1), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1396
+// Abilities: A011 (Materials1), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1397
+// Abilities: A011 (Materials1), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1398
+// Abilities: A011 (Materials1), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1399
+// Abilities: A011 (Materials1), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1400
+// Abilities: A011 (Materials1), EditorSuffix (Editor Suffix)
+{
+(Dimensional Gate)
+}
+
+STRING 1401
+// Abilities: A012 (Materials2), Name (Name)
+{
+Materials2
+}
+
+STRING 1403
+// Abilities: A012 (Materials2), Tip (Tooltip - Normal)
+{
+Machine Recipe
+}
+
+STRING 1404
+// Abilities: A012 (Materials2), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1405
+// Abilities: A012 (Materials2), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1406
+// Abilities: A012 (Materials2), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1407
+// Abilities: A012 (Materials2), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1409
+// Abilities: A012 (Materials2), EditorSuffix (Editor Suffix)
+{
+(Dimensional Gate)
+}
+
+STRING 1410
+// Abilities: A013 (Materials3), Name (Name)
+{
+Materials3
+}
+
+STRING 1412
+// Abilities: A013 (Materials3), Tip (Tooltip - Normal)
+{
+Machine Recipe
+}
+
+STRING 1413
+// Abilities: A013 (Materials3), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1414
+// Abilities: A013 (Materials3), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1415
+// Abilities: A013 (Materials3), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1416
+// Abilities: A013 (Materials3), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1418
+// Abilities: A013 (Materials3), EditorSuffix (Editor Suffix)
+{
+(Dimensional Gate)
+}
+
+STRING 1419
+// Abilities: A014 (Materials4), Name (Name)
+{
+Materials4
+}
+
+STRING 1421
+// Abilities: A014 (Materials4), Tip (Tooltip - Normal)
+{
+Machine Recipe
+}
+
+STRING 1422
+// Abilities: A014 (Materials4), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1423
+// Abilities: A014 (Materials4), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1424
+// Abilities: A014 (Materials4), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1425
+// Abilities: A014 (Materials4), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1427
+// Abilities: A014 (Materials4), EditorSuffix (Editor Suffix)
+{
+(Dimensional Gate)
+}
+
+STRING 1428
+// Abilities: A012 (Materials2), Researchhotkey (Hotkey - Learn)
+{
+W
+}
+
+STRING 1430
+// Abilities: A013 (Materials3), Hotkey (Hotkey - Normal)
+{
+E
+}
+
+STRING 1431
+// Abilities: A013 (Materials3), Researchhotkey (Hotkey - Learn)
+{
+E
+}
+
+STRING 1432
+// Abilities: A014 (Materials4), Hotkey (Hotkey - Normal)
+{
+R
+}
+
+STRING 1433
+// Abilities: A014 (Materials4), Researchhotkey (Hotkey - Learn)
+{
+R
+}
+
+STRING 1434
+// Abilities: A015 (Materials5), Name (Name)
+{
+Materials5
+}
+
+STRING 1435
+// Abilities: A015 (Materials5), Hotkey (Hotkey - Normal)
+{
+A
+}
+
+STRING 1436
+// Abilities: A015 (Materials5), Tip (Tooltip - Normal)
+{
+Machine Recipe
+}
+
+STRING 1437
+// Abilities: A015 (Materials5), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1438
+// Abilities: A015 (Materials5), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1439
+// Abilities: A015 (Materials5), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1440
+// Abilities: A015 (Materials5), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1441
+// Abilities: A015 (Materials5), Researchhotkey (Hotkey - Learn)
+{
+A
+}
+
+STRING 1442
+// Abilities: A015 (Materials5), EditorSuffix (Editor Suffix)
+{
+(Dimensional Gate)
+}
+
+STRING 1443
+// Units: oMS1 (Stone I), Ubertip (Tooltip - Extended)
+{
+Transmutes a Rock.
+
+Materials
+2 Wood I
+}
+
+STRING 1444
+// Units: oMF1 (Fine Metal I), Ubertip (Tooltip - Extended)
+{
+Transmutes a Copper ore.
+
+Materials
+2 Metal I
+}
+
+STRING 1445
+// Abilities: A0R7 (Prepare Obliterum), Hotkey (Hotkey - Normal)
+{
+F
+}
+
+STRING 1446
+// Abilities: A0R7 (Prepare Obliterum), EditorSuffix (Editor Suffix)
+{
+(F)
+}
+
+STRING 1447
+// Units: u0F1 (Obliterate), Name (Name)
+{
+Obliterate
+}
+
+STRING 1448
+// Units: u0F1 (Obliterate), Tip (Tooltip - Basic)
+{
+Obliterate
+}
+
+STRING 1450
+// Abilities: A011 (Materials1), Researchhotkey (Hotkey - Learn)
+{
+Q
+}
+
+STRING 1452
+// Abilities: A016 (Fel 5), Name (Name)
+{
+Fel 5
+}
+
+STRING 1454
+// Abilities: A0RC (Research Obliterum), Name (Name)
+{
+Research Obliterum
+}
+
+STRING 1455
+// Abilities: A0RC (Research Obliterum), Hotkey (Hotkey - Normal)
+{
+F
+}
+
+STRING 1456
+// Abilities: A0RC (Research Obliterum), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1457
+// Abilities: A0RC (Research Obliterum), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1458
+// Abilities: A0RC (Research Obliterum), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1459
+// Abilities: A0RC (Research Obliterum), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 100 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1460
+// Abilities: A0RC (Research Obliterum), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 200 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1461
+// Abilities: A0RC (Research Obliterum), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 300 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1462
+// Abilities: A0RC (Research Obliterum), EditorSuffix (Editor Suffix)
+{
+(F)
+}
+
+STRING 1463
+// Abilities: A0RC (Research Obliterum), Researchhotkey (Hotkey - Learn)
+{
+F
+}
+
+STRING 1464
+// Abilities: A0RC (Research Obliterum), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1465
+// Abilities: A0RC (Research Obliterum), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1466
+// Abilities: A0RC (Research Obliterum), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1467
+// Abilities: A0RC (Research Obliterum), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1468
+// Abilities: A0RC (Research Obliterum), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1469
+// Abilities: A0RC (Research Obliterum), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1470
+// Abilities: A0RC (Research Obliterum), Tip (Tooltip - Normal)
+{
+Crystalize Fel (E)
+}
+
+STRING 1471
+// Abilities: A0RC (Research Obliterum), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 400 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1472
+// Abilities: A0RC (Research Obliterum), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 500 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1473
+// Abilities: A0RC (Research Obliterum), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 600 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1474
+// Abilities: A0RC (Research Obliterum), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 700 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1475
+// Abilities: A0RC (Research Obliterum), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 800 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1476
+// Abilities: A0RC (Research Obliterum), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 900 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1477
+// Abilities: A0RC (Research Obliterum), Ubertip (Tooltip - Normal - Extended)
+{
+Crystalizes 1000 fel into a powerup item that can be picked up by other units.
+}
+
+STRING 1478
+// Abilities: ASRC (Addition Research Obliterum), Name (Name)
+{
+Addition Research Obliterum
+}
+
+STRING 1479
+// Abilities: ASRC (Addition Research Obliterum), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1480
+// Abilities: ASRC (Addition Research Obliterum), Hotkey (Hotkey - Normal)
+{
+Q
+}
+
+STRING 1481
+// Abilities: ASRC (Addition Research Obliterum), Tip (Tooltip - Normal)
+{
+Base Prospector Spellbook (Q)
+}
+
+STRING 1482
+// Upgrades: R0R3 (Improved Masonry,Advanced Masonry,Imbued Masonry), Name (Name)
+{
+Research: Obliterum
+}
+
+STRING 1483
+// Units: u0F1 (Obliterate), Ubertip (Tooltip - Extended)
+{
+Destroy a demonfruit to generate 5 Fel.
+}
+
+STRING 1484
+// Destructibles: B0R1 (Iron Vein), Name (Name)
+{
+Iron Vein
+}
+
+STRING 1485
+// Destructibles: B0R2 (Copper Vein), Name (Name)
+{
+Copper Vein
+}
+
+STRING 1486
+// Destructibles: B0R3 (Silver Vein), Name (Name)
+{
+Silver Vein
+}
+
+STRING 1487
+// Destructibles: B0R4 (Gold Vein), Name (Name)
+{
+Gold Vein
+}
+
+STRING 1488
+// Units: H00P (Prospector), Propernames (Proper Names)
+{
+Thanos
+}
+
+STRING 1489
+{
+Enemies
+}
+
