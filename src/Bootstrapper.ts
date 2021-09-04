@@ -84,7 +84,7 @@ export function Initialize() {
     Log.Level = Level.Error;
     let generateMap = true;
     let lockToSurface = false;
-    FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
+    // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
     
     // MeleeStartingAI()
     // FogModifierStart(CreateFogModifierRect(enemyPlayer.handle, FOG_OF_WAR_VISIBLE, gg_rct_SurfaceMap, true, true));
@@ -484,7 +484,7 @@ export function Initialize() {
         SetCameraFieldForPlayer(MapPlayer.fromEvent().handle, CAMERA_FIELD_FARZ, 100000, 0.5);
     });
     
-    InitCommands(config, inputHandler, abilityEvent, basicSlotManager, specialSlotManager, heroManager);
+    InitCommands(config, inputHandler, abilityEvent, basicSlotManager, specialSlotManager, heroManager, itemFactory);
     
     // const tim1 = new Timer();
     // tim1.start(0, false, () => {
