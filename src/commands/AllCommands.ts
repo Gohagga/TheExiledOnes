@@ -1,10 +1,12 @@
 import { Config, enemyPlayer, Global, sharedPlayer } from "config/Config";
 import { HeroManager } from "content/gameplay/HeroManager";
+import { ComponentItem, ResourceItem } from "content/items/ResourceItem";
 import { Log } from "Log";
 import { AbilitySlotManager } from "systems/ability-slots/AbilitySlotManager";
 import { AbilityEvent } from "systems/events/ability-events/event-models/AbilityEvent";
 import { IAbilityEventHandler } from "systems/events/ability-events/IAbilityEventHandler";
 import { InputHandler } from "systems/events/input-events/InputHandler";
+import { ItemFactory } from "systems/items/ItemFactory";
 import { OrderId } from "w3ts/globals/order";
 import { MapPlayer, Timer, Trigger, Unit } from "w3ts/index";
 
@@ -15,6 +17,7 @@ export function InitCommands(
     basicSlotManager: AbilitySlotManager,
     specialSlotManager: AbilitySlotManager,
     heroManager: HeroManager,
+    itemFactory: ItemFactory
 ) {
 
     let originalUnitOwner: Record<number, number> = {};
@@ -131,6 +134,15 @@ export function InitCommands(
 
     CreateChatCommand(players, ['-secondchance'], true, () => {
         Global.soulAnchor.addAbility(FourCC('A00Z'));
+    });
+
+    CreateChatCommand(players, ['-getrich'], true, () => {
+        itemFactory.CreateItemByType(ResourceItem.WoodII, Global.soulAnchor.x, Global.soulAnchor.y);
+        itemFactory.CreateItemByType(ResourceItem.WoodII, Global.soulAnchor.x, Global.soulAnchor.y);
+        itemFactory.CreateItemByType(ResourceItem.StoneII, Global.soulAnchor.x, Global.soulAnchor.y);
+        itemFactory.CreateItemByType(ResourceItem.StoneII, Global.soulAnchor.x, Global.soulAnchor.y);
+        itemFactory.CreateItemByType(ComponentItem.FrameI, Global.soulAnchor.x, Global.soulAnchor.y);
+        itemFactory.CreateItemByType(ComponentItem.FrameI, Global.soulAnchor.x, Global.soulAnchor.y);
     });
 }
 
