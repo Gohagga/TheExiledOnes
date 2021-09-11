@@ -7,6 +7,8 @@ import { Destructable, Rectangle } from "w3ts/index";
 
 export class RandomObjectPlacer {
     
+    public readonly logId: number = FourCC('B00L');
+
     public readonly allTrees: { x: number, y: number }[] = [];
     
     constructor(
@@ -29,7 +31,8 @@ export class RandomObjectPlacer {
             let tree = this.allTrees[index];
             Log.Info("x, y", tree.x, tree.y);
             let { x, y } = PathingService.instance.GetNearestPoint(tree.x, tree.y);
-            CreateItem(ResourceItem.Branch, x, y);
+            // CreateItem(ResourceItem.Branch, x, y);
+            let destr = CreateDestructable(this.logId, x, y, math.random() * 140, 1, 0);
         }
     }
 }

@@ -11,6 +11,12 @@ import { ToolManager } from "systems/tools/ToolManager";
 import { ErrorService } from "systems/ui/ErrorService";
 import { MapPlayer, Trigger, Unit } from "w3ts/index";
 import { ToolAbilityBase } from "../../../systems/abilities/ToolAbilityBase";
+
+enum DestructableTypes {
+    SummerTree      = FourCC('LTlt'),
+    Log             = FourCC('B00L'),
+}
+
 export class Hand extends ToolAbilityBase {
 
     constructor(
@@ -54,7 +60,7 @@ export class Hand extends ToolAbilityBase {
 
         let dmg = 2
         switch (target.typeId) {
-            case FourCC('LTlt'):
+            case DestructableTypes.SummerTree:
                 caster.damageTarget(target.handle, dmg, true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_AXE_MEDIUM_CHOP);
         
                 let item = this.itemFactory.CreateItemByType(ResourceItem.Branch);
@@ -63,7 +69,15 @@ export class Hand extends ToolAbilityBase {
         
                 caster.addExperience(this.experience, true);
                 break;
-            
+
+            case DestructableTypes.Log:
+                item = this.itemFactory.CreateItemByType(ResourceItem.Log, target.x, target.y);
+                caster.addItem(item);
+
+                caster.addExperience(this.experience, true);
+                target.kill();
+                break;
+
             default:
                 this.errorService.DisplayError(caster.owner, "Invalid target.");
         }

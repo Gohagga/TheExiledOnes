@@ -1,7 +1,7 @@
 import { Log } from "Log";
 import { CraftingManager } from "systems/crafting/CraftingManager";
 import { Material } from "systems/crafting/Material";
-import { MaterialToColoredString, MaterialToString } from "systems/crafting/MaterialToString";
+import { ColoredMaterialName, MaterialToString } from "systems/crafting/MaterialToString";
 import { Color, Item } from "w3ts/index";
 import { IItemFactory } from "./IItemFactory";
 import { ItemConfig } from "./ItemConfig";
@@ -55,7 +55,7 @@ export class ItemFactory implements IItemFactory {
         if (def.tooltip) tooltip = def.tooltip;
         
         if (def.material)
-            tooltip += '\n\nMaterial ' + MaterialToColoredString(def.material);
+            tooltip += '\n\nMaterial ' + ColoredMaterialName(def.material);
         
         item.extendedTooltip = tooltip;
 

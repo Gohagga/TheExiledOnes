@@ -58,7 +58,7 @@ export class OrePlacer {
             if (this.heightBuilder.getHeight(x, y) >= 200) {
                 i--;
             } else {
-                this.itemFactory.CreateItemByType(ResourceItem.Rock, x, y);
+                this.itemFactory.CreateItemByType(ResourceItem.Stone, x, y);
             }
         }
     }

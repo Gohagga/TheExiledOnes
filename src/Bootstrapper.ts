@@ -457,7 +457,8 @@ export function Initialize() {
     // Machines
     // const workstation = new WorkstationMachine(config.WorkstationMachine, Unit.fromHandle(gg_unit_h000_0016), errorService, craftingManager, itemFactory);
 
-    heroManager.Initialize(abilities);
+    // TODO:
+    // heroManager.Initialize(abilities);
     Global.soulAnchor.removeAbility(aDimensionalGate.id);
     Global.soulAnchor.addAbility(aDimensionalGate.id);
 

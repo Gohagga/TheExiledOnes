@@ -1,4 +1,4 @@
-import { Artisan, ArtisanAbilities } from "content/classes/Artisan";
+import { Artisan2, Artisan2Abilities } from "content/classes/Artisan2";
 import { PlayerClass } from "content/classes/PlayerClass";
 import { Prospector, ProspectorAbilities } from "content/classes/Prospector";
 import { Researcher, ResearcherAbilities } from "content/classes/Researcher";
@@ -41,7 +41,7 @@ export class HeroManager {
 
     public Initialize(abilities:
         ProspectorAbilities &
-        ArtisanAbilities &
+        Artisan2Abilities &
         ResearcherAbilities
     ) {
         let t = new Trigger();
@@ -61,7 +61,7 @@ export class HeroManager {
 
     private OnUnitSold(abilities:
         ProspectorAbilities &
-        ArtisanAbilities &
+        Artisan2Abilities &
         ResearcherAbilities
     ) {
         
@@ -78,7 +78,7 @@ export class HeroManager {
 
             switch (config.type) {
                 case HeroType.Artisan:
-                    playerClass = new Artisan(sold, abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
+                    playerClass = new Artisan2(sold, abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
                     break;
                 case HeroType.Prospector:
                     playerClass = new Prospector(sold, abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
@@ -93,7 +93,7 @@ export class HeroManager {
             this.playerHero.set(playerId, sold);
             return playerClass;
 
-        } catch (ex) {
+        } catch (ex: any) {
             Log.Error(ex);
         }
 

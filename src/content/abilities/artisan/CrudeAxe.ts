@@ -24,8 +24,8 @@ export class CrudeAxe extends AbilityBase {
         abilityEvent.OnAbilityEffect(this.id, (e: AbilityEvent) => this.Execute(e));
 
         this.recipe = craftingManager.CreateRecipe([
-            [2, Material.Stone | Material.TierI | Material.TierII],
-            [1, Material.Wood | Material.TierI | Material.TierII],
+            [2, Material.Stone | Material.TierII],
+            [1, Material.Wood | Material.TierII],
         ]);
     }
 
@@ -62,7 +62,7 @@ export class CrudeAxe extends AbilityBase {
                     it.setPoint(caster.point);
                 }
             }
-        } catch (ex) {
+        } catch (ex: any) {
             Log.Error(ex);
         }
 

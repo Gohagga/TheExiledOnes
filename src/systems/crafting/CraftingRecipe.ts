@@ -2,7 +2,7 @@ import { Log } from "Log";
 import { Item, Unit } from "w3ts/index";
 import { CraftingResult } from "./CraftingResult";
 import { AllTiers, InvertTier, Material, TierEnd, TierStart } from "./Material";
-import { MaterialToColoredString, MaterialToString } from "./MaterialToString";
+import { ColoredMaterialName, MaterialName } from "./MaterialToString";
 
 export class CraftingRecipe {
 
@@ -30,8 +30,8 @@ export class CraftingRecipe {
             let matType = matGroup[1];
             let matType2 = matGroup[2];
 
-            let nameFormatted = MaterialToColoredString(matType, matGroup[2]);
-            let name = MaterialToString(matType, matGroup[2]);
+            let nameFormatted = ColoredMaterialName(matType, matGroup[2]);
+            let name = MaterialName(matType, matGroup[2]);
 
             if (neededAmount > 1) {
                 nameFormatted = neededAmount + ' ' + nameFormatted;
@@ -62,7 +62,7 @@ export class CraftingRecipe {
     
             Log.Debug("Returning items", items.length);
             return items;
-        } catch (ex) {
+        } catch (ex: any) {
             Log.Error(ex);
             return [];
         }
@@ -105,7 +105,7 @@ export class CraftingRecipe {
     
                 for (let i = 0; i < items.length; i++) {
     
-                    let item = items[i];
+                    let item: Item = items[i];
                     let typeId = item.typeId;
                     let itemMaterial: Material | null = null;
 
@@ -133,7 +133,7 @@ export class CraftingRecipe {
 
                     foundIndex = i;
                     foundTier = itemTier;
-                    Log.Debug("Found item", item.name, "Type", item.typeId, "Material", itemMaterial && MaterialToString(itemMaterial, matType2), "Tier", itemTier);
+                    Log.Debug("Found item", item.name, "Type", item.typeId, "Material", itemMaterial && MaterialName(itemMaterial, matType2), "Tier", itemTier);
                 }
 
                 if (foundIndex == -1) {
@@ -151,7 +151,7 @@ export class CraftingRecipe {
             }
 
             if (found != neededAmount) {
-                let msg = MaterialToString(matType, matType2);
+                let msg = MaterialName(matType, matType2);
                 if (neededAmount - found > 1) msg = neededAmount - found + ' ' + msg;
 
                 errors.push(msg);
@@ -206,7 +206,7 @@ export class CraftingRecipe {
                     ) {
                         foundIndex = i;
                         foundTier = itemTier;
-                        Log.Debug("Found item", item.name, "Type", item.typeId, "Material", MaterialToString(itemMaterial), "Tier", itemTier);
+                        Log.Debug("Found item", item.name, "Type", item.typeId, "Material", MaterialName(itemMaterial), "Tier", itemTier);
                     }
                 }
 
@@ -224,7 +224,7 @@ export class CraftingRecipe {
             }
 
             if (found != neededAmount) {
-                let msg = MaterialToString(matType, matType2);
+                let msg = MaterialName(matType, matType2);
                 if (neededAmount - found > 1) msg = neededAmount - found + ' ' + msg;
 
                 errors.push(msg);

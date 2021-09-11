@@ -42,7 +42,7 @@ import { Random } from "systems/random/Random";
 import { EnumUnitService } from "services/enum-service/EnumUnitService";
 import { ToolManager } from "systems/tools/ToolManager";
 import { ErrorService } from "systems/ui/ErrorService";
-import { Color, Frame, MapPlayer, Quest as Wc3Quest, Rectangle, Timer, Trigger, Unit } from "w3ts/index";
+import { Color, Frame, MapPlayer, Point, Quest as Wc3Quest, Rectangle, Timer, Trigger, Unit } from "w3ts/index";
 import { FelSmithing } from "content/abilities/artisan/FelSmithing";
 import { Tools } from "content/items/Tools";
 import { Equipment } from "content/items/Equipment";
@@ -74,6 +74,8 @@ import { ResearchQuest } from "systems/quests/ResearchQuest";
 import { DimensionalGate } from "content/abilities/DimensionalGate";
 import { AiController } from "content/ai/AiController";
 import { EnemyGenerator } from "systems/map-generation/object-placers/EnemyGenerator";
+import { FlyingItemsManager } from "systems/flying-items/FlyingItemsManager";
+import { ItemTransferNodeManager } from "systems/crafting/ItemTransferNodeManager";
 
 export function InitializeRework() {
 
@@ -82,7 +84,7 @@ export function InitializeRework() {
     Log.Level = Level.All;
     // Log.Level = Level.Message;
     Log.Level = Level.Error;
-    let generateMap = true;
+    let generateMap = false;
     let lockToSurface = false;
     FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
     
@@ -248,6 +250,13 @@ export function InitializeRework() {
     const forgeManager = new ForgeManager(FourCC('A00D'), enumService);
     const heroManager = new HeroManager(config.heroes, basicSlotManager, specialSlotManager, toolManager);
     const questManager = new QuestManager(questEvent);
+    const flyingItemsManager = new FlyingItemsManager(enumService);
+    const itemTransferNodeManager = new ItemTransferNodeManager(config.itemTransferNodeConfig, flyingItemsManager);
+
+    let nodes = enumService.EnumUnitsInRange(new Point(0, 0), 999999, u => u.typeId == FourCC('h007'));
+    for (let n of nodes) {
+        itemTransferNodeManager.Register(n);
+    }
 
     let prospectorQ = new BasicAbility(config.ProspectorSpellbook, abilityEvent);
     let artisanQ = new BasicAbility(config.ArtisanSpellbook, abilityEvent);
@@ -272,17 +281,18 @@ export function InitializeRework() {
 
     // Artisan
     let aArtisanSpellbook = artisanQ;
-    let aTransmute = new BasicAbility(config.Transmute, abilityEvent);
-    let aTransmuteRock = new Transmute(config.TransmuteRock, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Rock);
-    let aTransmuteIron = new Transmute(config.TransmuteIron, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Iron);
-    let aTransmuteCopper = new Transmute(config.TransmuteCopper, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Copper);
     let aCrudeAxe = new CrudeAxe(config.CrudeAxe, abilityEvent, craftingManager, errorService);
     let aCrudePickaxe = new CrudePickaxe(config.CrudePickaxe, abilityEvent, craftingManager, errorService);
+    let aMineshaft = new Mineshaft(config.Mineshaft, artisanQ, surfaceRect, undergroundRect, abilityEvent, basicSlotManager, errorService, craftingManager, dimensionEvent, pathingService);
     let aHellForge = new HellForge(config.HellForge, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager);
     let aWorkstation = new Workstation(config.Workstation, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager);
-    let aTransmuter = new Transmuter(config.Transmuter, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager);
+    let aAssembler = new Workstation(config.Assembler, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager);
     let aMinecart = new Minecart(config.Minecart, artisanQ, abilityEvent, basicSlotManager, errorService, craftingManager, dimensionEvent);
-    let aMineshaft = new Mineshaft(config.Mineshaft, artisanQ, surfaceRect, undergroundRect, abilityEvent, basicSlotManager, errorService, craftingManager, dimensionEvent, pathingService);
+    // let aTransmuter = new Transmuter(config.Transmuter, artisanQ, abilityEvent, basicSlotManager, craftingManager, errorService, machineFactory, machineManager);
+    // let aTransmute = new BasicAbility(config.Transmute, abilityEvent);
+    // let aTransmuteRock = new Transmute(config.TransmuteRock, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Rock);
+    // let aTransmuteIron = new Transmute(config.TransmuteIron, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Iron);
+    // let aTransmuteCopper = new Transmute(config.TransmuteCopper, abilityEvent, craftingManager, itemFactory, errorService, ResourceItem.Copper);
 
     let aArtisanFelsmithing = artisanW;
     let aForgeSteel = new FelSmithing(config.ForgeSteel, abilityEvent, craftingManager, itemFactory, forgeManager, errorService, ResourceItem.Steel);
@@ -328,15 +338,11 @@ export function InitializeRework() {
 
         // Artisan
         ArtisanSpellbook: aArtisanSpellbook,
-        Transmute: aTransmute,
-        TransmuteRock: aTransmuteRock,
-        TransmuteIron: aTransmuteIron,
-        TransmuteCopper: aTransmuteCopper,
         CrudeAxe: aCrudeAxe,
         CrudePickaxe: aCrudePickaxe,
         HellForge: aHellForge,
         Workstation: aWorkstation,
-        Transmuter: aTransmuter,
+        Assembler: aAssembler,
         Minecart: aMinecart,
         Mineshaft: aMineshaft,
 
@@ -381,7 +387,7 @@ export function InitializeRework() {
 
     // Order of abilities preloaded affects their order in the spellbooks!!!
     PreloadAbilities([aProspectorSpellbook, aDefile, aFelExtraction, aDemonfruit, aFelBasin, aCrystalizeFel, aEyeOfKilrogg, aTransferFel]);
-    PreloadAbilities([aArtisanSpellbook, aCrudeAxe, aCrudePickaxe, aTransmute, aTransmuteRock, aTransmuteIron, aTransmuteCopper, aHellForge, aWorkstation, aTransmuter, aMinecart, aMineshaft]);
+    PreloadAbilities([aArtisanSpellbook, aCrudeAxe, aCrudePickaxe, aMineshaft, aHellForge, aWorkstation, aAssembler, aMinecart]);
     PreloadAbilities([aArtisanFelsmithing, aForgeSteel, aForgeFelSteel, aForgeBuildingTools, aForgeSoulGem]);
     PreloadAbilities([aResearcherSpellbook, aStudy, aOrganicMatter, aNet, aExperimentChamber, aAutomaton, aFelInjector, aDepot, aObliterum]);
     PreloadAbilities([researcherW, aResearchTank, aResearchConverter, aResearchAutomaton, aResearchDepot]);
@@ -423,7 +429,7 @@ export function InitializeRework() {
         SetCameraFieldForPlayer(MapPlayer.fromEvent().handle, CAMERA_FIELD_FARZ, 100000, 0.5);
     });
     
-    InitCommands(config, inputHandler, abilityEvent, basicSlotManager, specialSlotManager, heroManager);
+    InitCommands(config, inputHandler, abilityEvent, basicSlotManager, specialSlotManager, heroManager, itemFactory);
     
     // const tim1 = new Timer();
     // tim1.start(0, false, () => {

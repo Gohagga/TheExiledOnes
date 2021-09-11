@@ -178,7 +178,7 @@ export class MapGenerator2 {
                                 CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), rabbit.type, x, y, 0);
                             if ((pathing == PathingType.Hills && tile == TerrainType.Rock) && math.random() < 0.5 && skink.placer.placeObject(x, y, 1))
                                 CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), skink.type, x, y, 0);
-                        } catch (ex) {
+                        } catch (ex: any) {
                             Log.Error(ex);
                         }
                     }
@@ -218,9 +218,9 @@ export class MapGenerator2 {
 
             let stonePileCount = math.floor((maxX - minX) / 305);
             let rocksCount = math.floor((maxX - minX) / 205);
-            let branchCount = math.floor((maxX - minX) / 153);
+            let branchCount = math.floor((maxX - minX) / 185);
             orePlacer.placeRocksAndStones(stonePileCount, rocksCount);
-            // randomPlacer.PlaceBranches(branchCount);
+            randomPlacer.PlaceBranches(branchCount);
 
             let remainingPoints: { x: number, y: number }[] = [];
             for (let p of spawnPoints) {
@@ -268,7 +268,7 @@ export class MapGenerator2 {
             this.enemyGenerator.generateUndergroundEnemies(undergroundCampsSpawnPoints);
             
             this.isDone = true;
-        } catch (err) {
+        } catch (err: any) {
             Log.Error(MapGenerator2, err);
         }
     }}

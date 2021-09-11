@@ -16,6 +16,7 @@ import { Animal, ComponentItem, ResourceItem } from "content/items/ResourceItem"
 import { Wc3BuildingAbility } from "systems/abilities/BuildingAbilityBase"
 import { ToolAbility } from "systems/abilities/ToolAbilityBase"
 import { Wc3Ability, Wc3ToggleAbility } from "systems/abilities/Wc3Ability"
+import { ItemTransferNodeConfig } from "systems/crafting/ItemTransferNodeManager"
 import { RecipeMachineConfig } from "systems/crafting/machine/MachineConfig"
 import { Material } from "systems/crafting/Material"
 import { ItemConfig } from "systems/items/ItemConfig"
@@ -240,6 +241,21 @@ Retera for RMS
         experience: 75,
         tooltip: 'Building used for crafting components used in many other building recipes.',
         materials: [
+            [2, Material.Stone | Material.TierII],
+            [2, Material.Wood  | Material.TierII],
+            [2, Material.Metal | Material.TierI]
+        ]
+    }
+
+    Assembler: Wc3BuildingAbility = {
+        name: '[L3] Prepare Assembler',
+        buildCodeId: 'ABAF',
+        prepareCodeId: 'A0AF',
+        builtUnitCodeId: 'h004',
+        extCodeId: 'ASAF',
+        experience: 75,
+        tooltip: 'Building used for crafting components used in many other building recipes.',
+        materials: [
             [3, Material.Stone | Material.TierII],
             [3, Material.Wood  | Material.TierII]
         ]
@@ -285,10 +301,10 @@ Retera for RMS
         undergroundExitUnitCode: 'o001',
         extCodeId: 'ASA9',
         experience: 100,
-        tooltip: 'Mineshaft allows players to go underground to mine ore.',
+        tooltip: 'Mineshaft allows players to go underground to mine ore such as iron, silver, gold.',
         materials: [
-            [2, Material.Frame | Material.TierI],
-            [2, Material.Stone | Material.TierII]
+            [3, Material.Wood | Material.TierII],
+            [3, Material.Stone | Material.TierII]
         ]
     }
 
@@ -1232,5 +1248,12 @@ Takes items from target unit if inventory is empty (only owned or shared units).
             tooltip: 'A caught animal.',
             material: Material.Animal | Material.FelExtraction,
         }
-    ]
+    ];
+
+    itemTransferNodeConfig: ItemTransferNodeConfig = {
+        nodeTypeCode: 'h007',
+        nodeTargetAbilityCode: 'A017',
+        nodeCooldown: 3,
+        teleportSfx: 'Abilities\\Spells\\Undead\\OrbOfDeath\\OrbOfDeathMissile.mdl',
+    }
 }
