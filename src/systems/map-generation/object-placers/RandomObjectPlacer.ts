@@ -32,7 +32,8 @@ export class RandomObjectPlacer {
             Log.Info("x, y", tree.x, tree.y);
             let { x, y } = PathingService.instance.GetNearestPoint(tree.x, tree.y);
             // CreateItem(ResourceItem.Branch, x, y);
-            let destr = CreateDestructable(this.logId, x, y, math.random() * 140, 1, 0);
+            // let destr = CreateDestructable(this.logId, x, y, math.random() * 140, 1, 0);
+            this.itemFactory.CreateItemByType(ResourceItem.Log, x, y);
         }
     }
 }

@@ -101,7 +101,7 @@ export class MachineBase implements IMachine {
                 if (rallyPoint && IsUnitInRangeLoc(this.unit.handle, rallyPoint, 150)) {
                     SetItemPositionLoc(item.handle, rallyPoint);
                 }
-            } catch(ex) {
+            } catch(ex: any) {
                 Log.Error(ex);
             }
 

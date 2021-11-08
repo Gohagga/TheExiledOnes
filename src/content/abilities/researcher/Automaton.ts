@@ -384,7 +384,7 @@ export class Automaton extends BuildingAbilityBase {
                     // Log.Info("the task");
                     // this.StopAutomationTask(automaton);
                 }
-            } catch (ex) {
+            } catch (ex: any) {
                 Log.Error(ex);
             }
             return null;

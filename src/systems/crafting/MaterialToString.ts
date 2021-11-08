@@ -108,6 +108,9 @@ export function MaterialName(material: Material, itemTypeId?: number) {
         if (Material.TierIII    == (Material.TierIII & material))   name += ' III'
         if (Material.TierIV     == (Material.TierIV & material))    name += ' IV'
 
+        if (Material.Animal     == (Material.Animal & material))    name += ' Animal';
+        if (Material.OrganicMatter == (Material.OrganicMatter & material))    name += ' Organic Matter';
+
         if (material == Material.Unique && itemTypeId) name += ' ' + GetObjectName(itemTypeId);
     }
     
@@ -150,6 +153,9 @@ export function ColoredMaterialName(material: Material, itemTypeId?: number) {
         if (Material.TierII     == (Material.TierII & material))    name += ' II'
         if (Material.TierIII    == (Material.TierIII & material))   name += ' III'
         if (Material.TierIV     == (Material.TierIV & material))    name += ' IV'
+
+        if (Material.Animal     == (Material.Animal & material))    name += ' Animal';
+        if (Material.OrganicMatter == (Material.OrganicMatter & material))    name += ' Organic Matter';
         
         if (material == Material.Unique && itemTypeId) name += ' ' + GetObjectName(itemTypeId);
     }

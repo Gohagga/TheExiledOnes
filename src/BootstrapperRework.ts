@@ -76,6 +76,9 @@ import { AiController } from "content/ai/AiController";
 import { EnemyGenerator } from "systems/map-generation/object-placers/EnemyGenerator";
 import { FlyingItemsManager } from "systems/flying-items/FlyingItemsManager";
 import { ItemTransferNodeManager } from "systems/crafting/ItemTransferNodeManager";
+import { ItemTransferNode } from "content/abilities/shared/ItemTransferNode";
+import { BurningQuarry } from "content/abilities/prospector/BurningQuarry";
+import { QuarryMine } from "content/abilities/tools/QuarryMine";
 
 export function InitializeRework() {
 
@@ -84,7 +87,7 @@ export function InitializeRework() {
     Log.Level = Level.All;
     // Log.Level = Level.Message;
     Log.Level = Level.Error;
-    let generateMap = false;
+    let generateMap = true;
     let lockToSurface = false;
     FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
     
@@ -107,6 +110,7 @@ export function InitializeRework() {
     const abilityEventProvider = new AbilityEventProvider(abilityEvent);
     const basicSlotManager = new AbilitySlotManager();
     const specialSlotManager = new AbilitySlotManager();
+    const sharedSlotManager = new AbilitySlotManager();
     const dimensionEvent = new DimensionEventHandler();
     const errorService = new ErrorService();
     const enumService = new EnumUnitService();
@@ -245,13 +249,13 @@ export function InitializeRework() {
 
     const toolManager = new ToolManager('AT0Z', hideItemPoint);
     const machineManager = new MachineManager(abilityEvent);
-    const machineFactory = new MachineFactory(config, craftingManager, itemFactory, errorService);
-    const inputHandler = new InputHandler(config.players);
-    const forgeManager = new ForgeManager(FourCC('A00D'), enumService);
-    const heroManager = new HeroManager(config.heroes, basicSlotManager, specialSlotManager, toolManager);
-    const questManager = new QuestManager(questEvent);
     const flyingItemsManager = new FlyingItemsManager(enumService);
     const itemTransferNodeManager = new ItemTransferNodeManager(config.itemTransferNodeConfig, flyingItemsManager);
+    const machineFactory = new MachineFactory(config, craftingManager, itemFactory, errorService, itemTransferNodeManager);
+    const inputHandler = new InputHandler(config.players);
+    const forgeManager = new ForgeManager(FourCC('A00D'), enumService);
+    const heroManager = new HeroManager(config.heroes, basicSlotManager, specialSlotManager, sharedSlotManager, toolManager);
+    const questManager = new QuestManager(questEvent);
 
     let nodes = enumService.EnumUnitsInRange(new Point(0, 0), 999999, u => u.typeId == FourCC('h007'));
     for (let n of nodes) {
@@ -261,12 +265,17 @@ export function InitializeRework() {
     let prospectorQ = new BasicAbility(config.ProspectorSpellbook, abilityEvent);
     let artisanQ = new BasicAbility(config.ArtisanSpellbook, abilityEvent);
     let researcherQ = new BasicAbility(config.ResearcherSpellbook, abilityEvent);
+    let sharedE = new BasicAbility(config.SharedSpellbook, abilityEvent);
 
     let artisanW = new BasicAbility(config.ArtisanFelsmithing, abilityEvent);
     let researcherW = new BasicAbility(config.ResearchSpellbook, abilityEvent);
 
     let depot = new Depot(config.Depot, researcherQ, abilityEvent, basicSlotManager, errorService, craftingManager, hideItemPoint);
     let hand = new Hand(config.Hand, abilityEvent, inputHandler, toolManager, itemFactory, heroManager, errorService);
+
+    // Shared
+    let aSharedSpellbook = sharedE;
+    let aItemTransferNode = new ItemTransferNode(config.ItemTransferNode, aSharedSpellbook, abilityEvent, sharedSlotManager, craftingManager, errorService, machineFactory);
    
     // Prospector
     let aProspectorSpellbook = prospectorQ;
@@ -278,6 +287,7 @@ export function InitializeRework() {
     let aCrystalizeFel = new CrystalizeFel(config.CrystalizeFel, abilityEvent, errorService, itemFactory);
     let aEyeOfKilrogg = new BasicAbility(config.EyeOfKilrogg, abilityEvent);
     let aTransferFel = new BasicAbility(config.TransferFel, abilityEvent);
+    let aBurningQuarry = new BurningQuarry(config.BurningQuarry, prospectorQ, abilityEvent, basicSlotManager, craftingManager, errorService, enumService, machineFactory, itemFactory);
 
     // Artisan
     let aArtisanSpellbook = artisanQ;
@@ -322,8 +332,13 @@ export function InitializeRework() {
 
     // Other
     let aDimensionalGate = new DimensionalGate(config.DimensionalGate, abilityEvent, craftingManager, errorService, alliedPlayers);
+    let aQuarryMine = new QuarryMine(config.QuarryMine, abilityEvent, itemFactory, errorService);
 
     let abilities = {
+
+        // Shared
+        SharedSpellbook: aSharedSpellbook,
+        ItemTransferNode: aItemTransferNode,
 
         // Prospector
         ProspectorSpellbook: aProspectorSpellbook,
@@ -335,6 +350,7 @@ export function InitializeRework() {
         CrystalizeFel: aCrystalizeFel,
         EyeOfKilrogg: aEyeOfKilrogg,
         TransferFel: aTransferFel,
+        BurningQuarry: aBurningQuarry,
 
         // Artisan
         ArtisanSpellbook: aArtisanSpellbook,
@@ -386,11 +402,12 @@ export function InitializeRework() {
     }
 
     // Order of abilities preloaded affects their order in the spellbooks!!!
-    PreloadAbilities([aProspectorSpellbook, aDefile, aFelExtraction, aDemonfruit, aFelBasin, aCrystalizeFel, aEyeOfKilrogg, aTransferFel]);
+    PreloadAbilities([aProspectorSpellbook, aDefile, aFelExtraction, aDemonfruit, aFelBasin, aCrystalizeFel, aEyeOfKilrogg, aTransferFel, aBurningQuarry]);
     PreloadAbilities([aArtisanSpellbook, aCrudeAxe, aCrudePickaxe, aMineshaft, aHellForge, aWorkstation, aAssembler, aMinecart]);
     PreloadAbilities([aArtisanFelsmithing, aForgeSteel, aForgeFelSteel, aForgeBuildingTools, aForgeSoulGem]);
     PreloadAbilities([aResearcherSpellbook, aStudy, aOrganicMatter, aNet, aExperimentChamber, aAutomaton, aFelInjector, aDepot, aObliterum]);
     PreloadAbilities([researcherW, aResearchTank, aResearchConverter, aResearchAutomaton, aResearchDepot]);
+    PreloadAbilities([aSharedSpellbook, aItemTransferNode]);
 
     // Tools
     toolManager.RegisterTool('IT00', abilities.Axe, 1);
@@ -482,35 +499,38 @@ export function InitializeRework() {
     let codeRes = new Color(255, 0, 255).code + 'R|r: ';
 
     questManager.AddQuestToPool(
-        new ItemQuest("fourRocks", 'Find 4 Rocks', questManager, craftingManager, itemFactory,
-        [[1, Material.Unique, ResourceItem.Rock]], 4, [[2, ResourceItem.Rock]]));
+        new ItemQuest("fourRocks", 'Find 4 Stone', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, ResourceItem.Stone]], 4, [[1, ResourceItem.Stone]]));
     questManager.AddQuestToPool(
-        new ItemQuest("sixSticks", 'Gather 6 Sticks', questManager, craftingManager, itemFactory,
-        [[1, Material.Unique, ResourceItem.WoodI]], 6, [[4, ResourceItem.WoodI]]));
+        new ItemQuest("sixSticks", 'Find 2 Wood', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, ResourceItem.WoodII]], 2, [[1, ResourceItem.WoodII]]));
 
     questManager.AddQuestToPool(
-        new ItemQuest("crudeAxes", codeArt + 'Make two Crude Axe', questManager, craftingManager, itemFactory,
-        [[1, Material.Unique, Tools.CrudeAxeI]], 2, [[2, ResourceItem.Rock]]));
+        new ItemQuest("crudePix", codeArt + 'Make a Crude Pickaxe', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, Tools.CrudePickaxeII]], 1, [[1, ResourceItem.Stone]]));
     questManager.AddQuestToPool(
         new AbilityUsedQuest("felCrystal", codePro + 'Make Crystalized Fel', questManager, itemFactory, abilityEvent,
         aCrystalizeFel.id, 1, [[1, ResourceItem.CrystalizedFel100]], false));
     questManager.AddQuestToPool(
-        new ItemQuest("sixNets", codeRes + 'Make six Nets', questManager, craftingManager, itemFactory,
-        [[1, Material.Unique, Tools.Net]], 6, [[2, Tools.Net]]));
-
+        new ItemQuest("sixNets", codeRes + 'Make four Nets', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, Tools.Net]], 4, [[2, Tools.Net]]));
     questManager.AddQuestToPool(
-        new ItemQuest("crudePix", codeArt + 'Make a Crude Pickaxe', questManager, craftingManager, itemFactory,
-        [[1, Material.Unique, Tools.CrudePickaxeI]], 1, [[3, ResourceItem.Rock]]));
+        new ItemQuest("crudeAxes", codeArt + 'Make two Crude Axe', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, Tools.CrudeAxeII]], 2, [[2, ResourceItem.Stone]]));
+
     questManager.AddQuestToPool(
         new ItemQuest("animals", 'Catch six animals', questManager, craftingManager, itemFactory,
         [[1, Material.Animal]], 6, [[1, Animal.Frog]]));
     questManager.AddQuestToPool(
-        new ItemQuest("logs", 'Gather six Logs', questManager, craftingManager, itemFactory,
-        [[1, Material.Unique, ResourceItem.Log]], 6, [[1, ResourceItem.Log]]));
+        new ItemQuest("logs", 'Gather six Wood', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, ResourceItem.WoodII]], 6, [[2, ResourceItem.WoodII]]));
     questManager.AddQuestToPool(
-        new ItemQuest("stones", 'Gather eight Stones', questManager, craftingManager, itemFactory,
-        [[1, Material.Unique, ResourceItem.Stone]], 8, [[1, ResourceItem.Stone]]));
+        new ItemQuest("stones", 'Gather six Stones', questManager, craftingManager, itemFactory,
+        [[1, Material.Unique, ResourceItem.Stone]], 6, [[1, ResourceItem.Stone]]));
 
+    questManager.AddQuestToPool(
+        new BuildingQuest("mineshaft", codeArt + 'Build a Mineshaft', questManager, itemFactory,
+        aMineshaft.builtUnitId, 1, [[1, Tools.CrudePickaxeII]]));
     questManager.AddQuestToPool(
         new BuildingQuest("workstation", codeArt + 'Build a Workstation', questManager, itemFactory,
         aWorkstation.builtUnitId, 1, [[1, ResourceItem.StoneII], [1, ResourceItem.WoodII]]));
@@ -522,7 +542,7 @@ export function InitializeRework() {
         aDemonfruit.id, 1, [[1, ResourceItem.OrganicMatter]]));
 
     questManager.AddQuestToPool(
-        new ItemQuest("irons", codeArt + 'Transmute 10 Iron', questManager, craftingManager, itemFactory,
+        new ItemQuest("irons", codeArt + 'Mine 10 Iron', questManager, craftingManager, itemFactory,
         [[1, Material.Unique, ResourceItem.Iron]], 10, [[2, ResourceItem.Iron]]));
     questManager.AddQuestToPool(
         new ResearchQuest("tankResearch", codeRes + "Research Tank I", questManager, itemFactory, abilityEvent,

@@ -10,7 +10,8 @@ import { HeightBuilder } from "../builders/HeightBuilder";
 export class OrePlacer {
     
     public readonly possibleStoneSpots: { x: number, y: number, z: number }[] = [];
-    
+    public readonly possibleQuarrySpots: { x: number, y: number, z: number }[] = [];
+
     constructor(
         private readonly random: Random,
         private readonly region: Rectangle,
@@ -25,7 +26,12 @@ export class OrePlacer {
         this.possibleStoneSpots.push(point);
     }
 
-    placeRocksAndStones(stonePileCount: number, worldRockCount: number) {
+    AddPossibleQuarrySpot(point: { x: number, y: number, z: number }) {
+        // Log.Info("Registered spot");
+        this.possibleQuarrySpots.push(point);
+    }
+
+    placeRocksAndStones(stonePileCount: number, worldRockCount: number, quarrySpot: number) {
 
         Log.Info("Placing ore...", this.possibleStoneSpots.length);
         for (let i = 0; i < stonePileCount; i++) {
@@ -35,7 +41,7 @@ export class OrePlacer {
             Log.Info("x, y", p.x, p.y);
             let { x, y } = PathingService.instance.GetNearestPoint(p.x, p.y);
             // TerrainDeformCrater(x, y, 128, -600, 1, true);
-            CreateDestructableZ(OreType.StonePile, x, y, p.z, 270, 1, 0);
+            CreateDestructableZ(OreType.StonePile, x, y, p.z, 270, 1, GetRandomInt(0, 5));
             
             // let rocksCount = this.random.nextInt(0, 3);
             // for (let j = 0; j < rocksCount; j++) {
@@ -60,6 +66,18 @@ export class OrePlacer {
             } else {
                 this.itemFactory.CreateItemByType(ResourceItem.Stone, x, y);
             }
+        }
+
+        for (let i = 0; i < quarrySpot && i < this.possibleQuarrySpots.length; i++) {
+            let index = this.random.nextInt(0, this.possibleQuarrySpots.length - 1);
+
+            let p = this.possibleQuarrySpots[index];
+            let { x, y } = PathingService.instance.GetNearestPoint(p.x, p.y);
+
+            if (this.heightBuilder.getHeight(x, y) <= 330)
+                CreateDestructableZ(OreType.StoneQuarry, x, y, p.z - 150, 270, 2.5, GetRandomInt(0, 5));
+            else
+                i--;
         }
     }
 }

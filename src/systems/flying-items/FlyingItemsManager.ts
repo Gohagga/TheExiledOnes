@@ -58,12 +58,10 @@ export class FlyingItemsManager {
     Update() {
 
         let count = this.instances.length;
-        print(count);
         for (let i = 0; i < count; i++) {
 
             let fi = this.instances[i];
 
-            print("i", i, fi.alive);
             if (fi.alive) {
 
                 // Logic
@@ -75,13 +73,11 @@ export class FlyingItemsManager {
                 if (IsUnitInRangeXY(fi.targetUnit.handle, x, y, 50)) {
                     //math.abs(x - fi.x) < 100 && math.abs(y - fi.y) < 100) {
                     // Item has arrived
-                    print("Item has arrived");
                     fi.alive = false;
                     fi.targetUnit.addItem(fi.item);
                 } else if (math.abs(fi.item.x - x) > 0.5 || math.abs(fi.item.y - y) > 0.5) {
                     // Bump has happened.
                     fi.alive &&= false;
-                    print("Bump has happened", fi.item.x - x, fi.item.y - y);
                 } else {
     
                     let ix = fi.item.x;
@@ -89,9 +85,7 @@ export class FlyingItemsManager {
                     if ((x-ix)*(x-ix) + (y-iy)*(y-iy) >= 1000000) {
 
                         fi.alive &&= false;
-                        print("Max range reached");
                     } else {
-                        print("Moving...");
                         fi.item.setPosition(x, y);
                     }
                 }

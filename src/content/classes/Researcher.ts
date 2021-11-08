@@ -10,6 +10,7 @@ import { PlayerClass } from "./PlayerClass";
 export type ResearcherAbilities = {
     ResearcherSpellbook: IAbility,
     ResearchSpellbook: IAbility,
+    SharedSpellbook: IAbility,
     TransferItems: IAbility,
     
     Study: IAbility,
@@ -21,7 +22,6 @@ export type ResearcherAbilities = {
     Depot: IAbility,
     Obliterum: IAbility,
     
-    
     Hand: IToolAbility,
     
     // Research
@@ -29,6 +29,8 @@ export type ResearcherAbilities = {
     ResearchConverter: IAbility,
     ResearchAutomaton: IAbility,
     ResearchDepot: IAbility,
+
+    ItemTransferNode: IAbility,
 }
 
 export class Researcher extends PlayerClass {
@@ -38,6 +40,7 @@ export class Researcher extends PlayerClass {
         protected abilities: ResearcherAbilities,
         protected basicSlotManager: AbilitySlotManager,
         protected specialSlotManager: AbilitySlotManager,
+        protected sharedSlotManager: AbilitySlotManager,
         protected toolManager: ToolManager,
     ) {
         super(unit);
@@ -47,13 +50,15 @@ export class Researcher extends PlayerClass {
     protected Progress(): void {
 
         // Register this unit or reset slots if it exists
-        this.basicSlotManager.RegisterUnit(this.unit)
-        this.specialSlotManager.RegisterUnit(this.unit)
+        this.basicSlotManager.RegisterUnit(this.unit);
+        this.specialSlotManager.RegisterUnit(this.unit);
+        this.sharedSlotManager.RegisterUnit(this.unit);
         //     this.slotManager.ResetSlots(this.unit);
 
         // Add Prospector spellbook for this unit
         this.abilities.ResearcherSpellbook.AddToUnit(this.unit);
         this.abilities.ResearchSpellbook.AddToUnit(this.unit);
+        this.abilities.SharedSpellbook.AddToUnit(this.unit);
 
         this.abilities.TransferItems.AddToUnit(this.unit);
         this.toolManager.SetDefault(this.unit, this.abilities.Hand);
@@ -73,10 +78,14 @@ export class Researcher extends PlayerClass {
         this.AddResearch(AbilitySlot.A, this.abilities.ResearchAutomaton);
         this.AddResearch(AbilitySlot.D, this.abilities.ResearchDepot);
 
+        // Add shared
+        this.AddShared(AbilitySlot.Q, this.abilities.ItemTransferNode);
+
         // Remove and readd spells
         Log.Info("Updating spell list");
         this.basicSlotManager.UpdateSpellList(this.unit);
         this.specialSlotManager.UpdateSpellList(this.unit);
+        this.sharedSlotManager.UpdateSpellList(this.unit);
 
         // Leveling
         
@@ -118,6 +127,10 @@ export class Researcher extends PlayerClass {
 
     private AddResearch(slot: AbilitySlot, ability: IAbility) {
         this.specialSlotManager.ApplySlot(this.unit, slot, ability);
+    }
+
+    private AddShared(slot: AbilitySlot, ability: IAbility) {
+        this.sharedSlotManager.ApplySlot(this.unit, slot, ability);
     }
 
     private Enable(ability: IAbility, flag: boolean) {

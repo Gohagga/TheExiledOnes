@@ -9,6 +9,7 @@ import { PlayerClass } from "./PlayerClass";
 
 export type ProspectorAbilities = {
     ProspectorSpellbook: IAbility,
+    SharedSpellbook: IAbility,
     TransferItems: IAbility,
 
     Defile: IAbility,
@@ -18,6 +19,9 @@ export type ProspectorAbilities = {
     Demonfruit: IAbility,
     TransferFel: IAbility,
     FelBasin: IAbility,
+    BurningQuarry: IAbility,
+
+    ItemTransferNode: IAbility,
 
     Hand: IToolAbility,
 }
@@ -29,6 +33,7 @@ export class Prospector extends PlayerClass {
         protected abilities: ProspectorAbilities,
         protected basicSlotManager: AbilitySlotManager,
         protected specialSlotManager: AbilitySlotManager,
+        protected sharedSlotManager: AbilitySlotManager,
         protected toolManager: ToolManager
     ) {
         super(unit);
@@ -38,11 +43,13 @@ export class Prospector extends PlayerClass {
     protected Progress(): void {
 
         // Register this unit or reset slots if it exists
-        this.basicSlotManager.RegisterUnit(this.unit)
+        this.basicSlotManager.RegisterUnit(this.unit);
+        this.sharedSlotManager.RegisterUnit(this.unit);
         //     this.slotManager.ResetSlots(this.unit);
 
         // Add Prospector spellbook for this unit
         this.abilities.ProspectorSpellbook.AddToUnit(this.unit);
+        this.abilities.SharedSpellbook.AddToUnit(this.unit);
         // Add Transfer items
         this.abilities.TransferItems.AddToUnit(this.unit);
         this.toolManager.SetDefault(this.unit, this.abilities.Hand);
@@ -54,10 +61,15 @@ export class Prospector extends PlayerClass {
         this.Add(AbilitySlot.A, this.abilities.CrystalizeFel);
         this.Add(AbilitySlot.S, this.abilities.EyeOfKilrogg);
         this.Add(AbilitySlot.D, this.abilities.TransferFel);
+        this.Add(AbilitySlot.F, this.abilities.BurningQuarry);
+
+        // Add shared
+        this.AddShared(AbilitySlot.Q, this.abilities.ItemTransferNode);
 
         // Remove and readd spells
         Log.Info("Updating spell list");
         this.basicSlotManager.UpdateSpellList(this.unit);
+        this.sharedSlotManager.UpdateSpellList(this.unit);
         Log.Info("returning");
 
         // Leveling
@@ -65,6 +77,7 @@ export class Prospector extends PlayerClass {
         this.basicSlotManager.DisableAbilities(this.unit);
         // this.specialSlotManager.DisableAbilities(this.unit);
         this.Enable(this.abilities.TransferItems, false);
+        this.Enable(this.abilities.BurningQuarry, true);
 
         this.WaitForUnitLevel(1);
         this.Enable(this.abilities.Defile, true);
@@ -88,6 +101,10 @@ export class Prospector extends PlayerClass {
 
     private Add(slot: AbilitySlot, ability: IAbility) {
         this.basicSlotManager.ApplySlot(this.unit, slot, ability);
+    }
+
+    private AddShared(slot: AbilitySlot, ability: IAbility) {
+        this.sharedSlotManager.ApplySlot(this.unit, slot, ability);
     }
 
     private Enable(ability: IAbility, flag: boolean) {

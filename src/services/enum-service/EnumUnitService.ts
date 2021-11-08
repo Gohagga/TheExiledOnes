@@ -1,10 +1,55 @@
 import { Log } from "Log";
-import { Point, Unit } from "w3ts/index";
+import { Destructable, Item, Point, Rectangle, Unit } from "w3ts/index";
 import { IEnumUnitService } from "./IEnumUnitService";
 
 export class EnumUnitService implements IEnumUnitService {
 
     group: group = CreateGroup();
+    rect: Rectangle = new Rectangle(0, 0, 100, 100);
+
+    EnumItemsInRange(originX: number, originY: number, radius: number, filter?: (target: Item, caster?: Unit) => boolean, source?: Unit): Item[] {
+        
+        const retVal: Item[] = [];
+        const radiusSq = radius * radius;
+
+        this.rect.setRect(0, 0, radius, radius);
+        this.rect.move(originX, originY);
+        EnumItemsInRect(this.rect.handle, null, () => {
+            const item = Item.fromHandle(GetEnumItem());
+            const x = item.x;
+            const y = item.y;
+            let distanceSq = (x-originX)*(x-originX) + (y-originY)*(y-originY);
+            if (distanceSq < radiusSq) {
+                if (!filter || filter(item, source)) {
+                    retVal.push(item);
+                }
+            }
+        });
+
+        return retVal;
+    }
+
+    EnumDestructablesInRange(originX: number, originY: number, radius: number, filter?: (target: Destructable, caster?: Unit) => boolean, source?: Unit): Destructable[] {
+        
+        const retVal: Destructable[] = [];
+        const radiusSq = radius * radius;
+
+        this.rect.setRect(0, 0, radius, radius);
+        this.rect.move(originX, originY);
+        EnumDestructablesInRect(this.rect.handle, null, () => {
+            const destr = Destructable.fromHandle(GetEnumDestructable());
+            const x = destr.x;
+            const y = destr.y;
+            let distanceSq = (x-originX)*(x-originX) + (y-originY)*(y-originY);
+            if (distanceSq < radiusSq) {
+                if (!filter || filter(destr, source)) {
+                    retVal.push(destr);
+                }
+            }
+        });
+
+        return retVal;
+    }
     
     EnumUnitsInRange(origin: Point, radius: number, filter?: (target: Unit, caster?: Unit) => boolean, source?: Unit): Unit[] {
         GroupEnumUnitsInRange(this.group, origin.x, origin.y, radius, null);

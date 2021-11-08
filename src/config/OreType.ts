@@ -6,4 +6,6 @@ export enum OreType {
     SilverVein = FourCC('B0R3'),
     GoldVein = FourCC('B0R4'),
     Rubble = FourCC('DTrc'),
+
+    StoneQuarry = FourCC('B0R5'),
 }

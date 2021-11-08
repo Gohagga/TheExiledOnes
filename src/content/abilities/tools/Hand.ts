@@ -9,7 +9,7 @@ import { InputHandler, MetaKey } from "systems/events/input-events/InputHandler"
 import { IItemFactory } from "systems/items/IItemFactory";
 import { ToolManager } from "systems/tools/ToolManager";
 import { ErrorService } from "systems/ui/ErrorService";
-import { MapPlayer, Trigger, Unit } from "w3ts/index";
+import { Item, MapPlayer, Trigger, Unit } from "w3ts/index";
 import { ToolAbilityBase } from "../../../systems/abilities/ToolAbilityBase";
 
 enum DestructableTypes {
@@ -59,16 +59,17 @@ export class Hand extends ToolAbilityBase {
         if (!target) return false;
 
         let dmg = 2
+        let item: Item;
         switch (target.typeId) {
-            case DestructableTypes.SummerTree:
-                caster.damageTarget(target.handle, dmg, true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_AXE_MEDIUM_CHOP);
+            // case DestructableTypes.SummerTree:
+            //     caster.damageTarget(target.handle, dmg, true, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_AXE_MEDIUM_CHOP);
         
-                let item = this.itemFactory.CreateItemByType(ResourceItem.Branch);
-                if (caster.addItem(item) == false)
-                    item.setPosition(target.x, target.y);
+            //     let item = this.itemFactory.CreateItemByType(ResourceItem.Branch);
+            //     if (caster.addItem(item) == false)
+            //         item.setPosition(target.x, target.y);
         
-                caster.addExperience(this.experience, true);
-                break;
+            //     caster.addExperience(this.experience, true);
+            //     break;
 
             case DestructableTypes.Log:
                 item = this.itemFactory.CreateItemByType(ResourceItem.Log, target.x, target.y);
@@ -94,5 +95,5 @@ export class Hand extends ToolAbilityBase {
     TooltipDescription = (unit: Unit) => 
 `Interacts with an object.
 
-Tree - obtain a Branch (wood material).`;
+Log - obtain Wood.`;
 }

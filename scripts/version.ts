@@ -1,6 +1,6 @@
 import * as fs from "fs-extra";
-import War3MapW3i from "mdx-m3-viewer/src/parsers/w3x/w3i/file";
-import War3MapWts from "mdx-m3-viewer/src/parsers/w3x/wts/file";
+import War3MapW3i from "mdx-m3-viewer/dist/cjs/parsers/w3x/w3i/file";
+import War3MapWts from "mdx-m3-viewer/dist/cjs/parsers/w3x/wts/file";
 import { IProjectConfig, loadJsonFile } from "./utils";
 
 export function setVersionAuthor(path: string, config: IProjectConfig) {

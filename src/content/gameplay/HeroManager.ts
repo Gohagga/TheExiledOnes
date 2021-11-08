@@ -30,6 +30,7 @@ export class HeroManager {
         config: HeroConfig[],
         private basicSlotManager: AbilitySlotManager,
         private specialSlotManager: AbilitySlotManager,
+        private sharedSlotManager: AbilitySlotManager,
         private toolManager: ToolManager,
     ) {
         
@@ -53,10 +54,16 @@ export class HeroManager {
         t.addAction(() => {
             let unit = Unit.fromEvent();
             if (unit.isHero()) {
+
+                this.toolManager.Unequip(unit);
+                for (let i = 0; i < 6; i++) {
+                    UnitRemoveItemFromSlot(unit.handle, i);
+                }
+
                 unit.setOwner(MapPlayer.fromIndex(PLAYER_NEUTRAL_PASSIVE), false);
                 unit.applyTimedLife(FourCC('B000'), 2)
             }
-        })
+        });
     }
 
     private OnUnitSold(abilities:
@@ -78,13 +85,13 @@ export class HeroManager {
 
             switch (config.type) {
                 case HeroType.Artisan:
-                    playerClass = new Artisan2(sold, abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
+                    playerClass = new Artisan2(sold, abilities, this.basicSlotManager, this.specialSlotManager, this.sharedSlotManager, this.toolManager);
                     break;
                 case HeroType.Prospector:
-                    playerClass = new Prospector(sold, abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
+                    playerClass = new Prospector(sold, abilities, this.basicSlotManager, this.specialSlotManager, this.sharedSlotManager, this.toolManager);
                     break;
                 case HeroType.Researcher:
-                    playerClass = new Researcher(sold, abilities, this.basicSlotManager, this.specialSlotManager, this.toolManager);
+                    playerClass = new Researcher(sold, abilities, this.basicSlotManager, this.specialSlotManager, this.sharedSlotManager, this.toolManager);
                     break;
                 default:
                     throw null;
@@ -106,9 +113,6 @@ export class HeroManager {
         if (this.playerHero.has(playerId)) {
 
             let hero = this.playerHero.get(playerId) as Unit;
-            for (let i = 0; i < 6; i++) {
-                UnitRemoveItemFromSlot(hero.handle, i);
-            }
             hero.kill();
         }
 

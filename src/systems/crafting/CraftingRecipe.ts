@@ -158,6 +158,7 @@ export class CraftingRecipe {
             }
         }
 
+            PLAYER_COLOR_BLUE
 
         if (this.neededFel > 0) {
             let felDiff = this.neededFel - unit.mana;

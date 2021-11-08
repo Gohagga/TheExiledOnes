@@ -11,7 +11,7 @@ import { DimensionType } from "systems/events/dimension-events/DimensionType";
 import { IDimensionEventHandler } from "systems/events/dimension-events/IDimensionEventHandler";
 import { ErrorService } from "systems/ui/ErrorService";
 import { OrderId } from "w3ts/globals/order";
-import { Destructable, Effect, Item, onHostDetect, Rectangle, Region, Timer, Trigger, Unit } from "w3ts/index";
+import { Destructable, Effect, Item, onHostDetect, Region, Timer, Trigger, Unit } from "w3ts/index";
 
 const Sprite: Record<number, string> = {
     1: "sprite first",

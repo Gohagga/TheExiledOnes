@@ -9,6 +9,7 @@ import { PlayerClass } from "./PlayerClass";
 
 export type Artisan2Abilities = {
     ArtisanSpellbook: IAbility,
+    SharedSpellbook: IAbility,
     TransferItems: IAbility,
     Hand: IToolAbility,
     ArtisanFelsmithing: IAbility,
@@ -25,6 +26,8 @@ export type Artisan2Abilities = {
     ForgeFelSteel: IAbility,
     ForgeBuildingTools: IAbility,
     ForgeSoulGem: IAbility,
+
+    ItemTransferNode: IAbility,
 }
 
 export class Artisan2 extends PlayerClass {
@@ -34,6 +37,7 @@ export class Artisan2 extends PlayerClass {
         protected abilities: Artisan2Abilities,
         protected basicSlotManager: AbilitySlotManager,
         protected specialSlotManager: AbilitySlotManager,
+        protected sharedSlotManager: AbilitySlotManager,
         protected toolManager: ToolManager,
     ) {
         super(unit);
@@ -45,10 +49,12 @@ export class Artisan2 extends PlayerClass {
         // Register this unit or reset slots if it exists
         this.basicSlotManager.RegisterUnit(this.unit);
         this.specialSlotManager.RegisterUnit(this.unit);
+        this.sharedSlotManager.RegisterUnit(this.unit);
 
         // Add Prospector spellbook for this unit
         this.abilities.ArtisanSpellbook.AddToUnit(this.unit);
         this.abilities.ArtisanFelsmithing.AddToUnit(this.unit);
+        this.abilities.SharedSpellbook.AddToUnit(this.unit);
         this.abilities.TransferItems.AddToUnit(this.unit);
         this.toolManager.SetDefault(this.unit, this.abilities.Hand);
 
@@ -66,11 +72,15 @@ export class Artisan2 extends PlayerClass {
         this.AddForge(AbilitySlot.W, this.abilities.ForgeFelSteel);
         this.AddForge(AbilitySlot.E, this.abilities.ForgeBuildingTools);
         this.AddForge(AbilitySlot.R, this.abilities.ForgeSoulGem);
+
+        // Add shared
+        this.AddShared(AbilitySlot.Q, this.abilities.ItemTransferNode);
         
         // Remove and readd spells, important to stay after xmute abilities
         Log.Info("Updating spell list");
         this.basicSlotManager.UpdateSpellList(this.unit);
         this.specialSlotManager.UpdateSpellList(this.unit);
+        this.sharedSlotManager.UpdateSpellList(this.unit);
 
         // Leveling
         // let level = 1;
@@ -92,6 +102,7 @@ export class Artisan2 extends PlayerClass {
         
         this.WaitForUnitLevel(2);
         this.Enable(this.abilities.TransferItems, true);
+        this.Enable(this.abilities.Mineshaft, true);
 
         this.WaitForUnitLevel(3);
         this.Enable(this.abilities.Workstation, true);
@@ -103,7 +114,6 @@ export class Artisan2 extends PlayerClass {
 
         this.WaitForUnitLevel(5);
         this.Enable(this.abilities.Minecart, true);
-        this.Enable(this.abilities.Mineshaft, true);
     }
 
     private AddBasic(slot: AbilitySlot, ability: IAbility) {
@@ -112,6 +122,10 @@ export class Artisan2 extends PlayerClass {
 
     private AddForge(slot: AbilitySlot, ability: IAbility) {
         this.specialSlotManager.ApplySlot(this.unit, slot, ability);
+    }
+
+    private AddShared(slot: AbilitySlot, ability: IAbility) {
+        this.sharedSlotManager.ApplySlot(this.unit, slot, ability);
     }
 
     private Enable(ability: IAbility, flag: boolean) {

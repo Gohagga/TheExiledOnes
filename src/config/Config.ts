@@ -3,6 +3,7 @@ import { ForgeAbility } from "content/abilities/artisan/FelSmithing"
 import { MineshaftWc3Ability } from "content/abilities/artisan/Mineshaft"
 import { TransmuteAbility } from "content/abilities/artisan/Transmute"
 import { DimensionalGateAbility } from "content/abilities/DimensionalGate"
+import { BurningQuarryAbility } from "content/abilities/prospector/BurningQuarry"
 import { DemonfruitAbility } from "content/abilities/prospector/Demonfruit"
 import { FelExtractionAbility } from "content/abilities/prospector/FelExtraction"
 import { AutomatonAbility } from "content/abilities/researcher/Automaton"
@@ -11,6 +12,7 @@ import { ResearchAbility } from "content/abilities/researcher/ResearchAbility"
 import { StudyAbility } from "content/abilities/researcher/Study"
 import { SoldWc3Ability } from "content/abilities/sold-abilities/EssenceOfBlight"
 import { NetEnsnareAbility } from "content/abilities/tools/NetEnsnare"
+import { QuarryMineAbility } from "content/abilities/tools/QuarryMine"
 import { HeroConfig, HeroType } from "content/gameplay/HeroManager"
 import { Animal, ComponentItem, ResourceItem } from "content/items/ResourceItem"
 import { Wc3BuildingAbility } from "systems/abilities/BuildingAbilityBase"
@@ -92,7 +94,27 @@ Retera for RMS
 `
         }];
 
+        
 //#region Abilities
+    SharedSpellbook: Wc3Ability = {
+        name: 'Shared Crafts',
+        codeId: 'A0S0',
+        tooltip: 'Collection of abilities shared between all crafting classes.'
+    }
+
+    ItemTransferNode: Wc3BuildingAbility = {
+        name: 'Prepare Item Transfer Node',
+        buildCodeId: 'ABS1',
+        prepareCodeId: 'A0S1',
+        builtUnitCodeId: 'h007',
+        extCodeId: 'ASS1',
+        experience: 100,
+        tooltip: 'Used to store Fel. Can transfer stored fel to nearby allies.',
+        materials: [
+            [1, Material.Wood | Material.TierII],
+        ]
+    }
+
     Defile: Wc3Ability = {
         name: 'Defile',
         codeId: 'A0P0',
@@ -176,6 +198,33 @@ Retera for RMS
         ]
     }
 
+    BurningQuarry: BurningQuarryAbility = {
+        name: '[L3] Prepare Burning Quarry',
+        startStopAbilityCode: 'A019',
+        collectionRadius: 1500,
+        mineUnitCode1: 'o005',
+        mineUnitCode2: 'o006',
+        mineUnitCode3: 'o007',
+        buildCodeId: 'ABP8',
+        prepareCodeId: 'A0P8',
+        builtUnitCodeId: 'h008',
+        extCodeId: 'ASP8',
+        experience: 100,
+        felCostPerStone: 10,
+        tooltip: 'Extracts Stone from the nature. Needs Fel as fuel.\n\nHaving a Cliff nearby speeds the process up greatly.',
+        materials: [
+            [1, Material.Wood | Material.TierII],
+        ]
+    }
+
+    QuarryMine: QuarryMineAbility = {
+        name: 'Mine',
+        codeId: 'A019',
+        felCostPerStone: 10,
+        mineInterval: 3,
+        tooltip: 'Starts extracting Stone from targeted Cliff. Every extraction costs 10 Fel.',
+    }
+
     ProspectorSpellbook: Wc3Ability = {
         name: 'Basic Abilities',
         codeId: 'A0PQ',
@@ -190,32 +239,32 @@ Retera for RMS
         tooltip: 'Transmutes materials'
     }
 
-    TransmuteRock: TransmuteAbility = {
-        name: 'Transmute Rock',
-        codeId: 'A0A6',
-        extCodeId: 'ASA6',
-        materials: [2, Material.Unique, ResourceItem.Branch],
-        tooltip: 'Transmutes 3 sticks into a rock.',
-        experience: 10,
-    }
+    // TransmuteRock: TransmuteAbility = {
+    //     name: 'Transmute Rock',
+    //     codeId: 'A0A6',
+    //     extCodeId: 'ASA6',
+    //     materials: [2, Material.Unique, ResourceItem.Branch],
+    //     tooltip: 'Transmutes 3 sticks into a rock.',
+    //     experience: 10,
+    // }
 
-    TransmuteIron: TransmuteAbility = {
-        name: 'Transmute Iron',
-        codeId: 'A0A7',
-        extCodeId: 'ASA7',
-        materials: [2, Material.Unique, ResourceItem.Rock],
-        tooltip: 'Transmutes 3 rocks into an iron.',
-        experience: 10,
-    }
+    // TransmuteIron: TransmuteAbility = {
+    //     name: 'Transmute Iron',
+    //     codeId: 'A0A7',
+    //     extCodeId: 'ASA7',
+    //     materials: [2, Material.Unique, ResourceItem.Rock],
+    //     tooltip: 'Transmutes 3 rocks into an iron.',
+    //     experience: 10,
+    // }
 
-    TransmuteCopper: TransmuteAbility = {
-        name: 'Transmute Copper',
-        codeId: 'A0A8',
-        extCodeId: 'ASA8',
-        materials: [2, Material.Unique, ResourceItem.Iron],
-        tooltip: 'Transmutes 3 iron into a copper.',
-        experience: 10,
-    }
+    // TransmuteCopper: TransmuteAbility = {
+    //     name: 'Transmute Copper',
+    //     codeId: 'A0A8',
+    //     extCodeId: 'ASA8',
+    //     materials: [2, Material.Unique, ResourceItem.Iron],
+    //     tooltip: 'Transmutes 3 iron into a copper.',
+    //     experience: 10,
+    // }
 
     CrudeAxe: Wc3Ability = {
         name: 'Craft Crude Axe',
@@ -294,7 +343,7 @@ Retera for RMS
     }
 
     Mineshaft: MineshaftWc3Ability = {
-        name: '[L5] Prepare Mineshaft',
+        name: '[L2] Prepare Mineshaft',
         buildCodeId: 'ABA9',
         prepareCodeId: 'A0A9',
         builtUnitCodeId: 'o000',
@@ -411,7 +460,7 @@ Retera for RMS
         name: 'Create Net',
         codeId: 'A0R3',
         extCodeId: 'ASR3',
-        materials: [4, Material.Wood | Material.TierI],
+        materials: [1, Material.Wood | Material.TierII],
         experience: 15,
         tooltip: 'Used for catching wild animals.'
     }
@@ -982,8 +1031,8 @@ Takes items from target unit if inventory is empty (only owned or shared units).
         workEffectPosition: { x: 0, y: 0, z: 250 },
         recipes: [{
             trainId: 'oMS1',
-            resultId: ResourceItem.Rock,
-            materials: [[2, Material.Wood       | Material.TierI]]
+            resultId: ResourceItem.Stone,
+            materials: [[2, Material.Wood       | Material.TierII]]
         }, {
             trainId: 'oMM1',
             resultId: ResourceItem.Iron,
@@ -1247,7 +1296,17 @@ Takes items from target unit if inventory is empty (only owned or shared units).
             itemTypeId: Animal.Worm,
             tooltip: 'A caught animal.',
             material: Material.Animal | Material.FelExtraction,
-        }
+        },
+
+        {
+            name: 'Stone Pickaxe',
+            itemTypeId: FourCC('IT03'),
+            tooltip: 'Used to destroy rubble and mine stone and ore.'
+        }, {
+            name: 'Stone Axe',
+            itemTypeId: FourCC('IT02'),
+            tooltip: 'Used to cut down trees. Makeshift weapon.'
+        },
     ];
 
     itemTransferNodeConfig: ItemTransferNodeConfig = {

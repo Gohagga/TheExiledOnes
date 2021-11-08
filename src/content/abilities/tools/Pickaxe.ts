@@ -5,7 +5,7 @@ import { Wc3Ability } from "systems/abilities/Wc3Ability";
 import { AbilityEvent } from "systems/events/ability-events/event-models/AbilityEvent";
 import { IAbilityEventHandler } from "systems/events/ability-events/IAbilityEventHandler";
 import { ErrorService } from "systems/ui/ErrorService";
-import { Destructable, Item, Unit } from "w3ts/index";
+import { Destructable, Item, Sound, Unit } from "w3ts/index";
 import { ToolAbility, ToolAbilityBase } from "../../../systems/abilities/ToolAbilityBase";
 
 export class Pickaxe extends ToolAbilityBase {

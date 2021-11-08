@@ -163,6 +163,10 @@ export class MapGenerator2 {
                             orePlacer.AddPossibleStoneSpot({ x, y, z: height - waterHeight });
                         }
 
+                        if (height > 285) {
+                            orePlacer.AddPossibleQuarrySpot({ x, y, z: height - waterHeight });
+                        }
+
                         let isCaveWall = caveHeightBuilder.isCaveWall(underX, underY);
                         if (isCaveWall) {
                             oreSpawnPoints.push({ x: underX, y: underY });
@@ -219,7 +223,7 @@ export class MapGenerator2 {
             let stonePileCount = math.floor((maxX - minX) / 305);
             let rocksCount = math.floor((maxX - minX) / 205);
             let branchCount = math.floor((maxX - minX) / 185);
-            orePlacer.placeRocksAndStones(stonePileCount, rocksCount);
+            orePlacer.placeRocksAndStones(stonePileCount, rocksCount, 2);
             randomPlacer.PlaceBranches(branchCount);
 
             let remainingPoints: { x: number, y: number }[] = [];

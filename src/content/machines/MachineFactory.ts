@@ -1,5 +1,6 @@
 import { Config } from "config/Config";
 import { CraftingManager } from "systems/crafting/CraftingManager";
+import { ItemTransferNodeManager } from "systems/crafting/ItemTransferNodeManager";
 import { IMachine } from "systems/crafting/machine/IMachine";
 import { IItemFactory } from "systems/items/IItemFactory";
 import { ErrorService } from "systems/ui/ErrorService";
@@ -15,6 +16,7 @@ export class MachineFactory {
         private craftingManager: CraftingManager,
         private itemFactory: IItemFactory,
         private errorService: ErrorService,
+        private itemTransferNodeManager: ItemTransferNodeManager
     ) {
         
     }
@@ -48,6 +50,6 @@ export class MachineFactory {
 
     CreateItemTransferNode(unit: Unit) {
 
-        
+        this.itemTransferNodeManager.Register(unit);
     }
 }

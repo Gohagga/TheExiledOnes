@@ -46,7 +46,6 @@ export class CrudeAxe extends AbilityBase {
             Log.Message("Lowest tier", result.lowestTier);
 
             let tiersExceptFirst = AllTiers & ~Material.TierI;
-            print(tiersExceptFirst, result.lowestTier);
             if ((tiersExceptFirst & result.lowestTier) > 0) {
                 Log.Message(`Crafted Tier 2 Axe.`);
                 let it = new Item(FourCC('IT02'), 0, 0);

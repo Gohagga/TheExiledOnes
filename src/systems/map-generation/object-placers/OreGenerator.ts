@@ -23,7 +23,6 @@ export class OreGenerator {
 
     generateIronVein(x: number, y: number) {
 
-        print("generating iron vein at ", x, y);
         let context = { count: 0 };
         context.count = this.random.nextInt(2, 5);
 
@@ -31,7 +30,6 @@ export class OreGenerator {
     }
 
     generateCopperVein(x: number, y: number, size?: number) {
-        print("generating copper vein at ", x, y);
         let context = { count: 0 };
         context.count = size || this.random.nextInt(1, 4);
 
@@ -39,12 +37,11 @@ export class OreGenerator {
     }
 
     generateSilverVein(x: number, y: number) {
-        print("generating silver vein at ", x, y);
 
         let context = { count: 0 };
         context.count = this.random.nextInt(1, 3);
 
-        this.furtherSilverVein(x, y, context);        
+        this.furtherSilverVein(x, y, context);
     }
 
     private furtherIronVein(x: number, y: number, context: { count: number }, xDir: number, yDir: number) {
@@ -65,37 +62,29 @@ export class OreGenerator {
         let dests: destructable[] = [];
         EnumDestructablesInRect(this.queryRubbleSingleRect.handle, null, () => {
             const enumDest = GetEnumDestructable();
-            print(GetDestructableName(enumDest));
             if (GetDestructableTypeId(enumDest) == this.wallId)
                 dests.push(enumDest);
         });
 
         if (dests.length == 1) {
-            print("Found only one");
             let dest = dests.pop() as destructable;
             newX = GetDestructableX(dest);
             newY = GetDestructableY(dest);
 
             if (dest) {
-                print("Destroying destructable");
                 KillDestructable(dest);
             }
 
         } else if (dests.length == 0) {
-            print("Found no rubble");
 
         } else if (dests.length > 1) {
-            print("Found more rubble");
             return;
         }
 
         try {
             const ironId = FourCC('B0R1');
-            print("IRON ID ID ID", ironId);
             let d = CreateDestructableZ(ironId, newX, newY, 100, this.random.next(0, 360), 1.22, this.random.nextInt(0, 6));
             SetDestructableMaxLife(d, GetWidgetLife(d) * this.random.next(1, 1.5));
-            // CreateUnit(Player(0), FourCC('hfoo'), dest.x, dest.y, 0);
-            // PanCameraToTimedForPlayer(Player(0), dest.x, dest.y, 0);
             if (context.count >= 2) {
                 let oneOrTwo = this.random.nextInt(1, 2);
                 if (oneOrTwo = 2) {
@@ -105,7 +94,7 @@ export class OreGenerator {
             if (context.count >= 1)
                 this.furtherIronVein(newX, newY, context, xDir, yDir);
 
-        } catch (ex) {
+        } catch (ex: any) {
             Log.Error(ex);
         }
         
@@ -129,37 +118,29 @@ export class OreGenerator {
         let dests: destructable[] = [];
         EnumDestructablesInRect(this.queryRubbleSingleRect.handle, null, () => {
             const enumDest = GetEnumDestructable();
-            print(GetDestructableName(enumDest));
             if (GetDestructableTypeId(enumDest) == this.wallId)
                 dests.push(enumDest);
         });
 
         if (dests.length == 1) {
-            print("Found only one");
             let dest = dests.pop() as destructable;
             newX = GetDestructableX(dest);
             newY = GetDestructableY(dest);
 
             if (dest) {
-                print("Destroying destructable");
                 KillDestructable(dest);
             }
 
         } else if (dests.length == 0) {
-            print("Found no rubble");
 
         } else if (dests.length > 1) {
-            print("Found more rubble");
             return;
         }
 
         try {
             const copperId = FourCC('B0R2');
-            print("IRON ID ID ID", copperId);
             let d = CreateDestructableZ(copperId, newX, newY, 100, this.random.next(0, 360), 1.22, this.random.nextInt(0, 6));
             SetDestructableMaxLife(d, GetWidgetLife(d) * this.random.next(1, 1.5));
-            // CreateUnit(Player(0), FourCC('hfoo'), dest.x, dest.y, 0);
-            // PanCameraToTimedForPlayer(Player(0), dest.x, dest.y, 0);
             if (context.count >= 2) {
                 let oneOrTwo = this.random.nextInt(1, 2);
                 if (oneOrTwo = 2) {
@@ -169,7 +150,7 @@ export class OreGenerator {
             if (context.count >= 1)
                 this.furtherCopperVein(newX, newY, context, xDir, yDir);
 
-        } catch (ex) {
+        } catch (ex: any) {
             Log.Error(ex);
         }
         
@@ -186,7 +167,6 @@ export class OreGenerator {
         let dests: destructable[] = [];
         EnumDestructablesInRect(this.queryRubbleRect.handle, null, () => {
             const enumDest = GetEnumDestructable();
-            print(GetDestructableName(enumDest));
             if (GetDestructableTypeId(enumDest) == this.wallId)
                 dests.push(enumDest);
         });
@@ -194,27 +174,21 @@ export class OreGenerator {
         if (dests.length == 0) return 0;
 
         try {
-            print("Destroying destructable");
     
             // Pick one, you will surely make a mistake
             let randomIndex = this.random.nextInt(0, dests.length);
             if (!dests[randomIndex]) {
-                print("ERROR ERROR NO INDEX");
                 return;
             }
             let dest = Destructable.fromHandle(dests[randomIndex]);
             
             // dests.splice(randomIndex, 1);
     
-            print(dest.name);
     
             dest.kill();
             const silverId = FourCC('B0R3');
-            print("IRON ID ID ID", silverId);
             let d = CreateDestructableZ(silverId, dest.x, dest.y, 100, this.random.next(0, 360), 1.22, this.random.nextInt(0, 6));
             SetDestructableMaxLife(d, GetWidgetLife(d) * this.random.next(1, 1.5));
-            // CreateUnit(Player(0), FourCC('hfoo'), dest.x, dest.y, 0);
-            PanCameraToTimedForPlayer(Player(0), dest.x, dest.y, 0);
             if (context.count >= 2) {
                 let oneOrTwo = this.random.nextInt(1, 2);
                 if (oneOrTwo = 2) {
@@ -224,7 +198,7 @@ export class OreGenerator {
             if (context.count >= 1)
                 this.furtherSilverVein(dest.x, dest.y, context);
 
-        } catch (ex) {
+        } catch (ex: any) {
             Log.Error(ex);
         }
         
