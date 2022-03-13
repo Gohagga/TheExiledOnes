@@ -88,8 +88,8 @@ export function InitializeRework() {
     // Log.Level = Level.Message;
     Log.Level = Level.Error;
     let generateMap = true;
-    let lockToSurface = false;
-    FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
+    let lockToSurface = true;
+    // FogModifierStart(CreateFogModifierRect(Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect(), true, true));
     
     SetPlayerAllianceStateBJ(enemyPlayer.handle, sharedPlayer.handle, bj_ALLIANCE_UNALLIED);
     SetPlayerAllianceStateBJ(sharedPlayer.handle, enemyPlayer.handle, bj_ALLIANCE_UNALLIED);
@@ -99,7 +99,7 @@ export function InitializeRework() {
     for (let p of config.players) {
         SetPlayerAllianceStateBJ(p.handle, sharedPlayer.handle, bj_ALLIANCE_ALLIED_UNITS);
         SetPlayerAllianceStateBJ(sharedPlayer.handle, p.handle, bj_ALLIANCE_ALLIED_ADVUNITS);
-        p.setState(PLAYER_STATE_RESOURCE_FOOD_CAP, 1);
+        p.setState(PLAYER_STATE_RESOURCE_FOOD_CAP, 3);
     }
 
     MultiboardSuppressDisplay(true);
@@ -425,6 +425,7 @@ export function InitializeRework() {
 
     let cam = new Trigger();
     cam.registerPlayerChatEvent(MapPlayer.fromLocal(), '-cam', false);
+    cam.registerPlayerChatEvent(MapPlayer.fromLocal(), '-zoom', false);
     cam.addAction(() => {
         let str = GetEventPlayerChatString();
         let number: number = 3000;

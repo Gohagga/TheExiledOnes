@@ -12,7 +12,8 @@ import { Item, Unit } from "w3ts/index";
 export class CrudePickaxe extends AbilityBase {
     
 
-    private readonly recipe: CraftingRecipe;;
+    private readonly recipe: CraftingRecipe;
+    private readonly tooltip: string;
 
     constructor(
         data: Wc3Ability,
@@ -27,6 +28,8 @@ export class CrudePickaxe extends AbilityBase {
             [3, Material.Stone | Material.TierII],
             [1, Material.Wood | Material.TierII],
         ]);
+
+        this.tooltip = data.tooltip || '';
     }
 
     Execute(e: AbilityEvent): boolean {
@@ -68,11 +71,9 @@ export class CrudePickaxe extends AbilityBase {
         
         return true;
     }
-    
-    TooltipDescription = (unit: Unit) =>
-`Create an pickaxe out of primitive materials. Pickaxe is used to get Stone II from Stone Piles.
 
-Creates up to Tier II Pickaxe.
+    TooltipDescription = (unit: Unit) =>
+`${this.tooltip}
 
 Materials
 ${this.recipe.costStringFormatted}`;

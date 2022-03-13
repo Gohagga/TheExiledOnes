@@ -111,7 +111,8 @@ Retera for RMS
         experience: 100,
         tooltip: 'Used to store Fel. Can transfer stored fel to nearby allies.',
         materials: [
-            [1, Material.Wood | Material.TierII],
+            [1, Material.Stone      | Material.TierII],
+            [1, Material.Mechanism  | Material.TierI],
         ]
     }
 
@@ -270,6 +271,7 @@ Retera for RMS
         name: 'Craft Crude Axe',
         codeId: 'A0A0',
         extCodeId: 'ASA0',
+        tooltip: "Create a tool. When equipped, allows chopping trees to gain Log and grants moderate attack bonus.",
         experience: 25,
     }
 
@@ -277,7 +279,7 @@ Retera for RMS
         name: 'Craft Crude Pickaxe',
         codeId: 'A0A1',
         extCodeId: 'ASA1',
-        tooltip: 'Summons two eyes for 60 seconds that can scout nearby land.',
+        tooltip: 'Create a tool. When equipped, allows mining Rocks to gain Stone and grants small attack bonus.',
         experience: 25,
     }
 
@@ -510,7 +512,6 @@ Retera for RMS
         tooltip: 'A structure that can store a large number of one type of items.',
         materials: [
             [1, Material.Frame  | Material.TierI],
-            [1, Material.Tank   | Material.TierI],
             [1, Material.Stone   | Material.TierII],
             [1, Material.Wood   | Material.TierII]
         ]
@@ -1078,7 +1079,7 @@ Takes items from target unit if inventory is empty (only owned or shared units).
             tooltip: 'Simple piece of wood.',
             material: Material.Wood | Material.TierI
         }, {
-            name: 'Log',
+            name: 'LogXXXx',
             itemTypeId: ResourceItem.Log,
             tooltip: 'A large piece of wood.',
             material: Material.Wood | Material.TierII

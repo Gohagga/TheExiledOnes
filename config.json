@@ -5,12 +5,12 @@
   "outputFolder": "./dist/bin",
   "archiveOutputFolders": [
     "./versions",
-    "C:\\Users\\bartul.grbin\\Documents\\Warcraft III\\Maps\\TestPC 2"
+    "C:\\Users\\Bartul\\Documents\\Warcraft III\\Maps\\TestPC 2"
   ],
   "version": {
     "major": 0,
     "minor": 2,
-    "build": 14
+    "build": 17
   },
   "mapInfo": {
     "author": "The_Spellweaver",
@@ -26,6 +26,6 @@
     "-windowmode",
     "windowed",
     "-hd",
-    "0"
+    "1"
   ]
 }

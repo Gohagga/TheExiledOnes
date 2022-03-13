@@ -20,7 +20,10 @@
     },
     "plugins": [
       {
-        "transform": "war3-transformer"
+        "transform": "war3-transformer",
+        "mapDir": "D:/wc3-projects/TheExiledOnes/maps/TheExiledOnes.w3x",
+        "entryFile": "D:/wc3-projects/TheExiledOnes/src/main.ts",
+        "outputDir": "D:/wc3-projects/TheExiledOnes/dist/TheExiledOnes.w3x"
       }
     ],
     "types": [

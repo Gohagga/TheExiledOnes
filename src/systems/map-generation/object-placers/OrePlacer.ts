@@ -43,17 +43,13 @@ export class OrePlacer {
             // TerrainDeformCrater(x, y, 128, -600, 1, true);
             CreateDestructableZ(OreType.StonePile, x, y, p.z, 270, 1, GetRandomInt(0, 5));
             
-            // let rocksCount = this.random.nextInt(0, 3);
-            // for (let j = 0; j < rocksCount; j++) {
-            //     let rx = x + this.random.nextInt(-32, 32);
-            //     let ry = y + this.random.nextInt(-32, 32);
-            //     let item = CreateItem(ResourceItem.Rock, rx, ry);
-            //     rx = GetItemX(item);
-            //     ry = GetItemY(item)
-            //     rx = rx + (rx - x) * this.random.next(0, 1.5);
-            //     ry = ry + (ry - y) * this.random.next(0, 1.5);
-            //     SetItemPosition(item, rx, ry);
-            // }
+            let rocksCount = this.random.nextInt(1, 3);
+            for (let j = 0; j < rocksCount; j++) {
+                let rx = x + this.random.nextInt(-32, 32);
+                let ry = y + this.random.nextInt(-32, 32);
+                let item = this.itemFactory.CreateItemByType(ResourceItem.Stone, rx, ry);
+            }
+            worldRockCount -= rocksCount;
         }
 
         let { minX, maxX, minY, maxY } = this.region;

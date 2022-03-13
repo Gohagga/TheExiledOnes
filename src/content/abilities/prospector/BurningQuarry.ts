@@ -98,7 +98,7 @@ export class BurningQuarry extends BuildingAbilityBase {
         let trainedUnit = GetTrainedUnit();
         let mineUnit = GetUnitTypeId(trainedUnit);
 
-        if (caster.id in this.instanceWorkStatus == false ||
+        if (caster.id in this.instanceWorkStatus == false || !trainedUnit ||
             (mineUnit != this.mineUnitId1 && mineUnit != this.mineUnitId2 && this.mineUnitId3 != mineUnit))
             return;
 
@@ -133,6 +133,8 @@ export class BurningQuarry extends BuildingAbilityBase {
 
     StopTraining(caster: Unit): void {
         
+        if (caster.id in this.instanceWorkStatus == false || this.instanceWorkStatus[caster.id] == WorkStatus.Off) return;
+
         for (let i = 0; i < 7; i++) {
             // Log.Info("Issuing cancel");
             caster.issueImmediateOrder(OrderId.Cancel);

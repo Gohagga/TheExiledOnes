@@ -222,7 +222,7 @@ export class MapGenerator2 {
 
             let stonePileCount = math.floor((maxX - minX) / 305);
             let rocksCount = math.floor((maxX - minX) / 205);
-            let branchCount = math.floor((maxX - minX) / 185);
+            let branchCount = math.floor((maxX - minX) / 155);
             orePlacer.placeRocksAndStones(stonePileCount, rocksCount, 2);
             randomPlacer.PlaceBranches(branchCount);
 

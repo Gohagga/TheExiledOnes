@@ -1,8 +1,8 @@
-import { Log } from "Log";
-import { CraftingManager } from "systems/crafting/CraftingManager";
-import { Material } from "systems/crafting/Material";
-import { ColoredMaterialName, MaterialToString } from "systems/crafting/MaterialToString";
-import { Color, Item } from "w3ts/index";
+import { Color, Item } from "w3ts";
+import { Log } from "../../Log";
+import { CraftingManager } from "../crafting/CraftingManager";
+import { Material } from "../crafting/Material";
+import { ColoredMaterialName } from "../crafting/MaterialToString";
 import { IItemFactory } from "./IItemFactory";
 import { ItemConfig } from "./ItemConfig";
 

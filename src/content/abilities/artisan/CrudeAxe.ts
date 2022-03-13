@@ -12,7 +12,8 @@ import { Item, Unit } from "w3ts/index";
 export class CrudeAxe extends AbilityBase {
     
 
-    private readonly recipe: CraftingRecipe;;
+    private readonly recipe: CraftingRecipe;
+    private readonly tooltip: string;
 
     constructor(
         data: Wc3Ability,
@@ -27,6 +28,8 @@ export class CrudeAxe extends AbilityBase {
             [2, Material.Stone | Material.TierII],
             [1, Material.Wood | Material.TierII],
         ]);
+        
+        this.tooltip = data.tooltip || '';
     }
 
     Execute(e: AbilityEvent): boolean {
@@ -69,9 +72,7 @@ export class CrudeAxe extends AbilityBase {
     }
     
     TooltipDescription = (unit: Unit) =>
-`Create an axe out of primitive materials. Axe is used to get Wood II from trees.
-
-Creates up to Tier II Axe.
+`${this.tooltip}
 
 Materials
 ${this.recipe.costStringFormatted}`;
