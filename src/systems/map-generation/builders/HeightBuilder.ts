@@ -20,6 +20,9 @@ export class HeightBuilder {
         let height = this.heightNoise.getHeightValue(x * this.xDensity, y * this.yDensity);
         height = 2750 * height + this.neutralHeight;
 
+        if (height > 800)
+            height = 800 + (height - 800) ** 0.8;
+
         return height;
     }
 
